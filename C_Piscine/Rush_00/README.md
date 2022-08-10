@@ -50,7 +50,7 @@ y: 7
 ```
 
 ## Authors
-* Attila Kekesi
+* Attila Kékesi ([akekesi](https://github.com/akekesi))
 * 
 * 
 * 
