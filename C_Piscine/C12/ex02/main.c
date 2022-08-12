@@ -31,4 +31,5 @@ int	main(void)
 	printf("size: %d\n", ft_list_size(elem3));
 	printf("size: %d\n", ft_list_size(elem2));
 	printf("size: %d\n", ft_list_size(elem1));
+	printf("size: %d\n", ft_list_size(NULL));
 }
