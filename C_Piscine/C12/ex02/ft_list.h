@@ -22,6 +22,6 @@ typedef struct s_list
 }	t_list;
 
 t_list	*ft_create_elem(void *data);
-int		ft_list_size(t_list *beginn_list);
+int		ft_list_size(t_list *begin_list);
 
 #endif
