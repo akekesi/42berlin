@@ -27,7 +27,6 @@ int	main(void)
 	printf("n:    %d <-- %p\n", n, &n);
 	printf("p_n:  %d <-- %p <-- %p\n", *p_n, p_n, &p_n);
 	printf("pp_n: %d <-- %p <-- %p <-- %p\n", **pp_n, *pp_n, pp_n, &pp_n);
-	printf("\n");
 	// <--- pointer to pointer ---|
 	
 	t_list	**begin_list;
@@ -35,17 +34,31 @@ int	main(void)
 	void	*data;
 
 	data = NULL;
-	elem1 = ft_create_elem(data);
-	begin_list = &elem1;
-	
-	printf("*elem1:       %p <-- %p <-- %p \n", &elem1->next, elem1, &elem1);
-	printf("**begin_list: %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
-	
-	ft_list_push_front(begin_list, data);
-	printf("**begin_list: %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
-
-	free(elem1);
 	elem1 = NULL;
-	printf("*elem1:       %p <-- %p <-- %p \n", &elem1->next, elem1, &elem1);
-	printf("**begin_list: %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
+	begin_list = &elem1;	// Why does only this work?
+	// *begin_list = elem1;	// Why does this not work?
+	// *begin_list = NULL;	// Why does this not work?
+	
+	printf("\n0. empty:\n");
+	printf("**begin_list:   %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
+	
+	printf("\n1. push front:\n");
+	ft_list_push_front(begin_list, data);
+	printf("**begin_list:   %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
+	printf("next:           %p\n", (*begin_list) -> next);
+	
+	printf("\n2. push front:\n");
+	ft_list_push_front(begin_list, data);
+	printf("**begin_list:   %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
+	printf("next:           %p\n", (*begin_list) -> next);
+	printf("next next:      %p\n", ((*begin_list) -> next) -> next);
+
+	printf("\n3. push front:\n");
+	ft_list_push_front(begin_list, data);
+	printf("**begin_list:   %p <-- %p <-- %p <-- %p\n", &(*begin_list) -> next, *begin_list, begin_list, &begin_list);
+	printf("next:           %p\n", (*begin_list) -> next);
+	printf("next next:      %p\n", ((*begin_list) -> next) -> next);
+	printf("next next next: %p\n", (((*begin_list) -> next) -> next) -> next);
+
+	//  free !!!
 }
