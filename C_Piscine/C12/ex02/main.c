@@ -32,4 +32,11 @@ int	main(void)
 	printf("size: %d\n", ft_list_size(elem2));
 	printf("size: %d\n", ft_list_size(elem1));
 	printf("size: %d\n", ft_list_size(NULL));
+
+	free(elem1);
+	elem1 = NULL;
+	free(elem2);
+	elem2 = NULL;
+	free(elem3);
+	elem3 = NULL;
 }
