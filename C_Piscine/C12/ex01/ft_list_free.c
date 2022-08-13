@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 18:07:19 by akekesi           #+#    #+#             */
-/*   Updated: 2022/08/12 18:07:19 by akekesi          ###   ########.fr       */
+/*   Created: 2022/08/13 12:00:29 by akekesi           #+#    #+#             */
+/*   Updated: 2022/08/13 12:00:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_list_free(t_list **begin_list)
 {
-	struct s_list	*next;
-	void			*data;
-}	t_list;
+	t_list	*p;
+	t_list	*p_next;
 
-t_list	*ft_create_elem(void *data);
-void	ft_list_free(t_list **begin_list);
-void	ft_list_push_front(t_list **begin_list, void *data);
-
-#endif
+	p = *begin_list;
+	while (p)
+	{
+		p_next = p -> next;
+		free(p -> data);
+		free(p);
+		p = p_next;
+	}
+	*begin_list = NULL;
+}
