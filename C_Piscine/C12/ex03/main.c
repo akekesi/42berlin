@@ -35,4 +35,11 @@ int	main(void)
 	printf("last:  %p\n", ft_list_last(elem2));
 	printf("last:  %p\n", ft_list_last(elem1));
 	printf("last:  %p\n", ft_list_last(NULL));
+
+	free(elem1);
+	elem1  =NULL;
+	free(elem2);
+	elem2  =NULL;
+	free(elem3);
+	elem3  =NULL;
 }
