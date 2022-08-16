@@ -25,7 +25,7 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	while (i < size)
 	{
 		elem_previous = ft_create_elem(strs[i]);
-		elem_previous -> next = elem;
+		elem_previous->next = elem;
 		elem = elem_previous;
 		i++;
 	}

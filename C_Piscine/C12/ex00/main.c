@@ -21,8 +21,8 @@ int	main(void)
 	data = NULL;
 	elem = ft_create_elem(data);
 	printf("elem: %p\n", elem);
-	printf("elem -> next: %p\n", elem -> next);
-	printf("elem -> data: %p\n", elem -> data);
+	printf("elem->next: %p\n", elem->next);
+	printf("elem->data: %p\n", elem->data);
 	free(elem);
 	elem = NULL;
 	printf("elem: %p\n", elem);

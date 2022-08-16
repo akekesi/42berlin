@@ -20,8 +20,8 @@ void	ft_list_free(t_list **begin_list)
 	p = *begin_list;
 	while (p)
 	{
-		p_next = p -> next;
-		free(p -> data);
+		p_next = p->next;
+		free(p->data);
 		free(p);
 		p = p_next;
 	}

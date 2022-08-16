@@ -24,8 +24,8 @@ int	main(void)
 	elem1 = ft_create_elem(data);
 	elem2 = ft_create_elem(data);
 	elem3 = ft_create_elem(data);
-	elem1 -> next = elem2;
-	elem2 -> next = elem3;
+	elem1->next = elem2;
+	elem2->next = elem3;
 	printf("size: %d\n", ft_list_size(elem1));
 	printf("size: %d\n", ft_list_size(elem2));
 	printf("size: %d\n", ft_list_size(elem3));

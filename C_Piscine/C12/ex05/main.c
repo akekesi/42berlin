@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 	{
 		while (size)
 		{
-			elem_next = elem -> next;
-			printf("*elem-%d:  %p --> %p --> %p --> %s\n", size, &elem, elem, elem_next, (char *) elem -> data);
+			elem_next = elem->next;
+			printf("*elem-%d:  %p --> %p --> %p --> %s\n", size, &elem, elem, elem_next, (char *) elem->data);
 			elem = elem_next;
 			size--;
 		}
