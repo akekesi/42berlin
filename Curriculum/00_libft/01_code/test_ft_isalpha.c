@@ -12,16 +12,19 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include "libft.h"
 
-int	ft_isalpha(int argument);
 int	test_ft_isalpha(void);
-int	test_ft_isalpha_check(int argument, int result_isalpha, int result_ft_isalpha);
+int	test_ft_isalpha_check(
+		int argument,
+		int result_isalpha,
+		int result_ft_isalpha);
 
 int	test_ft_isalpha(void)
 {
-	int	n;
-	int	result_isalpha;
-	int	result_ft_isalpha;
+	int		n;
+	int		result_isalpha;
+	int		result_ft_isalpha;
 	char	c;
 
 	n = 0;
@@ -42,15 +45,18 @@ int	test_ft_isalpha(void)
 	return (1);
 }
 
-int	test_ft_isalpha_check(int argument, int result_isalpha, int result_ft_isalpha)
+int	test_ft_isalpha_check(
+	int argument,
+	int result_isalpha,
+	int result_ft_isalpha)
 {
-		if ((result_isalpha && !result_ft_isalpha)
-			|| (!result_isalpha && result_ft_isalpha))
-		{
-			printf("Error:\n");
-			printf("isalpha(%c):    %d", argument, result_isalpha);
-			printf("ft_isalpha(%c): %d", argument, result_ft_isalpha);
-			return (0);
-		}
-		return (1);
+	if ((result_isalpha && !result_ft_isalpha)
+		|| (!result_isalpha && result_ft_isalpha))
+	{
+		printf("Error:\n");
+		printf("isalpha(%c):    %d", argument, result_isalpha);
+		printf("ft_isalpha(%c): %d", argument, result_ft_isalpha);
+		return (0);
+	}
+	return (1);
 }
