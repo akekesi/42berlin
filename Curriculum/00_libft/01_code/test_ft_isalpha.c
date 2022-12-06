@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/05 09:43:28 by akekesi           #+#    #+#             */
+/*   Updated: 2022/12/05 09:43:28 by akekesi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <ctype.h>
+
+int	ft_isalpha(int argument);
+int	test_ft_isalpha(void);
+int	test_ft_isalpha_check(int argument, int result_isalpha, int result_ft_isalpha);
+
+int	test_ft_isalpha(void)
+{
+	int	n;
+	int	result_isalpha;
+	int	result_ft_isalpha;
+	char	c;
+
+	n = 0;
+	while (n < 128)
+	{
+		result_isalpha = isalpha(n);
+		result_ft_isalpha = ft_isalpha(n);
+		if (!test_ft_isalpha_check(n, result_isalpha, result_ft_isalpha))
+			return (0);
+		n++;
+	}
+	printf("Enter a character to test ft_isalpha(): ");
+	scanf("%c", &c);
+	result_isalpha = isalpha(c);
+	result_ft_isalpha = ft_isalpha(c);
+	if (!test_ft_isalpha_check(c, result_isalpha, result_ft_isalpha))
+		return (0);
+	return (1);
+}
+
+int	test_ft_isalpha_check(int argument, int result_isalpha, int result_ft_isalpha)
+{
+		if ((result_isalpha && !result_ft_isalpha)
+			|| (!result_isalpha && result_ft_isalpha))
+		{
+			printf("Error:\n");
+			printf("isalpha(%c):    %d", argument, result_isalpha);
+			printf("ft_isalpha(%c): %d", argument, result_ft_isalpha);
+			return (0);
+		}
+		return (1);
+}
