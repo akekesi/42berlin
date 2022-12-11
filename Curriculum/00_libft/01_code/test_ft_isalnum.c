@@ -17,7 +17,7 @@
 
 int	test_ft_isalnum(void);
 int	test_ft_isalnum_check(
-		int arg,
+		int c,
 		int result_isalnum,
 		int result_ft_isalnum);
 
@@ -47,7 +47,7 @@ int	test_ft_isalnum(void)
 }
 
 int	test_ft_isalnum_check(
-	int arg,
+	int c,
 	int result_isalnum,
 	int result_ft_isalnum)
 {
@@ -55,8 +55,8 @@ int	test_ft_isalnum_check(
 		|| (!result_isalnum && result_ft_isalnum))
 	{
 		printf("Error:\n");
-		printf("isalnum(%c):    %d\n", arg, result_isalnum);
-		printf("ft_isalnum(%c): %d\n", arg, result_ft_isalnum);
+		printf("isalnum(%c):    %d\n", c, result_isalnum);
+		printf("ft_isalnum(%c): %d\n", c, result_ft_isalnum);
 		return (0);
 	}
 	return (1);

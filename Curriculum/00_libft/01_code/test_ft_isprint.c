@@ -17,7 +17,7 @@
 
 int	test_ft_isprint(void);
 int	test_ft_isprint_check(
-		int arg,
+		int c,
 		int result_isprint,
 		int result_ft_isprint);
 
@@ -47,7 +47,7 @@ int	test_ft_isprint(void)
 }
 
 int	test_ft_isprint_check(
-	int arg,
+	int c,
 	int result_isprint,
 	int result_ft_isprint)
 {
@@ -55,8 +55,8 @@ int	test_ft_isprint_check(
 		|| (!result_isprint && result_ft_isprint))
 	{
 		printf("Error:\n");
-		printf("isprint(%c):    %d\n", arg, result_isprint);
-		printf("ft_isprint(%c): %d\n", arg, result_ft_isprint);
+		printf("isprint(%c):    %d\n", c, result_isprint);
+		printf("ft_isprint(%c): %d\n", c, result_ft_isprint);
 		return (0);
 	}
 	return (1);

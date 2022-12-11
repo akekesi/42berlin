@@ -17,7 +17,7 @@
 
 int	test_ft_isalpha(void);
 int	test_ft_isalpha_check(
-		int arg,
+		int c,
 		int result_isalpha,
 		int result_ft_isalpha);
 
@@ -47,7 +47,7 @@ int	test_ft_isalpha(void)
 }
 
 int	test_ft_isalpha_check(
-	int arg,
+	int c,
 	int result_isalpha,
 	int result_ft_isalpha)
 {
@@ -55,8 +55,8 @@ int	test_ft_isalpha_check(
 		|| (!result_isalpha && result_ft_isalpha))
 	{
 		printf("Error:\n");
-		printf("isalpha(%c):    %d\n", arg, result_isalpha);
-		printf("ft_isalpha(%c): %d\n", arg, result_ft_isalpha);
+		printf("isalpha(%c):    %d\n", c, result_isalpha);
+		printf("ft_isalpha(%c): %d\n", c, result_ft_isalpha);
 		return (0);
 	}
 	return (1);

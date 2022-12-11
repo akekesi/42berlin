@@ -17,7 +17,7 @@
 
 int	test_ft_toupper(void);
 int	test_ft_toupper_check(
-		int arg,
+		int c,
 		int result_toupper,
 		int result_ft_toupper);
 
@@ -47,7 +47,7 @@ int	test_ft_toupper(void)
 }
 
 int	test_ft_toupper_check(
-	int arg,
+	int c,
 	int result_toupper,
 	int result_ft_toupper)
 {
@@ -55,8 +55,8 @@ int	test_ft_toupper_check(
 		|| (!result_toupper && result_ft_toupper))
 	{
 		printf("Error:\n");
-		printf("toupper(%c):    %d\n", arg, result_toupper);
-		printf("ft_toupper(%c): %d\n", arg, result_ft_toupper);
+		printf("toupper(%c):    %d\n", c, result_toupper);
+		printf("ft_toupper(%c): %d\n", c, result_ft_toupper);
 		return (0);
 	}
 	return (1);

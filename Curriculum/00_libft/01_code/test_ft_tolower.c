@@ -17,7 +17,7 @@
 
 int	test_ft_tolower(void);
 int	test_ft_tolower_check(
-		int arg,
+		int c,
 		int result_tolower,
 		int result_ft_tolower);
 
@@ -47,7 +47,7 @@ int	test_ft_tolower(void)
 }
 
 int	test_ft_tolower_check(
-	int arg,
+	int c,
 	int result_tolower,
 	int result_ft_tolower)
 {
@@ -55,8 +55,8 @@ int	test_ft_tolower_check(
 		|| (!result_tolower && result_ft_tolower))
 	{
 		printf("Error:\n");
-		printf("tolower(%c):    %d\n", arg, result_tolower);
-		printf("ft_tolower(%c): %d\n", arg, result_ft_tolower);
+		printf("tolower(%c):    %d\n", c, result_tolower);
+		printf("ft_tolower(%c): %d\n", c, result_ft_tolower);
 		return (0);
 	}
 	return (1);

@@ -17,7 +17,7 @@
 
 int	test_ft_isascii(void);
 int	test_ft_isascii_check(
-		int arg,
+		int c,
 		int result_isascii,
 		int result_ft_isascii);
 
@@ -47,7 +47,7 @@ int	test_ft_isascii(void)
 }
 
 int	test_ft_isascii_check(
-	int arg,
+	int c,
 	int result_isascii,
 	int result_ft_isascii)
 {
@@ -55,8 +55,8 @@ int	test_ft_isascii_check(
 		|| (!result_isascii && result_ft_isascii))
 	{
 		printf("Error:\n");
-		printf("isascii(%c):    %d\n", arg, result_isascii);
-		printf("ft_isascii(%c): %d\n", arg, result_ft_isascii);
+		printf("isascii(%c):    %d\n", c, result_isascii);
+		printf("ft_isascii(%c): %d\n", c, result_ft_isascii);
 		return (0);
 	}
 	return (1);

@@ -17,7 +17,7 @@
 
 int	test_ft_isdigit(void);
 int	test_ft_isdigit_check(
-		int arg,
+		int c,
 		int result_isdigit,
 		int result_ft_isdigit);
 
@@ -47,7 +47,7 @@ int	test_ft_isdigit(void)
 }
 
 int	test_ft_isdigit_check(
-	int arg,
+	int c,
 	int result_isdigit,
 	int result_ft_isdigit)
 {
@@ -55,8 +55,8 @@ int	test_ft_isdigit_check(
 		|| (!result_isdigit && result_ft_isdigit))
 	{
 		printf("Error:\n");
-		printf("isdigit(%c):    %d\n", arg, result_isdigit);
-		printf("ft_isdigit(%c): %d\n", arg, result_ft_isdigit);
+		printf("isdigit(%c):    %d\n", c, result_isdigit);
+		printf("ft_isdigit(%c): %d\n", c, result_ft_isdigit);
 		return (0);
 	}
 	return (1);
