@@ -7,5 +7,7 @@ int	test_ft_isalnum(void);
 int	test_ft_isascii(void);
 int	test_ft_isprint(void);
 int	test_ft_strlen(void);
+int	test_ft_toupper(void);
+int	test_ft_tolower(void);
 
 #endif

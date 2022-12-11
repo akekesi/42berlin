@@ -45,6 +45,17 @@ int	main(void)
 	// 	printf("test_ft_strlen(): OK!\n");
 	// else
 	// 	printf("test_ft_strlen(): NOT OK!\n");
-	printf("--> main test finished <--\n");
+
+	// if (test_ft_toupper())	
+	// 	printf("test_ft_toupper(): OK!\n");
+	// else
+	// 	printf("test_ft_toupper(): NOT OK!\n");
+	// printf("--> main test finished <--\n");
+
+	// if (test_ft_tolower())	
+	// 	printf("test_ft_tolower(): OK!\n");
+	// else
+	// 	printf("test_ft_tolower(): NOT OK!\n");
+	// printf("--> main test finished <--\n");
 	return (0);
 }
