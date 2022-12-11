@@ -1,0 +1,11 @@
+-van moulinette? 3+1
+-van norminette? JA
+-kb mennyi idot ad egy feladat leadasa?
+
+-hogy irjak testet a fuggvenyekhez?
+--> kulon mappaban?
+--> .sh file?
+
+-scanf
+--> multiple hasznalata nem mukodik (pölö memset)
+--> hogy adok be " "-t, nem veszi be (pölö strlen)
