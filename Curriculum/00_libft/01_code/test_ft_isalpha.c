@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   test_ft_isalpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 09:43:28 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/05 09:43:28 by akekesi          ###   ########.fr       */
+/*   Created: 2022/12/11 18:39:29 by akekesi           #+#    #+#             */
+/*   Updated: 2022/12/11 18:39:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	test_ft_isalpha(void);
 int	test_ft_isalpha_check(
-		int argument,
+		int arg,
 		int result_isalpha,
 		int result_ft_isalpha);
 
@@ -46,7 +46,7 @@ int	test_ft_isalpha(void)
 }
 
 int	test_ft_isalpha_check(
-	int argument,
+	int arg,
 	int result_isalpha,
 	int result_ft_isalpha)
 {
@@ -54,8 +54,8 @@ int	test_ft_isalpha_check(
 		|| (!result_isalpha && result_ft_isalpha))
 	{
 		printf("Error:\n");
-		printf("isalpha(%c):    %d", argument, result_isalpha);
-		printf("ft_isalpha(%c): %d", argument, result_ft_isalpha);
+		printf("isalpha(%c):    %d\n", arg, result_isalpha);
+		printf("ft_isalpha(%c): %d\n", arg, result_ft_isalpha);
 		return (0);
 	}
 	return (1);
