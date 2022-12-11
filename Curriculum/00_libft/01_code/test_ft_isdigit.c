@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "libft.h"
+#include "test.h"
 
 int	test_ft_isdigit(void);
 int	test_ft_isdigit_check(

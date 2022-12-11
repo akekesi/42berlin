@@ -40,6 +40,11 @@ int	main(void)
 	// 	printf("test_ft_isprint(): OK!\n");
 	// else
 	// 	printf("test_ft_isprint(): NOT OK!\n");
+
+	// if (test_ft_strlen())	
+	// 	printf("test_ft_strlen(): OK!\n");
+	// else
+	// 	printf("test_ft_strlen(): NOT OK!\n");
 	printf("--> main test finished <--\n");
 	return (0);
 }

@@ -13,11 +13,12 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "libft.h"
+#include "test.h"
 
 int	test_ft_isprint(void);
 int	test_ft_isprint_check(
 		int arg,
-		int result_isascii,
+		int result_isprint,
 		int result_ft_isprint);
 
 int	test_ft_isprint(void)
@@ -47,14 +48,14 @@ int	test_ft_isprint(void)
 
 int	test_ft_isprint_check(
 	int arg,
-	int result_isascii,
+	int result_isprint,
 	int result_ft_isprint)
 {
-	if ((result_isascii && !result_ft_isprint)
-		|| (!result_isascii && result_ft_isprint))
+	if ((result_isprint && !result_ft_isprint)
+		|| (!result_isprint && result_ft_isprint))
 	{
 		printf("Error:\n");
-		printf("isascii(%c):    %d\n", arg, result_isascii);
+		printf("isprint(%c):    %d\n", arg, result_isprint);
 		printf("ft_isprint(%c): %d\n", arg, result_ft_isprint);
 		return (0);
 	}
