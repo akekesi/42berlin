@@ -65,6 +65,11 @@ int	main(void)
 	// 	printf("test_ft_bzero(): OK!\n");
 	// else
 	// 	printf("test_ft_bzero(): NOT OK!\n");
-	printf("--> main test finished <--\n");
+
+	// if (test_ft_memcpy())
+	// 	printf("test_ft_memcpy(): OK!\n");
+	// else
+	// 	printf("test_ft_memcpy(): NOT OK!\n");
+	// printf("--> main test finished <--\n");
 	return (0);
 }
