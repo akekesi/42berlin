@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_memset.c                                   :+:      :+:    :+:   */
+/*   test_ft_bzero.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 22:25:58 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/11 22:25:58 by akekesi          ###   ########.fr       */
+/*   Created: 2022/12/12 11:12:11 by akekesi           #+#    #+#             */
+/*   Updated: 2022/12/12 11:12:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,27 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_memset(void)
+int	test_ft_bzero(void)
 {
 	char	str[] = "12345";
 	char	str_ft[] = "12345";
-	int		c = 'X';
-	size_t	n = 3;
-	void	*result_memset;
-	void	*result_ft_memset;
+	int		c = '\0';
+	size_t	n = 1;
 
 	printf("just one test (hard coded)\n");
-	// printf("Enter a string, a character and a number to test ft_memset(): ");
-	// scanf("%s  %c  %d", str, c, (size_t)n);
-	// printf("%s, %c, %d", str, c, n);
-	result_memset = memset(str, c, n);
-	result_ft_memset = ft_memset(str_ft, c, n);
-	if (strcmp(result_memset, result_ft_memset))
+	// printf("Enter a string and a number to test ft_bzero(): ");
+	// scanf("%s %d", str, (size_t)n);
+	// printf("%s, %d", str, n);
+	memset(str, c, n); // bzero(str, n);
+	ft_bzero(str_ft, n);
+	if (strcmp(str, str_ft))
 	{
 		printf("Error:\n");
-		printf("memset():    %s\n", result_memset);
-		printf("ft_memset(): %s\n", result_ft_memset);
+		printf("bzero():    %s\n", str);
+		printf("ft_bzero(): %s\n", str_ft);
 		return (0);
 	}
-	printf("result_memset:    %s\n", result_memset);
-	printf("result_ft_memset: %s\n", result_ft_memset);
+	printf("str:    %s\n", str);
+	printf("str_ft: %s\n", str_ft);
 	return (1);
 }

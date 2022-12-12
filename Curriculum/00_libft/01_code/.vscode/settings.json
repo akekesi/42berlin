@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"stddef.h": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"libft.h": "c"
 	}
 }

@@ -60,6 +60,11 @@ int	main(void)
 	// 	printf("test_ft_memset(): OK!\n");
 	// else
 	// 	printf("test_ft_memset(): NOT OK!\n");
+
+	// if (test_ft_bzero())
+	// 	printf("test_ft_bzero(): OK!\n");
+	// else
+	// 	printf("test_ft_bzero(): NOT OK!\n");
 	printf("--> main test finished <--\n");
 	return (0);
 }

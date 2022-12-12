@@ -10,5 +10,6 @@ int	test_ft_strlen(void);
 int	test_ft_toupper(void);
 int	test_ft_tolower(void);
 int	test_ft_memset(void);
+int	test_ft_bzero(void);
 
 #endif
