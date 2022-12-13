@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/13 22:13:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:40:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ int	main(void)
 	// 	printf("test_ft_strchr(): OK!\n");
 	// else
 	// 	printf("test_ft_strchr(): NOT OK!\n");
-	printf("--> main test finished <--\n");
+
+	// if (test_ft_strrchr())
+	// 	printf("test_ft_strrchr(): OK!\n");
+	// else
+	// 	printf("test_ft_strrchr(): NOT OK!\n");
+	// printf("--> main test finished <--\n");
 	return (0);
 }
