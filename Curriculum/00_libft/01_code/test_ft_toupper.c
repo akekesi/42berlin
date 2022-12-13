@@ -6,12 +6,10 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:45:00 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/11 21:45:00 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:06:46 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 #include "test.h"
 

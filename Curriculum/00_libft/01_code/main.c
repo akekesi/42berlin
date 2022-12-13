@@ -6,11 +6,10 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/05 09:55:11 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:13:07 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "test.h"
 
 int	main(void)
@@ -66,10 +65,22 @@ int	main(void)
 	// else
 	// 	printf("test_ft_bzero(): NOT OK!\n");
 
-	// if (test_ft_memcpy())
-	// 	printf("test_ft_memcpy(): OK!\n");
+	printf("!!! test_ft_memcpy() is not finished yet !!!\n");
+	if (test_ft_memcpy()) // <-- not finished yet !!!
+		printf("test_ft_memcpy(): OK!\n");
+	else
+		printf("test_ft_memcpy(): NOT OK!\n");
+	
+	printf("!!! test_ft_memmov() is not finished yet !!!\n");
+	if (test_ft_memmove()) // <-- not finished yet !!!
+		printf("test_ft_memmove(): OK!\n");
+	else
+		printf("test_ft_memmove(): NOT OK!\n");
+
+	// if (test_ft_strchr())
+	// 	printf("test_ft_strchr(): OK!\n");
 	// else
-	// 	printf("test_ft_memcpy(): NOT OK!\n");
-	// printf("--> main test finished <--\n");
+	// 	printf("test_ft_strchr(): NOT OK!\n");
+	printf("--> main test finished <--\n");
 	return (0);
 }
