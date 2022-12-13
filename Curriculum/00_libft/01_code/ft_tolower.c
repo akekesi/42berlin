@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 21:48:17 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/11 21:48:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/13 15:30:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_tolower(int c)
 {
-	if ('A' <= c && c <= 'A')
+	if ('A' <= c && c <= 'Z')
 		return (c - 'A' + 'a');
 	return (c);
 }
