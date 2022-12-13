@@ -1,3 +1,11 @@
+INFO
+https://github.com/0x050f/libft-war-machine
+bash grademe.sh
+bash grademe.sh -op1
+
+
+
+QUESTION
 -van moulinette? 3+1
 -van norminette? JA
 -kb mennyi idot ad egy feladat leadasa?
