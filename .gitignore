@@ -6,7 +6,6 @@
 *.out
 
 # war-machine
-02_war_machine/
 deepthought
 
 # Visual Studio Code
