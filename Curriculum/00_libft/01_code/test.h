@@ -30,5 +30,6 @@ int	test_ft_memcpy(void);
 int	test_ft_memmove(void);
 int	test_ft_strchr(void);
 int	test_ft_strrchr(void);
+int	test_ft_strncmp(void);
 
 #endif

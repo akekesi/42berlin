@@ -86,6 +86,11 @@ int	main(void)
 	// 	printf("test_ft_strrchr(): OK!\n");
 	// else
 	// 	printf("test_ft_strrchr(): NOT OK!\n");
+
+	// if (test_ft_strncmp())
+	// 	printf("test_ft_strncmp(): OK!\n");
+	// else
+	// 	printf("test_ft_strncmp(): NOT OK!\n");
 	// printf("--> main test finished <--\n");
 	return (0);
 }
