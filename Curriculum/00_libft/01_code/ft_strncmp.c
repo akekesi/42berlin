@@ -11,31 +11,23 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "test.h"
 
 int			ft_strncmp(const char *str1, const char *str2, size_t n);
 static int	hf_ft_chrcmp(int c1, int c2);
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	char	*str1_;
-	char	*str2_;
-	int		result;
+	size_t	i;
 
-	if (!n)
-		return (0);
-	str1_ = (char *)str1;
-	str2_ = (char *)str2;
-	while (*str1_ && *str2_ && n != 1)
+	i = 0;
+	while ((str1[i] || str2[i]) && i < n)
 	{
-		result = hf_ft_chrcmp(*str1_, *str2_);
-		if (result)
-			return (result);
-		str1_++;
-		str2_++;
-		n--;
+		if (str1[i] != str2[i])
+			return (hf_ft_chrcmp(((unsigned char *)str1)[i], ((unsigned char *)str2)[i]));
+			// return (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
+		i++;
 	}
-	return (hf_ft_chrcmp(*str1_, *str2_));
+	return (0);
 }
 
 static int	hf_ft_chrcmp(int c1, int c2)

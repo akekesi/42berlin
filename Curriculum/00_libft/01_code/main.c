@@ -66,16 +66,16 @@ int	main(void)
 	// 	printf("test_ft_bzero(): NOT OK!\n");
 
 	printf("!!! test_ft_memcpy() is not finished yet !!!\n");
-	if (test_ft_memcpy()) // <-- not finished yet !!!
-		printf("test_ft_memcpy(): OK!\n");
-	else
-		printf("test_ft_memcpy(): NOT OK!\n");
+	// if (test_ft_memcpy()) // <-- not finished yet !!!
+	// 	printf("test_ft_memcpy(): OK!\n");
+	// else
+	// 	printf("test_ft_memcpy(): NOT OK!\n");
 	
 	printf("!!! test_ft_memmov() is not finished yet !!!\n");
-	if (test_ft_memmove()) // <-- not finished yet !!!
-		printf("test_ft_memmove(): OK!\n");
-	else
-		printf("test_ft_memmove(): NOT OK!\n");
+	// if (test_ft_memmove()) // <-- not finished yet !!!
+	// 	printf("test_ft_memmove(): OK!\n");
+	// else
+	// 	printf("test_ft_memmove(): NOT OK!\n");
 
 	// if (test_ft_strchr())
 	// 	printf("test_ft_strchr(): OK!\n");
@@ -87,10 +87,10 @@ int	main(void)
 	// else
 	// 	printf("test_ft_strrchr(): NOT OK!\n");
 
-	// if (test_ft_strncmp())
-	// 	printf("test_ft_strncmp(): OK!\n");
-	// else
-	// 	printf("test_ft_strncmp(): NOT OK!\n");
-	// printf("--> main test finished <--\n");
+	if (test_ft_strncmp())
+		printf("test_ft_strncmp(): OK!\n");
+	else
+		printf("test_ft_strncmp(): NOT OK!\n");
+	printf("--> main test finished <--\n");
 	return (0);
 }

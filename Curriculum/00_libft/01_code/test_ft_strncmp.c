@@ -22,6 +22,8 @@ int	test_ft_strncmp(void)
 	char	str2[] = "123456X";
 	char	str3[] = "123";
 	char	str4[] = "";
+	char	str_wm1[] = "text_\200";
+	char	str_wm2[] = "text_\0";
 	int		n;
 	int		i;
 	int		result;
@@ -81,6 +83,11 @@ int	test_ft_strncmp(void)
 	n = 11;
 	result = strncmp(str4, str4, n);
 	result_ft = ft_strncmp(str4, str4, n);
+	if (!test_check(result, result_ft, i++))
+		return (0);
+	n = 6;
+	result = strncmp(str_wm1, str_wm2, n);
+	result_ft = ft_strncmp(str_wm1, str_wm2, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
 	return (1);
