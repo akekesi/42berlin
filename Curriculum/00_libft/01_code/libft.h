@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:22:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/13 22:29:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/17 19:23:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
+char	*ft_strnstr(const char *str1, const char *str2, size_t n);
 
 #endif

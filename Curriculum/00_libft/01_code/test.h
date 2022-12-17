@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:54:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/13 22:34:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/17 19:23:28 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	test_ft_memmove(void);
 int	test_ft_strchr(void);
 int	test_ft_strrchr(void);
 int	test_ft_strncmp(void);
+int	test_ft_strnstr(void);
 
 #endif
