@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 15:16:39 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/16 15:16:39 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/17 15:35:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ static int	test_check(int result, int result_ft, int n);
 
 int	test_ft_strncmp(void)
 {
-	char	str1[] = "1234567";
-	char	str2[] = "123456X";
-	char	str3[] = "123";
-	char	str4[] = "";
-	char	str_wm1[] = "text_\200";
-	char	str_wm2[] = "text_\0";
-	int		n;
-	int		i;
-	int		result;
-	int		result_ft;
+	const char	str1[] = "1234567";
+	const char	str2[] = "123456X";
+	const char	str3[] = "123";
+	const char	str4[] = "";
+	const char	str_wm1[] = "text_\200";
+	const char	str_wm2[] = "text_\0";
+	size_t		n;
+	int			i;
+	int			result;
+	int			result_ft;
 
 	i = 1;
 	n = 0;
@@ -45,7 +45,7 @@ int	test_ft_strncmp(void)
 	result_ft = ft_strncmp(str1, str2, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
-	n = 11;
+	n = 8;
 	result = strncmp(str1, str2, n);
 	result_ft = ft_strncmp(str1, str2, n);
 	if (!test_check(result, result_ft, i++))
@@ -60,22 +60,22 @@ int	test_ft_strncmp(void)
 	result_ft = ft_strncmp(str1, str3, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
-	n = 11;
+	n = 8;
 	result = strncmp(str1, str3, n);
 	result_ft = ft_strncmp(str1, str3, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
-	n = 11;
+	n = 8;
 	result = strncmp(str1, str3, n);
 	result_ft = ft_strncmp(str1, str3, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
-	n = 11;
+	n = 8;
 	result = strncmp(str1, str4, n);
 	result_ft = ft_strncmp(str1, str4, n);
 	if (!test_check(result, result_ft, i++))
 		return (0);
-	n = 11;
+	n = 8;
 	result = strncmp(str4, str1, n);
 	result_ft = ft_strncmp(str4, str1, n);
 	if (!test_check(result, result_ft, i++))
