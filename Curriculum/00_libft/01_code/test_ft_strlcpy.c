@@ -6,32 +6,38 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:01:56 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/18 12:01:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/18 15:43:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "test.h"
+#include <bsd/string.h> // it works in external terminal (but not in vs code)
+// compile: clear && gcc main.c ft_strlcpy.c test_ft_strlcpy.c -lbsd && ./a.out
 
 int				test_ft_strlcpy(void);
 static int		test_check(int result, int result_ft, char * dest, char *dest_ft, int n);
-static size_t	sof_strlcpy(char *dst, const char *src, size_t siz);
+static void	test_print(int result, int result_ft, char * dest, char *dest_ft);
 
 int	test_ft_strlcpy(void)
 {
-	char		dest[] = "text_XX\200";
-	char		dest_ft[] = "text_XX\200";
-	const char	src[] = "text_\0";
+	char		*dest;
+	char		*dest_ft;
+	dest = (char *)malloc(sizeof(*dest) * 15);
+	dest_ft = (char *)malloc(sizeof(*dest_ft) * 15);
+	memset(dest, 'x', 15);
+	memset(dest_ft, 'x', 15);
+	const char	src[] = "lorem ipsum dolor sit amet";
 	size_t		n;
 	int			i;
 	int			result;
 	int			result_ft;
 
 	i = 1;
-	n = 0;
-	// result = strlcpy(dest, src, n);
-	result = sof_strlcpy(dest, src, n);
+	n = 15;
+	result = strlcpy(dest, src, n);
 	result_ft = ft_strlcpy(dest_ft, src, n);
+	test_print(result, result_ft, dest, dest_ft);
 	if (!test_check(result, result_ft, dest, dest_ft, i++))
 		return (0);
 	return (1);
@@ -42,33 +48,16 @@ static int	test_check(int result, int result_ft, char * dest, char *dest_ft, int
 	if ((result != result_ft) || strcmp(dest, dest_ft))
 	{
 		printf("Error-%d:\n", n);
-		printf("result:    %d\n", result);
-		printf("result_ft: %d\n", result_ft);
-		printf("dest:      %s\n", dest);
-		printf("dest_ft:   %s\n", dest_ft);
+		test_print(result, result_ft, dest, dest_ft);
 		return (0);
 	}
 	return (1);
 }
 
-static size_t	sof_strlcpy(char *dst, const char *src, size_t size)
+static void	test_print(int result, int result_ft, char * dest, char *dest_ft)
 {
-	char *d = dst;
-	const char *s = src;
-	size_t n = size;
-	/* Copy as many bytes as will fit */
-	if (n != 0) {
-		while (--n != 0) {
-			if ((*d++ = *s++) == '\0')
-				break;
-		}
-	}
-	/* Not enough room in dst, add NUL and traverse rest of src */
-	if (n == 0) {
-		if (size != 0)
-			*d = '\0';		/* NUL-terminate dst */
-		while (*s++)
-			;
-	}
-	return(s - src - 1);	/* count does not include NUL */
+	printf("result:    %d\n", result);
+	printf("result_ft: %d\n", result_ft);
+	printf("dest:      %s\n", dest);
+	printf("dest_ft:   %s\n", dest_ft);
 }

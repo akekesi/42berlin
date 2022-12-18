@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 11:54:12 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/18 11:54:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/18 15:43:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static int	hf_strlen(char *str);
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	int		len_src;
+	int	i;
+	int	len_src;
 
-	len_src = hf_strlen((char *)src); 
+	len_src = hf_strlen((char *)src);
 	i = 0;
-	while (i < n && dest[i] && src[i])
+	while ((i < ((int)n - 1)) && src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	if (i)
+	if (n)
 		dest[i] = '\0';
 	return (len_src);
 }
