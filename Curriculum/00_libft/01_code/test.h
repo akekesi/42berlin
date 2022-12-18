@@ -32,5 +32,6 @@ int	test_ft_strchr(void);
 int	test_ft_strrchr(void);
 int	test_ft_strncmp(void);
 int	test_ft_strnstr(void);
+int	test_ft_strlcpy(void);
 
 #endif
