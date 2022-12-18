@@ -31,7 +31,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 		dest[len_dest + i] = src[i];
 		i++;
 	}
-	dest[len_dest] = '\0';
+	dest[len_dest + i] = '\0';
 	return (len_dest + i);
 }
 
