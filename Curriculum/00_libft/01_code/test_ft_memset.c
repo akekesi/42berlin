@@ -13,29 +13,42 @@
 #include "libft.h"
 #include "test.h"
 
+int			test_ft_memset(void);
+static int	test_check(char *str, char *str_ft, int c, size_t n);
+static void	test_print(char *str, char *str_ft, int c, size_t n, char *result, char *result_ft);
+
 int	test_ft_memset(void)
 {
-	char	str[] = "12345";
-	char	str_ft[] = "12345";
-	int		c = 'X';
-	size_t	n = 3;
-	void	*result_memset;
-	void	*result_ft_memset;
+	int		c;
+	char	str[] = "123";
+	char	str_ft[] = "123";
+	size_t	n;
 
-	printf("just one test (hard coded)\n");
-	// printf("Enter a string, a character and a number to test ft_memset(): ");
-	// scanf("%s  %c  %d", str, c, (size_t)n);
-	// printf("%s, %c, %d", str, c, n);
-	result_memset = memset(str, c, n);
-	result_ft_memset = ft_memset(str_ft, c, n);
-	if (strcmp(result_memset, result_ft_memset))
+	n = 2;
+	c = 'X';
+	if (!test_check(str, str_ft, c, n))
+		return (0);
+	return (1);
+}
+
+static int	test_check(char *str, char *str_ft, int c, size_t n)
+{
+	char	*result;
+	char	*result_ft;
+
+	result = memset(str, c, n);
+	result_ft = ft_memset(str_ft, c, n);
+	if (strcmp(result, result_ft))
 	{
 		printf("Error:\n");
-		printf("memset():    %s\n", result_memset);
-		printf("ft_memset(): %s\n", result_ft_memset);
+		test_print(str, str_ft, c, n, result, result_ft);
 		return (0);
 	}
-	printf("result_memset:    %s\n", result_memset);
-	printf("result_ft_memset: %s\n", result_ft_memset);
 	return (1);
+}
+
+static void	test_print(char *str, char *str_ft, int c, size_t n, char *result, char *result_ft)
+{
+	printf("memset(%s, %c, %d):    %s\n", str, c, n, result);
+	printf("ft_memset(%s, %c, %d): %s\n", str_ft, c, n, result_ft);
 }

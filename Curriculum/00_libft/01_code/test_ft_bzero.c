@@ -13,27 +13,38 @@
 #include "libft.h"
 #include "test.h"
 
+int			test_ft_bzero(void);
+static int	test_check(char *str_origin, char *str, char *str_ft, size_t n);
+static void	test_print(char *str_origin, char *str, char *str_ft, size_t n);
+
 int	test_ft_bzero(void)
 {
-	char	str[] = "12345";
-	char	str_ft[] = "12345";
-	int		c = '\0';
-	size_t	n = 1;
+	char	str[] = "123";
+	char	str_ft[] = "123";
+	char	str_origin[] = "123";
+	size_t	n;
 
-	printf("just one test (hard coded)\n");
-	// printf("Enter a string and a number to test ft_bzero(): ");
-	// scanf("%s %d", str, (size_t)n);
-	// printf("%s, %d", str, n);
-	memset(str, c, n); // bzero(str, n);
+	n = 2;
+	if (!test_check(str_origin, str, str_ft, n))
+		return (0);
+	return (1);
+}
+
+static int	test_check(char *str_origin, char *str, char *str_ft, size_t n)
+{
+	memset(str, '\0', n);
 	ft_bzero(str_ft, n);
 	if (strcmp(str, str_ft))
 	{
 		printf("Error:\n");
-		printf("bzero():    %s\n", str);
-		printf("ft_bzero(): %s\n", str_ft);
+		test_print(str_origin, str, str_ft, n);
 		return (0);
 	}
-	printf("str:    %s\n", str);
-	printf("str_ft: %s\n", str_ft);
 	return (1);
+}
+
+static void	test_print(char *str_origin, char *str, char *str_ft, size_t n)
+{
+	printf("bzero(%s, %d):    %s\n", str_origin, n, str);
+	printf("ft_bzero(%s, %d): %s\n", str_origin, n, str_ft);
 }
