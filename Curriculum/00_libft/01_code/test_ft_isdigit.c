@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_isdigit(void);
-int	test_ft_isdigit_check(
-		int c,
-		int result_isdigit,
-		int result_ft_isdigit);
+int			test_ft_isdigit(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_isdigit(void)
 {
-	int		n;
-	int		result_isdigit;
-	int		result_ft_isdigit;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_isdigit = isdigit(n);
-		result_ft_isdigit = ft_isdigit(n);
-		if (!test_ft_isdigit_check(n, result_isdigit, result_ft_isdigit))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_isdigit(): ");
-	scanf("%c", &c);
-	result_isdigit = isdigit(c);
-	result_ft_isdigit = ft_isdigit(c);
-	if (!test_ft_isdigit_check(c, result_isdigit, result_ft_isdigit))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_isdigit_check(
-	int c,
-	int result_isdigit,
-	int result_ft_isdigit)
+int	test_check(int c)
 {
-	if ((result_isdigit && !result_ft_isdigit)
-		|| (!result_isdigit && result_ft_isdigit))
+	int		result;
+	int		result_ft;
+
+	result = isdigit(c);
+	result_ft = ft_isdigit(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("isdigit(%c):    %d\n", c, result_isdigit);
-		printf("ft_isdigit(%c): %d\n", c, result_ft_isdigit);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("isdigit(%c):    %d\n", c, result);
+	printf("ft_isdigit(%c): %d\n", c, result_ft);
 }

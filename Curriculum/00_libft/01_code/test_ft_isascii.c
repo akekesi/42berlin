@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_isascii(void);
-int	test_ft_isascii_check(
-		int c,
-		int result_isascii,
-		int result_ft_isascii);
+int			test_ft_isascii(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_isascii(void)
 {
-	int		n;
-	int		result_isascii;
-	int		result_ft_isascii;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_isascii = isascii(n);
-		result_ft_isascii = ft_isascii(n);
-		if (!test_ft_isascii_check(n, result_isascii, result_ft_isascii))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_isascii(): ");
-	scanf("%c", &c);
-	result_isascii = isascii(c);
-	result_ft_isascii = ft_isascii(c);
-	if (!test_ft_isascii_check(c, result_isascii, result_ft_isascii))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_isascii_check(
-	int c,
-	int result_isascii,
-	int result_ft_isascii)
+int	test_check(int c)
 {
-	if ((result_isascii && !result_ft_isascii)
-		|| (!result_isascii && result_ft_isascii))
+	int		result;
+	int		result_ft;
+
+	result = isascii(c);
+	result_ft = ft_isascii(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("isascii(%c):    %d\n", c, result_isascii);
-		printf("ft_isascii(%c): %d\n", c, result_ft_isascii);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("isascii(%c):    %d\n", c, result);
+	printf("ft_isascii(%c): %d\n", c, result_ft);
 }

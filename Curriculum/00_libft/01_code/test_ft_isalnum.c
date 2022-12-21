@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_isalnum(void);
-int	test_ft_isalnum_check(
-		int c,
-		int result_isalnum,
-		int result_ft_isalnum);
+int			test_ft_isalnum(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_isalnum(void)
 {
-	int		n;
-	int		result_isalnum;
-	int		result_ft_isalnum;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_isalnum = isalnum(n);
-		result_ft_isalnum = ft_isalnum(n);
-		if (!test_ft_isalnum_check(n, result_isalnum, result_ft_isalnum))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_isalnum(): ");
-	scanf("%c", &c);
-	result_isalnum = isalnum(c);
-	result_ft_isalnum = ft_isalnum(c);
-	if (!test_ft_isalnum_check(c, result_isalnum, result_ft_isalnum))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_isalnum_check(
-	int c,
-	int result_isalnum,
-	int result_ft_isalnum)
+int	test_check(int c)
 {
-	if ((result_isalnum && !result_ft_isalnum)
-		|| (!result_isalnum && result_ft_isalnum))
+	int		result;
+	int		result_ft;
+
+	result = isalnum(c);
+	result_ft = ft_isalnum(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("isalnum(%c):    %d\n", c, result_isalnum);
-		printf("ft_isalnum(%c): %d\n", c, result_ft_isalnum);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("isalnum(%c):    %d\n", c, result);
+	printf("ft_isalnum(%c): %d\n", c, result_ft);
 }

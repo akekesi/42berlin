@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_isalpha(void);
-int	test_ft_isalpha_check(
-		int c,
-		int result_isalpha,
-		int result_ft_isalpha);
+int			test_ft_isalpha(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_isalpha(void)
 {
-	int		n;
-	int		result_isalpha;
-	int		result_ft_isalpha;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_isalpha = isalpha(n);
-		result_ft_isalpha = ft_isalpha(n);
-		if (!test_ft_isalpha_check(n, result_isalpha, result_ft_isalpha))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_isalpha(): ");
-	scanf("%c", &c);
-	result_isalpha = isalpha(c);
-	result_ft_isalpha = ft_isalpha(c);
-	if (!test_ft_isalpha_check(c, result_isalpha, result_ft_isalpha))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_isalpha_check(
-	int c,
-	int result_isalpha,
-	int result_ft_isalpha)
+int	test_check(int c)
 {
-	if ((result_isalpha && !result_ft_isalpha)
-		|| (!result_isalpha && result_ft_isalpha))
+	int		result;
+	int		result_ft;
+
+	result = isalpha(c);
+	result_ft = ft_isalpha(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("isalpha(%c):    %d\n", c, result_isalpha);
-		printf("ft_isalpha(%c): %d\n", c, result_ft_isalpha);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("isalpha(%c):    %d\n", c, result);
+	printf("ft_isalpha(%c): %d\n", c, result_ft);
 }

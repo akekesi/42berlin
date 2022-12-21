@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_isprint(void);
-int	test_ft_isprint_check(
-		int c,
-		int result_isprint,
-		int result_ft_isprint);
+int			test_ft_isprint(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_isprint(void)
 {
-	int		n;
-	int		result_isprint;
-	int		result_ft_isprint;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_isprint = isprint(n);
-		result_ft_isprint = ft_isprint(n);
-		if (!test_ft_isprint_check(n, result_isprint, result_ft_isprint))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_isprint(): ");
-	scanf("%c", &c);
-	result_isprint = isprint(c);
-	result_ft_isprint = ft_isprint(c);
-	if (!test_ft_isprint_check(c, result_isprint, result_ft_isprint))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_isprint_check(
-	int c,
-	int result_isprint,
-	int result_ft_isprint)
+int	test_check(int c)
 {
-	if ((result_isprint && !result_ft_isprint)
-		|| (!result_isprint && result_ft_isprint))
+	int		result;
+	int		result_ft;
+
+	result = isprint(c);
+	result_ft = ft_isprint(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("isprint(%c):    %d\n", c, result_isprint);
-		printf("ft_isprint(%c): %d\n", c, result_ft_isprint);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("isprint(%c):    %d\n", c, result);
+	printf("ft_isprint(%c): %d\n", c, result_ft);
 }
