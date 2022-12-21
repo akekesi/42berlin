@@ -13,34 +13,49 @@
 #include "libft.h"
 #include "test.h"
 
+int			test_ft_memmove(void);
+static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *src_origin, const char *src, const char *src_ft, size_t n);
+static void	test_print(char *dest_origin, const char *src_origin, size_t n, char *result, char *result_ft);
+
 int	test_ft_memmove(void)
 {
 	const char	src[] = "123456";
 	const char	src_ft[] = "123456";
-	char	*dest;
-	char	*dest_ft;
-	size_t	n;
-	int		i;
-	void	*result_memmove;
-	void	*result_ft_memmove;
+	const char	src_origin[] = "123456";
+	char		*dest;
+	char		*dest_ft;
+	char		*dest_origin;
+	size_t		n;
+	int			i;
 
-	n = 3;
+	n = 4;
 	i = 2;
 	dest = (char *) src + i;
 	dest_ft = (char *) src_ft + i;
-	printf("dest:    %s\n", dest);
-	printf("dest_ft: %s\n", dest_ft);
-	printf("src:     %s\n", src);
-	result_memmove = memmove(dest, src, n);
-	result_ft_memmove = ft_memmove(dest_ft, src_ft, n);
-	printf("memmove():    %s\n", result_memmove);
-	printf("ft_memmove(): %s\n", result_ft_memmove);
-	if (strcmp(result_memmove, result_ft_memmove))
+	dest_origin = (char *) src_origin + i;
+	if (!test_check(dest_origin, dest, dest_ft, src_origin, src, src_ft, n))
+		return (0);
+	return (1);
+}
+
+static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *src_origin, const char *src, const char *src_ft, size_t n)
+{
+	char	*result;
+	char	*result_ft;
+
+	result = memmove(dest, src, n);
+	result_ft = ft_memmove(dest_ft, src_ft, n);
+	if (strcmp(result, result_ft))
 	{
 		printf("Error:\n");
-		printf("memmove():    %s\n", result_memmove);
-		printf("ft_memmove(): %s\n", result_ft_memmove);
+		test_print(dest_origin, src_origin, n, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(char *dest_origin, const char *src_origin, size_t n, char *result, char *result_ft)
+{
+	printf("memmove(%s, %s, %d):    %s\n", dest_origin, src_origin, n, result);
+	printf("ft_memmove(%s, %s, %d): %s\n", dest_origin, src_origin, n, result_ft);
 }

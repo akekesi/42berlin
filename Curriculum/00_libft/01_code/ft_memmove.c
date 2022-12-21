@@ -18,7 +18,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char	*src_;
 	char	*dest_;
 
-	i = 0;
 	src_ = (char *)src;
 	dest_ = (char *)dest;
 	if (src_ < dest_)
@@ -31,6 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	if (src_ > dest_)
 	{
+		i = 0;
 		while (i < n)
 		{
 			dest_[i] = src_[i];

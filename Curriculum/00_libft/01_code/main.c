@@ -65,15 +65,15 @@ int	main(void)
 	else
 		printf("test_ft_bzero(): NOT OK!\n");
 
-	// if (test_ft_memcpy()) // <-- not finished yet !!!
-	// 	printf("test_ft_memcpy(): OK!\n");
-	// else
-	// 	printf("test_ft_memcpy(): NOT OK!\n");
+	if (test_ft_memcpy())
+		printf("test_ft_memcpy(): OK!\n");
+	else
+		printf("test_ft_memcpy(): NOT OK!\n");
 
-	// if (test_ft_memmove()) // <-- not finished yet !!!
-	// 	printf("test_ft_memmove(): OK!\n");
-	// else
-	// 	printf("test_ft_memmove(): NOT OK!\n");
+	if (test_ft_memmove())
+		printf("test_ft_memmove(): OK!\n");
+	else
+		printf("test_ft_memmove(): NOT OK!\n");
 
 	// if (test_ft_strchr())
 	// 	printf("test_ft_strchr(): OK!\n");
