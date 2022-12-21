@@ -50,10 +50,10 @@ int	main(void)
 	else
 		printf("test_ft_tolower(): NOT OK!\n");
 
-	// if (test_ft_strlen())
-	// 	printf("test_ft_strlen(): OK!\n");
-	// else
-	// 	printf("test_ft_strlen(): NOT OK!\n");
+	if (test_ft_strlen())
+		printf("test_ft_strlen(): OK!\n");
+	else
+		printf("test_ft_strlen(): NOT OK!\n");
 
 	if (test_ft_memset())
 		printf("test_ft_memset(): OK!\n");
@@ -69,7 +69,7 @@ int	main(void)
 	// 	printf("test_ft_memcpy(): OK!\n");
 	// else
 	// 	printf("test_ft_memcpy(): NOT OK!\n");
-	
+
 	// if (test_ft_memmove()) // <-- not finished yet !!!
 	// 	printf("test_ft_memmove(): OK!\n");
 	// else

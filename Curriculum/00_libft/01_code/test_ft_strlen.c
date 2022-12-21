@@ -13,22 +13,37 @@
 #include "libft.h"
 #include "test.h"
 
+int			test_ft_strlen(void);
+static int	test_check(const char *str);
+static void	test_print(const char *str, size_t result, size_t result_ft);
+
 int	test_ft_strlen(void)
 {
-	const char	str[111];
-	size_t		result_strlen;
-	size_t		result_ft_strlen;
+	const char	str[] = "123";
 
-	printf("Enter a string to test ft_strlen(): ");
-	scanf("%s", str);
-	result_strlen = strlen(str);
-	result_ft_strlen = ft_strlen(str);
-	if (result_strlen != result_ft_strlen)
+	if (!test_check(str))
+		return (0);
+	return (1);
+}
+
+static int	test_check(const char *str)
+{
+	size_t	result;
+	size_t	result_ft;
+
+	result = strlen(str);
+	result_ft = ft_strlen(str);
+	if (result != result_ft)
 	{
 		printf("Error:\n");
-		printf("strlen(%s):    %d\n", str, result_strlen);
-		printf("ft_strlen(%s): %d\n", str, result_ft_strlen);
+		test_print(str, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(const char *str, size_t result, size_t result_ft)
+{
+	printf("strlen(%s):    %d\n", str, result);
+	printf("ft_strlen(%s): %d\n", str, result_ft);
 }
