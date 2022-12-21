@@ -3,6 +3,10 @@ https://github.com/0x050f/libft-war-machine
 bash grademe.sh
 bash grademe.sh -op1
 
+https://github.com/xicodomingues/francinette
+
+https://github.com/alelievr/libft-unit-test?fbclid=IwAR1jDwJr9SlYvPoIuFpySSqRzZyoFrYINzNYsPasJrjXSWA6Yxbj-Q04wIM
+
 
 
 QUESTION
