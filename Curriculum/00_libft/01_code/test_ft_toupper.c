@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_toupper(void);
-int	test_ft_toupper_check(
-		int c,
-		int result_toupper,
-		int result_ft_toupper);
+int			test_ft_toupper(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_toupper(void)
 {
-	int		n;
-	int		result_toupper;
-	int		result_ft_toupper;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_toupper = toupper(n);
-		result_ft_toupper = ft_toupper(n);
-		if (!test_ft_toupper_check(n, result_toupper, result_ft_toupper))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_toupper(): ");
-	scanf("%c", &c);
-	result_toupper = toupper(c);
-	result_ft_toupper = ft_toupper(c);
-	if (!test_ft_toupper_check(c, result_toupper, result_ft_toupper))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_toupper_check(
-	int c,
-	int result_toupper,
-	int result_ft_toupper)
+int	test_check(int c)
 {
-	if ((result_toupper && !result_ft_toupper)
-		|| (!result_toupper && result_ft_toupper))
+	int		result;
+	int		result_ft;
+
+	result = toupper(c);
+	result_ft = ft_toupper(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("toupper(%c):    %d\n", c, result_toupper);
-		printf("ft_toupper(%c): %d\n", c, result_ft_toupper);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("toupper(%c):    %d\n", c, result);
+	printf("ft_toupper(%c): %d\n", c, result_ft);
 }

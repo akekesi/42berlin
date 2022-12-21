@@ -40,20 +40,20 @@ int	main(void)
 	else
 		printf("test_ft_isprint(): NOT OK!\n");
 
+	if (test_ft_toupper())
+		printf("test_ft_toupper(): OK!\n");
+	else
+		printf("test_ft_toupper(): NOT OK!\n");
+
+	if (test_ft_tolower())
+		printf("test_ft_tolower(): OK!\n");
+	else
+		printf("test_ft_tolower(): NOT OK!\n");
+
 	// if (test_ft_strlen())
 	// 	printf("test_ft_strlen(): OK!\n");
 	// else
 	// 	printf("test_ft_strlen(): NOT OK!\n");
-
-	// if (test_ft_toupper())
-	// 	printf("test_ft_toupper(): OK!\n");
-	// else
-	// 	printf("test_ft_toupper(): NOT OK!\n");
-
-	// if (test_ft_tolower())
-	// 	printf("test_ft_tolower(): OK!\n");
-	// else
-	// 	printf("test_ft_tolower(): NOT OK!\n");
 
 	// if (test_ft_memset())
 	// 	printf("test_ft_memset(): OK!\n");

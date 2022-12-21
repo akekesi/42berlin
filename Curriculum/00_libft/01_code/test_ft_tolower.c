@@ -13,49 +13,46 @@
 #include "libft.h"
 #include "test.h"
 
-int	test_ft_tolower(void);
-int	test_ft_tolower_check(
-		int c,
-		int result_tolower,
-		int result_ft_tolower);
+int			test_ft_tolower(void);
+static int	test_check(int c);
+static void	test_print(int c, int result, int result_ft);
 
 int	test_ft_tolower(void)
 {
-	int		n;
-	int		result_tolower;
-	int		result_ft_tolower;
-	char	c;
+	int		c;
 
-	n = 0;
-	while (n < 128)
+	c = 0;
+	while (c < 128)
 	{
-		result_tolower = tolower(n);
-		result_ft_tolower = ft_tolower(n);
-		if (!test_ft_tolower_check(n, result_tolower, result_ft_tolower))
+		if (!test_check(c))
 			return (0);
-		n++;
+		c++;
 	}
-	printf("Enter a character to test ft_tolower(): ");
-	scanf("%c", &c);
-	result_tolower = tolower(c);
-	result_ft_tolower = ft_tolower(c);
-	if (!test_ft_tolower_check(c, result_tolower, result_ft_tolower))
+	c = '\0';
+	if (!test_check(c))
 		return (0);
 	return (1);
 }
 
-int	test_ft_tolower_check(
-	int c,
-	int result_tolower,
-	int result_ft_tolower)
+int	test_check(int c)
 {
-	if ((result_tolower && !result_ft_tolower)
-		|| (!result_tolower && result_ft_tolower))
+	int		result;
+	int		result_ft;
+
+	result = tolower(c);
+	result_ft = ft_tolower(c);
+	if ((result && !result_ft)
+		|| (!result && result_ft))
 	{
 		printf("Error:\n");
-		printf("tolower(%c):    %d\n", c, result_tolower);
-		printf("ft_tolower(%c): %d\n", c, result_ft_tolower);
+		test_print(c, result, result_ft);
 		return (0);
 	}
 	return (1);
+}
+
+static void	test_print(int c, int result, int result_ft)
+{
+	printf("tolower(%c):    %d\n", c, result);
+	printf("ft_tolower(%c): %d\n", c, result_ft);
 }
