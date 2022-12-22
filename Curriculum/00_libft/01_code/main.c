@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 22:48:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 23:12:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,10 @@ int	main(void)
 	else
 		printf("test_ft_strncmp(): NOT OK!\n");
 
-	// if (test_ft_strnstr())
-	// 	printf("test_ft_strnstr(): OK!\n");
-	// else
-	// 	printf("test_ft_strnstr(): NOT OK!\n");
+	if (test_ft_strnstr())
+		printf("test_ft_strnstr(): OK!\n");
+	else
+		printf("test_ft_strnstr(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);

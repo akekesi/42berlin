@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 14:56:52 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/17 19:12:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 23:20:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 
 	str1_ = (char *)str1;
 	str2_ = (char *)str2;
+	if (*str2_ == '\0' || str2_ == NULL)
+		return (str1_);
 	while (*str1_ && n)
 	{
 		if (hf_check_ft_strnstr(str1_, str2_, n))
