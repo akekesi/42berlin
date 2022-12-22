@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 20:29:56 by akekesi           #+#    #+#              #
-#    Updated: 2022/12/22 21:07:26 by akekesi          ###   ########.fr        #
+#    Updated: 2022/12/22 23:38:19 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ SRCS = ft_isalpha.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_strnstr.c \
-	# ft_atoi.c \
-	ft_calloc.c \
+	ft_atoi.c \
+	# ft_calloc.c \
 	ft_strdup.c \
 	ft_substr.c \
 	ft_strjoin.c \

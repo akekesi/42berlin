@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 23:12:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 23:36:56 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,6 @@ int	main(void)
 	else
 		printf("test_ft_isprint(): NOT OK!\n");
 
-	if (test_ft_toupper())
-		printf("test_ft_toupper(): OK!\n");
-	else
-		printf("test_ft_toupper(): NOT OK!\n");
-
-	if (test_ft_tolower())
-		printf("test_ft_tolower(): OK!\n");
-	else
-		printf("test_ft_tolower(): NOT OK!\n");
-
 	if (test_ft_strlen())
 		printf("test_ft_strlen(): OK!\n");
 	else
@@ -75,16 +65,6 @@ int	main(void)
 	else
 		printf("test_ft_memmove(): NOT OK!\n");
 
-	if (test_ft_memchr())
-		printf("test_ft_memchr(): OK!\n");
-	else
-		printf("test_ft_memchr(): NOT OK!\n");
-
-	if (test_ft_memcmp())
-		printf("test_ft_memcmp(): OK!\n");
-	else
-		printf("test_ft_memcmp(): NOT OK!\n");
-
 	if (test_ft_strlcpy())
 		printf("test_ft_strlcpy(): OK!\n");
 	else
@@ -94,7 +74,17 @@ int	main(void)
 		printf("test_ft_strlcat(): OK!\n");
 	else
 		printf("test_ft_strlcat(): NOT OK!\n");
-	
+
+	if (test_ft_toupper())
+		printf("test_ft_toupper(): OK!\n");
+	else
+		printf("test_ft_toupper(): NOT OK!\n");
+
+	if (test_ft_tolower())
+		printf("test_ft_tolower(): OK!\n");
+	else
+		printf("test_ft_tolower(): NOT OK!\n");
+
 	if (test_ft_strchr())
 		printf("test_ft_strchr(): OK!\n");
 	else
@@ -110,10 +100,25 @@ int	main(void)
 	else
 		printf("test_ft_strncmp(): NOT OK!\n");
 
+	if (test_ft_memchr())
+		printf("test_ft_memchr(): OK!\n");
+	else
+		printf("test_ft_memchr(): NOT OK!\n");
+
+	if (test_ft_memcmp())
+		printf("test_ft_memcmp(): OK!\n");
+	else
+		printf("test_ft_memcmp(): NOT OK!\n");
+
 	if (test_ft_strnstr())
 		printf("test_ft_strnstr(): OK!\n");
 	else
 		printf("test_ft_strnstr(): NOT OK!\n");
+
+	if (test_ft_atoi())
+		printf("test_ft_atoi(): OK!\n");
+	else
+		printf("test_ft_atoi(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);
