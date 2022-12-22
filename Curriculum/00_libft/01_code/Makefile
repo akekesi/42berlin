@@ -1,16 +1,32 @@
-CC = gcc
-AR = ar
-CFLAGS = -Wall -Wextra -Werror
-LFLAGS = -rc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/22 20:29:56 by akekesi           #+#    #+#              #
+#    Updated: 2022/12/22 21:07:26 by akekesi          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-DEPS = libft.h
+NAME = libft.a
+
+CC = cc
+CCFLAG = -Wall -Wextra -Werror
+
+AR = ar
+ARFLAG = crs
+
+RM = rm -f
+
+DEPS = ./libft.h
+
 SRCS = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
 	ft_isprint.c \
-	ft_toupper.c \
-	ft_tolower.c \
 	ft_strlen.c \
 	ft_memset.c \
 	ft_bzero.c \
@@ -18,28 +34,60 @@ SRCS = ft_isalpha.c \
 	ft_memmove.c \
 	ft_strlcpy.c \
 	ft_strlcat.c \
+	ft_toupper.c \
+	ft_tolower.c \
 	ft_strchr.c \
 	ft_strrchr.c \
 	ft_strncmp.c \
-	ft_strnstr.c
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_strnstr.c \
+	# ft_atoi.c \
+	ft_calloc.c \
+	ft_strdup.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
 
-OBJS = ${SRCS:.c=.o}
-NAME = libft.a
+# SRCS_BONUS = ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
+
+OBJS = $(SRCS:.c=.o)
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c $(DEPS)
-	$(CC) $(CLFAGS) -c  $< -o $@
+	$(CC) $(CCFLAG) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(AR) $(LFLAGS) -o $@ $^
+	$(AR) $(ARFLAG) $@ $^
 
 clean:
-	-rm -f $(OBJS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	-rm -f $(NAME)
+	$(RM) ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(ARFLAG) $(NAME) $^
+
+.PHONY: all clean fclean re bonus

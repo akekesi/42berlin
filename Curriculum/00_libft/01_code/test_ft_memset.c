@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 22:25:58 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/13 22:07:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:45:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ static int	test_check(char *str, char *str_ft, int c, size_t n)
 
 static void	test_print(char *str, char *str_ft, int c, size_t n, char *result, char *result_ft)
 {
-	printf("memset(%s, %c, %d):    %s\n", str, c, n, result);
-	printf("ft_memset(%s, %c, %d): %s\n", str_ft, c, n, result_ft);
+	printf("memset(%s, %c, %lu):    %s\n", str, c, n, result);
+	printf("ft_memset(%s, %c, %lu): %s\n", str_ft, c, n, result_ft);
 }

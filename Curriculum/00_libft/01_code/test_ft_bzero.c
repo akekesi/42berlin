@@ -45,6 +45,6 @@ static int	test_check(char *str_origin, char *str, char *str_ft, size_t n)
 
 static void	test_print(char *str_origin, char *str, char *str_ft, size_t n)
 {
-	printf("bzero(%s, %d):    %s\n", str_origin, n, str);
-	printf("ft_bzero(%s, %d): %s\n", str_origin, n, str_ft);
+	printf("bzero(%s, %lu):    %s\n", str_origin, n, str);
+	printf("ft_bzero(%s, %lu): %s\n", str_origin, n, str_ft);
 }

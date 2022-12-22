@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:01:56 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 18:10:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:22:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *
 
 	result = strlcpy(dest, src, n);
 	result_ft = ft_strlcpy(dest_ft, src, n);
-	test_print(dest_origin, dest, dest_ft, src, n, result, result_ft);
 	if (result != result_ft)
 	{
 		printf("Error:\n");

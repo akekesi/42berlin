@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:43:26 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/17 19:57:27 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:45:43 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *
 
 static void	test_print(char *dest_origin, const char *src_origin, size_t n, char *result, char *result_ft)
 {
-	printf("memmove(%s, %s, %d):    %s\n", dest_origin, src_origin, n, result);
-	printf("ft_memmove(%s, %s, %d): %s\n", dest_origin, src_origin, n, result_ft);
+	printf("memmove(%s, %s, %lu):    %s\n", dest_origin, src_origin, n, result);
+	printf("ft_memmove(%s, %s, %lu): %s\n", dest_origin, src_origin, n, result_ft);
 }

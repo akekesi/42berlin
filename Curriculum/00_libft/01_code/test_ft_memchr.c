@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:09:48 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 13:09:48 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:44:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ static int	test_check(const char *str, int c, size_t n)
 
 static void	test_print(const char *str, int c, size_t n, char *result, char *result_ft)
 {
-	printf("memchr(%s, %c, %d):    %p\n", str, c, n, result);
-	printf("ft_memchr(%s, %c, %d): %p\n", str, c, n, result_ft);
+	printf("memchr(%s, %c, %lu):    %p\n", str, c, n, result);
+	printf("ft_memchr(%s, %c, %lu): %p\n", str, c, n, result_ft);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:22:03 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/13 22:06:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:46:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ static int	test_check(const char *str)
 
 static void	test_print(const char *str, size_t result, size_t result_ft)
 {
-	printf("strlen(%s):    %d\n", str, result);
-	printf("ft_strlen(%s): %d\n", str, result_ft);
+	printf("strlen(%s):    %lu\n", str, result);
+	printf("ft_strlen(%s): %lu\n", str, result_ft);
 }

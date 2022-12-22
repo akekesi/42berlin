@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/18 15:46:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 21:07:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,35 +85,36 @@ int	main(void)
 	else
 		printf("test_ft_memcmp(): NOT OK!\n");
 
-	// if (test_ft_strchr())
-	// 	printf("test_ft_strchr(): OK!\n");
-	// else
-	// 	printf("test_ft_strchr(): NOT OK!\n");
+	if (test_ft_strlcpy())
+		printf("test_ft_strlcpy(): OK!\n");
+	else
+		printf("test_ft_strlcpy(): NOT OK!\n");
 
-	// if (test_ft_strrchr())
-	// 	printf("test_ft_strrchr(): OK!\n");
-	// else
-	// 	printf("test_ft_strrchr(): NOT OK!\n");
+	if (test_ft_strlcat())
+		printf("test_ft_strlcat(): OK!\n");
+	else
+		printf("test_ft_strlcat(): NOT OK!\n");
+	
+	if (test_ft_strchr())
+		printf("test_ft_strchr(): OK!\n");
+	else
+		printf("test_ft_strchr(): NOT OK!\n");
 
-	// if (test_ft_strncmp())
-	// 	printf("test_ft_strncmp(): OK!\n");
-	// else
-	// 	printf("test_ft_strncmp(): NOT OK!\n");
+	if (test_ft_strrchr())
+		printf("test_ft_strrchr(): OK!\n");
+	else
+		printf("test_ft_strrchr(): NOT OK!\n");
 
-	// if (test_ft_strnstr())
-	// 	printf("test_ft_strnstr(): OK!\n");
-	// else
-	// 	printf("test_ft_strnstr(): NOT OK!\n");
+	if (test_ft_strncmp())
+		printf("test_ft_strncmp(): OK!\n");
+	else
+		printf("test_ft_strncmp(): NOT OK!\n");
 
-	// if (test_ft_strlcpy())
-	// 	printf("test_ft_strlcpy(): OK!\n");
-	// else
-	// 	printf("test_ft_strlcpy(): NOT OK!\n");
+	if (test_ft_strnstr())
+		printf("test_ft_strnstr(): OK!\n");
+	else
+		printf("test_ft_strnstr(): NOT OK!\n");
 
-	// if (test_ft_strlcat())
-	// 	printf("test_ft_strlcat(): OK!\n");
-	// else
-	// 	printf("test_ft_strlcat(): NOT OK!\n");
 	printf("--> main test finished <--\n");
 	return (0);
 }

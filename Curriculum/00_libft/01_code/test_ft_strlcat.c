@@ -6,58 +6,67 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:01:56 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/18 20:48:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:22:39 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "test.h"
-// #include <bsd/string.h> // it works in external terminal (but not in vs code)
-// compile: clear && gcc main.c ft_strlcat.c test_ft_strlcat.c -lbsd && ./a.out
 
-int				test_ft_strlcat(void);
-static int		test_check(int result, int result_ft, char * dest, char *dest_ft, int n);
-static void	test_print(int result, int result_ft, char * dest, char *dest_ft);
+// for strlcat():
+#include <bsd/string.h>
+// but it works in external terminal (but not in vs code)
+// compile and run:
+// clear && gcc main.c ft_strlcat.c test_ft_strlcat.c ft_strlen.c -lbsd && ./a.out
+
+int			test_ft_strlcat(void);
+static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *src, size_t n);
+static void	test_print(char *dest_origin, char *dest, char *dest_ft, const char *src, size_t n, size_t result, size_t result_ft);
 
 int	test_ft_strlcat(void)
 {
+	
+	const char	src[] = "1234567890";
+	int			len_dest;
+	char		c;
 	char		*dest;
 	char		*dest_ft;
-	dest = (char *)malloc(sizeof(*dest) * 15);
-	dest_ft = (char *)malloc(sizeof(*dest_ft) * 15);
-	memset(dest, 'x', 15);
-	memset(dest_ft, 'x', 15);
-	const char	src[] = "12345678";
+	char		*dest_origin;
 	size_t		n;
-	int			i;
-	int			result;
-	int			result_ft;
+	
+	len_dest = 7;
+	c = 'x';
+	dest = (char *)malloc(sizeof(*dest) * len_dest);
+	dest_ft = (char *)malloc(sizeof(*dest_ft) * len_dest);
+	dest_origin = (char *)malloc(sizeof(*dest_ft) * len_dest);
+	memset(dest, c, len_dest);
+	memset(dest_ft, c, len_dest);
+	memset(dest_origin, c, len_dest);
 
-	i = 1;
-	n = 16;
-	result = strlcat(dest, src, n);
-	result_ft = ft_strlcat(dest_ft, src, n);
-	test_print(result, result_ft, dest, dest_ft);
-	if (!test_check(result, result_ft, dest, dest_ft, i++))
+	n = 9;
+	if (!test_check(dest_origin, dest, dest_ft, src, n))
 		return (0);
 	return (1);
 }
 
-static int	test_check(int result, int result_ft, char * dest, char *dest_ft, int n)
+static int	test_check(char *dest_origin, char *dest, char *dest_ft, const char *src, size_t n)
 {
-	if ((result != result_ft) || strcmp(dest, dest_ft))
+	size_t	result;
+	size_t	result_ft;
+
+	result = strlcat(dest, src, n);
+	result_ft = ft_strlcat(dest_ft, src, n);
+	if (result != result_ft)
 	{
-		printf("Error-%d:\n", n);
-		test_print(result, result_ft, dest, dest_ft);
+		printf("Error:\n");
+		test_print(dest_origin, dest, dest_ft, src, n, result, result_ft);
 		return (0);
 	}
 	return (1);
 }
 
-static void	test_print(int result, int result_ft, char * dest, char *dest_ft)
+static void	test_print(char *dest_origin, char *dest, char *dest_ft, const char *src, size_t n, size_t result, size_t result_ft)
 {
-	printf("result:    %d\n", result);
-	printf("result_ft: %d\n", result_ft);
-	printf("dest:      %s\n", dest);
-	printf("dest_ft:   %s\n", dest_ft);
+	printf("strlcat(%s, %s, %lu):    %p --> %s --> %lu\n", dest_origin, src, n, dest, dest, result);
+	printf("ft_strlcat(%s, %s, %lu): %p --> %s --> %lu\n", dest_origin, src, n, dest_ft, dest_ft, result_ft);
 }

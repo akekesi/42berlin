@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:27:01 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 13:27:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:57:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	test_print(const char *str1, const char *str2, size_t n, int result,
 
 int	test_ft_memcmp(void)
 {
-	const char	str1[] = "123x56";
+	const char	str1[] = "123656";
 	const char	str2[] = "123456";
 	size_t		n;
 
@@ -47,6 +47,6 @@ static int	test_check(const char *str1, const char *str2, size_t n)
 
 static void	test_print(const char *str1, const char *str2, size_t n, int result, int result_ft)
 {
-	printf("memcmp(%s, %s, %d):    %d\n", str1, str2, n, result);
-	printf("ft_memcmp(%s, %s, %d): %d\n", str1, str2, n, result_ft);
+	printf("memcmp(%s, %s, %lu):    %d\n", str1, str2, n, result);
+	printf("ft_memcmp(%s, %s, %lu): %d\n", str1, str2, n, result_ft);
 }
