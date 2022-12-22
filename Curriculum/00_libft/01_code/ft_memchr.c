@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:06:53 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 13:06:53 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 15:34:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 
 	c_ = (unsigned char)c;
 	str_ = (unsigned char *)str;
-	while (*str_ && n)
+	while (n)
 	{
 		if (*str_ == c_)
 			return (str_);
