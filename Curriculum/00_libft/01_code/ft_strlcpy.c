@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 11:54:12 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 18:10:43 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/22 20:23:09 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	int	i;
-	int	len_src;
+	size_t	len_src;
 
-	len_src = ft_strlen((char *)src);
-	i = 0;
+	len_src = ft_strlen(src);
 	if (len_src + 1 < n)
 		ft_memcpy(dest, src, len_src + 1);
 	else if (n)
