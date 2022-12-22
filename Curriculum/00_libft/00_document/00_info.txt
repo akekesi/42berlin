@@ -21,3 +21,8 @@ QUESTION
 -scanf
 --> multiple hasznalata nem mukodik (pölö memset)
 --> hogy adok be " "-t, nem veszi be (pölö strlen)
+
+-ft_memcpy:
+--> ez miert?
+	if (!dest_ && !src)
+		return (NULL);

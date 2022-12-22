@@ -75,6 +75,16 @@ int	main(void)
 	else
 		printf("test_ft_memmove(): NOT OK!\n");
 
+	if (test_ft_memchr())
+		printf("test_ft_memchr(): OK!\n");
+	else
+		printf("test_ft_memchr(): NOT OK!\n");
+
+	if (test_ft_memcmp())
+		printf("test_ft_memcmp(): OK!\n");
+	else
+		printf("test_ft_memcmp(): NOT OK!\n");
+
 	// if (test_ft_strchr())
 	// 	printf("test_ft_strchr(): OK!\n");
 	// else
