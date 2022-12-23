@@ -37,5 +37,6 @@ int	test_ft_memchr(void);
 int	test_ft_memcmp(void);
 int	test_ft_strnstr(void);
 int	test_ft_atoi(void);
+int	test_ft_calloc(void);
 
 #endif
