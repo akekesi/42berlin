@@ -6,37 +6,48 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:17:45 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 21:59:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/23 23:15:52 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+clear && gcc ft_strsplit.c && ./a.out
+e
+1. 2 --> 1
+u
+e
+2. 4 --> 3
+u
+e
+Fatal glibc error: malloc assertion failure in sysmalloc: (old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)
+Aborted (core dumped)
+ */
 
 #include "libft.h"
 #include <stdio.h>
 
 char			**ft_strsplit(char const *str, char c);
-static size_t	hf_calc_substr(char const *str, char c);
-static char		*hf_find_other(char const *str, char c);
-static size_t	hf_len_other(char const *str, char c);
+static size_t	**hf_calc_substr(char const *str, char c);
+static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n);
+static void		hf_free_2d(size_t **array);
 
 char	**ft_strsplit(char const *str, char c)
 {
 	size_t	i;
-	size_t	n;
+	size_t	**pos_len;
 	char	**strs;
 	char	*start;
-	size_t	len;
+	size_t	n;
 
-	n = hf_calc_substr(str, c);
-	printf("n: %d\n", n);
+	pos_len = hf_calc_substr(str, c);
+	// printf("n: %lu\n", n);
+	n = 5;
 	strs = (char **)malloc(sizeof(char *) * n + 1);
 	if (!strs)
 		return (NULL);
 	i = 0;
 	while (i < n)
 	{
-		start = hf_find_other(str, c);
-		len = hf_len_other(start, c);
-		printf("%s - %lu\n", start, len);
 		strs[i] = (char *)malloc(sizeof(char) * 2);
 		if (!strs[i])
 		{
@@ -51,11 +62,19 @@ char	**ft_strsplit(char const *str, char c)
 	return (strs);
 }
 
-static size_t	hf_calc_substr(char const *str, char c)
+static size_t	**hf_calc_substr(char const *str, char c)
 {
 	size_t	i;
 	size_t	n;
 	size_t	prev;
+	size_t	*row;
+	size_t	**pos_len;
+
+
+	pos_len = (size_t **)malloc(sizeof(size_t *) * 1);
+	if (!pos_len)
+		return (NULL);
+	pos_len[0] = NULL;
 
 	i = 0;
 	n = 0;
@@ -65,7 +84,15 @@ static size_t	hf_calc_substr(char const *str, char c)
 		if (str[i] == c && prev)
 		{
 			n++;
-			printf("%d. %d --> %d\n", n, i - prev, prev);
+			printf("e\n");
+			row = (size_t *)malloc(sizeof(size_t) * 2);
+			if (!row)
+				return (NULL);
+			row[0] = i - prev;
+			row[1] = prev;
+			pos_len = hf_add_row(pos_len, row, n);
+			printf("%lu. %lu --> %lu\n", n, i - prev, prev);
+			printf("u\n");
 			prev = 0;
 		}
 		if (str[i] != c)
@@ -75,30 +102,46 @@ static size_t	hf_calc_substr(char const *str, char c)
 	if (prev)
 	{
 		n++;
-		printf("%d. %d --> %d\n", n, i - prev, prev);
-	}
-	return (n);
-}
-
-static char	*hf_find_other(char const *str, char c)
-{
-	while (*str == c)
-	{
-		if (!*str)
+		row = (size_t *)malloc(sizeof(size_t) * 2);
+		if (!row)
 			return (NULL);
-		str++;
+		row[0] = i - prev;
+		row[1] = prev;
+		// pos_len = hf_add_row(pos_len, row, n);
+		printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 	}
-	return (str);
+	return (pos_len);
 }
 
-static size_t	hf_len_other(char const *str, char c)
+static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n)
 {
-	size_t	n;
+	size_t	i;
+	size_t	**matrix_new;
 
-	n = 0;
-	while (str[n] != c && str[n])
-		n++;
-	return (n);
+	// printf("%lu\n", n);
+	matrix_new = (size_t **)malloc(sizeof(size_t *) * (n + 1));
+	if (!matrix_new)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		matrix_new[i] = matrix_old[i];
+		i++;
+	}
+	matrix_new[i] = row_new;
+	matrix_new[n + 1] = NULL;
+	// hf_free_2d(matrix_old); // lehet csak free(matrix_old) kene, mert a tobbit hasznaljuk tovabb ???
+	return (matrix_new);
+}
+
+static void	hf_free_2d(size_t **array)
+{
+	while (*array)
+	{
+		free(*array);
+		array++;
+	}
+	free(array);
 }
 
 int	main(void)
@@ -112,7 +155,7 @@ int	main(void)
 	i = 0;
 	while (strs[i])
 	{
-		printf("%d. -->%s<--\n", i, strs[i]);
+		printf("%lu. -->%s<--\n", i, strs[i]);
 		i++;
 	}
 
