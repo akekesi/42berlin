@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 17:17:18 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/23 18:47:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static int	test_check(const char *str1, char const *str2)
 
 	result = hf_ft_strjoin_arthur(str1, str2);
 	result_ft = ft_strjoin(str1, str2);
-	test_print(str1, str2, result, result_ft);
 	if (strcmp(result, result_ft))
 	{
 		printf("Error:\n");
