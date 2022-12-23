@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 23:36:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/23 17:17:02 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,15 @@ int	main(void)
 	// else
 	// 	printf("test_ft_strdup(): NOT OK!\n");
 
-	if (test_ft_substr())
-		printf("test_ft_substr(): OK!\n");
+	// if (test_ft_substr())
+	// 	printf("test_ft_substr(): OK!\n");
+	// else
+	// 	printf("test_ft_substr(): NOT OK!\n");
+	
+	if (test_ft_strjoin())
+		printf("test_ft_strjoin(): OK!\n");
 	else
-		printf("test_ft_substr(): NOT OK!\n");
+		printf("test_ft_strjoin(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);
