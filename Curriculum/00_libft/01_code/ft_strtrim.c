@@ -6,12 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:56:22 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 19:13:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/23 20:35:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	hf_char_in_set(char c, char const *set);
 char		*ft_strtrim(char const *str, char const *set);
