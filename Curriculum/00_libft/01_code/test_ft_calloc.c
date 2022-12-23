@@ -40,6 +40,7 @@ static int	test_check(size_t n, size_t size, int i)
 	 result_ft = ft_calloc(n, size);
 	 if (memcmp(result, result_ft, n * size))
 	 {
+		printf("Error-%d", i);
 		test_print(n, size, result, result_ft);
 	 	return (0);
 	 }
