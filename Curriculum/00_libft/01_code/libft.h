@@ -39,5 +39,6 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t n);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(const char *str);
+char	*ft_substr(const char *str, unsigned int start, size_t len);
 
 #endif

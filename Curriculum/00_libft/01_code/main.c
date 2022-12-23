@@ -125,10 +125,15 @@ int	main(void)
 	// else
 	// 	printf("test_ft_calloc(): NOT OK!\n");
 
-	if (test_ft_strdup())
-		printf("test_ft_strdup(): OK!\n");
+	// if (test_ft_strdup())
+	// 	printf("test_ft_strdup(): OK!\n");
+	// else
+	// 	printf("test_ft_strdup(): NOT OK!\n");
+
+	if (test_ft_substr())
+		printf("test_ft_substr(): OK!\n");
 	else
-		printf("test_ft_strdup(): NOT OK!\n");
+		printf("test_ft_substr(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);

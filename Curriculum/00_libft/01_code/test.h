@@ -39,5 +39,6 @@ int	test_ft_strnstr(void);
 int	test_ft_atoi(void);
 int	test_ft_calloc(void);
 int	test_ft_strdup(void);
+int	test_ft_substr(void);
 
 #endif
