@@ -11,3 +11,6 @@ deepthought
 # Visual Studio Code
 Curriculum/00_libft/.vscode/*
 .vscode/
+
+# folders
+*99_other/
