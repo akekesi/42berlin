@@ -120,10 +120,15 @@ int	main(void)
 	// else
 	// 	printf("test_ft_atoi(): NOT OK!\n");
 
-	if (test_ft_calloc())
-		printf("test_ft_calloc(): OK!\n");
+	// if (test_ft_calloc())
+	// 	printf("test_ft_calloc(): OK!\n");
+	// else
+	// 	printf("test_ft_calloc(): NOT OK!\n");
+
+	if (test_ft_strdup())
+		printf("test_ft_strdup(): OK!\n");
 	else
-		printf("test_ft_calloc(): NOT OK!\n");
+		printf("test_ft_strdup(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);
