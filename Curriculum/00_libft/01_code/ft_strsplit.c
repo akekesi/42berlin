@@ -10,36 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+!!! free memories if malloc returns NULL !!!
+*/
+
 #include "libft.h"
 #include <stdio.h>
 
 char			**ft_strsplit(char const *str, char c);
 static size_t	**hf_calc_substr(char const *str, char c);
 static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n);
+static size_t	hf_len_array(size_t **matrix);
 
 char	**ft_strsplit(char const *str, char c)
 {
 	size_t	i;
-	size_t	j;
+	// size_t	j;
+	size_t	m;
 	size_t	**pos_len;
+	char	**strs;
 
-	pos_len = hf_calc_substr(str,  c);
+	pos_len = hf_calc_substr(str, c);
+	if (!pos_len)
+		return (NULL);
+	m = hf_len_array(pos_len);
+	strs = (char **)malloc(sizeof(char *) * (m + 1));
 	// printf("pos_len: %p --> %p\n", pos_len, *pos_len);
 	i = 0;
-	while (pos_len[i])
+	while (i < m)
 	{
 		// printf("%p: %lu --> %lu\n", pos_len[i], (pos_len[i])[0], (pos_len[i])[1]);
-		j = 0;
-		printf("-->");
-		while (j < pos_len[i][1])
-		{
-			printf("%c", *(str + pos_len[i][0]) + j);
-			j++;
-		}
-		printf("<--\n");
+		strs[i] = (char *)malloc(sizeof(char) * (pos_len[i][1] + 1));
+		if (!strs[i])
+			return (NULL);
+		strs[i] = memcpy(strs[i], str + pos_len[i][0], pos_len[i][1]);
+		strs[i][pos_len[i][1]] = '\0';
+		// printf(" |%lu| ", strlen(strs[i]));
+		// printf("-->");
+		// j = 0;
+		// while (j < pos_len[i][1])
+		// {
+		// 	printf("%c", *(str + pos_len[i][0]) + j);
+		// 	j++;
+		// }
+		// printf("<--\n");
 		i++;
 	}
-	return (NULL);
+	strs[m] = NULL;
+	return (strs);
 }
 
 static size_t	**hf_calc_substr(char const *str, char c)
@@ -62,8 +80,8 @@ static size_t	**hf_calc_substr(char const *str, char c)
 			n++;
 			// printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 			row = (size_t *)malloc(sizeof(size_t) * 2);
-			// if (!row)
-			// 	return (NULL);
+			if (!row)
+				return (NULL);
 			row[0] = i - prev;
 			row[1] = prev;
 			pos_len = hf_add_row(pos_len, row, n);
@@ -79,8 +97,8 @@ static size_t	**hf_calc_substr(char const *str, char c)
 		n++;
 		// printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 		row = (size_t *)malloc(sizeof(size_t) * 2);
-		// if (!row)
-		// 	return (NULL);
+		if (!row)
+			return (NULL);
 		row[0] = i - prev;
 		row[1] = prev;
 		pos_len = hf_add_row(pos_len, row, n);
@@ -117,26 +135,45 @@ static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n)
 	return (matrix_new);
 }
 
+static size_t	hf_len_array(size_t **matrix)
+{
+	size_t	m;
+
+	m = 0;
+	while (matrix[m])
+		m++;
+	return (m);
+}
+
 int	main(void)
 {
 	char const	str[] = "xx1x123x12345x12xx ";
 	char		c = 'x';
+	char		**strs;
 	size_t		i;
-	size_t		n;
+	size_t		m;
 	size_t		*row;
 	size_t		**pos_len;
 
 	printf("|-- start -->\n");
 	pos_len = hf_calc_substr(str,  c);
-	printf("pos_len: %p --> %p\n", pos_len, *pos_len);
+	m = hf_len_array(pos_len);
+	printf("pos_len(%lu): %p --> %p\n", m, pos_len, *pos_len);
+	// i = 0;
+	// while (pos_len[i])
+	// {
+	// 	printf("%p: %lu --> %lu\n", pos_len[i], (pos_len[i])[0], (pos_len[i])[1]);
+	// 	i++;
+	// }
+	printf("---\n");
+	strs = ft_strsplit(str, c);
+	printf("%p: -->%p<--\n", &strs, strs);
 	i = 0;
-	while (pos_len[i])
+	while (strs[i])
 	{
-		printf("%p: %lu --> %lu\n", pos_len[i], (pos_len[i])[0], (pos_len[i])[1]);
+		printf("%p: -->%s<--\n", &strs[i], strs[i]);
 		i++;
 	}
-	printf("---\n");
-	ft_strsplit(str, c);
 
 	printf("<-- end --|\n");
 	return (0);
