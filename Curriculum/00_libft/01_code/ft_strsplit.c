@@ -21,7 +21,14 @@ u
 e
 Fatal glibc error: malloc assertion failure in sysmalloc: (old_top == initial_top (av) && old_size == 0) || ((unsigned long) (old_size) >= MINSIZE && prev_inuse (old_top) && ((unsigned long) old_end & (pagesize - 1)) == 0)
 Aborted (core dumped)
- */
+*/
+
+// 1. test hogy 2d array-jel mukodne-e (hard coded)
+// 2. 2d array 2 lepesben eloallitani
+// --> a hosszt meghatarozni
+// --> feltolteni ertekekkel
+// 3. dinamikus 2d array eloallitasa
+// --> lehet ide a memoriabol atmasolas lenne a jo megoldas
 
 #include "libft.h"
 #include <stdio.h>
@@ -83,13 +90,17 @@ static size_t	**hf_calc_substr(char const *str, char c)
 	{
 		if (str[i] == c && prev)
 		{
+			printf("*%lu\n", i);
 			n++;
-			printf("e\n");
 			row = (size_t *)malloc(sizeof(size_t) * 2);
 			if (!row)
+			{
+				printf("NULL\n");
 				return (NULL);
+			}
 			row[0] = i - prev;
 			row[1] = prev;
+			printf("e\n");
 			pos_len = hf_add_row(pos_len, row, n);
 			printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 			printf("u\n");
@@ -125,10 +136,19 @@ static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		matrix_new[i] = matrix_old[i];
+		matrix_new[i] = (size_t *)malloc(sizeof(size_t) * 2);
+		if (!matrix_new[i])
+			return (NULL);
+		if (1 < n)
+		{
+			matrix_new[i][0] = matrix_old[i][0];
+			printf("%lu\n", n);
+			matrix_new[i][1] = matrix_old[i][1];
+		}
 		i++;
 	}
-	matrix_new[i] = row_new;
+	matrix_new[i][0] = row_new[0];
+	matrix_new[i][1] = row_new[1];
 	matrix_new[n + 1] = NULL;
 	// hf_free_2d(matrix_old); // lehet csak free(matrix_old) kene, mert a tobbit hasznaljuk tovabb ???
 	return (matrix_new);
