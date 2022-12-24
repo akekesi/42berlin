@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:17:45 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/24 15:46:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/24 19:17:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Aborted (core dumped)
 #include <stdio.h>
 
 char			**ft_split(char const *str, char c);
-static size_t	**hf_calc_substr(char const *str, char c);
+static size_t	**hf_calc_pos_len(char const *str, char c);
 static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n);
 static void		hf_free_2d(size_t **array);
 
@@ -46,7 +46,7 @@ char	**ft_split(char const *str, char c)
 	char	*start;
 	size_t	n;
 
-	pos_len = hf_calc_substr(str, c);
+	pos_len = hf_calc_pos_len(str, c);
 	// printf("n: %lu\n", n);
 	n = 5;
 	strs = (char **)malloc(sizeof(char *) * n + 1);
@@ -69,7 +69,7 @@ char	**ft_split(char const *str, char c)
 	return (strs);
 }
 
-static size_t	**hf_calc_substr(char const *str, char c)
+static size_t	**hf_calc_pos_len(char const *str, char c)
 {
 	size_t	i;
 	size_t	n;
