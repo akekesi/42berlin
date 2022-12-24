@@ -21,6 +21,8 @@ char			**ft_strsplit(char const *str, char c);
 static size_t	**hf_calc_substr(char const *str, char c);
 static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n);
 static size_t	hf_len_array(size_t **matrix);
+static char		**hf_free_matrix_char(char **matrix);
+static size_t	**hf_free_matrix_size_t(size_t **matrix, size_t m);
 
 char	**ft_strsplit(char const *str, char c)
 {
@@ -32,9 +34,17 @@ char	**ft_strsplit(char const *str, char c)
 
 	pos_len = hf_calc_substr(str, c);
 	if (!pos_len)
+	{
+		// free ???
 		return (NULL);
+	}
 	m = hf_len_array(pos_len);
 	strs = (char **)malloc(sizeof(char *) * (m + 1));
+	if (!strs)
+	{
+		// free ???
+		return (NULL);
+	}
 	// printf("pos_len: %p --> %p\n", pos_len, *pos_len);
 	i = 0;
 	while (i < m)
@@ -57,6 +67,7 @@ char	**ft_strsplit(char const *str, char c)
 		i++;
 	}
 	strs[m] = NULL;
+	pos_len = hf_free_matrix_size_t(pos_len, m);
 	return (strs);
 }
 
@@ -81,7 +92,10 @@ static size_t	**hf_calc_substr(char const *str, char c)
 			// printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 			row = (size_t *)malloc(sizeof(size_t) * 2);
 			if (!row)
+			{
+				// free ???
 				return (NULL);
+			}
 			row[0] = i - prev;
 			row[1] = prev;
 			pos_len = hf_add_row(pos_len, row, n);
@@ -98,7 +112,10 @@ static size_t	**hf_calc_substr(char const *str, char c)
 		// printf("%lu. %lu --> %lu\n", n, i - prev, prev);
 		row = (size_t *)malloc(sizeof(size_t) * 2);
 		if (!row)
+		{
+			// free ???
 			return (NULL);
+		}
 		row[0] = i - prev;
 		row[1] = prev;
 		pos_len = hf_add_row(pos_len, row, n);
@@ -115,7 +132,10 @@ static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n)
 
 	matrix_new = (size_t **)malloc(sizeof(size_t *) * (n + 1));
 	if (!matrix_new)
+	{
+		// free ???
 		return (NULL);
+	}
 	i = 0;
 	// printf("matrix_old:    %p\n", matrix_old);
 	// printf("matrix_old[%lu]: %p\n", i, matrix_old[i]);
@@ -132,6 +152,7 @@ static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n)
 	// printf("matrix_new[%lu]: %p\n", i, matrix_new[i]);
 	// printf("matrix_new[%lu]: %p\n", n, matrix_new[n]);
 	free(matrix_old);
+	matrix_old = NULL;
 	return (matrix_new);
 }
 
@@ -143,6 +164,47 @@ static size_t	hf_len_array(size_t **matrix)
 	while (matrix[m])
 		m++;
 	return (m);
+}
+
+static char	**hf_free_matrix_char(char **matrix)
+{
+	size_t	i;
+
+	i = 0;
+	printf("%p: -->%p<--\n", &matrix, matrix);
+	while (matrix[i])
+	{
+		printf("free(%p): -->%s<--\n", &matrix[i], matrix[i]);
+		free(matrix[i]);
+		matrix[i] = NULL;
+		printf("free(%p): -->%s<--\n", &matrix[i], matrix[i]);
+		i++;
+	}
+	printf("free(%p): -->%s<--\n", &matrix, matrix);
+	free(matrix);
+	matrix = NULL;
+	printf("free(%p): -->%s<--\n", &matrix, matrix);
+	return (matrix);
+}
+static size_t	**hf_free_matrix_size_t(size_t **matrix, size_t m)
+{
+	size_t	i;
+
+	i = 0;
+	printf("%p: -->%p<--\n", &matrix, matrix);
+	while (i > m)
+	{
+		printf("free(%p): -->%lu<--\n", &matrix[i], matrix[i][0]);
+		free(matrix[i]);
+		matrix[i] = NULL;
+		printf("free(%p): -->%lu<--\n", &matrix[i], matrix[i][0]);
+		i++;
+	}
+	// printf("free(%p): -->%s<--\n", &matrix, matrix[0]);
+	free(matrix);
+	matrix = NULL;
+	// printf("free(%p): -->%s<--\n", &matrix, matrix[0]);
+	return (matrix);
 }
 
 int	main(void)
@@ -174,7 +236,9 @@ int	main(void)
 		printf("%p: -->%s<--\n", &strs[i], strs[i]);
 		i++;
 	}
-
+	printf("%p: -->%p<--\n", &strs, strs);
+	strs = hf_free_matrix_char(strs);
+	printf("%p: -->%p<--\n", &strs, strs);
 	printf("<-- end --|\n");
 	return (0);
 }
