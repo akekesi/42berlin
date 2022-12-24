@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/24 15:43:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/24 23:32:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,10 +145,10 @@ int	main(void)
 	// else
 	// 	printf("test_ft_strtrim(): NOT OK!\n");
 
-	if (test_ft_strsplit())
-		printf("test_ft_strsplit(): OK!\n");
+	if (test_ft_split())
+		printf("test_ft_split(): OK!\n");
 	else
-		printf("test_ft_strsplit(): NOT OK!\n");
+		printf("test_ft_split(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);
