@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 02:38:05 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 02:38:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/24 23:40:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strdup(const char *str)
 	while (str[i])
 	{
 		result[i] = str[i];
-		i++; 
+		i++;
 	}
 	result[i] = '\0';
 	return (result);
