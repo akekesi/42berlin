@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:17:45 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/24 23:32:48 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:50:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**ft_split(char const *str, char const c)
 	return (strs);
 }
 
-static char	**hf_ft_split(char const *str, char const c, char **strs, int m_max)
+static char	**hf_ft_split(char const *str, char const c, char **strs, int m)
 {
 	int		i;
 	int		m_;
@@ -42,7 +42,7 @@ static char	**hf_ft_split(char const *str, char const c, char **strs, int m_max)
 
 	i = 0;
 	m_ = 0;
-	while (m_ < m_max)
+	while (m_ < m)
 	{
 		while (str[i] == c)
 			i++;
