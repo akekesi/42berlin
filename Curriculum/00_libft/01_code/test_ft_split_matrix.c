@@ -13,14 +13,14 @@
 #include "libft.h"
 #include <stdio.h>
 
-char			**ft_split(char const *str, char c);
+char			**ft_split_matrix(char const *str, char c);
 static size_t	**hf_calc_pos_len(char const *str, char c);
 static size_t	**hf_add_row(size_t **matrix_old, size_t *row_new, size_t n);
 static size_t	hf_len_array(size_t **matrix);
 static char		**hf_free_matrix_char(char **matrix);
 static size_t	**hf_free_matrix_size_t(size_t **matrix);
 
-char	**ft_split(char const *str, char c)
+char	**ft_split_matrix(char const *str, char c)
 {
 	size_t	i;
 	size_t	m;
@@ -170,6 +170,7 @@ static size_t	**hf_free_matrix_size_t(size_t **matrix)
 	return (matrix);
 }
 
+/*
 int	main(void)
 {
 	// char const	str[] = "xx1x123x12345x12xx ";
@@ -193,7 +194,7 @@ int	main(void)
 	// 	i++;
 	// }
 	printf("---\n");
-	strs = ft_split(str, c);
+	strs = ft_split_matrix(str, c);
 	printf("%p: -->%p<--\n", &strs, strs);
 	i = 0;
 	while (strs[i])
@@ -208,3 +209,4 @@ int	main(void)
 	printf("<-- end --|\n");
 	return (0);
 }
+*/
