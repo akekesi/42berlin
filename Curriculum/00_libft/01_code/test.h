@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:54:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 18:42:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:46:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int	test_ft_strjoin(void);
 int	test_ft_strtrim(void);
 int	test_ft_split(void);
 int	test_ft_itoa(void);
+int	test_ft_strmapi(void);
 
 #endif

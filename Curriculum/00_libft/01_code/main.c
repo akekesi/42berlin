@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 18:49:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:46:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,10 +150,15 @@ int	main(void)
 	// else
 	// 	printf("test_ft_split(): NOT OK!\n");
 
-	if (test_ft_itoa())
-		printf("test_ft_itoa(): OK!\n");
-	else
-		printf("test_ft_itoa(): NOT OK!\n");
+	// if (test_ft_itoa())
+	// 	printf("test_ft_itoa(): OK!\n");
+	// else
+	// 	printf("test_ft_itoa(): NOT OK!\n");
+
+	// if (test_ft_strmapi())
+	// 	printf("test_ft_strmapi(): OK!\n");
+	// else
+	// 	printf("test_ft_strmapi(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);
