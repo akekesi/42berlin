@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 20:29:56 by akekesi           #+#    #+#              #
-#    Updated: 2022/12/24 15:45:47 by akekesi          ###   ########.fr        #
+#    Updated: 2022/12/25 17:19:26 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,8 @@ SRCS = ft_isalpha.c \
 	ft_strjoin.c \
 	ft_strtrim.c \
 	ft_split.c \
-	# ft_itoa.c \
-	ft_strmapi.c \
+	ft_itoa.c \
+	# ft_strmapi.c \
 	ft_striteri.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
