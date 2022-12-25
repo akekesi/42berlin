@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 14:59:59 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:25:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	test_check(const char *str, unsigned int start, size_t len)
 
 	result = hf_ft_substr_arthur(str, start, len);
 	result_ft = ft_substr(str, start, len);
-	test_print(str, start, len, result, result_ft);
 	if (strcmp(result, result_ft))
 	{
 		printf("Error:\n");
@@ -50,8 +49,8 @@ static int	test_check(const char *str, unsigned int start, size_t len)
 
 static void	test_print(const char *str, unsigned int start, size_t len, char *result, char *result_ft)
 {
-	printf("substr(%s, %lu, %lu):    %s\n", str, start, len, result);
-	printf("ft_substr(%s, %lu, %lu): %s\n", str, start, len, result_ft);
+	printf("substr(%s, %u, %lu):    %s\n", str, start, len, result);
+	printf("ft_substr(%s, %u, %lu): %s\n", str, start, len, result_ft);
 }
 
 static char	*hf_ft_substr_arthur(char const *s, unsigned int start, size_t len)

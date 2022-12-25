@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:54:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:58:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:10:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,9 @@ int	test_ft_split(void);
 int	test_ft_itoa(void);
 int	test_ft_strmapi(void);
 int	test_ft_striteri(void);
+int	test_ft_putchar_fd(void);
+int	test_ft_putstr_fd(void);
+int	test_ft_putendl_fd(void);
+int	test_ft_putnbr_fd(void);
 
 #endif

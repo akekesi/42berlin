@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:22:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 21:04:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 23:36:18 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -46,5 +47,9 @@ char	**ft_split(char const *str, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 void	ft_striteri(char *str, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

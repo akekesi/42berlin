@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 23:34:50 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 23:36:16 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:25:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	test_check(const char *str, int i)
 
 	result = atoi(str);
 	result_ft = ft_atoi(str);
-	test_print(str, result, result_ft);
 	if (result != result_ft)
 	{
 		printf("Error-%d:\n", i);
