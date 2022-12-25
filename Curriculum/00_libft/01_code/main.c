@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:55:11 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:46:27 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:59:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,11 @@ int	main(void)
 	// 	printf("test_ft_strmapi(): OK!\n");
 	// else
 	// 	printf("test_ft_strmapi(): NOT OK!\n");
+
+	if (test_ft_striteri())
+		printf("test_ft_striteri(): OK!\n");
+	else
+		printf("test_ft_striteri(): NOT OK!\n");
 
 	printf("--> main test finished <--\n");
 	return (0);

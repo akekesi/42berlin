@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:22:38 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:46:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/25 21:04:40 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ char	*ft_strtrim(const char *str, const char *set);
 char	**ft_split(char const *str, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
+void	ft_striteri(char *str, void (*f)(unsigned int, char*));
 
 #endif
