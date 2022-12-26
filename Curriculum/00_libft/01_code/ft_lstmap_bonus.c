@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 12:12:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/26 12:12:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 17:20:47 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)( void *))
 	t_list	*elem;
 	t_list	*lst_new;
 
-	lst_new = NULL;;
+	if (!f || !del)
+		return (NULL);
+	lst_new = NULL;
 	while (lst)
 	{
 		elem = ft_lstnew(f(lst->content));
@@ -29,5 +31,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)( void *))
 		ft_lstadd_back(&lst_new, elem);
 		lst = lst->next;
 	}
-	return(lst_new);
+	return (lst_new);
 }
