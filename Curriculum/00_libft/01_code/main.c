@@ -185,6 +185,8 @@ int	main(void)
 	else
 		printf("test_ft_putnbr_fd(): NOT OK!\n");
 
+	printf("no tets for bonus part yet\n");
+
 	printf("--> main test finished <--\n");
 	return (0);
 }
