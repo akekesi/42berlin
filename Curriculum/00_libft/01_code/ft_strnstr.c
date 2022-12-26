@@ -6,12 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 14:56:52 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/22 23:20:41 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 18:39:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "test.h"
 
 char		*ft_strnstr(const char *str1, const char *str2, size_t n);
 static int	hf_check_ft_strnstr(char *str1, char *str2, size_t n);
