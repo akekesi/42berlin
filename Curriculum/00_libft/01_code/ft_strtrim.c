@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:56:22 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/23 20:35:27 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 17:32:36 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char		*ft_strtrim(char const *str, char const *set);
 
 char	*ft_strtrim(char const *str, char const *set)
 {
-	size_t	start;
-	size_t	end;
+	int		start;
+	int		end;
 	char	*str_trim;
 
 	if (!str || !set)
