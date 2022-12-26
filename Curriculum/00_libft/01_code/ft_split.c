@@ -6,12 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:17:45 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:50:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/26 18:46:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "test.h"
 
 char		**ft_split(char const *str, char const c);
 static char	**hf_ft_split(char const *str, char const c, char **strs, int m);
