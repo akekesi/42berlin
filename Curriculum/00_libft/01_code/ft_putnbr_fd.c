@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 21:32:01 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/26 00:08:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/27 14:27:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	ft_putnbr_fd(int n, int fd)
 			n *= -1;
 		}
 		if (n > 9)
-		{
 			ft_putnbr_fd(n / 10, fd);
-		}
 		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }
