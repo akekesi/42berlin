@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/27 23:04:43 by akekesi          ###   ########.fr       */
+/*   Created: 2022/12/27 18:36:15 by akekesi           #+#    #+#             */
+/*   Updated: 2022/12/27 23:03:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include "test.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-int	main(void)
-{
-	printf("--> main test started <--\n");
-	ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
-	ft_printf("%cc%ss%pp%dd%ii%uu%xx%XX%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
-	printf("--> main test finished <--\n");
-}
+# include <stdarg.h>
+
+int		ft_printf(const char *str, ...);
+char	*ft_types(void);
+int		ft_check_next(const char *str);
+int		ft_char_in_str(char c, char *str);
+int		ft_strlen(const char *str);
+
+#endif
