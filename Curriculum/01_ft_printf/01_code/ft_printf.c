@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/27 23:04:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/28 17:54:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%' && ft_check_next(&str[i]))
 		{
 			i++;
-			printf("--> %c --> %d\n", str[i], va_arg(args, int));
+			printf("%c --> %i\n", str[i], va_arg(args, int));
 		}
 		else
 			printf("%c\n", str[i]);
