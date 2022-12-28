@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/28 17:53:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/28 20:35:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,18 @@ int	main(void)
 	t_func	*list_func_;
 
 	list_func = ft_create_list_func();
-	list_func_ = *list_func;
 	printf("%p\n", list_func);
+	// list_func_ = *list_func;
 
-	while (list_func_)
-	{
-		printf("%p --> ", list_func_);
-		printf("%c --> ", list_func_->c);
-		printf("%p --> ", list_func_->f);
-		printf("%p\n", list_func_->next);
-		list_func_ = list_func_->next;
-	}
+	// while (list_func_)
+	// {
+	// 	printf("%p --> ", list_func_);
+	// 	printf("%c --> ", list_func_->c);
+	// 	printf("%p --> ", list_func_->f);
+	// 	printf("%p\n", list_func_->next);
+	// 	list_func_ = list_func_->next;
+	// }
+	// // ft_list_func_clear(list_func);
 	printf("!!! list_func: del and clear are needed !!!\n");
 	printf("<-- test list_func --|\n");
 	// ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);

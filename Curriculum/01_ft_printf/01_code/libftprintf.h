@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:36:15 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/28 17:53:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/28 20:35:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_func	*ft_list_func_new(char c, int (*f)(va_list));
 t_func	*ft_list_func_last(t_func *list_func);
 void	ft_list_func_add_last(t_func **list_func, t_func *new);
 void	ft_list_func_new_add_last(t_func **list_func, char c, int (*f)(va_list));
+void	ft_list_func_del(t_func *list_func);
+void	ft_list_func_clear(t_func **list_func);
 
 t_func	**ft_create_list_func(void);
 int		ft_write_char(va_list args);
