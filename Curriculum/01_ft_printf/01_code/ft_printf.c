@@ -21,7 +21,7 @@ int		ft_print_char(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long ptr);
 int		ft_print_int(int n, int i);
-int		ft_print_uint(unsigned int n);
+int		ft_print_uint(unsigned int n, int i);
 int		ft_print_hex(unsigned int n, char c);
 
 int	ft_printf(const char *str, ...)
@@ -81,7 +81,7 @@ int	ft_print_arg(int c, va_list args)
 	if (c == 'd' || c == 'i')
 		n = ft_print_int(va_arg(args, int), 0);
 	if (c == 'u')
-		n = ft_print_uint(va_arg(args, unsigned int));
+		n = ft_print_uint(va_arg(args, unsigned int), 0);
 	if (c == 'x' || c == 'X')
 		n = ft_print_hex(va_arg(args, unsigned int), c);
 	return (n);
@@ -122,7 +122,7 @@ int	ft_print_int(int n, int i)
 			i += ft_print_char('-');
 			n *= -1;
 		}
-		if (10 < n)
+		if (9 < n)
 		{
 			i += ft_print_int(n / 10, i);
 		}
@@ -131,10 +131,12 @@ int	ft_print_int(int n, int i)
 	return (i);
 }
 
-int	ft_print_uint(unsigned int n)
+int	ft_print_uint(unsigned int n, int i)
 {
-	return (0);
-}
+	if (9 < n)
+		i += ft_print_int(n / 10, i);
+	i += ft_print_char((n % 10) + '0');
+	return (i);}
 
 int	ft_print_hex(unsigned int n, char c)
 {

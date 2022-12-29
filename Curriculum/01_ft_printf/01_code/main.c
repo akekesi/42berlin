@@ -17,33 +17,53 @@ int	main(void)
 {
 
 	printf("*** main test started ***\n");
-	// printf("|-- test printf -->\n");
+	printf("|-- test printf -->\n");
 	// // ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
 	// // ft_printf("%cc%ss%pp%dd%ii%uu%xx%XX%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-	// int		n;
+	int		n;
 
-	// n = 0;
-	// n = ft_printf("-->K<--\n-->%c  %c<--", 'K');
-	// write(1, "\n", 1);
-	// n = ft_printf("-->Keki<--\n-->%s<--", "Keki");
-	// write(1, "\n", 1);
-	// n = ft_printf("-->%<--\n-->%%<--", '%');
-	// write(1, "\n", 1);
-	// n = ft_printf("-->123<--\n-->%i<--", 123);
-	// write(1, "\n", 1);
-	// printf("<-- test printf --|\n");
+	n = 0;
+	n = ft_printf("-->K<--\n-->%c<--\n", 'K');
+	ft_printf("n: %i\n", n);
+	n = ft_printf("--> <--\n-->%c<--\n", '\0');
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->\n<--\n-->%c<--\n", '\n');
+	ft_printf("n: %i\n", n);
+	n = ft_printf("--><--\n-->%s<--\n", "");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->Keki<--\n-->%s<--\n", "Keki");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->%<--\n-->%%<--\n", '%');
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0<--\n-->%i<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->123<--\n-->%i<--\n", 123);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->-123<--\n-->%d<--\n", -123);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->2147483647<--\n-->%d<--\n", 2147483647);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->-2147483648<--\n-->%d<--\n", -2147483648);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->2147483648<--\n-->%u<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->2147483648<--\n-->%u<--\n", 2147483647 + 2147483648);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->2147483648<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
+	ft_printf("n: %i\n", n);
 
-	printf("|-- test list_func -->\n");
-	t_func	*list_func;
+	printf("<-- test printf --|\n");
 
-	list_func = ft_create_list_func();
-	ft_list_func_print(list_func);
-	ft_list_func_print(list_func);
-	ft_list_func_clear(&list_func);
-	ft_list_func_print(list_func);
-	ft_list_func_print(list_func);
-	printf("<-- test list_func --|\n");
+	// printf("|-- test list_func -->\n");
+	// t_func	*list_func;
 
+	// list_func = ft_create_list_func();
+	// ft_list_func_print(list_func);
+	// ft_list_func_print(list_func);
+	// ft_list_func_clear(&list_func);
+	// ft_list_func_print(list_func);
+	// ft_list_func_print(list_func);
+	// printf("<-- test list_func --|\n");
 	printf("*** main test finished ***\n");
 }
