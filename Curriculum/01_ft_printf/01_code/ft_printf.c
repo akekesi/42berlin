@@ -16,7 +16,7 @@
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
 int		ft_char_in_str(int c, char *str);
-int		ft_print_arg(int c, va_list args);
+int		ft_print_arg(int c, va_list *args);
 int		ft_print_char(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long ptr);
@@ -39,7 +39,7 @@ int	ft_printf(const char *str, ...)
 		c = ft_char_in_str(str[i + 1], "cspdiuxX%");
 		if (str[i] == '%' && c)
 		{
-			n += ft_print_arg(c, args);
+			n += ft_print_arg(c, &args);
 			i++;
 		}	
 		else
@@ -66,24 +66,24 @@ int	ft_char_in_str(int c, char *str)
 	return (0);
 }
 
-int	ft_print_arg(int c, va_list args)
+int	ft_print_arg(int c, va_list *args)
 {
 	// just for test in windows (not increment) ???
 	int	n;
 
 	n = 0;
 	if (c == 'c' || c == '%')
-		n = ft_print_char(va_arg(args, int));
+		n = ft_print_char(va_arg(*args, int));
 	if (c == 's')
-		n = ft_print_str(va_arg(args, char *));
+		n = ft_print_str(va_arg(*args, char *));
 	if (c == 'p')
-		n = ft_print_ptr(va_arg(args, unsigned long long));
+		n = ft_print_ptr(va_arg(*args, unsigned long long));
 	if (c == 'd' || c == 'i')
-		n = ft_print_int(va_arg(args, int), 0);
+		n = ft_print_int(va_arg(*args, int), 0);
 	if (c == 'u')
-		n = ft_print_uint(va_arg(args, unsigned int), 0);
+		n = ft_print_uint(va_arg(*args, unsigned int), 0);
 	if (c == 'x' || c == 'X')
-		n = ft_print_hex(va_arg(args, unsigned int), c);
+		n = ft_print_hex(va_arg(*args, unsigned int), c);
 	return (n);
 }
 

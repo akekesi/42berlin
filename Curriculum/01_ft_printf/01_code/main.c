@@ -24,7 +24,7 @@ int	main(void)
 	int		n;
 
 	n = 0;
-	n = ft_printf("-->K<--\n-->%c<--\n", 'K');
+	n = ft_printf("-->keki<--\n-->%c%c%c%c<--\n", 'k', 'e', 'k', 'i');
 	ft_printf("n: %i\n", n);
 	n = ft_printf("--> <--\n-->%c<--\n", '\0');
 	ft_printf("n: %i\n", n);
@@ -46,13 +46,12 @@ int	main(void)
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->-2147483648<--\n-->%d<--\n", -2147483648);
 	ft_printf("n: %i\n", n);
-	n = ft_printf("-->2147483648<--\n-->%u<--\n", 0);
+	n = ft_printf("-->0<--\n-->%u<--\n", 0);
 	ft_printf("n: %i\n", n);
-	n = ft_printf("-->2147483648<--\n-->%u<--\n", 2147483647 + 2147483648);
+	n = ft_printf("-->4294967295<--\n-->%u<--\n", 2147483647 + 2147483648);
 	ft_printf("n: %i\n", n);
-	n = ft_printf("-->2147483648<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
+	n = ft_printf("-->0<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
 	ft_printf("n: %i\n", n);
-
 	printf("<-- test printf --|\n");
 
 	// printf("|-- test list_func -->\n");

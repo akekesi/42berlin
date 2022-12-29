@@ -38,7 +38,7 @@ int		ft_write_int(va_list args);
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
 int		ft_char_in_str(int c, char *str);
-int		ft_print_arg(int c, va_list args);
+int		ft_print_arg(int c, va_list *args);
 int		ft_print_char(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long ptr);
