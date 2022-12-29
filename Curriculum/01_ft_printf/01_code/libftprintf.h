@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_func
 {
@@ -36,8 +37,13 @@ int		ft_write_int(va_list args);
 
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
-int		ft_check_next(const char *str);
-int		ft_char_in_str(char c, char *str);
-int		ft_strlen(const char *str);
+int		ft_char_in_str(int c, char *str);
+int		ft_print_arg(int c, va_list args);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+int		ft_print_ptr(unsigned long long ptr);
+int		ft_print_int(int n);
+int		ft_print_uint(unsigned int n);
+int		ft_print_hex(unsigned int n, char c);
 
 #endif

@@ -15,32 +15,39 @@
 
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
-int		ft_check_next(const char *str);
-int		ft_char_in_str(char c, char *str);
-int		ft_strlen(const char *str);
+int		ft_char_in_str(int c, char *str);
+int		ft_print_arg(int c, va_list args);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+int		ft_print_ptr(unsigned long long ptr);
+int		ft_print_int(int n);
+int		ft_print_uint(unsigned int n);
+int		ft_print_hex(unsigned int n, char c);
 
 int	ft_printf(const char *str, ...)
 {
 	int		i;
+	int		n;
+	char	c;
 	va_list	args;
 
 	va_start(args, str);
 	i = 0;
-	printf("%s --> %d\n", str, ft_strlen(str));
+	n = 0;
 	while (str[i])
 	{
-		printf("%d. ", i);
-		if (str[i] == '%' && ft_check_next(&str[i]))
+		c = ft_char_in_str(str[i + 1], "cspdiuxX%");
+		if (str[i] == '%' && c)
 		{
+			n += ft_print_arg(c, args);
 			i++;
-			printf("%c --> %i\n", str[i], va_arg(args, int));
-		}
+		}	
 		else
-			printf("%c\n", str[i]);
+			n += ft_print_char(str[i]);
 		i++;
 	}
 	va_end(args);
-	return (0);
+	return (n);
 }
 
 char	*ft_types(void)
@@ -48,28 +55,73 @@ char	*ft_types(void)
 	return ("cspdiuxX%");
 }
 
-int	ft_char_in_str(char c, char *str)
+int	ft_char_in_str(int c, char *str)
 {
 	while (*str)
 	{
 		if (*str == c)
-			return (1);
+			return (c);
 		str++;
 	}
 	return (0);
 }
 
-int	ft_check_next(const char *str)
-{
-	return (ft_char_in_str(*(++str), ft_types()));
-}
-
-int	ft_strlen(const char *str)
+int	ft_print_arg(int c, va_list args)
 {
 	int	n;
 
 	n = 0;
-	while (str[n])
-		n++;
+	if (c == 'c' || c == '%')
+		n = ft_print_char(va_arg(args, int));
+	va_arg(args, int); // just for test in windows (not increment) ???
+	if (c == 's')
+		n = ft_print_str(va_arg(args, char *));
+	if (c == 'p')
+		n = ft_print_ptr(va_arg(args, unsigned long long));
+	if (c == 'd' || c == 'i')
+		n = ft_print_int(va_arg(args, int));
+	if (c == 'u')
+		n = ft_print_uint(va_arg(args, unsigned int));
+	if (c == 'x' || c == 'X')
+		n = ft_print_hex(va_arg(args, unsigned int), c);
 	return (n);
+}
+
+int	ft_print_char(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_print_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_print_char(str[i]);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_print_ptr(unsigned long long ptr)
+{
+	return (0);
+}
+
+int	ft_print_int(int n)
+{
+	return (0);
+}
+
+int	ft_print_uint(unsigned int n)
+{
+	return (0);
+}
+
+int	ft_print_hex(unsigned int n, char c)
+{
+	return (0);
 }
