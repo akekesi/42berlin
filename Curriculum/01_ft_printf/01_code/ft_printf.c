@@ -20,7 +20,7 @@ int		ft_print_arg(int c, va_list args);
 int		ft_print_char(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long ptr);
-int		ft_print_int(int n);
+int		ft_print_int(int n, int i);
 int		ft_print_uint(unsigned int n);
 int		ft_print_hex(unsigned int n, char c);
 
@@ -68,18 +68,18 @@ int	ft_char_in_str(int c, char *str)
 
 int	ft_print_arg(int c, va_list args)
 {
+	// just for test in windows (not increment) ???
 	int	n;
 
 	n = 0;
 	if (c == 'c' || c == '%')
 		n = ft_print_char(va_arg(args, int));
-	va_arg(args, int); // just for test in windows (not increment) ???
 	if (c == 's')
 		n = ft_print_str(va_arg(args, char *));
 	if (c == 'p')
 		n = ft_print_ptr(va_arg(args, unsigned long long));
 	if (c == 'd' || c == 'i')
-		n = ft_print_int(va_arg(args, int));
+		n = ft_print_int(va_arg(args, int), 0);
 	if (c == 'u')
 		n = ft_print_uint(va_arg(args, unsigned int));
 	if (c == 'x' || c == 'X')
@@ -87,7 +87,7 @@ int	ft_print_arg(int c, va_list args)
 	return (n);
 }
 
-int	ft_print_char(int c)
+int	ft_print_char(int c) 
 {
 	write(1, &c, 1);
 	return (1);
@@ -111,9 +111,24 @@ int	ft_print_ptr(unsigned long long ptr)
 	return (0);
 }
 
-int	ft_print_int(int n)
+int	ft_print_int(int n, int i)
 {
-	return (0);
+	if (n == -2147483648)
+		i += ft_print_str("-2147483648");
+	else
+	{
+		if (n < 0)
+		{
+			i += ft_print_char('-');
+			n *= -1;
+		}
+		if (10 < n)
+		{
+			i += ft_print_int(n / 10, i);
+		}
+		i += ft_print_char((n % 10) + '0');
+	}
+	return (i);
 }
 
 int	ft_print_uint(unsigned int n)

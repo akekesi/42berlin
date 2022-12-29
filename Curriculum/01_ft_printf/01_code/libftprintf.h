@@ -42,7 +42,7 @@ int		ft_print_arg(int c, va_list args);
 int		ft_print_char(int c);
 int		ft_print_str(char *str);
 int		ft_print_ptr(unsigned long long ptr);
-int		ft_print_int(int n);
+int		ft_print_int(int n, int i);
 int		ft_print_uint(unsigned int n);
 int		ft_print_hex(unsigned int n, char c);
 

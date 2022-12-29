@@ -16,18 +16,22 @@
 int	main(void)
 {
 	int		n;
-	char	str [12] = "str: a%cc%sd";
 
 	n = 0;
 	printf("*** main test started ***\n");
-
 	printf("|-- test printf -->\n");
 	// ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
 	// ft_printf("%cc%ss%pp%dd%ii%uu%xx%XX%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
-	n = ft_printf(str, '$', "KeKi");
+
+	n = ft_printf("-->K<--\n-->%c  %c<--", 'K');
 	write(1, "\n", 1);
-	write(1, str, 12);
-	printf(" --> %i\n", n);
+	n = ft_printf("-->Keki<--\n-->%s<--", "Keki");
+	write(1, "\n", 1);
+	n = ft_printf("-->%<--\n-->%%<--", '%');
+	write(1, "\n", 1);
+	n = ft_printf("-->123<--\n-->%i<--", 123);
+	write(1, "\n", 1);
+
 	printf("<-- test printf --|\n");
 
 	// printf("|-- test list_func -->\n");
