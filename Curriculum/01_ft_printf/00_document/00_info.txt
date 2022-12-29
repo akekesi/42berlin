@@ -1,5 +1,8 @@
 INFO
-
+-memory:
+--> valgrind ./a.out
+--> gcc flag: -g
+	
 
 
 QUESTION

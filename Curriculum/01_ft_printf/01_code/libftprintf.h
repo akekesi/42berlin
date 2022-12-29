@@ -31,7 +31,7 @@ void	ft_list_func_new_add_last(t_func **list_func, char c, int (*f)(va_list));
 void	ft_list_func_del(t_func *list_func);
 void	ft_list_func_clear(t_func **list_func);
 void	ft_list_func_print(t_func *list_func);
-t_func	**ft_create_list_func(void);
+t_func	*ft_create_list_func(void);
 int		ft_write_char(va_list args);
 int		ft_write_int(va_list args);
 
