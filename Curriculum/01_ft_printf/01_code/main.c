@@ -18,21 +18,13 @@ int	main(void)
 	printf("*** main test started ***\n");
 	printf("|-- test list_func -->\n");
 	t_func	**list_func;
-	t_func	*list_func_;
 
 	list_func = ft_create_list_func();
-	printf("%p\n", list_func);
-	// list_func_ = *list_func;
 
-	// while (list_func_)
-	// {
-	// 	printf("%p --> ", list_func_);
-	// 	printf("%c --> ", list_func_->c);
-	// 	printf("%p --> ", list_func_->f);
-	// 	printf("%p\n", list_func_->next);
-	// 	list_func_ = list_func_->next;
-	// }
-	// // ft_list_func_clear(list_func);
+	ft_list_func_clear(list_func);
+	printf("list_func in main:   %p\n", list_func);
+	printf("*list_func in main:  %p <-- Not NULL?\n", *list_func);
+
 	printf("!!! list_func: del and clear are needed !!!\n");
 	printf("<-- test list_func --|\n");
 	// ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);

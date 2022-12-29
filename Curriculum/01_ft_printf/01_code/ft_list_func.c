@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include "test.h"
 
 t_func	*ft_list_func_new(char c, int (*f)(va_list));
 t_func	*ft_list_func_last(t_func *list_func);
@@ -18,6 +19,7 @@ void	ft_list_func_add_last(t_func **list_func, t_func *new);
 void	ft_list_func_new_add_last(t_func **list_func, char c, int (*f)(va_list));
 void	ft_list_func_del(t_func *list_func);
 void	ft_list_func_clear(t_func **list_func);
+void	ft_list_func_print(t_func *list_func);
 
 t_func	*ft_list_func_new(char c, int (*f)(va_list))
 {
@@ -75,15 +77,36 @@ void	ft_list_func_del(t_func *list_func)
 
 void	ft_list_func_clear(t_func **list_func)
 {
-	t_func	*tmp;
+	t_func	*p;
+	t_func	*p_next;
 
 	if (!list_func)
 		return ;
-	while(*list_func)
+	printf("clear:\n");
+	p = *list_func;
+	while(p)
 	{
-		tmp = *list_func;
-		*list_func = (*list_func)->next;
-		ft_list_func_del(tmp);
+		p_next = p->next;
+		ft_list_func_print(p);
+		// ft_list_func_del(p);
+		free(p);
+		p = p_next;
 	}
-	list_func = NULL;
+	*list_func = NULL;
+	printf("list_func in clear:  %p\n", list_func);
+	printf("*list_func in clear: %p\n", *list_func);
+}
+
+void	ft_list_func_print(t_func *list_func)
+{
+	printf("-------------\n");
+	while (list_func)
+	{
+		printf("%p\n", list_func);
+		printf("c:    %c\n", list_func->c);
+		printf("f:    %p\n", list_func->f);
+		printf("next: %p\n", list_func->next);
+		list_func = list_func->next;
+	}
+	printf("-------------\n");
 }

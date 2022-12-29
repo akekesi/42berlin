@@ -20,15 +20,24 @@ int		ft_write_int(va_list args);
 t_func	**ft_create_list_func(void)
 {
 	t_func	**list_func;
-	// t_func	*list_func_;
+	t_func	*list_func_;
 
-	list_func = NULL;
-	printf("--> %p\n", list_func);
-	// *list_func = ft_lisjt_func_new('c', ft_write_char);
-	ft_list_func_new_add_last(list_func, 'c', ft_write_char);
-	printf("--> %p\n", list_func);
+	list_func_ = ft_list_func_new('c', ft_write_char);
+	printf("create list 0:\n");
+	ft_list_func_print(list_func_);
+
+	list_func = &list_func_;
+	printf("create list 1:\n");
+	ft_list_func_print(*list_func);
+
 	ft_list_func_new_add_last(list_func, 'i', ft_write_int);
-	printf("--> %p\n", list_func);
+	printf("create list 2:\n");
+	ft_list_func_print(*list_func);
+
+	ft_list_func_new_add_last(list_func, 'c', ft_write_char);
+	printf("create list 3:\n");
+	ft_list_func_print(*list_func);
+
 	return (list_func);
 }
 
