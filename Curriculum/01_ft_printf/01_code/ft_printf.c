@@ -6,11 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/28 20:35:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 14:52:14 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
