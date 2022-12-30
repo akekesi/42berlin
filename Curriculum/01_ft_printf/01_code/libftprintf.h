@@ -14,26 +14,7 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_func
-{
-	char			c;
-	int				(*f)(va_list);
-	struct s_func	*next;
-}	t_func;
-
-t_func	*ft_list_func_new(char c, int (*f)(va_list));
-t_func	*ft_list_func_last(t_func *list_func);
-void	ft_list_func_add_last(t_func **list_func, t_func *new);
-void	ft_list_func_new_add_last(t_func **list_func, char c, int (*f)(va_list));
-void	ft_list_func_del(t_func *list_func);
-void	ft_list_func_clear(t_func **list_func);
-void	ft_list_func_print(t_func *list_func);
-t_func	*ft_create_list_func(void);
-int		ft_write_char(va_list args);
-int		ft_write_int(va_list args);
 
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "test.h"
 
 int		ft_printf(const char *str, ...);
 char	*ft_types(void);
@@ -68,7 +67,6 @@ int	ft_char_in_str(int c, char *str)
 
 int	ft_print_arg(int c, va_list *args)
 {
-	// just for test in windows (not increment) ???
 	int	n;
 
 	n = 0;
@@ -87,7 +85,7 @@ int	ft_print_arg(int c, va_list *args)
 	return (n);
 }
 
-int	ft_print_char(int c) 
+int	ft_print_char(int c)
 {
 	write(1, &c, 1);
 	return (1);
