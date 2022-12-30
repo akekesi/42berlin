@@ -6,38 +6,15 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 17:10:02 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 20:51:40 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-
-int	test_check(int n, int n___);
-void	test_print(int n, int n___, int c);
-
-int	test_check(int n, int n___)
-{
-	if (n == n___)
-	{
-		printf("OK ");
-		test_print(n, n___, '=');
-		return (1);
-	}
-	printf("NOK ");
-	test_print(n, n___, '!');
-	printf("^^^ ERROR ^^^");
-	return (0);
-}
-
-void	test_print(int n, int n___, int c)
-{
-	printf("%d %c= %d\n", n, c, n___);
-}
+#include "test.h"
 
 int	main(void)
 {
-
 	printf("*** main test started ***\n");
 	printf("|-- test printf -->\n");
 	// // ft_printf("c%cs%sp%pd%di%iu%ux%xX%X%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -50,6 +27,24 @@ int	main(void)
 
 	n = 0;
 	n___ = 0;
+	ft_printf("%s", prefix);
+	n = ft_printf("%# # +-#x", 0); // <-- #x
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%# # +-#x", 0); // <-- #x
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%# # +-#x", 10); // <-- #x
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%# # +-#x", 10); // <-- #x
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+/*
 	ft_printf("%s", prefix);
 	n = ft_printf("%c", 0); // <-- c
 	ft_printf("%s\n", suffix);
@@ -301,7 +296,7 @@ int	main(void)
 	printf("%s\n", suffix);
 	if (!test_check(n, n___))
 		return (0);
-
+*/
 
 
 
@@ -387,4 +382,5 @@ int	main(void)
 
 	printf("<-- test printf --|\n");
 	printf("*** main test finished ***\n");
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:00:34 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 17:08:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:15:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,18 @@ int	ft_print_uhex(unsigned long long n, int i)
 	if (9 < r)
 		i += ft_print_char(r - 10 + 'a');
 	return (i);
+}
+
+int	ft_print_hex_flag(unsigned int arg, char c, const char *str, int f)
+{
+	int	n;
+
+	n = 0;
+	if (arg && ft_char_in_str_n('#', str, f))
+	{
+		n += write(1, "0", 1);
+		n += write(1, &c, 1);
+	}
+	n += ft_print_hex(arg, c, 0);
+	return (n);
 }
