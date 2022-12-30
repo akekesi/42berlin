@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:00:34 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 22:20:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 22:54:40 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ int	ft_print_int_flag(int arg, const char *str, int f)
 	n = 0;
 	if (ft_char_in_str_n('+', str, f) && 0 <= arg)
 		n += write(1, "+", 1);
+	else if (ft_char_in_str_n(' ', str, f) && 0 <= arg)
+		n += write(1, " ", 1);
 	n = ft_print_int(arg, n);
 	return (n);
 }

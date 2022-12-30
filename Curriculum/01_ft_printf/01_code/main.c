@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 22:20:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 22:54:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,122 @@ int	main(void)
 	n = 0;
 	n___ = 0;
 	ft_printf("%s", prefix);
-	n = ft_printf("%# # +-#d", 0); // <-- +d
+	n = ft_printf("% s", ""); // <-- ' 's
 	ft_printf("%s\n", suffix);
 	printf("%s", prefix);
-	n___ = printf("%# # +-#d", 0); // <-- +d
+	n___ = printf("% s", ""); // <-- ' 's
 	printf("%s\n", suffix);
 	if (!test_check(n, n___))
 		return (0);
+	
+	// ft_printf("%s", prefix);
+	// n = ft_printf(" % 1s", ""); // <-- ' 's just with 0
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf(" % 1s", ""); // <-- ' 's just with 0
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+	
+	// ft_printf("%s", prefix);
+	// n = ft_printf("% 1s ", ""); // <-- ' 's just with 0
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("% 1s ", ""); // <-- ' 's just with 0
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+	
+	ft_printf("%s", prefix);
+	
+	n = ft_printf(" % s ", ""); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s ", ""); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	ft_printf("%s", prefix);
+	n = ft_printf(" % s ", "-"); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s ", "-"); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	ft_printf("%s", prefix);
+	n = ft_printf(" % s % s ", "", "-"); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s % s ", "", "-"); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	ft_printf("%s", prefix);
+	n = ft_printf(" % s % s ", " - ", ""); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s % s ", " - ", ""); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	ft_printf("%s", prefix);
+	n = ft_printf(" % s % s % s % s ", " - ", "", "4", ""); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s % s % s % s ", " - ", "", "4", ""); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	ft_printf("%s", prefix);
+	n = ft_printf(" % s % s % s % s % s ", " - ", "", "4", "", "2 "); // <-- ' 's
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" % s % s % s % s % s ", " - ", "", "4", "", "2 "); // <-- ' 's
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+	
+	// ft_printf("%s", prefix);
+	// n = ft_printf("%     d", 0); // <-- ' 'd
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("%     d", 0); // <-- ' 'd
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// ft_printf("%s", prefix);
+	// n = ft_printf("%   +  d", 0); // <-- ' 'd
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("%   +  d", 0); // <-- ' 'd
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// ft_printf("%s", prefix);
+	// n = ft_printf("% d", 10); // <-- ' 'd
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("% d", 10); // <-- ' 'd
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// ft_printf("%s", prefix);
+	// n = ft_printf("% d", -1); // <-- ' 'd
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("% d", -1); // <-- ' 'd
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
 
 	// ft_printf("%s", prefix);
 	// n = ft_printf("%# # +-#d", 0); // <-- +d
