@@ -26,5 +26,6 @@ int		ft_print_ptr(unsigned long long ptr);
 int		ft_print_int(int n, int i);
 int		ft_print_uint(unsigned int n, int i);
 int		ft_print_hex(unsigned int n, int c, int i);
+int		ft_print_uhex(unsigned long long n, int i);
 
 #endif

@@ -68,6 +68,12 @@ int	main(void)
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->7C0<--\n-->%X<--\n", 1984);
 	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0<--\n-->%p<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0x1<--\n-->%p<--\n", 1);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0x7C0<--\n-->%p<--\n", 1984);
+	ft_printf("n: %i\n", n);
 	printf("<-- test printf --|\n");
 
 	// printf("|-- test list_func -->\n");

@@ -22,6 +22,7 @@ int		ft_print_ptr(unsigned long long ptr);
 int		ft_print_int(int n, int i);
 int		ft_print_uint(unsigned int n, int i);
 int		ft_print_hex(unsigned int n, int c, int i);
+int		ft_print_uhex(unsigned long long n, int i);
 
 int	ft_printf(const char *str, ...)
 {
@@ -106,7 +107,15 @@ int	ft_print_str(char *str)
 
 int	ft_print_ptr(unsigned long long ptr)
 {
-	return (0);
+	int	i;
+
+	i = ft_print_char('0');
+	if (ptr)
+	{
+		i += ft_print_char('x');
+		i += ft_print_uhex(ptr, i);
+	}
+	return (i);
 }
 
 int	ft_print_int(int n, int i)
@@ -145,8 +154,22 @@ int	ft_print_hex(unsigned int n, int c, int i)
 		i += ft_print_hex(n / 16, c, i);
 	r = n % 16;
 	if (r < 10)
-		i += ft_print_char((r) + '0');
+		i += ft_print_char(r + '0');
 	if (9 < r)
-		i += ft_print_char((r) - 10 + 'a' - 'x' + c);
+		i += ft_print_char(r - 10 + 'a' - 'x' + c);
+	return (i);
+}
+
+int	ft_print_uhex(unsigned long long n, int i)
+{
+	int	r;
+
+	if (15 < n)
+		i += ft_print_uhex(n / 16, i);
+	r = n % 16;
+	if (r < 10)
+		i += ft_print_char(r + '0');
+	if (9 < r)
+		i += ft_print_char(r - 10 + 'a');
 	return (i);
 }
