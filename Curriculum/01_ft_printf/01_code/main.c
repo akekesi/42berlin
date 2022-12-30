@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 20:51:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 22:20:28 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,41 @@ int	main(void)
 	n = 0;
 	n___ = 0;
 	ft_printf("%s", prefix);
-	n = ft_printf("%# # +-#x", 0); // <-- #x
+	n = ft_printf("%# # +-#d", 0); // <-- +d
 	ft_printf("%s\n", suffix);
 	printf("%s", prefix);
-	n___ = printf("%# # +-#x", 0); // <-- #x
+	n___ = printf("%# # +-#d", 0); // <-- +d
 	printf("%s\n", suffix);
 	if (!test_check(n, n___))
 		return (0);
 
-	ft_printf("%s", prefix);
-	n = ft_printf("%# # +-#x", 10); // <-- #x
-	ft_printf("%s\n", suffix);
-	printf("%s", prefix);
-	n___ = printf("%# # +-#x", 10); // <-- #x
-	printf("%s\n", suffix);
-	if (!test_check(n, n___))
-		return (0);
+	// ft_printf("%s", prefix);
+	// n = ft_printf("%# # +-#d", 0); // <-- +d
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("%# # +-#d", 0); // <-- +d
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// ft_printf("%s", prefix);
+	// n = ft_printf("%# # +-#x", 0); // <-- #x
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("%# # +-#x", 0); // <-- #x
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// ft_printf("%s", prefix);
+	// n = ft_printf("%# # +-#x", 10); // <-- #x
+	// ft_printf("%s\n", suffix);
+	// printf("%s", prefix);
+	// n___ = printf("%# # +-#x", 10); // <-- #x
+	// printf("%s\n", suffix);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
 /*
 	ft_printf("%s", prefix);
 	n = ft_printf("%c", 0); // <-- c

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:49:14 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 21:06:18 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 22:20:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	ft_print_uint(unsigned int n, int i);
 int	ft_print_hex(unsigned int n, int c, int i);
 int	ft_print_uhex(unsigned long long n, int i);
 int	ft_print_hex_flag(unsigned int arg, char c, const char *str, int f);
+int	ft_print_int_flag(int arg, const char *str, int f);
 
 #endif
