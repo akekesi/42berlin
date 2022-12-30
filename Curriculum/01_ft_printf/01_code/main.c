@@ -6,12 +6,34 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 14:52:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/30 17:10:02 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+int	test_check(int n, int n___);
+void	test_print(int n, int n___, int c);
+
+int	test_check(int n, int n___)
+{
+	if (n == n___)
+	{
+		printf("OK ");
+		test_print(n, n___, '=');
+		return (1);
+	}
+	printf("NOK ");
+	test_print(n, n___, '!');
+	printf("^^^ ERROR ^^^");
+	return (0);
+}
+
+void	test_print(int n, int n___, int c)
+{
+	printf("%d %c= %d\n", n, c, n___);
+}
 
 int	main(void)
 {
@@ -22,113 +44,346 @@ int	main(void)
 	// // ft_printf("%cc%ss%pp%dd%ii%uu%xx%XX%%%", 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
 	int		n;
+	int		n___;
+	char	prefix[] = "-->";
+	char	suffix[] = "<--";
 
 	n = 0;
-	n = ft_printf("-->keki<--\n-->%c%c%c%c<--\n", 'k', 'e', 'k', 'i');
-	ft_printf("n: %i\n", n);
-	n = ft_printf("--> <--\n-->%c<--\n", '\0');
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->\n<--\n-->%c<--\n", '\n');
-	ft_printf("n: %i\n", n);
-	n = ft_printf("--><--\n-->%s<--\n", "");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->Keki<--\n-->%s<--\n", "Keki");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->%<--\n-->%%<--\n", '%');
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0<--\n-->%i<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->123<--\n-->%i<--\n", 123);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->-123<--\n-->%d<--\n", -123);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->2147483647<--\n-->%d<--\n", 2147483647);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->-2147483648<--\n-->%d<--\n", -2147483648);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0<--\n-->%u<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->4294967295<--\n-->%u<--\n", 2147483647 + 2147483648);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
-	ft_printf("n: %i\n", n);
+	n___ = 0;
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", 0); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", 0); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = printf("-->0<--\n-->%x<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0<--\n-->%x<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = printf("-->a<--\n-->%x<--\n", 10);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->a<--\n-->%x<--\n", 10);
-	ft_printf("n: %i\n", n);
-	n = printf("-->13<--\n-->%x<--\n", 19);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->13<--\n-->%x<--\n", 19);
-	ft_printf("n: %i\n", n);
-	n = printf("-->7c0<--\n-->%x<--\n", 1984);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->7c0<--\n-->%x<--\n", 1984);
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", '\0'); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", '\0'); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = ft_printf("-->0<--\n-->%X<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = printf("-->0<--\n-->%X<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = printf("-->A<--\n-->%X<--\n", 10);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->A<--\n-->%X<--\n", 10);
-	ft_printf("n: %i\n", n);
-	n = printf("-->13<--\n-->%X<--\n", 19);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->13<--\n-->%X<--\n", 19);
-	ft_printf("n: %i\n", n);
-	n = printf("-->7C0<--\n-->%X<--\n", 1984);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->7C0<--\n-->%X<--\n", 1984);
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", NULL); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", NULL); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = ft_printf("-->0<--\n-->%p<--\n", 0);
-	ft_printf("n: %i\n", n);
-	n = printf("-->0x1<--\n-->%p<--\n", 1);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0x1<--\n-->%p<--\n", 1);
-	ft_printf("n: %i\n", n);
-	n = printf("-->0x7C0<--\n-->%p<--\n", 1984);
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->0x7C0<--\n-->%p<--\n", 1984);
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", '\n'); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", '\n'); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = printf("-->without args<--\n");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("-->without args<--\n");
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", 'k'); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", 'k'); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = printf("");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("");
-	ft_printf("n: %i\n", n);
-	n = printf(" ");
-	printf("n: %i\n", n);
-	n = ft_printf(" ");
-	ft_printf("n: %i\n", n);
-	n = printf(0);
-	ft_printf("n: %i\n", n);
-	n = ft_printf(0);
-	ft_printf("n: %i\n", n);
-	n = printf(NULL);
-	ft_printf("n: %i\n", n);
-	n = ft_printf(NULL);
-	ft_printf("n: %i\n", n);
-	n = printf("\0");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("\0");
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c", 'e'); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c", 'e'); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
 
-	n = printf("%c%s%p%d%i%u%x%X%%");
-	ft_printf("n: %i\n", n);
-	n = ft_printf("%c%s%p%d%i%u%x%X%%");
-	ft_printf("n: %i\n", n);
-	ft_printf("n: %i\n", n);
+	ft_printf("%s", prefix);
+	n = ft_printf("%c%c%c%c :)", 'k', 'e', 'k', 'i'); // <-- c
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%c%c%c%c :)", 'k', 'e', 'k', 'i'); // <-- c
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s", 0); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s", 0); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s", ""); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s", ""); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s", NULL); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s", NULL); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s", "\0"); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s", "\0"); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf(" NULL %s NULL ", NULL); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf(" NULL %s NULL ", NULL); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s", "keki :)"); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s", "keki :)"); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%s%s", "keki ", ":)"); // <-- s
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%s%s", "keki ", ":)"); // <-- s
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p", 0); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p", 0); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p", NULL); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p", NULL); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p", 1); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p", 1); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p %p", 10, 19); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p %p", 10, 19); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p", 1984); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p", 1984); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%p", 170); // <-- p
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%p", 170); // <-- p
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", 0); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", 0); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", NULL); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", NULL); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", 2147483647); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", 2147483647); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", 2147483647); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", 2147483647); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", -2147483648); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", -2147483648); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", 2147483647 + 1); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", 2147483647 + 1); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", 1234567); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", 1234567); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+	ft_printf("%s", prefix);
+	n = ft_printf("%d", -101); // <-- d
+	ft_printf("%s\n", suffix);
+	printf("%s", prefix);
+	n___ = printf("%d", -101); // <-- d
+	printf("%s\n", suffix);
+	if (!test_check(n, n___))
+		return (0);
+
+
+
+
+	// // n = ft_printf("-->keki<--\n-->%c%c%c%c<--\n", 'k', 'e', 'k', 'i');
+	// n___ = printf("-->keki<--\n-->%c%c%c%c<--\n", 'k', 'e', 'k', 'i');
+
+	// n = printf("-->0<--\n-->%x<--\n", 0);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->0<--\n-->%x<--\n", 0);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->a<--\n-->%x<--\n", 10);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->a<--\n-->%x<--\n", 10);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->13<--\n-->%x<--\n", 19);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->13<--\n-->%x<--\n", 19);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->7c0<--\n-->%x<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->7c0<--\n-->%x<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+
+	// n = ft_printf("-->0<--\n-->%X<--\n", 0);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->0<--\n-->%X<--\n", 0);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->A<--\n-->%X<--\n", 10);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->A<--\n-->%X<--\n", 10);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->13<--\n-->%X<--\n", 19);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->13<--\n-->%X<--\n", 19);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->7C0<--\n-->%X<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->7C0<--\n-->%X<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+
+	// n = ft_printf("-->0<--\n-->%p<--\n", 0);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->0x1<--\n-->%p<--\n", 1);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->0x1<--\n-->%p<--\n", 1);
+	// ft_printf("n: %i\n", n);
+	// n = printf("-->0x7C0<--\n-->%p<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->0x7C0<--\n-->%p<--\n", 1984);
+	// ft_printf("n: %i\n", n);
+
+	// n = printf("-->without args<--\n");
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("-->without args<--\n");
+	// ft_printf("n: %i\n", n);
+
+	// n = printf("");
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("");
+	// ft_printf("n: %i\n", n);
+	// n = printf(" ");
+	// printf("n: %i\n", n);
+	// n = ft_printf(" ");
+	// ft_printf("n: %i\n", n);
+	// n = printf(0);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf(0);
+	// ft_printf("n: %i\n", n);
+	// n = printf(NULL);
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf(NULL);
+	// ft_printf("n: %i\n", n);
+	// n = printf("\0");
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("\0");
+	// ft_printf("n: %i\n", n);
+
+	// n = printf("%c%s%p%d%i%u%x%X%%");
+	// ft_printf("n: %i\n", n);
+	// n = ft_printf("%c%s%p%d%i%u%x%X%%");
+	// ft_printf("n: %i\n", n);
+	// ft_printf("n: %i\n", n);
 
 	printf("<-- test printf --|\n");
 	printf("*** main test finished ***\n");

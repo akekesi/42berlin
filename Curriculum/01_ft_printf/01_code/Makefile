@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 20:29:56 by akekesi           #+#    #+#              #
-#    Updated: 2022/12/30 14:52:01 by akekesi          ###   ########.fr        #
+#    Updated: 2022/12/30 17:08:42 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ RM = rm -f
 
 DEPS = ft_printf.h
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c \
+	ft_printf_01.c \
+	ft_printf_02.c
 
 SRCS_BONUS = 
 
