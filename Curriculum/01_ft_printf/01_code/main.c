@@ -52,6 +52,22 @@ int	main(void)
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->0<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
 	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0<--\n-->%x<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->a<--\n-->%x<--\n", 10);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->13<--\n-->%x<--\n", 19);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->7c0<--\n-->%x<--\n", 1984);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->0<--\n-->%X<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->A<--\n-->%X<--\n", 10);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->13<--\n-->%X<--\n", 19);
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->7C0<--\n-->%X<--\n", 1984);
+	ft_printf("n: %i\n", n);
 	printf("<-- test printf --|\n");
 
 	// printf("|-- test list_func -->\n");
