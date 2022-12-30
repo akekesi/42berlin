@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "test.h"
+#include <stdio.h>
 
 int	main(void)
 {
@@ -52,39 +52,84 @@ int	main(void)
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->0<--\n-->%u<--\n", 2147483647 + 2147483648 + 1);
 	ft_printf("n: %i\n", n);
+
+	n = printf("-->0<--\n-->%x<--\n", 0);
+	ft_printf("n: %i\n", n);
 	n = ft_printf("-->0<--\n-->%x<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = printf("-->a<--\n-->%x<--\n", 10);
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->a<--\n-->%x<--\n", 10);
 	ft_printf("n: %i\n", n);
+	n = printf("-->13<--\n-->%x<--\n", 19);
+	ft_printf("n: %i\n", n);
 	n = ft_printf("-->13<--\n-->%x<--\n", 19);
+	ft_printf("n: %i\n", n);
+	n = printf("-->7c0<--\n-->%x<--\n", 1984);
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->7c0<--\n-->%x<--\n", 1984);
 	ft_printf("n: %i\n", n);
+
 	n = ft_printf("-->0<--\n-->%X<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = printf("-->0<--\n-->%X<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = printf("-->A<--\n-->%X<--\n", 10);
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->A<--\n-->%X<--\n", 10);
 	ft_printf("n: %i\n", n);
+	n = printf("-->13<--\n-->%X<--\n", 19);
+	ft_printf("n: %i\n", n);
 	n = ft_printf("-->13<--\n-->%X<--\n", 19);
+	ft_printf("n: %i\n", n);
+	n = printf("-->7C0<--\n-->%X<--\n", 1984);
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->7C0<--\n-->%X<--\n", 1984);
 	ft_printf("n: %i\n", n);
+
 	n = ft_printf("-->0<--\n-->%p<--\n", 0);
+	ft_printf("n: %i\n", n);
+	n = printf("-->0x1<--\n-->%p<--\n", 1);
 	ft_printf("n: %i\n", n);
 	n = ft_printf("-->0x1<--\n-->%p<--\n", 1);
 	ft_printf("n: %i\n", n);
+	n = printf("-->0x7C0<--\n-->%p<--\n", 1984);
+	ft_printf("n: %i\n", n);
 	n = ft_printf("-->0x7C0<--\n-->%p<--\n", 1984);
 	ft_printf("n: %i\n", n);
+
+	n = printf("-->without args<--\n");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("-->without args<--\n");
+	ft_printf("n: %i\n", n);
+
+	n = printf("");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("");
+	ft_printf("n: %i\n", n);
+	n = printf(" ");
+	printf("n: %i\n", n);
+	n = ft_printf(" ");
+	ft_printf("n: %i\n", n);
+	n = printf(0);
+	ft_printf("n: %i\n", n);
+	n = ft_printf(0);
+	ft_printf("n: %i\n", n);
+	n = printf(NULL);
+	ft_printf("n: %i\n", n);
+	n = ft_printf(NULL);
+	ft_printf("n: %i\n", n);
+	n = printf("\0");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("\0");
+	ft_printf("n: %i\n", n);
+
+	n = printf("%c%s%p%d%i%u%x%X%%");
+	ft_printf("n: %i\n", n);
+	n = ft_printf("%c%s%p%d%i%u%x%X%%");
+	ft_printf("n: %i\n", n);
+	ft_printf("n: %i\n", n);
+
 	printf("<-- test printf --|\n");
-
-	// printf("|-- test list_func -->\n");
-	// t_func	*list_func;
-
-	// list_func = ft_create_list_func();
-	// ft_list_func_print(list_func);
-	// ft_list_func_print(list_func);
-	// ft_list_func_clear(&list_func);
-	// ft_list_func_print(list_func);
-	// ft_list_func_print(list_func);
-	// printf("<-- test list_func --|\n");
 	printf("*** main test finished ***\n");
 }

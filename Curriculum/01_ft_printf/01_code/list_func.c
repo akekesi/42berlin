@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_func.c                                     :+:      :+:    :+:   */
+/*   list_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 16:50:55 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/28 20:35:23 by akekesi          ###   ########.fr       */
+/*   Created: 2022/12/30 10:29:38 by akekesi           #+#    #+#             */
+/*   Updated: 2022/12/30 10:29:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include "test.h"
+#include "list_func.h"
 
 t_func	*ft_list_func_new(char c, int (*f)(va_list));
 t_func	*ft_list_func_last(t_func *list_func);
@@ -135,3 +134,17 @@ int	ft_write_int(va_list args)
 		return (1);
 	return (0);
 }
+
+// int	main (void)
+// {
+// 	t_func	*list_func;
+
+// 	printf("|-- test list_func -->\n");
+// 	list_func = ft_create_list_func();
+// 	ft_list_func_print(list_func);
+// 	ft_list_func_print(list_func);
+// 	ft_list_func_clear(&list_func);
+// 	ft_list_func_print(list_func);
+// 	ft_list_func_print(list_func);
+// 	printf("<-- test list_func --|\n");
+// }

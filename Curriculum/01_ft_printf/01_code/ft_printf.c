@@ -34,6 +34,8 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	i = 0;
 	n = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		c = ft_char_in_str(str[i + 1], "cspdiuxX%");
