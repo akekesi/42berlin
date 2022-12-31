@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:00:34 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 22:54:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:11:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_print_ptr(unsigned long long ptr)
 
 	i = 0;
 	if (ptr == 0)
-		i += ft_print_str("(nil)");
+		i += ft_print_str(ft_get_null('p'));
 	if (ptr)
 	{
 		i += ft_print_str("0x");
@@ -81,31 +81,4 @@ int	ft_print_uhex(unsigned long long n, int i)
 	if (9 < r)
 		i += ft_print_char(r - 10 + 'a');
 	return (i);
-}
-
-int	ft_print_hex_flag(unsigned int arg, char c, const char *str, int f)
-{
-	int	n;
-
-	n = 0;
-	if (arg && ft_char_in_str_n('#', str, f))
-	{
-		n += write(1, "0", 1);
-		n += write(1, &c, 1);
-	}
-	n += ft_print_hex(arg, c, 0);
-	return (n);
-}
-
-int	ft_print_int_flag(int arg, const char *str, int f)
-{
-	int	n;
-
-	n = 0;
-	if (ft_char_in_str_n('+', str, f) && 0 <= arg)
-		n += write(1, "+", 1);
-	else if (ft_char_in_str_n(' ', str, f) && 0 <= arg)
-		n += write(1, " ", 1);
-	n = ft_print_int(arg, n);
-	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 02:21:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:16:14 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(void)
 	n = 0;
 	n___ = 0;
 	ft_printf("%s", prefix);
-	n = ft_printf("%3s", "XX"); // <-- 3s
+	n = ft_printf("%07s", NULL); // <-- 3s
 	ft_printf("%s\n", suffix);
 	printf("%s", prefix);
-	n___ = printf("%3s", "XX"); // <-- 3s
+	n___ = printf("%07s", NULL); // <-- 3s
 	printf("%s\n", suffix);
 	if (!test_check(n, n___))
 		return (0);

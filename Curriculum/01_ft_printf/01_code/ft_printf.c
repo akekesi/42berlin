@@ -6,105 +6,48 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 02:12:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:16:09 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_printf(const char *str, ...)
+{
+	int		n;
+	va_list	args;
+
+	va_start(args, str);
+	if (!str)
+		return (-1);
+	n = ft_printf_sub(str, &args);
+	va_end(args);
+	return (n);
+}
+
+int	ft_printf_sub(const char *str, va_list *args)
 {
 	int		i;
 	int		f;
 	int		n;
 	char	c;
-	va_list	args;
 
-	va_start(args, str);
 	i = 0;
-	f = 0;
 	n = 0;
-	if (!str)
-		return (-1);
 	while (str[i])
 	{
 		f = ft_is_flag(&str[i + 1]);
-		c = ft_char_in_str(str[i + f + 1], "cspdiuxX%");
+		c = ft_char_in_str(str[i + f + 1], ft_get_types());
 		if (str[i] == '%' && (c || f))
 		{
-			n += ft_print_arg(c, &str[i + 1], f, &args);
+			n += ft_print_arg(c, &str[i + 1], f, args);
 			i += 1 + f;
 		}	
 		else
 			n += ft_print_char(str[i]);
 		i++;
 	}
-	va_end(args);
 	return (n);
-}
-
-int	ft_char_in_str(int c, char *str)
-{
-	while (*str)
-	{
-		if (*str == c)
-			return (c);
-		str++;
-	}
-	return (0);
-}
-
-int	ft_char_in_str_n(int c, const char *str, int n)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && i < n)
-	{
-		if (str[i] == c)
-			return (c);
-		i++;
-	}
-	return (0);
-}
-
-int	ft_is_flag(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (ft_char_in_str(str[i], "-0123456789.# +"))
-	{
-		i++;
-		if (ft_char_in_str(str[i], "cspdiuxX%"))
-			return (i);
-	}
-	return (0);
-}
-
-int	ft_int_in_str(const char *str, int n)
-{
-	int	i;
-	int	nbr;
-
-	i = 0;
-	while (str[i] && !ft_isdigit(str[i]) && i < n)
-		i++;
-	nbr = 0;
-	while (str[i] && ft_isdigit(str[i]) && i < n)
-	{
-		nbr = nbr * 10 + str[i] - '0';
-		i++;
-	}
-	return (nbr);
-}
-
-int	ft_isdigit(int c)
-{
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
 }
 
 int	ft_print_arg(int c, const char *str, int f, va_list *args)
