@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:49:14 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 21:44:58 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 22:58:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ int		ft_print_hex_flag(unsigned int arg, int c, const char *str, int f);
 int		ft_print_int_flag(int arg, const char *str, int f);
 int		ft_print_uint_flag(unsigned int arg, const char *str, int f);
 int		ft_print_str_flag(char *arg, const char *str, int f);
+int		ft_print_ptr_flag(unsigned long long arg, const char *str, int f);
+int		ft_print_char_flag(int arg, const char *str, int f);
 int		ft_str_len(const char *str);
 int		ft_int_len(int n);
 int		ft_uint_len(unsigned int n);
 int		ft_hex_len(unsigned int n);
+int		ft_ull_len(unsigned long long n);
 int		ft_print_pad(const char *str, int f, int len_arg, int c);
 int		ft_print_pad_int(int arg, const char *str, int f, int len_arg, int c);
 int		ft_print_pad_uint(const char *str, int f, int len_arg, int c);

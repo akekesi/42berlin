@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 16:13:18 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 21:45:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 22:58:56 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,21 @@ int	ft_uint_len(unsigned int n)
 }
 
 int	ft_hex_len(unsigned int n)
+{
+	int	i;
+
+	i = 0;
+	if (!n)
+		return (1);
+	while (n)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_ull_len(unsigned long long n)
 {
 	int	i;
 
