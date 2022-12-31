@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 17:16:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 21:45:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_print_arg(int c, const char *str, int f, va_list *args)
 	if (c == 'd' || c == 'i')
 		n = ft_print_int_flag(va_arg(*args, int), str, f);
 	if (c == 'u')
-		n = ft_print_uint(va_arg(*args, unsigned int), 0);
+		n = ft_print_uint_flag(va_arg(*args, unsigned int), str, f);
 	if (c == 'x' || c == 'X')
 		n = ft_print_hex_flag(va_arg(*args, unsigned int), c, str, f);
 	if (c == '%')
