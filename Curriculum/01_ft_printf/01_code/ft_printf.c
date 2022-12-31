@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 22:54:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 02:12:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,30 @@ int	ft_is_flag(const char *str)
 	return (0);
 }
 
+int	ft_int_in_str(const char *str, int n)
+{
+	int	i;
+	int	nbr;
+
+	i = 0;
+	while (str[i] && !ft_isdigit(str[i]) && i < n)
+		i++;
+	nbr = 0;
+	while (str[i] && ft_isdigit(str[i]) && i < n)
+	{
+		nbr = nbr * 10 + str[i] - '0';
+		i++;
+	}
+	return (nbr);
+}
+
+int	ft_isdigit(int c)
+{
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
+}
+
 int	ft_print_arg(int c, const char *str, int f, va_list *args)
 {
 	int	n;
@@ -91,7 +115,7 @@ int	ft_print_arg(int c, const char *str, int f, va_list *args)
 	if (c == 'c')
 		n = ft_print_char(va_arg(*args, int));
 	if (c == 's')
-		n = ft_print_str(va_arg(*args, char *));
+		n = ft_print_str_flag(va_arg(*args, char *), str, f);
 	if (c == 'p')
 		n = ft_print_ptr(va_arg(*args, unsigned long long));
 	if (c == 'd' || c == 'i')

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:01:40 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/30 17:08:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2022/12/31 02:28:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,34 @@ int	ft_print_str(char *str)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_print_str_flag(char *arg, const char *str, int f)
+{
+	int	n;
+	int	pad;
+
+	n = 0;
+	if (arg != NULL)
+	{
+		pad = ft_int_in_str(str, f);
+		pad -= ft_str_len(arg);
+		while (0 < pad)
+		{
+			n += ft_print_char(' ');
+			pad--;
+		}
+	}
+	n += ft_print_str(arg);
+	return (n);
+}
+
+int	ft_str_len(const char *str)
+{
+	int	n;
+
+	n = 0;
+	while (str[n])
+		n++;
+	return (n);
 }
