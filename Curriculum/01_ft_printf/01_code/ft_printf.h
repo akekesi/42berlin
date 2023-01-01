@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:49:14 by akekesi           #+#    #+#             */
-/*   Updated: 2022/12/31 22:58:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/01 02:03:45 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_is_flag(const char *str);
 int		ft_print_arg(int c, const char *str, int f, va_list *args);
 int		ft_print_char(int c);
 int		ft_print_str(char *str);
+int		ft_print_str_n(char *str, int n);
 char	*ft_get_null(int c);
 char	*ft_get_flags(void);
 char	*ft_get_types(void);
