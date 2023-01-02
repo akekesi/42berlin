@@ -23,15 +23,26 @@ int	main(void)
 	// n___ = printf("-->% %<--\n");
 
 
-	n = ft_printf("-->%3c<--\n", 'X');
-	n___ = printf("-->%3c<--\n", 'X');
+	n = ft_printf("-->%3c %c %c %c %-3c<--\n",  '0', 0, '\0', ' ', '1');
+	n___ = printf("-->%3c %c %c %c %-3c<--\n",  '0', 0, '\0', ' ', '1');
 	printf("n: %d\n", n);
 	printf("n: %d\n", n___);
 
-	n = ft_printf("-->%-3c<--\n", 'X');
-	n___ = printf("-->%-3c<--\n", 'X');
-	printf("n: %d\n", n);
+	n___ = printf("-->%c<--\n", 0);
 	printf("n: %d\n", n___);
+	n___ = printf("-->%s<--\n", "\0");
+	printf("n: %d\n", n___);
+	write(1, "A\0A", 3);
+
+	// n = ft_printf("-->%3c<--\n", 'X');
+	// n___ = printf("-->%3c<--\n", 'X');
+	// printf("n: %d\n", n);
+	// printf("n: %d\n", n___);
+
+	// n = ft_printf("-->%-3c<--\n", 'X');
+	// n___ = printf("-->%-3c<--\n", 'X');
+	// printf("n: %d\n", n);
+	// printf("n: %d\n", n___);
 
 	// n = ft_printf("-->%-0123456789.# +c%%_%_%_%%%<--\n", 'X');
 	// n___ = printf("-->X%%_%%_%%_%%%%<--\n");

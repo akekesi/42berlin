@@ -15,13 +15,23 @@
 
 int	ft_print_char_flag(va_list *args, const char *str, int t)
 {
-	int		n;
-	char	*arg;
+	int	n;
+	int	arg;
+	int	pad_len;
 
-	arg = ft_char_to_str(va_arg(*args, int));
-	if (!arg)
-		return (0);
-	n = ft_print_pad_pos(arg, str, t, ' ');
+	n = 0;
+	arg = va_arg(*args, int);
+	pad_len = ft_int_in_str(str, t);
+	if (ft_char_in_str_n('-', str, t))
+	{
+		n += write(1, &arg, 1);
+		n += ft_print_pad(' ', pad_len - 1);
+	}
+	else
+	{
+		n += ft_print_pad(' ', pad_len - 1);
+		n += write(1, &arg, 1);
+	}
 	return (n);
 }
 

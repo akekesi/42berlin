@@ -29,7 +29,6 @@ int	ft_print_pad_pos(char *arg, const char *str, int t, int c)
 		n += ft_print_pad(c, pad_len - 1);
 		n += ft_print_str(arg);
 	}
-	free(arg);
 	return (n);
 }
 
