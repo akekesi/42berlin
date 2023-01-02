@@ -24,9 +24,9 @@ int	ft_check_print(const char *str)
 	if (*(str + i) == '%')
 	{
 		i++;
-		while (*(str + i) && ft_char_in_str(*(str + i), flags))
+		while (*(str + i) && ft_char_in_str(*(str + i), flags) != -1)
 			i++;
-		if (ft_char_in_str(*(str + i), types))
+		if (ft_char_in_str(*(str + i), types) != -1)
 			return (i);
 	}
 	return (0);

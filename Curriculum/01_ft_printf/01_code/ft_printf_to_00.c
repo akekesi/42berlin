@@ -26,7 +26,10 @@ char	*ft_char_to_str(int c)
 
 char	*ft_str_to_str(char *str)
 {
+	char	*str_;
+
 	if (str == NULL)
-		return (ft_get_null('s'));
-	return (str);
+		str = ft_get_null('s');
+	str_ = (char *)malloc(sizeof(char) * (ft_str_len(str) + 1));
+	return (strcpy(str_, str));
 }

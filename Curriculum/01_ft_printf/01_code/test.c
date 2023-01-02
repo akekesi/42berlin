@@ -30,3 +30,40 @@ void	test_print(int n, int n___, int c)
 {
 	printf("%d %c= %d\n", n, c, n___);
 }
+
+/*
+#include <stdlib.h>
+
+char	*get_str_malloc(void)
+{
+	char	*str;
+	str = (char *)malloc(sizeof(char) * 6);
+	str[0] = 'A'; 
+	str[1] = 'B'; 
+	str[2] = 'C';
+	str[3] = '\0'; 
+	return (str);
+}
+
+char	*get_str(void)
+{
+	return ("ABC");
+}
+
+void	replacechar(char *str, int i)
+{
+	*(str + i) = '\0';
+}
+
+int	main(void)
+{
+	char	*str;
+
+	str = get_str_malloc();
+	replacechar(str, 2);
+	printf("%s\n", str);
+	str = get_str();
+	replacechar(str, 2);
+	printf("%s\n", str);
+}
+*/

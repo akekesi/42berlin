@@ -22,7 +22,7 @@ int	ft_print_pad_pos(char *arg, const char *str, int t, int c)
 	pad_len = ft_int_in_str(str, t);
 	arg_len = ft_str_len(arg);
 	pad_len -= arg_len ;
-	if (ft_char_in_str_n('-', str, t))
+	if (ft_char_in_str_n('-', str, t) != -1)
 	{
 		n += ft_print_str(arg);
 		n += ft_print_pad(c, pad_len);

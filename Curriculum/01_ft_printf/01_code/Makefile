@@ -28,6 +28,7 @@ SRCS = ft_printf.c \
 	ft_printf_get_00.c \
 	ft_printf_in_00.c \
 	ft_printf_is_00.c \
+	ft_printf_len_00.c \
 	ft_printf_pad_00.c \
 	ft_printf_print_00.c \
 	ft_printf_to_00.c

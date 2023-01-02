@@ -28,20 +28,30 @@ int	main(void)
 	n = 0;
 	n___ = 0;
 
-	n = ft_printf("-->%3s<--\n", "\0");
-	n___ = printf("-->%3s<--\n", "\0");
+	n = ft_printf("-->%-4.02s<--\n", "abc");
+	n___ = printf("-->%-4.02s<--\n", "abc");
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%5s<--\n", "123");
-	n___ = printf("-->%5s<--\n", "123");
+	n = ft_printf("-->%-4.2s<--\n", NULL);
+	n___ = printf("-->%-4.2s<--\n", NULL);
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%-5s<--\n", "123");
-	n___ = printf("-->%-5s<--\n", "123");
-	if (!test_check(n, n___))
-		return (0);
+	// n = ft_printf("-->%3s<--\n", "\0");
+	// n___ = printf("-->%3s<--\n", "\0");
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%5s<--\n", "123");
+	// n___ = printf("-->%5s<--\n", "123");
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-5s<--\n", "123");
+	// n___ = printf("-->%-5s<--\n", "123");
+	// if (!test_check(n, n___))
+	// 	return (0);
 
 	// n = ft_printf("-->%c_%c<--\n", 0, '\0');
 	// n___ = printf("-->%c_%c<--\n", 0, '\0');

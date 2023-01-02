@@ -20,10 +20,10 @@ int	ft_char_in_str(int c, const char *str)
 	while (str[i])
 	{
 		if (str[i] == c)
-			return (1);
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_char_in_str_n(int c, const char *str, int n)
@@ -34,10 +34,10 @@ int	ft_char_in_str_n(int c, const char *str, int n)
 	while (str[i] && i < n)
 	{
 		if (str[i] == c)
-			return (1);
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_int_in_str(const char *str, int n)
@@ -51,7 +51,7 @@ int	ft_int_in_str(const char *str, int n)
 		i++;
 	while (str[i] && ft_is_digit(str[i]) && i < n)
 	{
-		n_ += n_ * 10 + str[i] - '0';
+		n_ = n_ * 10 + str[i] - '0';
 		i++;
 	}
 	return (n_);
