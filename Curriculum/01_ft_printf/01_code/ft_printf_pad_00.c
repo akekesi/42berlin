@@ -16,17 +16,20 @@ int	ft_print_pad_pos(char *arg, const char *str, int t, int c)
 {
 	int	n;
 	int	pad_len;
+	int	arg_len;
 
 	n = 0;
 	pad_len = ft_int_in_str(str, t);
+	arg_len = ft_str_len(arg);
+	pad_len -= arg_len ;
 	if (ft_char_in_str_n('-', str, t))
 	{
 		n += ft_print_str(arg);
-		n += ft_print_pad(c, pad_len - 1);
+		n += ft_print_pad(c, pad_len);
 	}
 	else
 	{
-		n += ft_print_pad(c, pad_len - 1);
+		n += ft_print_pad(c, pad_len);
 		n += ft_print_str(arg);
 	}
 	return (n);

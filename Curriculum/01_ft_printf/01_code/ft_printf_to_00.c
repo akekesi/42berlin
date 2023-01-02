@@ -23,3 +23,10 @@ char	*ft_char_to_str(int c)
 	arg[1] = '\0';
 	return (arg);
 }
+
+char	*ft_str_to_str(char *str)
+{
+	if (str == NULL)
+		return (ft_get_null('s'));
+	return (str);
+}

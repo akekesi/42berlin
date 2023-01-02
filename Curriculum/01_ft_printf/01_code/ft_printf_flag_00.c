@@ -37,15 +37,12 @@ int	ft_print_char_flag(va_list *args, const char *str, int t)
 
 int	ft_print_str_flag(va_list *args, const char *str, int t)
 {
-	int	n;
-	int	c;
+	int		n;
+	char	*arg;
 
 	n = 0;
-	t = 0;
-	str = NULL;
-	printf("%d, %s", t, str);
-	c = va_arg(*args, int);
-	n += write(1, &c, 1);
+	arg = ft_str_to_str(va_arg(*args, char *));
+	n = ft_print_pad_pos(arg, str, t, ' ');
 	return (n);
 }
 

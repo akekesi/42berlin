@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   ft_printf_len_00.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 15:32:41 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 15:32:41 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/02 13:18:35 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/02 13:18:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "ft_printf.h"
 
-# include <stdio.h>
+int	ft_str_len(const char *str)
+{
+	int	i;
 
-int		test_check(int n, int n___);
-void	test_print(int n, int n___, int c);
-
-#endif
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}

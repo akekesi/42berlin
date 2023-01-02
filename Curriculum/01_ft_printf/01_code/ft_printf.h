@@ -32,6 +32,7 @@ int		ft_print_str(const char *str);
 int		ft_print_pad_pos(char *arg, const char *str, int t, int c);
 
 char	*ft_char_to_str(int c);
+char	*ft_str_to_str(char *str);
 
 char	*ft_get_types(void);
 char	*ft_get_flags(void);
@@ -44,5 +45,7 @@ int		ft_char_in_str_n(int c, const char *str, int n);
 int		ft_int_in_str(const char *str, int n);
 
 int		ft_is_digit(int c);
+
+int		ft_str_len(const char *str);
 
 #endif
