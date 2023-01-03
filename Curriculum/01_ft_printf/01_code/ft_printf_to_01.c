@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:04:42 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:14:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/03 23:21:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,18 @@ char	*ft_hex_to_str(unsigned int n, int *flags_info)
 	char	*arg;
 
 	len = ft_hex_len(n);
+	if (flags_info[3] && n)
+	{
+		len += 2;
+	}
 	arg = (char *)malloc(sizeof(char) * (len + 1));
 	if (!arg)
 		return (NULL);
+	if (flags_info[3] && n)
+	{
+		arg[0] = '0';
+		arg[1] = flags_info[0] + '\0';
+	}
 	arg[len] = '\0';
 	if (n == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:25:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/04 00:11:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(void)
 	n___ = 0;
 
 	arg = 17;
-	n = ft_printf("-->%c<--\n", '1');
-	n___ = printf("-->%c<--\n", '1');
+	n = ft_printf("-->%04d<--\n", -14);
+	n___ = printf("-->%04d<--\n", -14);
 	if (!test_check(n, n___))
 		return (0);
 
