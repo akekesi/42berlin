@@ -22,21 +22,48 @@ without t, in func just check if types is reached --> kevesebb arg in pad func e
 
 int	main(void)
 {
+	printf("|-- TEST -->\n");
+
+	// ???
+	// int	i;
+	// int	*flags;
+	// char	str[] = "+-# 0123.0456";
+
+	// flags = ft_flags_in_str(str, ft_str_len(str));
+	// i = 0;
+	// while (i < 8)
+	// {
+	// 	printf("--> %d. %d\n", i, flags[i]);
+	// 	i++;
+	// }
+	// ???
+
 	int	n;
 	int	n___;
 
 	n = 0;
 	n___ = 0;
 
-	n = ft_printf("-->%-4.02s<--\n", "abc");
-	n___ = printf("-->%-4.02s<--\n", "abc");
+	n = ft_printf("-->%#+ - 012.013sXXX%03.2-sXXX%-05.3s<--\n", "ABC", "abcde", "12345");
+	n___ = printf("-->%+d<--\n", -123);
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%-4.2s<--\n", NULL);
-	n___ = printf("-->%-4.2s<--\n", NULL);
-	if (!test_check(n, n___))
-		return (0);
+
+	// n = ft_printf("-->%.02d<--\n", 123);
+	// n___ = printf("-->%14.04d<--\n", 123);
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-4.02s<--\n", "abc");
+	// n___ = printf("-->%-4.02s<--\n", "abc");
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-4.2s<--\n", NULL);
+	// n___ = printf("-->%-4.2s<--\n", NULL);
+	// if (!test_check(n, n___))
+	// 	return (0);
 
 	// n = ft_printf("-->%3s<--\n", "\0");
 	// n___ = printf("-->%3s<--\n", "\0");
@@ -83,5 +110,5 @@ int	main(void)
 	// printf("-->%s<--\n", ft_get_null('s'));
 	// printf("-->%s<--\n", ft_get_null('p'));
 	// printf("-->%s<--\n", ft_get_null('?'));
-	return (0);
+	return (1);
 }

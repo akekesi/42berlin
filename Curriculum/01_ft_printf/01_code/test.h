@@ -17,5 +17,6 @@
 
 int		test_check(int n, int n___);
 void	test_print(int n, int n___, int c);
+void	test_print_flags_info(int *flags_info);
 
 #endif

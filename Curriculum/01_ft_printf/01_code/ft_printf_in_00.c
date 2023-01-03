@@ -56,3 +56,42 @@ int	ft_int_in_str(const char *str, int n)
 	}
 	return (n_);
 }
+
+int	ft_int_in_str_dot_before(const char *str, int t)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	while (str[i] && !ft_is_digit(str[i]) && i < t)
+	{
+		if (str[i] == '.')
+			return (0);
+		i++;
+	}
+	n = 0;
+	while (str[i] && ft_is_digit(str[i]) && i < t)
+	{
+		n = n * 10 + str[i] - '0';
+		i++;
+	}
+	return (n);
+}
+
+int	ft_int_in_str_dot_after(const char *str, int t)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	while (str[i] && str[i] != '.' && i < t)
+		i++;
+	i++;
+	n = 0;
+	while (str[i] && ft_is_digit(str[i]) && i < t)
+	{
+		n = n * 10 + str[i] - '0';
+		i++;
+	}
+	return (n);
+}

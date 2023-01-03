@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "test.h" // delete !!!
 
-int	ft_print_char_flag(va_list *args, const char *str, int t)
+int	ft_print_char_flag(va_list *args, int *flags_info)
 {
 	int	n;
 	int	arg;
@@ -21,8 +21,8 @@ int	ft_print_char_flag(va_list *args, const char *str, int t)
 
 	n = 0;
 	arg = va_arg(*args, int);
-	pad_len = ft_int_in_str(str, t);
-	if (ft_char_in_str_n('-', str, t) != -1)
+	pad_len = flags_info[7];
+	if (flags_info[1])
 	{
 		n += write(1, &arg, 1);
 		n += ft_print_pad(' ', pad_len - 1);
@@ -35,79 +35,63 @@ int	ft_print_char_flag(va_list *args, const char *str, int t)
 	return (n);
 }
 
-int	ft_print_str_flag(va_list *args, const char *str, int t)
+int	ft_print_str_flag(va_list *args, int *flags_info)
 {
 	int		n;
-	int		dot;
 	int		dot_int;
 	char	*arg;
 
 	n = 0;
 	arg = ft_str_to_str(va_arg(*args, char *));
-	dot = ft_char_in_str_n('.', str, t);
-	if (dot != -1)
+	if (flags_info[2])
 	{
-		dot_int = ft_int_in_str(str + dot, t - dot);
+		dot_int = flags_info[8];
 		if (dot_int < ft_str_len(arg))
 			arg[dot_int] = '\0';
 	}
-	n = ft_print_pad_pos(arg, str, t, ' ');
+	n = ft_print_pad_pos(arg, flags_info);
 	free(arg);
 	return (n);
 }
 
-int	ft_print_ptr_flag(va_list *args, const char *str, int t)
+int	ft_print_ptr_flag(va_list *args, int *flags_info)
 {
-	int	n;
-	int	c;
+	int		n;
 
 	n = 0;
-	t = 0;
-	str = NULL;
-	printf("%d, %s", t, str);
-	c = va_arg(*args, int);
-	n += write(1, &c, 1);
+	n = va_arg(*args, int);
+	n *= flags_info[0];
 	return (n);
 }
 
-int	ft_print_int_flag(va_list *args, const char *str, int t)
+int	ft_print_int_flag(va_list *args, int *flags_info)
 {
-	int	n;
-	int	c;
+	int		n;
+	// char	*arg;
 
 	n = 0;
-	t = 0;
-	str = NULL;
-	printf("%d, %s", t, str);
-	c = va_arg(*args, int);
-	n += write(1, &c, 1);
+	// arg = ft_int_to_str(va_arg(*args, int));
+	n = va_arg(*args, int);
+	n *= flags_info[0];
 	return (n);
 }
 
-int	ft_print_uint_flag(va_list *args, const char *str, int t)
+int	ft_print_uint_flag(va_list *args, int *flags_info)
 {
-	int	n;
-	int	c;
+	int		n;
 
 	n = 0;
-	t = 0;
-	str = NULL;
-	printf("%d, %s", t, str);
-	c = va_arg(*args, int);
-	n += write(1, &c, 1);
+	n = va_arg(*args, int);
+	n *= flags_info[0];
 	return (n);
 }
 
-int	ft_print_hex_flag(va_list *args, const char *str, int t)
+int	ft_print_hex_flag(va_list *args, int *flags_info)
 {
-	int	n;
-	int	c;
+	int		n;
 
 	n = 0;
-	t = 0;
-	str = NULL;
-	printf("%d, %s", t, str);
-	c = va_arg(*args, int);
-	n += write(1, &c, 1);
+	n = va_arg(*args, int);
+	n *= flags_info[0];
 	return (n);
 }

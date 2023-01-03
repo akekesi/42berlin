@@ -1,0 +1,5 @@
+if %
+if flags until type
+--> lenght of this part
+copy this part in a malloc
+collect info from this in malloc

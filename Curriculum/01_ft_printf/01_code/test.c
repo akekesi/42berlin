@@ -31,6 +31,20 @@ void	test_print(int n, int n___, int c)
 	printf("%d %c= %d\n", n, c, n___);
 }
 
+void	test_print_flags_info(int *flags_info)
+{
+	int	i;
+
+	i = 0;
+	printf("\n(flags: ");
+	while (i < 9)
+	{
+		printf("%d ", flags_info[i]);
+		i++;
+	}
+	printf(" = |type|-|.|#| |+|0|9.|.9|)\n");
+}
+
 /*
 #include <stdlib.h>
 

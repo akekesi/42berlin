@@ -12,17 +12,21 @@
 
 #include "ft_printf.h"
 
-int	ft_print_pad_pos(char *arg, const char *str, int t, int c)
+int	ft_print_pad_pos(char *arg, int *flags_info)
 {
 	int	n;
+	int	c;
 	int	pad_len;
 	int	arg_len;
 
 	n = 0;
-	pad_len = ft_int_in_str(str, t);
+	c = ' ';
+	if (flags_info[6])
+		c = '0';
+	pad_len = flags_info[7];
 	arg_len = ft_str_len(arg);
 	pad_len -= arg_len ;
-	if (ft_char_in_str_n('-', str, t) != -1)
+	if (flags_info[1])
 	{
 		n += ft_print_str(arg);
 		n += ft_print_pad(c, pad_len);

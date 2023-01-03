@@ -21,12 +21,12 @@ int	ft_check_print(const char *str)
 	i = 0;
 	types = ft_get_types();
 	flags = ft_get_flags();
-	if (*(str + i) == '%')
+	if (str[i] == '%')
 	{
 		i++;
-		while (*(str + i) && ft_char_in_str(*(str + i), flags) != -1)
+		while (str[i] && ft_char_in_str(str[i], flags) != -1)
 			i++;
-		if (ft_char_in_str(*(str + i), types) != -1)
+		if (ft_char_in_str(str[i], types) != -1)
 			return (i);
 	}
 	return (0);
