@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:09:56 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 16:09:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/03 22:14:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,57 +20,52 @@ int	ft_char_in_str(int c, const char *str)
 	while (str[i])
 	{
 		if (str[i] == c)
-			return (i);
+			return (1);
 		i++;
 	}
-	return (-1);
+	return (0);
 }
 
-int	ft_char_in_str_n(int c, const char *str, int n)
+int	*ft_flags_in_str(const char *str, int size, int *flags)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] && i < n)
+	flags[0] = str[size];
+	while (i < size)
 	{
-		if (str[i] == c)
-			return (i);
+		if (str[i] == '-')
+			flags[1] = 1;
+		if (str[i] == '.')
+			flags[2] = 1;
+		if (str[i] == '#')
+			flags[3] = 1;
+		if (str[i] == ' ')
+			flags[4] = 1;
+		if (str[i] == '+')
+			flags[5] = 1;
 		i++;
 	}
-	return (-1);
+	flags[6] = ft_is_first_int_zero(str, size);
+	flags[7] = ft_int_in_str_dot_before(str, size);
+	flags[8] = ft_int_in_str_dot_after(str, size);
+	return (flags);
 }
 
-int	ft_int_in_str(const char *str, int n)
-{
-	int	i;
-	int	n_;
-
-	i = 0;
-	n_ = 0;
-	while (str[i] && !ft_is_digit(str[i]) && i < n)
-		i++;
-	while (str[i] && ft_is_digit(str[i]) && i < n)
-	{
-		n_ = n_ * 10 + str[i] - '0';
-		i++;
-	}
-	return (n_);
-}
-
-int	ft_int_in_str_dot_before(const char *str, int t)
+int	ft_int_in_str_dot_before(const char *str, int size)
 {
 	int	i;
 	int	n;
 
 	i = 0;
-	while (str[i] && !ft_is_digit(str[i]) && i < t)
+	while (str[i] && !ft_is_digit(str[i]) && i < size)
 	{
 		if (str[i] == '.')
 			return (0);
 		i++;
 	}
 	n = 0;
-	while (str[i] && ft_is_digit(str[i]) && i < t)
+	while (str[i] && ft_is_digit(str[i]) && i < size)
 	{
 		n = n * 10 + str[i] - '0';
 		i++;
@@ -78,17 +73,17 @@ int	ft_int_in_str_dot_before(const char *str, int t)
 	return (n);
 }
 
-int	ft_int_in_str_dot_after(const char *str, int t)
+int	ft_int_in_str_dot_after(const char *str, int size)
 {
 	int	i;
 	int	n;
 
 	i = 0;
-	while (str[i] && str[i] != '.' && i < t)
+	while (str[i] && str[i] != '.' && i < size)
 		i++;
 	i++;
 	n = 0;
-	while (str[i] && ft_is_digit(str[i]) && i < t)
+	while (str[i] && ft_is_digit(str[i]) && i < size)
 	{
 		n = n * 10 + str[i] - '0';
 		i++;

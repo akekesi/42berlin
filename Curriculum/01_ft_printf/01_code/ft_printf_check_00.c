@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:56:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 15:56:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/03 22:13:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	ft_check_print(const char *str)
 	if (str[i] == '%')
 	{
 		i++;
-		while (str[i] && ft_char_in_str(str[i], flags) != -1)
+		while (str[i] && ft_char_in_str(str[i], flags))
 			i++;
-		if (ft_char_in_str(str[i], types) != -1)
+		if (ft_char_in_str(str[i], types))
 			return (i);
 	}
 	return (0);
