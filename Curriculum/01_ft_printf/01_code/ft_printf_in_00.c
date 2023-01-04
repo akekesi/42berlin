@@ -26,30 +26,30 @@ int	ft_char_in_str(int c, const char *str)
 	return (0);
 }
 
-int	*ft_flags_in_str(const char *str, int size, int *flags)
+int	*ft_flags_in_str(const char *str, int size, int *flag_info)
 {
 	int	i;
 
 	i = 0;
-	flags[0] = str[size];
+	flag_info[0] = str[size];
 	while (i < size)
 	{
 		if (str[i] == '-')
-			flags[1] = 1;
+			flag_info[1] = 1;
 		if (str[i] == '.')
-			flags[2] = 1;
+			flag_info[2] = 1;
 		if (str[i] == '#')
-			flags[3] = 1;
+			flag_info[3] = 1;
 		if (str[i] == ' ')
-			flags[4] = 1;
+			flag_info[4] = 1;
 		if (str[i] == '+')
-			flags[5] = 1;
+			flag_info[5] = 1;
 		i++;
 	}
-	flags[6] = ft_is_first_int_zero(str, size);
-	flags[7] = ft_int_in_str_dot_before(str, size);
-	flags[8] = ft_int_in_str_dot_after(str, size);
-	return (flags);
+	flag_info[6] = ft_is_first_int_zero(str, size);
+	flag_info[7] = ft_int_in_str_dot_before(str, size);
+	flag_info[8] = ft_int_in_str_dot_after(str, size);
+	return (flag_info);
 }
 
 int	ft_int_in_str_dot_before(const char *str, int size)
