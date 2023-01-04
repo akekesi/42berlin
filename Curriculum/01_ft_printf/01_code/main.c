@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:25:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 15:25:55 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/04 02:39:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,20 @@ int	main(void)
 
 	int	n;
 	int	n___;
+	int	arg;
 
 	n = 0;
 	n___ = 0;
 
-	n = ft_printf("-->%#+ - 012.013sXXX%03.2-sXXX%-05.3s<--\n", "ABC", "abcde", "12345");
-	n___ = printf("-->%+d<--\n", -123);
+	arg = 17;
+	// n = ft_printf("%-8.145u%000*.53x%34.30u%0079.d", 1, 1, 1, 1);
+	// n___ = printf("%-8.145u%000*.53x%34.30u%0079.d", 1, 1, 1, 1);
+	n = ft_printf("-->%.2d<--\n", 1);
+	n___ = printf("-->%.2d<--\n", 1);
 	if (!test_check(n, n___))
 		return (0);
 
+	// n = ft_printf("-->%#+ - 012.013sXXX%03.2-sXXX%-05.3s<--\n", "ABC", "abcde", "12345");
 
 	// n = ft_printf("-->%.02d<--\n", 123);
 	// n___ = printf("-->%14.04d<--\n", 123);

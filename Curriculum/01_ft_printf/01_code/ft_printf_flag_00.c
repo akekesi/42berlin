@@ -6,12 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:59:03 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 20:59:03 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/03 22:13:52 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "test.h" // delete !!!
 
 int	ft_print_char_flag(va_list *args, int *flags_info)
 {
@@ -51,47 +50,5 @@ int	ft_print_str_flag(va_list *args, int *flags_info)
 	}
 	n = ft_print_pad_pos(arg, flags_info);
 	free(arg);
-	return (n);
-}
-
-int	ft_print_ptr_flag(va_list *args, int *flags_info)
-{
-	int		n;
-
-	n = 0;
-	n = va_arg(*args, int);
-	n *= flags_info[0];
-	return (n);
-}
-
-int	ft_print_int_flag(va_list *args, int *flags_info)
-{
-	int		n;
-	// char	*arg;
-
-	n = 0;
-	// arg = ft_int_to_str(va_arg(*args, int));
-	n = va_arg(*args, int);
-	n *= flags_info[0];
-	return (n);
-}
-
-int	ft_print_uint_flag(va_list *args, int *flags_info)
-{
-	int		n;
-
-	n = 0;
-	n = va_arg(*args, int);
-	n *= flags_info[0];
-	return (n);
-}
-
-int	ft_print_hex_flag(va_list *args, int *flags_info)
-{
-	int		n;
-
-	n = 0;
-	n = va_arg(*args, int);
-	n *= flags_info[0];
 	return (n);
 }
