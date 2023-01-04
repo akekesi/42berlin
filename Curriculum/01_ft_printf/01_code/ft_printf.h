@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:17:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:15:06 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/04 01:11:55 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		ft_print_pad_pos(char *str, int *flag_info);
 int		ft_print_pad(int c, int n);
 
 int		ft_print_str(const char *str);
+int		ft_print_char_n(int c, int size);
 
 void	ft_set_int_zero(int *list, int size);
 
