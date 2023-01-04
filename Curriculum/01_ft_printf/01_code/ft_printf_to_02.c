@@ -15,7 +15,6 @@
 char	*ft_hex_to_str(unsigned int n, int *flags_info)
 {
 	int		len;
-	int		rest;
 	char	*arg;
 
 	len = ft_hex_len(n);
@@ -76,7 +75,6 @@ char	*ft_ptr_to_str_sub(unsigned long long n)
 	int		rest;
 	char	*arg;
 
-	n = 0;
 	len = ft_hexll_len(n) + 2;
 	arg = (char *)malloc(sizeof(char) * (len + 1));
 	arg[0] = '0';

@@ -48,8 +48,8 @@ int	main(void)
 	arg = 17;
 	// n = ft_printf("%-8.145u%000*.53x%34.30u%0079.d", 1, 1, 1, 1);
 	// n___ = printf("%-8.145u%000*.53x%34.30u%0079.d", 1, 1, 1, 1);
-	n = ft_printf("-->%.2d<--\n", 1);
-	n___ = printf("-->%.2d<--\n", 1);
+	n = ft_printf("-->%p<--\n", -1);
+	n___ = printf("-->%p<--\n", -1);
 	if (!test_check(n, n___))
 		return (0);
 
