@@ -51,7 +51,6 @@ int	ft_print_hex_flag(va_list *args, int *flags_info)
 int	ft_print_ptr_flag(va_list *args, int *flags_info)
 {
 	int		n;
-	int		dot_int;
 	char	*arg;
 
 	n = 0;
