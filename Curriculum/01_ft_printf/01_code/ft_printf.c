@@ -11,21 +11,29 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+// static functions ???
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
 	int		n;
-	int		size_ft;
-	int		*flag_info;
 	va_list	args;
 
 	if (!str)
 		return (0);
-	flag_info = (int *)malloc(sizeof(int) * 9);
-	if (!flag_info)
-		return (0);
 	va_start(args, str);
+	n = ft_printf_sub(str, &args);
+	va_end(args);
+	return (n);
+}
+
+int	ft_printf_sub(const char *str, va_list *args)
+{
+	int	i;
+	int	n;
+	int	size_ft;
+	int	*flag_info;
+
+	flag_info = (int *)malloc(sizeof(int) * 9);
 	i = 0;
 	n = 0;
 	while (str[i])
@@ -35,14 +43,13 @@ int	ft_printf(const char *str, ...)
 		{
 			ft_set_int_zero(flag_info, 9);
 			flag_info = ft_flags_in_str(&str[i], size_ft, flag_info);
-			n += ft_print_call(&args, flag_info);
+			n += ft_print_call(args, flag_info);
 			i += size_ft;
 		}
 		else
 			n += write(1, &str[i], 1);
 		i++;
 	}
-	va_end(args);
 	free(flag_info);
 	return (n);
 }

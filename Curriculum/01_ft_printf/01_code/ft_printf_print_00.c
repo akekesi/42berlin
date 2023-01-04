@@ -27,7 +27,7 @@ int	ft_print_str(const char *str)
 
 int	ft_print_char_n(int c, int size)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (0 < size)

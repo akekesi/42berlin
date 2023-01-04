@@ -18,6 +18,7 @@
 # include <stdlib.h>
 
 int		ft_printf(const char *str, ...);
+int		ft_printf_sub(const char *str, va_list *args);
 int		ft_print_call(va_list *args, int *flag_info);
 
 int		ft_check_print(const char *str);
@@ -64,6 +65,8 @@ char	*ft_int_to_str(int n);
 char	*ft_uint_to_str(unsigned int n);
 char	*ft_ull_to_str(unsigned long long n);
 char	*ft_hex_to_str(unsigned int n, int *flag_info);
+char	*ft_hex_to_str_sub(unsigned int n, char *arg, int *flags_info, int len);
 char	*ft_ptr_to_str(unsigned long long n);
+char	*ft_ptr_to_str_sub(unsigned long long n);
 
 #endif
