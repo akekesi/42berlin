@@ -24,10 +24,10 @@ DEPS = ft_printf.h
 
 SRCS = ft_printf.c \
 	ft_printf_check_00.c \
-	ft_printf_cpy_00.c \
 	ft_printf_flag_00.c \
 	ft_printf_flag_01.c \
 	ft_printf_flag_02.c \
+	ft_printf_flag_03.c \
 	ft_printf_get_00.c \
 	ft_printf_in_00.c \
 	ft_printf_is_00.c \
@@ -36,6 +36,7 @@ SRCS = ft_printf.c \
 	ft_printf_pad_00.c \
 	ft_printf_print_00.c \
 	ft_printf_set_00.c \
+	ft_printf_str_00.c \
 	ft_printf_to_00.c \
 	ft_printf_to_01.c \
 	ft_printf_to_02.c \

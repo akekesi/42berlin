@@ -24,6 +24,7 @@ int		ft_print_call(va_list *args, int *flag_info);
 int		ft_check_print(const char *str);
 
 char	*ft_str_cpy(char *dest, const char *src);
+int		ft_str_cmp(const char *str1, const char *str2);
 
 int		ft_print_char_flag(va_list *args, int *flag_info);
 int		ft_print_str_flag(va_list *args, int *flag_info);
