@@ -39,7 +39,7 @@ SRCS = ft_printf.c \
 	ft_printf_to_00.c \
 	ft_printf_to_01.c \
 	ft_printf_to_02.c \
-	ft_printf_to_02.c
+	ft_printf_to_03.c
 
 SRCS_BONUS = 
 
