@@ -12,18 +12,6 @@
 
 #include "ft_printf.h"
 
-int	ft_print_hex_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
-{
-	int	n;
-
-	n = 0;
-	n += ft_print_char_n(' ', pad_b);
-	n += ft_print_str(prefix);
-	n += ft_print_char_n('0', pad_a);
-	n += ft_print_str(arg);
-	return (n);
-}
-
 int	ft_print_ptr_flag(va_list *args, int *flag_info)
 {
 	int		n;
@@ -32,7 +20,7 @@ int	ft_print_ptr_flag(va_list *args, int *flag_info)
 	char	*arg;
 	char	*prefix;
 
-	arg = ft_ptr_to_str(va_arg(*args, unsigned int));
+	arg = ft_ptr_to_str(va_arg(*args, unsigned long long));
 	if (!ft_str_cmp(arg, ft_get_null('p')))
 		prefix = "\0";
 	else if (flag_info[5])
