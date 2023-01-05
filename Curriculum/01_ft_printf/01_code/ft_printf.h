@@ -68,12 +68,11 @@ char	*ft_str_to_str(char *str);
 char	*ft_int_to_str(int n);
 char	*ft_uint_to_str(unsigned int n);
 char	*ft_ull_to_str(unsigned long long n);
-char	*ft_hex_to_str(unsigned int n, char *prefix);
+char	*ft_hex_to_str(unsigned int n);
 char	*ft_hex_to_str_sub(unsigned int n, char *arg, int size);
 void	ft_str_to_upper(char *str);
 char	*ft_ptr_to_str(unsigned long long n);
 char	*ft_ptr_to_str_sub(unsigned long long n);
 int		ft_neg_to_zero(int n);
-int		ft_max(int n1, int n2);
 
 #endif

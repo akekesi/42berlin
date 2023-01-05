@@ -18,10 +18,3 @@ int	ft_neg_to_zero(int n)
 		return (0);
 	return (n);
 }
-
-int	ft_max(int n1, int n2)
-{
-	if (n1 < n2)
-		return (n2);
-	return (n1);
-}

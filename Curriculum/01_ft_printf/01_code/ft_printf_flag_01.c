@@ -20,7 +20,7 @@ int	ft_print_hex_flag(va_list *args, int *flag_info)
 	char	*arg;
 	char	*prefix;
 
-	arg = ft_hex_to_str(va_arg(*args, unsigned int), "\0");
+	arg = ft_hex_to_str(va_arg(*args, unsigned int));
 	if (flag_info[0] == 'X')
 		ft_str_to_upper(arg);
 	prefix = ft_get_prefix(arg[0] - '0', flag_info[3], flag_info[0]);

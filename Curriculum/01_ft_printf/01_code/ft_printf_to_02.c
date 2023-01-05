@@ -12,30 +12,18 @@
 
 #include "ft_printf.h"
 
-char	*ft_hex_to_str(unsigned int n, char *prefix)
+char	*ft_hex_to_str(unsigned int n)
 {
-	int		i;
 	int		len;
 	char	*arg;
 
 	len = ft_hex_len(n);
-	if (prefix && n)
-		len += ft_str_len(prefix);
 	arg = (char *)malloc(sizeof(char) * (len + 1));
 	arg[len] = '\0';
 	if (!n)
 	{
 		arg[0] = '0';
 		return (arg);
-	}
-	if (prefix)
-	{
-		i = 0;
-		while (prefix[i])
-		{
-			arg[i] = prefix[i];
-			i++;
-		}
 	}
 	arg = ft_hex_to_str_sub(n, arg, len);
 	return (arg);
