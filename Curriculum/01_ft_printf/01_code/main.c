@@ -24,11 +24,11 @@ int	main(void)
 {
 	printf("|-- TEST -->\n");
 
-	// int	n;
-	// int	n___;
+	int	n;
+	int	n___;
 	
-	// n = 0;
-	// n___ = 0;
+	n = 0;
+	n___ = 0;
 
 	// printf("|-- s -->\n");
 	// n = ft_printf("-->%s<--\n", "abcde"); // <-- s
@@ -730,6 +730,99 @@ int	main(void)
 	// if (!test_check(n, n___))
 	// 	return (0);
 	// printf("<-- X --|\n");
+
+	printf("|-- p -->\n");
+	n = ft_printf("-->%7p<--\n", 171); // <-- p
+	n___ = printf("-->%7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->% 7p<--\n", 171); // <-- p
+	n___ = printf("-->% 7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%+7p<--\n", 171); // <-- p
+	n___ = printf("-->%+7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-7p<--\n", 171); // <-- p
+	n___ = printf("-->%-7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%- 7p<--\n", 171); // <-- p
+	n___ = printf("-->%- 7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-+7p<--\n", 171); // <-- p
+	n___ = printf("-->%-+7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%07p<--\n", 171); // <-- p
+	n___ = printf("-->%07p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0 7p<--\n", 171); // <-- p
+	n___ = printf("-->%0 7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0+7p<--\n", 171); // <-- p
+	n___ = printf("-->%0+7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0-7p<--\n", 171); // <-- p
+	n___ = printf("-->%0-7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0- 7p<--\n", 171); // <-- p
+	n___ = printf("-->%0- 7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0-+7p<--\n", 171); // <-- p
+	n___ = printf("-->%0-+7p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%07.6p<--\n", 171); // <-- p
+	n___ = printf("-->%07.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0 7.6p<--\n", 171); // <-- p
+	n___ = printf("-->%0 7.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0+7.6p<--\n", 171); // <-- p
+	n___ = printf("-->%0+7.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0-7.6p<--\n", 171); // <-- p
+	n___ = printf("-->%0-7.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0- 7.6p<--\n", 171); // <-- p
+	n___ = printf("-->%0- 7.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0-+7.6p<--\n", 171); // <-- p
+	n___ = printf("-->%0-+7.6p<--\n", 171); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	printf("<-- p --|\n");
 
 	// printf("|-- get -->\n");
 	// printf("-->%s<--\n", ft_get_types());

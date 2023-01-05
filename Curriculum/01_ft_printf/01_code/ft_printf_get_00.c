@@ -31,7 +31,7 @@ char	*ft_get_null(char type)
 	return (NULL);
 }
 
-char	*ft_get_prefix(int n, int prefix, int type)
+char	*ft_get_prefix(int n, int prefix, int type, int pprefix)
 {
 	if (prefix && n)
 	{
@@ -39,6 +39,12 @@ char	*ft_get_prefix(int n, int prefix, int type)
 			return ("0x\0");
 		if (type == 'X')
 			return ("0X\0");
+		if (type == 'p' && pprefix == '+')
+			return ("+0x\0");
+		if (type == 'p' && pprefix == ' ')
+			return (" 0x\0");
+		if (type == 'p' && pprefix == 0)
+			return ("0x\0");
 	}
 	return ("\0");
 }

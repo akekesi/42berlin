@@ -32,13 +32,16 @@ int		ft_print_hex_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_hex_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_hex_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_ptr_flag(va_list *args, int *flag_info);
+int		ft_print_ptr_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b);
+int		ft_print_ptr_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b);
+int		ft_print_ptr_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_int_flag(va_list *args, int *flag_info);
 int		ft_print_uint_flag(va_list *args, int *flag_info);
 
 char	*ft_get_types(void);
 char	*ft_get_flags(void);
 char	*ft_get_null(char type);
-char	*ft_get_prefix(int n, int prefix, int type);
+char	*ft_get_prefix(int n, int prefix, int type, int pprefix);
 
 int		ft_char_in_str(int c, const char *str);
 int		*ft_flags_in_str(const char *str, int size, int *flag_info);

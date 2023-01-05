@@ -81,10 +81,8 @@ char	*ft_ptr_to_str_sub(unsigned long long n)
 	int		rest;
 	char	*arg;
 
-	len = ft_hexll_len(n) + 2;
+	len = ft_hexll_len(n);
 	arg = (char *)malloc(sizeof(char) * (len + 1));
-	arg[0] = '0';
-	arg[1] = 'x';
 	arg[len] = '\0';
 	while (n)
 	{
