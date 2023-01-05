@@ -822,8 +822,13 @@ int	main(void)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-+7.6p<--\n", 0); // <-- p
-	n___ = printf("-->%0-+7.6p<--\n", 0); // <-- p
+	n = ft_printf("-->%0-+8.7p<--\n", 0); // <-- p
+	n___ = printf("-->%0-+8.7p<--\n", 0); // <-- p
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%0+8.7p<--\n", 0); // <-- p
+	n___ = printf("-->%0+8.7p<--\n", 0); // <-- p
 	if (!test_check(n, n___))
 		return (0);
 
