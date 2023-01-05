@@ -24,11 +24,11 @@ int	ft_print_char_flag(va_list *args, int *flags_info)
 	if (flags_info[1])
 	{
 		n += write(1, &arg, 1);
-		n += ft_print_pad(' ', pad_len - 1);
+		n += ft_print_char_n(' ', pad_len - 1);
 	}
 	else
 	{
-		n += ft_print_pad(' ', pad_len - 1);
+		n += ft_print_char_n(' ', pad_len - 1);
 		n += write(1, &arg, 1);
 	}
 	return (n);

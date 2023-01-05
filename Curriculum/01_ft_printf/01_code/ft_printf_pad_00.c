@@ -51,27 +51,12 @@ int	ft_print_pad_pos(char *arg, int *flag_info)
 	if (flag_info[1])
 	{
 		n += ft_print_str(arg);
-		n += ft_print_pad(c, flag_info[7] - arg_len);
+		n += ft_print_char_n(c, flag_info[7] - arg_len);
 	}
 	else
 	{
-		n += ft_print_pad(c, flag_info[7] - arg_len);
+		n += ft_print_char_n(c, flag_info[7] - arg_len);
 		n += ft_print_str(arg);
 	}
 	return (n);
-}
-
-int	ft_print_pad(int c, int n)
-{
-	int	i;
-	int	n_;
-
-	i = 0;
-	n_ = 0;
-	while (i < n)
-	{
-		n_ += write(1, &c, 1);
-		i++;
-	}
-	return (n_);
 }

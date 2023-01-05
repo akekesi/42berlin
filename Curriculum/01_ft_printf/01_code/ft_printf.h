@@ -52,7 +52,7 @@ int		ft_hex_len(unsigned int n);
 int		ft_hexll_len(unsigned long long n);
 
 int		ft_print_pad_pos(char *str, int *flag_info);
-int		ft_print_pad(int c, int n);
+int		ft_print_char_n(int c, int size);
 
 int		ft_print_str(const char *str);
 int		ft_print_char_n(int c, int size);
