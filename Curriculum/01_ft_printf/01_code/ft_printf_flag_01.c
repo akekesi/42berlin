@@ -12,50 +12,74 @@
 
 #include "ft_printf.h"
 
-int	ft_print_int_flag(va_list *args, int *flags_info)
+int	ft_print_hex_flag(va_list *args, int *flag_info)
 {
 	int		n;
+	int		pad_a;
+	int		pad_b;
 	char	*arg;
+	char	*prefix;
 
-	n = 0;
-	arg = ft_int_to_str(va_arg(*args, int));
-	n = ft_print_pad_pos(arg, flags_info);
+	arg = ft_hex_to_str(va_arg(*args, unsigned int), "\0");
+	if (flag_info[0] == 'X')
+		ft_str_to_upper(arg);
+	prefix = ft_get_prefix(arg[0] - '0', flag_info[3], flag_info[0]);
+	pad_a = ft_neg_to_zero(flag_info[8] - ft_str_len(arg));
+	pad_b = flag_info[7] - pad_a - ft_str_len(arg) - ft_str_len(prefix);
+	if (flag_info[1])
+		n = ft_print_hex_flag_sub1(arg, prefix, pad_a, pad_b);
+	else if (flag_info[6] && !flag_info[2])
+		n = ft_print_hex_flag_sub2(arg, prefix, pad_a, pad_b);
+	else
+		n = ft_print_hex_flag_sub3(arg, prefix, pad_a, pad_b);
 	free(arg);
 	return (n);
 }
 
-int	ft_print_uint_flag(va_list *args, int *flags_info)
+int	ft_print_hex_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b)
 {
-	int		n;
-	char	*arg;
+	int	n;
 
 	n = 0;
-	arg = ft_uint_to_str(va_arg(*args, unsigned int));
-	n = ft_print_pad_pos(arg, flags_info);
-	free(arg);
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
+	n += ft_print_char_n(' ', pad_b);
 	return (n);
 }
 
-int	ft_print_hex_flag(va_list *args, int *flags_info)
+int	ft_print_hex_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b)
 {
-	int		n;
-	char	*arg;
+	int	n;
 
 	n = 0;
-	arg = ft_hex_to_str(va_arg(*args, unsigned int), flags_info);
-	n = ft_print_pad_pos(arg, flags_info);
-	free(arg);
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_b);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
 	return (n);
 }
 
-int	ft_print_ptr_flag(va_list *args, int *flags_info)
+int	ft_print_hex_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
+{
+	int	n;
+
+	n = 0;
+	n += ft_print_char_n(' ', pad_b);
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
+	return (n);
+}
+
+int	ft_print_ptr_flag(va_list *args, int *flag_info)
 {
 	int		n;
 	char	*arg;
 
 	n = 0;
 	arg = ft_ptr_to_str(va_arg(*args, unsigned long long));
-	n += ft_print_pad_pos(arg, flags_info);
+	n += ft_print_pad_pos(arg, flag_info);
 	free(arg);
 	return (n);
 }

@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_flag_01.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 15:41:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:59 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/03 22:00:12 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/04 02:36:59 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_types(void)
+int	ft_print_int_flag(va_list *args, int *flags_info)
 {
-	return ("cspdiuxX%");
+	int		n;
+	char	*arg;
+
+	n = 0;
+	arg = ft_int_to_str(va_arg(*args, int));
+	n = ft_print_pad_pos(arg, flags_info);
+	free(arg);
+	return (n);
 }
 
-char	*ft_get_flags(void)
+int	ft_print_uint_flag(va_list *args, int *flags_info)
 {
-	return ("-0123456789.# +");
-}
+	int		n;
+	char	*arg;
 
-char	*ft_get_null(char type)
-{
-	if (type == 's')
-		return ("(null)");
-	if (type == 'p')
-		return ("(nil)");
-	return (NULL);
-}
-
-char	*ft_get_prefix(int n, int prefix, int type)
-{
-	if (prefix && n)
-	{
-		if (type == 'x')
-			return ("0x\0");
-		if (type == 'X')
-			return ("0X\0");
-	}
-	return ("\0");
+	n = 0;
+	arg = ft_uint_to_str(va_arg(*args, unsigned int));
+	n = ft_print_pad_pos(arg, flags_info);
+	free(arg);
+	return (n);
 }

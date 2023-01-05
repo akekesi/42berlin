@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_to_03.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 15:41:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:59 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/05 16:19:41 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/05 16:19:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_types(void)
+int	ft_neg_to_zero(int n)
 {
-	return ("cspdiuxX%");
+	if (n < 0)
+		return (0);
+	return (n);
 }
 
-char	*ft_get_flags(void)
+int	ft_max(int n1, int n2)
 {
-	return ("-0123456789.# +");
-}
-
-char	*ft_get_null(char type)
-{
-	if (type == 's')
-		return ("(null)");
-	if (type == 'p')
-		return ("(nil)");
-	return (NULL);
-}
-
-char	*ft_get_prefix(int n, int prefix, int type)
-{
-	if (prefix && n)
-	{
-		if (type == 'x')
-			return ("0x\0");
-		if (type == 'X')
-			return ("0X\0");
-	}
-	return ("\0");
+	if (n1 < n2)
+		return (n2);
+	return (n1);
 }
