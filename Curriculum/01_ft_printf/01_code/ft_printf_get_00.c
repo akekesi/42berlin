@@ -48,3 +48,15 @@ char	*ft_get_prefix(int n, int prefix, int type, int pprefix)
 	}
 	return ("\0");
 }
+
+char	*ft_get_prefix_ptr(char *arg, int *flag_info)
+{
+	if (!ft_str_cmp(arg, ft_get_null('p')))
+		return ("\0");
+	else if (flag_info[5])
+		return (ft_get_prefix(arg[0] - '0', 1, 'p', '+'));
+	else if (flag_info[4])
+		return (ft_get_prefix(arg[0] - '0', 1, 'p', ' '));
+	else
+		return (ft_get_prefix(arg[0] - '0', 1, 'p', 0));
+}

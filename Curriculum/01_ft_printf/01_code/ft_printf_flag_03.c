@@ -12,26 +12,62 @@
 
 #include "ft_printf.h"
 
-int	ft_print_int_flag(va_list *args, int *flags_info)
+int	ft_print_ptr_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b)
 {
-	int		n;
-	char	*arg;
+	int	n;
 
 	n = 0;
-	arg = ft_int_to_str(va_arg(*args, int));
-	n = ft_print_pad_pos(arg, flags_info);
-	free(arg);
+	n += ft_print_str(prefix);
+	n += ft_print_str(arg);
+	n += ft_print_char_n(' ', pad_a);
+	n += ft_print_char_n(' ', pad_b);
 	return (n);
 }
 
-int	ft_print_uint_flag(va_list *args, int *flags_info)
+int	ft_print_ptr_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b)
 {
-	int		n;
-	char	*arg;
+	int	n;
 
 	n = 0;
-	arg = ft_uint_to_str(va_arg(*args, unsigned int));
-	n = ft_print_pad_pos(arg, flags_info);
-	free(arg);
+	n += ft_print_char_n(' ', pad_a);
+	n += ft_print_char_n(' ', pad_b);
+	n += ft_print_str(prefix);
+	n += ft_print_str(arg);
+	return (n);
+}
+
+int	ft_print_ptr_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
+{
+	int	n;
+
+	n = 0;
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
+	n += ft_print_char_n(' ', pad_b);
+	return (n);
+}
+
+int	ft_print_ptr_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b)
+{
+	int	n;
+
+	n = 0;
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_b);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
+	return (n);
+}
+
+int	ft_print_ptr_flag_sub5(char *arg, char *prefix, int pad_a, int pad_b)
+{
+	int	n;
+
+	n = 0;
+	n += ft_print_char_n(' ', pad_b);
+	n += ft_print_str(prefix);
+	n += ft_print_char_n('0', pad_a);
+	n += ft_print_str(arg);
 	return (n);
 }

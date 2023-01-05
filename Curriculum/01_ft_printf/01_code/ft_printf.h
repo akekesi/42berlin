@@ -45,6 +45,7 @@ char	*ft_get_types(void);
 char	*ft_get_flags(void);
 char	*ft_get_null(char type);
 char	*ft_get_prefix(int n, int prefix, int type, int pprefix);
+char	*ft_get_prefix_ptr(char *arg, int *flag_info);
 
 int		ft_char_in_str(int c, const char *str);
 int		*ft_flags_in_str(const char *str, int size, int *flag_info);
