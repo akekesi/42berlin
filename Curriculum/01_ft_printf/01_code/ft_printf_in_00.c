@@ -58,7 +58,7 @@ int	ft_int_in_str_dot_before(const char *str, int size)
 	int	n;
 
 	i = 0;
-	while (str[i] && !ft_is_digit(str[i]) && i < size)
+	while (str[i] && (!ft_is_digit(str[i]) || str[i] == '0') && i < size)
 	{
 		if (str[i] == '.')
 			return (0);

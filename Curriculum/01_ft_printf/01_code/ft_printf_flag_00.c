@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_print_char_flag(va_list *args, int *flags_info)
+int	ft_print_char_flag(va_list *args, int *flag_info)
 {
 	int	n;
 	int	arg;
@@ -20,8 +20,8 @@ int	ft_print_char_flag(va_list *args, int *flags_info)
 
 	n = 0;
 	arg = va_arg(*args, int);
-	pad_len = flags_info[7];
-	if (flags_info[1])
+	pad_len = flag_info[7];
+	if (flag_info[1])
 	{
 		n += write(1, &arg, 1);
 		n += ft_print_char_n(' ', pad_len - 1);
@@ -34,21 +34,31 @@ int	ft_print_char_flag(va_list *args, int *flags_info)
 	return (n);
 }
 
-int	ft_print_str_flag(va_list *args, int *flags_info)
+int	ft_print_str_flag(va_list *args, int *flag_info)
 {
 	int		n;
-	int		dot_int;
+	int		arg_len;
+	char	c;
 	char	*arg;
 
 	n = 0;
 	arg = ft_str_to_str(va_arg(*args, char *));
-	if (flags_info[2])
+	arg_len = ft_str_len(arg);
+	if (flag_info[2] && flag_info[8] < arg_len)
+		arg[flag_info[8]] = '\0';
+	c = ' ';
+	if (flag_info[6] && flag_info[0] != 's')
+		c = '0';
+	if (flag_info[1])
 	{
-		dot_int = flags_info[8];
-		if (dot_int < ft_str_len(arg))
-			arg[dot_int] = '\0';
+		n += ft_print_str(arg);
+		n += ft_print_char_n(c, flag_info[7] - arg_len);
 	}
-	n = ft_print_pad_pos(arg, flags_info);
+	else
+	{
+		n += ft_print_char_n(c, flag_info[7] - arg_len);
+		n += ft_print_str(arg);
+	}
 	free(arg);
 	return (n);
 }
