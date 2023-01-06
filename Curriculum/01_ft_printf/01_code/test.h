@@ -20,4 +20,13 @@ int		test_check(int n, int n___);
 void	test_print(int n, int n___, int c);
 void	test_print_flags_info(int *flags_info);
 
+int		test_printf_c(void);
+int		test_printf_s(void);
+int		test_printf_x(void);
+int		test_printf_x_(void);
+int		test_printf_p(void);
+int		test_printf_i(void);
+int		test_printf_d(void);
+int		test_printf_u(void);
+
 #endif
