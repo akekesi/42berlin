@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 20:29:56 by akekesi           #+#    #+#              #
-#    Updated: 2023/01/03 22:13:47 by akekesi          ###   ########.fr        #
+#    Updated: 2023/01/06 18:31:46 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = ft_printf.c \
 	ft_printf_flag_01.c \
 	ft_printf_flag_02.c \
 	ft_printf_flag_03.c \
+	ft_printf_flag_04.c \
 	ft_printf_get_00.c \
 	ft_printf_get_01.c \
 	ft_printf_in_00.c \

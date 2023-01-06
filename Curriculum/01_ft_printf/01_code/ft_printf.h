@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:17:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/04 01:11:55 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:26:47 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int		ft_print_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b);
 int		ft_print_flag_sub5(char *arg, char *prefix, int pad_a, int pad_b);
+int		ft_print_flag_sub6(char *arg, int pad, int c);
+int		ft_print_flag_sub7(char *arg, int pad, int c);
 
 char	*ft_get_types(void);
 char	*ft_get_flags(void);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_flag_01.c                                :+:      :+:    :+:   */
+/*   ft_printf_flag_02.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:00:12 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/04 02:36:59 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:26:05 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	ft_print_int_flag_sub(char *arg, int *flag_info, char *prefix)
 	int	pad_b;
 
 	n = 0;
+	if (flag_info[2] && flag_info[8] < ft_str_len(arg))
+	{
+		if (!ft_str_cmp(arg, "0"))
+			arg[0] = '\0';
+	}
 	pad_a = ft_neg_to_zero(flag_info[8] - ft_str_len(arg));
 	pad_b = flag_info[7] - pad_a - ft_str_len(arg) - ft_str_len(prefix);
 	if (flag_info[1])

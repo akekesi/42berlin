@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:59:03 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:27:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,20 @@ int	ft_print_str_flag(va_list *args, int *flag_info)
 	n = 0;
 	arg = ft_str_to_str(va_arg(*args, char *));
 	if (flag_info[2] && flag_info[8] < ft_str_len(arg))
-		arg[flag_info[8]] = '\0';
+	{
+		if (ft_str_cmp(arg, ft_get_null('s')))
+			arg[flag_info[8]] = '\0';
+		else
+			arg[0] = '\0';
+	}
 	pad = flag_info[7] - ft_str_len(arg);
 	c = ' ';
 	if (flag_info[6] && !flag_info[1])
 		c = '0';
 	if (flag_info[1])
-	{
-		n += ft_print_str(arg);
-		n += ft_print_char_n(c, pad);
-	}
+		n += ft_print_flag_sub6(arg, pad, c);
 	else
-	{
-		n += ft_print_char_n(c, pad);
-		n += ft_print_str(arg);
-	}
+		n += ft_print_flag_sub7(arg, pad, c);
 	free(arg);
 	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:47:21 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/06 16:47:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:11:16 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ int	test_printf_s(void)
 	n___ = 0;
 
 	printf("|-- s -->\n");
+	n = ft_printf("-->%.2s<--\n", "NULL"); // <-- s
+	n___ = printf("-->%.2s<--\n", "NULL"); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.4s<--\n", NULL); // <-- s
+	n___ = printf("-->%.4s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.03s<--\n", NULL); // <-- s
+	n___ = printf("-->%.03s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
 	n = ft_printf("-->%s<--\n", "abcde"); // <-- s
 	n___ = printf("-->%s<--\n", "abcde"); // <-- s
 	if (!test_check(n, n___))
