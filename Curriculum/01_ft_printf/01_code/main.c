@@ -30,6 +30,113 @@ int	main(void)
 	// n = 0;
 	// n___ = 0;
 
+	// printf("|-- c -->\n");
+	// n = ft_printf("-->%c<--\n", 0); // <-- c
+	// n___ = printf("-->%c<--\n", 0); // <-- c
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%c<--\n", 48); // <-- c
+	// n___ = printf("-->%c<--\n", 48); // <-- c
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%c<--\n", 'X'); // <-- c
+	// n___ = printf("-->%c<--\n", 'X'); // <-- c
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%#c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%#c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->% c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->% c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%+c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%+c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03.0c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03.0c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03.0c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03.0c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03.5c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03.5c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03.5c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03.5c<--\n", 'X'); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%#c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%#c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->% c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->% c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%+c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%+c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03.0c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03.0c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03.0c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03.0c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%03.5c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%03.5c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-03.5c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// n___ = printf("-->%-03.5c<--\n", 0); // <-- c (error: #, space, +, ., 0)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// printf("<-- c --|\n");
+
 	// printf("|-- s -->\n");
 	// n = ft_printf("-->%s<--\n", "abcde"); // <-- s
 	// n___ = printf("-->%s<--\n", "abcde"); // <-- s
@@ -241,6 +348,30 @@ int	main(void)
 	// 	return (0);
 	// n = ft_printf("-->%#7.13s<--\n", ""); // <-- s (error: # used)
 	// n___ = printf("-->%#7.13s<--\n", ""); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%#07.13s<--\n", ""); // <-- s (error: # used)
+	// n___ = printf("-->%#07.13s<--\n", ""); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%03.2s<--\n", "ABC"); // <-- s (error: # used)
+	// n___ = printf("-->%03.2s<--\n", "ABC"); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%-03.2s<--\n", "ABC"); // <-- s (error: # used)
+	// n___ = printf("-->%-03.2s<--\n", "ABC"); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%-03.0s<--\n", "ABC"); // <-- s (error: # used)
+	// n___ = printf("-->%-03.0s<--\n", "ABC"); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%-01.0s<--\n", "ABC"); // <-- s (error: # used)
+	// n___ = printf("-->%-01.0s<--\n", "ABC"); // <-- s (error: # used)
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// n = ft_printf("-->%01.0s<--\n", "ABC"); // <-- s (error: # used)
+	// n___ = printf("-->%01.0s<--\n", "ABC"); // <-- s (error: # used)
 	// if (!test_check(n, n___))
 	// 	return (0);
 	// printf("<-- s --|\n");
