@@ -53,3 +53,16 @@ int	ft_str_cmp(const char *str1, const char *str2)
 	}
 	return (0);
 }
+
+void	ft_str_to_upper(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ('a' <= str[i] && str[i] <= 'z')
+			str[i] = str[i] - 'a' + 'A';
+		i++;
+	}
+}

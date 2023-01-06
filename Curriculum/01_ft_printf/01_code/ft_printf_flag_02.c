@@ -33,6 +33,20 @@ int	ft_print_int_flag(va_list *args, int *flag_info)
 	return (n);
 }
 
+int	ft_print_uint_flag(va_list *args, int *flag_info)
+{
+	int		n;
+	char	*arg;
+	char	*prefix;
+
+	n = 0;
+	arg = ft_uint_to_str(va_arg(*args, unsigned int));
+	prefix = "\0";
+	n = ft_print_int_flag_sub(arg, flag_info, prefix);
+	free(arg);
+	return (n);
+}
+
 int	ft_print_int_flag_sub(char *arg, int *flag_info, char *prefix)
 {
 	int	n;
@@ -48,17 +62,5 @@ int	ft_print_int_flag_sub(char *arg, int *flag_info, char *prefix)
 		n = ft_print_flag_sub4(arg, prefix, pad_a, pad_b);
 	else
 		n = ft_print_flag_sub5(arg, prefix, pad_a, pad_b);
-	return (n);
-}
-
-int	ft_print_uint_flag(va_list *args, int *flag_info)
-{
-	int		n;
-	char	*arg;
-
-	n = 0;
-	arg = ft_uint_to_str(va_arg(*args, unsigned int));
-	n = ft_print_pad_pos(arg, flag_info);
-	free(arg);
 	return (n);
 }

@@ -46,19 +46,6 @@ char	*ft_hex_to_str_sub(unsigned int n, char *arg, int size)
 	return (arg);
 }
 
-void	ft_str_to_upper(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if ('a' <= str[i] && str[i] <= 'z')
-			str[i] = str[i] - 'a' + 'A';
-		i++;
-	}
-}
-
 char	*ft_ptr_to_str(unsigned long long n)
 {
 	int		len;
