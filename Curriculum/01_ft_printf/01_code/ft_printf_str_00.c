@@ -12,6 +12,18 @@
 
 #include "ft_printf.h"
 
+int	ft_str_len(const char *str)
+{
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 char	*ft_str_cpy(char *dest, const char *src)
 {
 	int		i;

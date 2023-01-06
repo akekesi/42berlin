@@ -12,21 +12,47 @@
 
 #include "ft_printf.h"
 
-char	*ft_get_types(void)
+char	*ft_get_prefix_main(int n, int prefix, int type, int pprefix)
 {
-	return ("cspdiuxX%");
+	if (prefix && n)
+	{
+		if (type == 'x')
+			return ("0x\0");
+		if (type == 'X')
+			return ("0X\0");
+		if (type == 'p' && pprefix == '+')
+			return ("+0x\0");
+		if (type == 'p' && pprefix == ' ')
+			return (" 0x\0");
+		if (type == 'p' && pprefix == 0)
+			return ("0x\0");
+	}
+	return ("\0");
 }
 
-char	*ft_get_flags(void)
+char	*ft_get_prefix_ptr(char *arg, int *flag_info)
 {
-	return ("-0123456789.# +");
+	if (!ft_str_cmp(arg, ft_get_null('p')))
+		return ("\0");
+	else if (flag_info[5])
+		return (ft_get_prefix_main(arg[0] - '0', 1, 'p', '+'));
+	else if (flag_info[4])
+		return (ft_get_prefix_main(arg[0] - '0', 1, 'p', ' '));
+	else
+		return (ft_get_prefix_main(arg[0] - '0', 1, 'p', 0));
 }
 
-char	*ft_get_null(char type)
+char	*ft_get_prefix_int(char *arg, int *flag_info)
 {
-	if (type == 's')
-		return ("(null)");
-	if (type == 'p')
-		return ("(nil)");
-	return (NULL);
+	if (arg[0] != '-')
+	{
+		if (flag_info[5])
+			return ("+");
+		else if (flag_info[4])
+			return (" ");
+		else
+			return ("\0");
+	}
+	else
+		return ("-");
 }

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_print_ptr_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b)
+int	ft_print_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b)
 {
 	int	n;
 
@@ -24,7 +24,7 @@ int	ft_print_ptr_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b)
 	return (n);
 }
 
-int	ft_print_ptr_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b)
+int	ft_print_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b)
 {
 	int	n;
 
@@ -36,7 +36,7 @@ int	ft_print_ptr_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b)
 	return (n);
 }
 
-int	ft_print_ptr_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
+int	ft_print_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
 {
 	int	n;
 
@@ -48,7 +48,7 @@ int	ft_print_ptr_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b)
 	return (n);
 }
 
-int	ft_print_ptr_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b)
+int	ft_print_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b)
 {
 	int	n;
 
@@ -60,7 +60,7 @@ int	ft_print_ptr_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b)
 	return (n);
 }
 
-int	ft_print_ptr_flag_sub5(char *arg, char *prefix, int pad_a, int pad_b)
+int	ft_print_flag_sub5(char *arg, char *prefix, int pad_a, int pad_b)
 {
 	int	n;
 

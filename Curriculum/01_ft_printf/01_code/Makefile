@@ -28,12 +28,11 @@ SRCS = ft_printf.c \
 	ft_printf_flag_01.c \
 	ft_printf_flag_02.c \
 	ft_printf_flag_03.c \
-	ft_printf_flag_04.c \
 	ft_printf_get_00.c \
+	ft_printf_get_01.c \
 	ft_printf_in_00.c \
 	ft_printf_is_00.c \
 	ft_printf_len_00.c \
-	ft_printf_len_01.c \
 	ft_printf_pad_00.c \
 	ft_printf_print_00.c \
 	ft_printf_set_00.c \

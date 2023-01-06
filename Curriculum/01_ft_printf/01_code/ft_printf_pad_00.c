@@ -20,33 +20,30 @@ int	ft_print_pad_pos(char *arg, int *flag_info)
 
 	n = 0;
 	c = ' ';
-	if (flag_info[6] && flag_info[0] != 's')
+	if (flag_info[6])
 		c = '0';
 	arg_len = ft_str_len(arg);
-	if (flag_info[0] == 'i' || flag_info[0] == 'd' || flag_info[0] == 'u' || flag_info[0] == 'x' || flag_info[0] == 'X')
+	if (flag_info[6] && arg_len < flag_info[7] && arg[0] == '-')
 	{
-		if (flag_info[6] && arg_len < flag_info[7] && arg[0] == '-')
+		n += write(1, "-", 1);
+		arg++;
+	}
+	if (arg[0] != '-')
+	{
+		if (flag_info[5])
+			n += write(1, "+", 1);
+		else if (flag_info[4])
+			n += write(1, " ", 1);
+	}
+	if (flag_info[2])
+	{
+		if (arg[0] == '-')
 		{
 			n += write(1, "-", 1);
 			arg++;
+			arg_len--;
 		}
-		if (arg[0] != '-')
-		{
-			if (flag_info[5])
-				n += write(1, "+", 1);
-			else if (flag_info[4])
-				n += write(1, " ", 1);
-		}
-		if (flag_info[2])
-		{
-			if (arg[0] == '-')
-			{
-				n += write(1, "-", 1);
-				arg++;
-				arg_len--;
-			}
-			n += ft_print_char_n('0', flag_info[8] - arg_len);
-		}
+		n += ft_print_char_n('0', flag_info[8] - arg_len);
 	}	
 	if (flag_info[1])
 	{

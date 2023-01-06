@@ -731,108 +731,284 @@ int	main(void)
 	// 	return (0);
 	// printf("<-- X --|\n");
 
-	printf("|-- p -->\n");
-	n = ft_printf("-->%7p<--\n", 171); // <-- p
-	n___ = printf("-->%7p<--\n", 171); // <-- p
+	// printf("|-- p -->\n");
+	// n = ft_printf("-->%7p<--\n", 171); // <-- p
+	// n___ = printf("-->%7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->% 7p<--\n", 171); // <-- p
+	// n___ = printf("-->% 7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%+7p<--\n", 171); // <-- p
+	// n___ = printf("-->%+7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-7p<--\n", 171); // <-- p
+	// n___ = printf("-->%-7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%- 7p<--\n", 171); // <-- p
+	// n___ = printf("-->%- 7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%-+7p<--\n", 171); // <-- p
+	// n___ = printf("-->%-+7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%07p<--\n", 171); // <-- p
+	// n___ = printf("-->%07p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0 7p<--\n", 171); // <-- p
+	// n___ = printf("-->%0 7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0+7p<--\n", 171); // <-- p
+	// n___ = printf("-->%0+7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0-7p<--\n", 171); // <-- p
+	// n___ = printf("-->%0-7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0- 7p<--\n", 171); // <-- p
+	// n___ = printf("-->%0- 7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0-+7p<--\n", 171); // <-- p
+	// n___ = printf("-->%0-+7p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%07.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%07.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0 7.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%0 7.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0+7.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%0+7.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0-7.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%0-7.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0- 7.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%0- 7.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0-+7.6p<--\n", 171); // <-- p
+	// n___ = printf("-->%0-+7.6p<--\n", 171); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0-+8.7p<--\n", 0); // <-- p
+	// n___ = printf("-->%0-+8.7p<--\n", 0); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+
+	// n = ft_printf("-->%0+8.7p<--\n", 0); // <-- p
+	// n___ = printf("-->%0+8.7p<--\n", 0); // <-- p
+	// if (!test_check(n, n___))
+	// 	return (0);
+	// printf("<-- p --|\n");
+
+	printf("|-- d/i -->\n");
+	n = ft_printf("-->%d<--\n", 123); // <-- d/i
+	n___ = printf("-->%d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->% 7p<--\n", 171); // <-- p
-	n___ = printf("-->% 7p<--\n", 171); // <-- p
+	n = ft_printf("-->% d<--\n", 123); // <-- d/i
+	n___ = printf("-->% d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%+7p<--\n", 171); // <-- p
-	n___ = printf("-->%+7p<--\n", 171); // <-- p
+	n = ft_printf("-->%+d<--\n", 123); // <-- d/i
+	n___ = printf("-->%+d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%-7p<--\n", 171); // <-- p
-	n___ = printf("-->%-7p<--\n", 171); // <-- p
+	n = ft_printf("-->%+ d<--\n", 123); // <-- d/i (error: space with +)
+	n___ = printf("-->%+ d<--\n", 123); // <-- d/i (error: space with +)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%- 7p<--\n", 171); // <-- p
-	n___ = printf("-->%- 7p<--\n", 171); // <-- p
+	n = ft_printf("-->%#+ d<--\n", 123); // <-- d/i (error: #)
+	n___ = printf("-->%#+ d<--\n", 123); // <-- d/i (error: #)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%-+7p<--\n", 171); // <-- p
-	n___ = printf("-->%-+7p<--\n", 171); // <-- p
+	n = ft_printf("-->%05d<--\n", 123); // <-- d/i
+	n___ = printf("-->%05d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%07p<--\n", 171); // <-- p
-	n___ = printf("-->%07p<--\n", 171); // <-- p
+	n = ft_printf("-->%.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0 7p<--\n", 171); // <-- p
-	n___ = printf("-->%0 7p<--\n", 171); // <-- p
+	n = ft_printf("-->%-05d<--\n", 123); // <-- d/i (error: 0 with -)
+	n___ = printf("-->%-05d<--\n", 123); // <-- d/i (error: 0 with -)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0+7p<--\n", 171); // <-- p
-	n___ = printf("-->%0+7p<--\n", 171); // <-- p
+	n = ft_printf("-->%-.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%-.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-7p<--\n", 171); // <-- p
-	n___ = printf("-->%0-7p<--\n", 171); // <-- p
+	n = ft_printf("-->%7.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%7.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0- 7p<--\n", 171); // <-- p
-	n___ = printf("-->%0- 7p<--\n", 171); // <-- p
+	n = ft_printf("-->%-7.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%-7.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-+7p<--\n", 171); // <-- p
-	n___ = printf("-->%0-+7p<--\n", 171); // <-- p
+	n = ft_printf("-->%-+7.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%-+7.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%07.6p<--\n", 171); // <-- p
-	n___ = printf("-->%07.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%- 7.5d<--\n", 123); // <-- d/i
+	n___ = printf("-->%- 7.5d<--\n", 123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0 7.6p<--\n", 171); // <-- p
-	n___ = printf("-->%0 7.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%-+07.5d<--\n", 123); // <-- d/i (error: 0 with . and -)
+	n___ = printf("-->%-+07.5d<--\n", 123); // <-- d/i (error: 0 with . and -)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0+7.6p<--\n", 171); // <-- p
-	n___ = printf("-->%0+7.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%- 07.5d<--\n", 123); // <-- d/i (error: 0 with . and -)
+	n___ = printf("-->%- 07.5d<--\n", 123); // <-- d/i (error: 0 with . and -)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-7.6p<--\n", 171); // <-- p
-	n___ = printf("-->%0-7.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%- +08.6d<--\n", 123); // <-- d/i (error: 0 with ., - and +)
+	n___ = printf("-->%- +08.6d<--\n", 123); // <-- d/i (error: 0 with ., - and +)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0- 7.6p<--\n", 171); // <-- p
-	n___ = printf("-->%0- 7.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%05.d<--\n", 123); // <-- d/i (error: 0 with .)
+	n___ = printf("-->%05.d<--\n", 123); // <-- d/i (error: 0 with .)
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-+7.6p<--\n", 171); // <-- p
-	n___ = printf("-->%0-+7.6p<--\n", 171); // <-- p
+	n = ft_printf("-->%d<--\n", -123); // <-- d/i
+	n___ = printf("-->%d<--\n", -123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0-+8.7p<--\n", 0); // <-- p
-	n___ = printf("-->%0-+8.7p<--\n", 0); // <-- p
+	n = ft_printf("-->% d<--\n", -123); // <-- d/i
+	n___ = printf("-->% d<--\n", -123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	n = ft_printf("-->%0+8.7p<--\n", 0); // <-- p
-	n___ = printf("-->%0+8.7p<--\n", 0); // <-- p
+	n = ft_printf("-->%+d<--\n", -123); // <-- d/i
+	n___ = printf("-->%+d<--\n", -123); // <-- d/i
 	if (!test_check(n, n___))
 		return (0);
 
-	printf("<-- p --|\n");
+	n = ft_printf("-->%+ d<--\n", -123); // <-- d/i (error: space with +)
+	n___ = printf("-->%+ d<--\n", -123); // <-- d/i (error: space with +)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%#+ d<--\n", -123); // <-- d/i (error: #)
+	n___ = printf("-->%#+ d<--\n", -123); // <-- d/i (error: #)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%05d<--\n", -123); // <-- d/i
+	n___ = printf("-->%05d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-05d<--\n", -123); // <-- d/i (error: 0 with -)
+	n___ = printf("-->%-05d<--\n", -123); // <-- d/i (error: 0 with -)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%-.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%7.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%7.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-7.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%-7.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-+7.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%-+7.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%- 7.5d<--\n", -123); // <-- d/i
+	n___ = printf("-->%- 7.5d<--\n", -123); // <-- d/i
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-+07.5d<--\n", -123); // <-- d/i (error: 0 with . and -)
+	n___ = printf("-->%-+07.5d<--\n", -123); // <-- d/i (error: 0 with . and -)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%- 07.5d<--\n", -123); // <-- d/i (error: 0 with . and -)
+	n___ = printf("-->%- 07.5d<--\n", -123); // <-- d/i (error: 0 with . and -)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%- +08.6d<--\n", -123); // <-- d/i (error: 0 with ., - and +)
+	n___ = printf("-->%- +08.6d<--\n", -123); // <-- d/i (error: 0 with ., - and +)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%05.d<--\n", -123); // <-- d/i (error: 0 with .)
+	n___ = printf("-->%05.d<--\n", -123); // <-- d/i (error: 0 with .)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%- +08.6d<--\n", 0); // <-- d/i (error: 0 with ., - and +)
+	n___ = printf("-->%- +08.6d<--\n", 0); // <-- d/i (error: 0 with ., - and +)
+	if (!test_check(n, n___))
+		return (0);
+	printf("<-- d/i --|\n");
 
 	// printf("|-- get -->\n");
 	// printf("-->%s<--\n", ft_get_types());
