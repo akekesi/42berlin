@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:08:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/06 16:08:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:51:45 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,36 @@ int	test_printf_x(void)
 	n___ = 0;
 
 	printf("|-- x -->\n");
+	n = ft_printf("-->%x<--\n", 171); // <-- x
+	n___ = printf("-->%x<--\n", 171); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.1x<--\n", 171); // <-- x
+	n___ = printf("-->%.1x<--\n", 171); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%#.1x<--\n", 171); // <-- x
+	n___ = printf("-->%#.1x<--\n", 171); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%x<--\n", 0); // <-- x
+	n___ = printf("-->%x<--\n", 0); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.x<--\n", 0); // <-- x
+	n___ = printf("-->%.x<--\n", 0); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.0x<--\n", 0); // <-- x
+	n___ = printf("-->%.0x<--\n", 0); // <-- x
+	if (!test_check(n, n___))
+		return (0);
+
 	n = ft_printf("-->%x<--\n", 171); // <-- x
 	n___ = printf("-->%x<--\n", 171); // <-- x
 	if (!test_check(n, n___))
