@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:47:21 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 14:11:53 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 19:16:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	test_printf_s(void)
 	n___ = 0;
 
 	printf("|-- s -->\n");
+	n = ft_printf("-->%23s<--\n", NULL); // <-- s
+	n___ = printf("-->%23s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
 	n = ft_printf("-->%s<--\n", NULL); // <-- s
 	n___ = printf("-->%s<--\n", NULL); // <-- s
 	if (!test_check(n, n___))
@@ -154,6 +159,41 @@ int	test_printf_s(void)
 
 	n = ft_printf("-->%0-7.13s<--\n", "abcde"); // <-- s (error: 0 used)
 	n___ = printf("-->%0-7.13s<--\n", "abcde"); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%07.6s<--\n", NULL); // <-- s (error: 0 used)
+	n___ = printf("-->%07.6s<--\n", NULL); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-07.6s<--\n", NULL); // <-- s (error: 0 used)
+	n___ = printf("-->%-07.6s<--\n", NULL); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-07.3s<--\n", NULL); // <-- s (error: 0 used)
+	n___ = printf("-->%-07.3s<--\n", NULL); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%07.3s<--\n", NULL); // <-- s (error: 0 used)
+	n___ = printf("-->%07.3s<--\n", NULL); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-07.3s<--\n", NULL); // <-- s (error: 0 used)
+	n___ = printf("-->%-07.3s<--\n", NULL); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%07.3s<--\n", "abcde"); // <-- s (error: 0 used)
+	n___ = printf("-->%07.3s<--\n", "abcde"); // <-- s (error: 0 used)
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-07.3s<--\n", "abcde"); // <-- s (error: 0 used)
+	n___ = printf("-->%-07.3s<--\n", "abcde"); // <-- s (error: 0 used)
 	if (!test_check(n, n___))
 		return (0);
 

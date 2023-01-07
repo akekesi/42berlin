@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:59:03 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 15:47:11 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 19:16:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 int	ft_print_char_flag(va_list *args, int *flag_info)
 {
 	int	n;
-	int	c;
 	int	arg;
 	int	pad_len;
 
 	arg = va_arg(*args, int);
 	pad_len = flag_info[7];
-	c = ' ';
-	if (flag_info[6] && !flag_info[1])
-		c = '0';
 	if (flag_info[1])
 	{
 		n = write(1, &arg, 1);
-		n += ft_print_char_n(c, pad_len - 1);
+		n += ft_print_char_n(' ', pad_len - 1);
 	}
 	else
 	{
-		n = ft_print_char_n(c, pad_len - 1);
+		n = ft_print_char_n(' ', pad_len - 1);
 		n += write(1, &arg, 1);
 	}
 	return (n);
@@ -40,7 +36,6 @@ int	ft_print_char_flag(va_list *args, int *flag_info)
 int	ft_print_str_flag(va_list *args, int *flag_info)
 {
 	int		n;
-	int		c;
 	int		pad;
 	char	*arg;
 
@@ -53,13 +48,10 @@ int	ft_print_str_flag(va_list *args, int *flag_info)
 			arg[0] = '\0';
 	}
 	pad = flag_info[7] - ft_str_len(arg);
-	c = ' ';
-	if (flag_info[6] && !flag_info[1])
-		c = '0';
 	if (flag_info[1])
-		n = ft_print_flag_sub6(arg, pad, c);
+		n = ft_print_flag_sub1(arg, "\0", pad, 0);
 	else
-		n = ft_print_flag_sub7(arg, pad, c);
+		n = ft_print_flag_sub2(arg, "\0", pad, 0);
 	free(arg);
 	return (n);
 }
