@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 14:49:14 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 04:10:08 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/01 15:17:09 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/07 22:01:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,85 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_sub(const char *str, va_list *args);
-int		ft_char_in_str(int c, char *str);
-int		ft_char_in_str_n(int c, const char *str, int n);
-int		ft_int_in_str(const char *str, int n);
-int		ft_is_digit(int c);
-int		ft_is_flag(const char *str);
-int		ft_print_arg(int c, const char *str, int f, va_list *args);
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-int		ft_print_str_n(char *str, int n);
-char	*ft_get_null(int c);
-char	*ft_get_flags(void);
-char	*ft_get_types(void);
-int		ft_print_ptr(unsigned long long arg);
-int		ft_print_int(int arg, int n);
-int		ft_print_int_flag_sub1(int arg, const char *str, int f, int sign);
-int		ft_print_int_flag_sub2(int arg, int sign, int n);
-int		ft_print_uint(unsigned int arg, int n);
-int		ft_print_hex(unsigned int arg, int c, int n);
-int		ft_print_hex_flag_pre(unsigned int arg, int c, const char *str, int f);
-int		ft_print_uhex(unsigned long long arg, int n);
-int		ft_print_hex_flag(unsigned int arg, int c, const char *str, int f);
-int		ft_print_int_flag(int arg, const char *str, int f);
-int		ft_print_uint_flag(unsigned int arg, const char *str, int f);
-int		ft_print_str_flag(char *arg, const char *str, int f);
-int		ft_print_ptr_flag(unsigned long long arg, const char *str, int f);
-int		ft_print_char_flag(int arg, const char *str, int f);
-int		ft_str_len(const char *str);
-int		ft_int_len(int n);
-int		ft_uint_len(unsigned int n);
-int		ft_hex_len(unsigned int n);
-int		ft_ull_len(unsigned long long n);
-int		ft_print_pad(const char *str, int f, int len_arg, int c);
-int		ft_print_pad_int(int arg, const char *str, int f, int len_arg);
-int		ft_print_pad_uint(const char *str, int f, int len_arg, int c);
-int		ft_first_int_in_str_zero(const char *str, int n);
+typedef struct s_flag_info
+{
+	int	type;
+	int	minus;
+	int	dot;
+	int	hashtag;
+	int	space;
+	int	plus;
+	int	zero;
+	int	int_b;
+	int	int_a;
+}	t_flag_info;
+
+int			ft_printf(const char *str, ...);
+int			ft_printf_sub(const char *str, va_list *args);
+int			ft_print_call(va_list *args, t_flag_info *flag_info);
+
+int			ft_check_print(const char *str);
+
+int			ft_print_char_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_str_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_hex_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_ptr_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_int_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_int_flag_sub(
+				char *arg,
+				t_flag_info *flag_info,
+				char *prefix);
+int			ft_print_uint_flag(va_list *args, t_flag_info *flag_info);
+int			ft_print_flag_sub1(char *arg, char *prefix, int pad_a, int pad_b);
+int			ft_print_flag_sub2(char *arg, char *prefix, int pad_a, int pad_b);
+int			ft_print_flag_sub3(char *arg, char *prefix, int pad_a, int pad_b);
+int			ft_print_flag_sub4(char *arg, char *prefix, int pad_a, int pad_b);
+int			ft_print_flag_sub5(char *arg, char *prefix, int pad_a, int pad_b);
+int			ft_print_flag_sub6(char *arg, int pad, int c);
+int			ft_print_flag_sub7(char *arg, int pad, int c);
+
+char		*ft_get_types(void);
+char		*ft_get_flags(void);
+char		*ft_get_null(char type);
+char		*ft_get_prefix_main(int n, int prefix, int type, int pprefix);
+char		*ft_get_prefix_ptr(char *arg, t_flag_info *flag_info);
+char		*ft_get_prefix_int(char *arg, t_flag_info *flag_info);
+
+int			ft_char_in_str(int c, const char *str);
+t_flag_info	*ft_flags_in_str(const char *str, int size, t_flag_info *flag_info);
+int			ft_int_in_str_dot_before(const char *str, int size);
+int			ft_int_in_str_dot_after(const char *str, int size);
+
+int			ft_is_digit(int c);
+int			ft_is_first_int_zero(const char *str, int size);
+
+int			ft_int_len(int n);
+int			ft_uint_len(unsigned int n);
+int			ft_ull_len(unsigned long long n);
+int			ft_hex_len(unsigned int n);
+int			ft_hexll_len(unsigned long long n);
+
+int			ft_print_str(const char *str);
+int			ft_print_char_n(int c, int size);
+
+void		ft_set_flag_info_zero(t_flag_info *flag_info);
+
+int			ft_str_len(const char *str);
+char		*ft_str_cpy(char *dest, const char *src);
+int			ft_str_cmp(const char *str1, const char *str2);
+void		ft_str_to_upper(char *str);
+
+char		*ft_char_to_str(int c);
+char		*ft_str_to_str(char *str);
+char		*ft_int_to_str(int n);
+char		*ft_uint_to_str(unsigned int n);
+char		*ft_ull_to_str(unsigned long long n);
+char		*ft_hex_to_str(unsigned int n);
+char		*ft_hex_to_str_sub(unsigned int n, char *arg, int size);
+char		*ft_ptr_to_str(unsigned long long n);
+char		*ft_ptr_to_str_sub(unsigned long long n);
+int			ft_neg_to_zero(int n);
 
 #endif

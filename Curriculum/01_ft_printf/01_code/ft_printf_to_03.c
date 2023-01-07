@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_to_03.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 15:41:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 21:59:45 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/05 16:19:41 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/07 15:44:40 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_types(void)
+int	ft_neg_to_zero(int n)
 {
-	return ("cspdiuxX%");
-}
-
-char	*ft_get_flags(void)
-{
-	return ("-0123456789.# +");
-}
-
-char	*ft_get_null(char type)
-{
-	if (type == 's')
-		return ("(null)");
-	if (type == 'p')
-		return ("(nil)");
-	return (NULL);
+	if (n < 0)
+		return (0);
+	return (n);
 }

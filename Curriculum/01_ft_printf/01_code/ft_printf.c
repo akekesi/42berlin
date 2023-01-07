@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 18:31:07 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/01 04:01:47 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/01 15:12:53 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/07 22:01:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_printf(const char *str, ...)
 	int		n;
 	va_list	args;
 
-	va_start(args, str);
 	if (!str)
-		return (-1);
+		return (0);
+	va_start(args, str);
 	n = ft_printf_sub(str, &args);
 	va_end(args);
 	return (n);
@@ -27,47 +27,50 @@ int	ft_printf(const char *str, ...)
 
 int	ft_printf_sub(const char *str, va_list *args)
 {
-	int		i;
-	int		f;
-	int		n;
-	char	c;
+	int			i;
+	int			n;
+	int			size_ft;
+	t_flag_info	*flag_info;
 
+	flag_info = (t_flag_info *)malloc(sizeof(t_flag_info) * 1);
 	i = 0;
 	n = 0;
 	while (str[i])
 	{
-		f = ft_is_flag(&str[i + 1]);
-		c = ft_char_in_str(str[i + f + 1], ft_get_types());
-		if (str[i] == '%' && (c || f))
+		size_ft = ft_check_print(&str[i]);
+		if (size_ft)
 		{
-			n += ft_print_arg(c, &str[i + 1], f, args);
-			i += 1 + f;
-		}	
+			ft_set_flag_info_zero(flag_info);
+			flag_info = ft_flags_in_str(&str[i], size_ft, flag_info);
+			n += ft_print_call(args, flag_info);
+			i += size_ft;
+		}
 		else
-			n += ft_print_char(str[i]);
+			n += write(1, &str[i], 1);
 		i++;
 	}
+	free(flag_info);
 	return (n);
 }
 
-int	ft_print_arg(int c, const char *str, int f, va_list *args)
+int	ft_print_call(va_list *args, t_flag_info *flag_info)
 {
 	int	n;
 
 	n = 0;
-	if (c == 'c')
-		n = ft_print_char_flag(va_arg(*args, int), str, f);
-	if (c == 's')
-		n = ft_print_str_flag(va_arg(*args, char *), str, f);
-	if (c == 'p')
-		n = ft_print_ptr_flag(va_arg(*args, unsigned long long), str, f);
-	if (c == 'd' || c == 'i')
-		n = ft_print_int_flag(va_arg(*args, int), str, f);
-	if (c == 'u')
-		n = ft_print_uint_flag(va_arg(*args, unsigned int), str, f);
-	if (c == 'x' || c == 'X')
-		n = ft_print_hex_flag(va_arg(*args, unsigned int), c, str, f);
-	if (c == '%')
-		n = ft_print_char('%');
+	if (flag_info->type == 'c')
+		n = ft_print_char_flag(args, flag_info);
+	if (flag_info->type == 's')
+		n = ft_print_str_flag(args, flag_info);
+	if (flag_info->type == 'p')
+		n = ft_print_ptr_flag(args, flag_info);
+	if (flag_info->type == 'd' || flag_info->type == 'i')
+		n = ft_print_int_flag(args, flag_info);
+	if (flag_info->type == 'u')
+		n = ft_print_uint_flag(args, flag_info);
+	if (flag_info->type == 'x' || flag_info->type == 'X')
+		n = ft_print_hex_flag(args, flag_info);
+	if (flag_info->type == '%')
+		n = write(1, "%", 1);
 	return (n);
 }

@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_check_00.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 15:41:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 21:59:45 by akekesi          ###   ########.fr       */
+/*   Created: 2023/01/01 15:56:22 by akekesi           #+#    #+#             */
+/*   Updated: 2023/01/07 15:46:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_types(void)
+int	ft_check_print(const char *str)
 {
-	return ("cspdiuxX%");
-}
+	int		i;
+	char	*types;
+	char	*flags;
 
-char	*ft_get_flags(void)
-{
-	return ("-0123456789.# +");
-}
-
-char	*ft_get_null(char type)
-{
-	if (type == 's')
-		return ("(null)");
-	if (type == 'p')
-		return ("(nil)");
-	return (NULL);
+	i = 0;
+	types = ft_get_types();
+	flags = ft_get_flags();
+	if (str[i] == '%')
+	{
+		i++;
+		while (str[i] && ft_char_in_str(str[i], flags))
+			i++;
+		if (ft_char_in_str(str[i], types))
+			return (i);
+	}
+	return (0);
 }
