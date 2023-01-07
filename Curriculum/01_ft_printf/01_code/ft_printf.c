@@ -6,12 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:12:53 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:06 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:45:39 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// static functions ???
 
 int	ft_printf(const char *str, ...)
 {

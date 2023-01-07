@@ -6,18 +6,18 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:21:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:14:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:43:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_set_int_zero(int *list, int n)
+void	ft_set_int_zero(int *list, int size)
 {
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < size)
 	{
 		list[i] = 0;
 		i++;

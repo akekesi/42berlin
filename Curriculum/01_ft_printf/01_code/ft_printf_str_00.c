@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_cpy_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_str_00.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:58:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:51:05 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ char	*ft_str_cpy(char *dest, const char *src)
 	int		i;
 	char	*src_;
 
-	i = 0;
 	src_ = (char *)src;
+	if (!dest || !src)
+		return (NULL);
+	i = 0;
 	while (src[i])
 	{
 		dest[i] = src_[i];
@@ -44,6 +46,10 @@ int	ft_str_cmp(const char *str1, const char *str2)
 {
 	int	i;
 
+	if (!str1 && !str2)
+		return (0);
+	if (!str1 || !str2)
+		return (1);
 	i = 0;
 	while (str1[i] || str2[i])
 	{
@@ -58,6 +64,8 @@ void	ft_str_to_upper(char *str)
 {
 	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
 	while (str[i])
 	{

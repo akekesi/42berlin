@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_00.c                                 :+:      :+:    :+:   */
+/*   ft_printf_get_01.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:41:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/03 22:13:59 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:40:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ char	*ft_get_prefix_main(int n, int prefix, int type, int pprefix)
 	if (prefix && n)
 	{
 		if (type == 'x')
-			return ("0x\0");
+			return ("0x");
 		if (type == 'X')
-			return ("0X\0");
+			return ("0X");
 		if (type == 'p' && pprefix == '+')
-			return ("+0x\0");
+			return ("+0x");
 		if (type == 'p' && pprefix == ' ')
-			return (" 0x\0");
+			return (" 0x");
 		if (type == 'p' && pprefix == 0)
-			return ("0x\0");
+			return ("0x");
 	}
 	return ("\0");
 }

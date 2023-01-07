@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:47:21 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/06 18:11:16 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 14:11:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,76 @@ int	test_printf_s(void)
 	n___ = 0;
 
 	printf("|-- s -->\n");
+	n = ft_printf("-->%s<--\n", NULL); // <-- s
+	n___ = printf("-->%s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-s<--\n", NULL); // <-- s
+	n___ = printf("-->%-s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%2s<--\n", NULL); // <-- s
+	n___ = printf("-->%2s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-2s<--\n", NULL); // <-- s
+	n___ = printf("-->%-2s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%9.5s<--\n", NULL); // <-- s
+	n___ = printf("-->%9.5s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-9.5s<--\n", NULL); // <-- s
+	n___ = printf("-->%-9.5s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%2.5s<--\n", NULL); // <-- s
+	n___ = printf("-->%2.5s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%3.5s<--\n", NULL); // <-- s
+	n___ = printf("-->%3.5s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%3.6s<--\n", NULL); // <-- s
+	n___ = printf("-->%3.6s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%3s<--\n", NULL); // <-- s
+	n___ = printf("-->%3s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-3s<--\n", NULL); // <-- s
+	n___ = printf("-->%-3s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-9.6s<--\n", NULL); // <-- s
+	n___ = printf("-->%-9.6s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%-9.7s<--\n", NULL); // <-- s
+	n___ = printf("-->%-9.7s<--\n", NULL); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
+	n = ft_printf("-->%.3s<--\n", (char *)0); // <-- s
+	n___ = printf("-->%.3s<--\n", (char *)0); // <-- s
+	if (!test_check(n, n___))
+		return (0);
+
 	n = ft_printf("-->%.2s<--\n", "NULL"); // <-- s
 	n___ = printf("-->%.2s<--\n", "NULL"); // <-- s
 	if (!test_check(n, n___))

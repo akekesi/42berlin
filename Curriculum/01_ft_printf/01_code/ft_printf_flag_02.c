@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 22:00:12 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/06 18:26:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:54:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_print_int_flag(va_list *args, int *flag_info)
 	char	*arg;
 	char	*prefix;
 
-	n = 0;
 	neg = 0;
 	arg = ft_int_to_str(va_arg(*args, int));
 	prefix = ft_get_prefix_int(arg, flag_info);
@@ -33,27 +32,12 @@ int	ft_print_int_flag(va_list *args, int *flag_info)
 	return (n);
 }
 
-int	ft_print_uint_flag(va_list *args, int *flag_info)
-{
-	int		n;
-	char	*arg;
-	char	*prefix;
-
-	n = 0;
-	arg = ft_uint_to_str(va_arg(*args, unsigned int));
-	prefix = "\0";
-	n = ft_print_int_flag_sub(arg, flag_info, prefix);
-	free(arg);
-	return (n);
-}
-
 int	ft_print_int_flag_sub(char *arg, int *flag_info, char *prefix)
 {
 	int	n;
 	int	pad_a;
 	int	pad_b;
 
-	n = 0;
 	if (flag_info[2] && flag_info[8] < ft_str_len(arg))
 	{
 		if (!ft_str_cmp(arg, "0"))
@@ -67,5 +51,18 @@ int	ft_print_int_flag_sub(char *arg, int *flag_info, char *prefix)
 		n = ft_print_flag_sub4(arg, prefix, pad_a, pad_b);
 	else
 		n = ft_print_flag_sub5(arg, prefix, pad_a, pad_b);
+	return (n);
+}
+
+int	ft_print_uint_flag(va_list *args, int *flag_info)
+{
+	int		n;
+	char	*arg;
+	char	*prefix;
+
+	arg = ft_uint_to_str(va_arg(*args, unsigned int));
+	prefix = "\0";
+	n = ft_print_int_flag_sub(arg, flag_info, prefix);
+	free(arg);
 	return (n);
 }

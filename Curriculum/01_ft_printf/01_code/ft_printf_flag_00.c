@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:59:03 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/06 18:27:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:47:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_print_char_flag(va_list *args, int *flag_info)
 	int	arg;
 	int	pad_len;
 
-	n = 0;
 	arg = va_arg(*args, int);
 	pad_len = flag_info[7];
 	c = ' ';
@@ -27,12 +26,12 @@ int	ft_print_char_flag(va_list *args, int *flag_info)
 		c = '0';
 	if (flag_info[1])
 	{
-		n += write(1, &arg, 1);
+		n = write(1, &arg, 1);
 		n += ft_print_char_n(c, pad_len - 1);
 	}
 	else
 	{
-		n += ft_print_char_n(c, pad_len - 1);
+		n = ft_print_char_n(c, pad_len - 1);
 		n += write(1, &arg, 1);
 	}
 	return (n);
@@ -45,7 +44,6 @@ int	ft_print_str_flag(va_list *args, int *flag_info)
 	int		pad;
 	char	*arg;
 
-	n = 0;
 	arg = ft_str_to_str(va_arg(*args, char *));
 	if (flag_info[2] && flag_info[8] < ft_str_len(arg))
 	{
@@ -59,9 +57,9 @@ int	ft_print_str_flag(va_list *args, int *flag_info)
 	if (flag_info[6] && !flag_info[1])
 		c = '0';
 	if (flag_info[1])
-		n += ft_print_flag_sub6(arg, pad, c);
+		n = ft_print_flag_sub6(arg, pad, c);
 	else
-		n += ft_print_flag_sub7(arg, pad, c);
+		n = ft_print_flag_sub7(arg, pad, c);
 	free(arg);
 	return (n);
 }
