@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:09:56 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 15:41:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:40:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,29 @@ int	ft_char_in_str(int c, const char *str)
 	return (0);
 }
 
-int	*ft_flags_in_str(const char *str, int size, int *flag_info)
+t_flag_info	*ft_flags_in_str(const char *str, int size, t_flag_info *flag_info)
 {
 	int	i;
 
 	i = 0;
-	flag_info[0] = str[size];
+	flag_info->type = str[size];
 	while (i < size)
 	{
 		if (str[i] == '-')
-			flag_info[1] = 1;
+			flag_info->minus = 1;
 		if (str[i] == '.')
-			flag_info[2] = 1;
+			flag_info->dot = 1;
 		if (str[i] == '#')
-			flag_info[3] = 1;
+			flag_info->hashtag = 1;
 		if (str[i] == ' ')
-			flag_info[4] = 1;
+			flag_info->space = 1;
 		if (str[i] == '+')
-			flag_info[5] = 1;
+			flag_info->plus = 1;
 		i++;
 	}
-	flag_info[6] = ft_is_first_int_zero(str, size);
-	flag_info[7] = ft_int_in_str_dot_before(str, size);
-	flag_info[8] = ft_int_in_str_dot_after(str, size);
+	flag_info->zero = ft_is_first_int_zero(str, size);
+	flag_info->int_b = ft_int_in_str_dot_before(str, size);
+	flag_info->int_a = ft_int_in_str_dot_after(str, size);
 	return (flag_info);
 }
 

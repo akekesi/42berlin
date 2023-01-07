@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:12:53 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 15:45:39 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:31:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	ft_printf(const char *str, ...)
 
 int	ft_printf_sub(const char *str, va_list *args)
 {
-	int	i;
-	int	n;
-	int	size_ft;
-	int	*flag_info;
+	int			i;
+	int			n;
+	int			size_ft;
+	t_flag_info	*flag_info;
 
-	flag_info = (int *)malloc(sizeof(int) * 9);
+	flag_info = (t_flag_info *)malloc(sizeof(t_flag_info) * 1);
 	i = 0;
 	n = 0;
 	while (str[i])
@@ -40,7 +40,7 @@ int	ft_printf_sub(const char *str, va_list *args)
 		size_ft = ft_check_print(&str[i]);
 		if (size_ft)
 		{
-			ft_set_int_zero(flag_info, 9);
+			ft_set_flag_info_zero(flag_info);
 			flag_info = ft_flags_in_str(&str[i], size_ft, flag_info);
 			n += ft_print_call(args, flag_info);
 			i += size_ft;
@@ -53,24 +53,24 @@ int	ft_printf_sub(const char *str, va_list *args)
 	return (n);
 }
 
-int	ft_print_call(va_list *args, int *flag_info)
+int	ft_print_call(va_list *args, t_flag_info *flag_info)
 {
 	int	n;
 
 	n = 0;
-	if (flag_info[0] == 'c')
+	if (flag_info->type == 'c')
 		n = ft_print_char_flag(args, flag_info);
-	if (flag_info[0] == 's')
+	if (flag_info->type == 's')
 		n = ft_print_str_flag(args, flag_info);
-	if (flag_info[0] == 'p')
+	if (flag_info->type == 'p')
 		n = ft_print_ptr_flag(args, flag_info);
-	if (flag_info[0] == 'd' || flag_info[0] == 'i')
+	if (flag_info->type == 'd' || flag_info->type == 'i')
 		n = ft_print_int_flag(args, flag_info);
-	if (flag_info[0] == 'u')
+	if (flag_info->type == 'u')
 		n = ft_print_uint_flag(args, flag_info);
-	if (flag_info[0] == 'x' || flag_info[0] == 'X')
+	if (flag_info->type == 'x' || flag_info->type == 'X')
 		n = ft_print_hex_flag(args, flag_info);
-	if (flag_info[0] == '%')
+	if (flag_info->type == '%')
 		n = write(1, "%", 1);
 	return (n);
 }

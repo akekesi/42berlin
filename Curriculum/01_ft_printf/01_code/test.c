@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:11:31 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 15:55:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:31:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,23 @@ void	test_print(int n, int n___, int c)
 	printf("%d %c= %d\n", n, c, n___);
 }
 
-void	test_print_flags_info(int *flags_info)
+void	test_print_flags_info(t_flag_info *flag_info)
 {
 	int	i;
 
 	i = 0;
-	printf("\n(flags: ");
-	while (i < 9)
-	{
-		printf("%d ", flags_info[i]);
-		i++;
-	}
-	printf(" = |type|-|.|#| |+|0|9.|.9|)\n");
+	printf("\nflags:\n");
+	printf("-type:    %c\n", flag_info->type);
+	printf("-minus:   %d\n", flag_info->minus);
+	printf("-dot:     %d\n", flag_info->dot);
+	printf("-hashtag: %d\n", flag_info->hashtag);
+	printf("-space:   %d\n", flag_info->space);
+	printf("-plus:    %d\n", flag_info->plus);
+	printf("-zero:    %d\n", flag_info->zero);
+	printf("-int_b:   %d\n", flag_info->int_b);
+	printf("-int_a:   %d\n", flag_info->int_a);
 }
+
 
 /*
 #include <stdlib.h>

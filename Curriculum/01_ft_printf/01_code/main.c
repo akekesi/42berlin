@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:25:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 19:16:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:44:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,44 @@
 int	main(void)
 {
 	printf("|-- TEST -->\n");
+	printf("|-- flag_info -->\n");
+	t_flag_info	*flag_info;
+	flag_info->type = 'X';
+	flag_info->minus = 1;
+	flag_info->dot = 1;
+	flag_info->hashtag = 1;
+	flag_info->space = 1;
+	flag_info->plus = 1;
+	flag_info->zero = 1;
+	flag_info->int_b = 13;
+	flag_info->int_a = 39;
+	test_print_flags_info(flag_info);
+	ft_set_flag_info_zero(flag_info);
+	test_print_flags_info(flag_info);
+	printf("<-- flag_info --|\n");
+
+	printf("|-- get -->\n");
+	printf("-->%s<--\n", ft_get_types());
+	printf("-->%s<--\n", ft_get_flags());
+	printf("-->%s<--\n", ft_get_null('s'));
+	printf("-->%s<--\n", ft_get_null('p'));
+	printf("-->%s<--\n", ft_get_null('?'));
+	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'x', 0));
+	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'X', 0));
+	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', '+'));
+	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', ' '));
+	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', 0));
+	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'x', 0));
+	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'X', 0));
+	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', '+'));
+	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', ' '));
+	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', 0));
+	printf("<-- get --|\n");
+
 	printf("|-- recognition -->\n");
-	int	n;
-	int	n___;
-	
+	int			n;
+	int			n___;
+
 	n = 0;
 	n___ = 0;
 
@@ -45,23 +79,6 @@ int	main(void)
 	test_printf_u();
 	printf("<-- type --|\n");
 
-	printf("|-- get -->\n");
-	printf("-->%s<--\n", ft_get_types());
-	printf("-->%s<--\n", ft_get_flags());
-	printf("-->%s<--\n", ft_get_null('s'));
-	printf("-->%s<--\n", ft_get_null('p'));
-	printf("-->%s<--\n", ft_get_null('?'));
-	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'x', 0));
-	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'X', 0));
-	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', '+'));
-	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', ' '));
-	printf("-->%s<--\n", ft_get_prefix_main(0, 1, 'p', 0));
-	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'x', 0));
-	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'X', 0));
-	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', '+'));
-	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', ' '));
-	printf("-->%s<--\n", ft_get_prefix_main(1, 1, 'p', 0));
-	printf("<-- get --|\n");
 	printf("<-- TEST --|\n");
 	return (1);
 }

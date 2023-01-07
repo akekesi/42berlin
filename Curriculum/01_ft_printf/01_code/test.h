@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:32:41 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/07 15:54:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/07 21:31:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include <stdio.h>
 # include <limits.h>
+# include "ft_printf.h"
 
 int		test_check(int n, int n___);
 void	test_print(int n, int n___, int c);
-void	test_print_flags_info(int *flags_info);
+void	test_print_flags_info(t_flag_info *flags_info);
 
 int		test_printf_c(void);
 int		test_printf_s(void);
