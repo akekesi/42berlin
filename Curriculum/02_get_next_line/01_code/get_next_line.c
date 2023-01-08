@@ -6,11 +6,16 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/08 21:14:34 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/08 22:27:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+/*
+str_line: fill every loop until get \n or end
+if \n --> tmp = str_dup(str_line), str_line fill with rest and return(tmp)
+*/
 
 char	*get_next_line(int fd)
 {

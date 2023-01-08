@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/08 21:14:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/08 22:28:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,30 @@ int	ft_str_char(char *str, int c)
 		i++;
 	}
 	return (0);
+}
+
+void	ft_str_trim(char *str, int c)
+{
+	int	i;
+	int	j;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+		{
+			i++;
+			j = 0;
+			while (str[i + j])
+			{
+				str[j] = str[i + j];
+				j++;
+			}
+			str[j] = '\0';
+			return ;
+		}
+		i++;
+	}
 }
