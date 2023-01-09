@@ -12,37 +12,6 @@
 
 #include "get_next_line.h"
 
-char	*ft_str_cat(char *str_line, char *str_buff)
-{
-	int		i;
-	int		len_line;
-	int		len_buff;
-	char	*str_cat;
-
-	len_line = ft_str_len(str_line);
-	len_buff = ft_str_len(str_buff);
-	str_cat = (char *)malloc(sizeof(char) * (len_line + len_buff + 1));
-	if (!str_cat)
-		return (NULL);
-	if (str_line)
-	{
-		i = 0;
-		while (str_line[i])
-		{
-			str_cat[i] = str_line[i];
-			i++;
-		}
-	}
-	i = 0;
-	while (str_buff[i])
-	{
-		str_cat[len_line + i] = str_buff[i];
-		i++;
-	}
-	str_cat[len_line + len_buff] = '\0';
-	return (str_cat);
-}
-
 int	ft_str_len(char *str)
 {
 	int	i;
@@ -53,24 +22,6 @@ int	ft_str_len(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	ft_str_cut(char *str, int c)
-{
-	int	i;
-
-	if (!str)
-		return ;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			str[i + 1] = '\0';
-			return ;
-		}
-		i++;
-	}
 }
 
 int	ft_str_char(char *str, int c)
@@ -89,28 +40,79 @@ int	ft_str_char(char *str, int c)
 	return (0);
 }
 
-void	ft_str_trim(char *str, int c)
+char	*ft_str_dup_b(char *str, int c)
 {
-	int	i;
-	int	j;
+	int		i;
+	char	*str_dup;
 
 	if (!str)
-		return ;
+		return (NULL);
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			i++;
-			j = 0;
-			while (str[i + j])
-			{
-				str[j] = str[i + j];
-				j++;
-			}
-			str[j] = '\0';
-			return ;
-		}
+	while (str[i] && str[i] != c)
 		i++;
+	str_dup = (char *)malloc(sizeof(char) * (i + 1));
+	str_dup[i] = '\0';
+	while (i)
+	{
+		i--;
+		str_dup[i] = str[i];
 	}
+	return (str_dup);
+}
+
+char	*ft_str_dup_a(char *str, int c)
+{
+	int		i;
+	int		len;
+	char	*str_dup;
+
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	i++;
+	len = ft_str_len(str);
+	str_dup = (char *)malloc(sizeof(char) * (len - i + 1));
+	str_dup[len - i] = '\0';
+	while (len - i)
+	{
+		len--;
+		str_dup[len - i] = str[len];
+	}
+	return (str_dup);
+}
+
+char	*ft_str_cat(char *str1, char *str2)
+{
+	int		i;
+	int		len_str1;
+	int		len_str2;
+	char	*str_cat;
+
+	len_str1 = ft_str_len(str1);
+	len_str2 = ft_str_len(str2);
+	str_cat = (char *)malloc(sizeof(char) * (len_str1 + len_str2 + 1));
+	if (!str_cat)
+		return (NULL);
+	if (str1)
+	{
+		i = 0;
+		while (str1[i])
+		{
+			str_cat[i] = str1[i];
+			i++;
+		}
+	}
+	if (str2)
+	{
+		i = 0;
+		while (str2[i])
+		{
+			str_cat[len_str1 + i] = str2[i];
+			i++;
+		}
+	}
+	str_cat[len_str1 + len_str2] = '\0';
+	return (str_cat);
 }
