@@ -31,7 +31,7 @@ int	main(void)
 		return (0);
 	}
 	i = 0;
-	i_max = 3;
+	i_max = 11;
 	while (i < i_max)
 	{
 		str = get_next_line(fd);

@@ -25,12 +25,12 @@ char	*get_next_line(int fd)
 	char		*str_temp;
 	static char	*str_line;
 
-	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd == -1 || !str_buff || BUFFER_SIZE < 1)
-	{
-		free (str_buff);
+	if (fd == -1 || BUFFER_SIZE < 1)
 		return (NULL);
-	}
+	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!str_buff)
+		return (NULL);
+	str_buff[BUFFER_SIZE] = '\0';
 	n = read(fd, str_buff, BUFFER_SIZE);
 	if (n == -1)
 	{	// n = -1 --> error
