@@ -31,14 +31,14 @@ int	main(void)
 		return (0);
 	}
 	i = 0;
-	i_max = 9;
+	i_max = 3;
 	while (i < i_max)
 	{
 		str = get_next_line(fd);
 		printf("%d. -->%s<--\n", i, str);
+		free(str);
 		i++;
 	}
-	free(str);
 	printf("<-- get_next_line --|\n");
 	printf("<-- TEST --|\n");
 	return (1);
