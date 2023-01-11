@@ -23,15 +23,18 @@ int	main(void)
 	char	*str;
 	char	*path;
 
+	// path = "99_text/fd_negative";
 	path = "99_text/test_gnl_00.txt";
+	// path = "99_text/test_gnl_01.txt";
+	// path = "99_text/nl";
+	// path = "99_text/empty";
+	// path = "99_text/empty.txt";
+	// path = "99_text/read_error.txt";
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-	{
 		printf("fd = -1\n");
-		return (0);
-	}
 	i = 0;
-	i_max = 11;
+	i_max = 7;
 	while (i < i_max)
 	{
 		str = get_next_line(fd);
