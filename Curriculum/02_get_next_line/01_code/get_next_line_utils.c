@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/08 22:28:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:02:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_str_dup_b(char *str, int c)
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
+	i++;
 	str_dup = (char *)malloc(sizeof(char) * (i + 1));
 	str_dup[i] = '\0';
 	while (i)

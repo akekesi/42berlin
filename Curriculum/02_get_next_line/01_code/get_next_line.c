@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/08 22:27:35 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:02:19 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,29 @@ char	*get_next_line(int fd)
 	int			debug;
 	debug = 0;
 
-	if (fd == -1 || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1)
+	{
+		if (str_line)
+		{
+			free (str_line);
+			str_line = NULL;
+		}
 		return (NULL);
+	}
 	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!str_buff)
 		return (NULL);
 	n = read(fd, str_buff, BUFFER_SIZE);
+	if (n < 0)
+	{
+		free (str_buff);
+		if (str_line)
+		{
+			free (str_line);
+			str_line = NULL;
+		}
+		return (NULL);
+	}
 	str_buff[n] = '\0';
 	if (debug)
 		printf("(%d-%s): ", (int)n, str_buff);

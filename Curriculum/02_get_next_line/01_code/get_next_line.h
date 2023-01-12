@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:33:12 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/08 22:28:00 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:02:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 11
+#  define BUFFER_SIZE 10
 # endif
 
 # include <unistd.h>
