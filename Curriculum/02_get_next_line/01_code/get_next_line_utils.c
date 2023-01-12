@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/12 18:02:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/13 00:20:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ char	*ft_str_dup_b(char *str, int c)
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
-	i++;
+	if (str[i])
+		i++;
 	str_dup = (char *)malloc(sizeof(char) * (i + 1));
 	str_dup[i] = '\0';
 	while (i)
@@ -72,7 +73,8 @@ char	*ft_str_dup_a(char *str, int c)
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
-	i++;
+	if (str[i])
+		i++;
 	len = ft_str_len(str);
 	str_dup = (char *)malloc(sizeof(char) * (len - i + 1));
 	str_dup[len - i] = '\0';
@@ -86,7 +88,6 @@ char	*ft_str_dup_a(char *str, int c)
 
 char	*ft_str_cat(char *str1, char *str2)
 {
-	int		i;
 	int		len_str1;
 	int		len_str2;
 	char	*str_cat;
@@ -97,23 +98,21 @@ char	*ft_str_cat(char *str1, char *str2)
 	if (!str_cat)
 		return (NULL);
 	if (str1)
-	{
-		i = 0;
-		while (str1[i])
-		{
-			str_cat[i] = str1[i];
-			i++;
-		}
-	}
+		ft_str_cat_sub(str_cat, str1, 0);
 	if (str2)
-	{
-		i = 0;
-		while (str2[i])
-		{
-			str_cat[len_str1 + i] = str2[i];
-			i++;
-		}
-	}
+		ft_str_cat_sub(str_cat, str2, len_str1);
 	str_cat[len_str1 + len_str2] = '\0';
 	return (str_cat);
+}
+
+void	ft_str_cat_sub(char *dest, char *src, int start)
+{
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[start + i] = src[i];
+		i++;
+	}
 }
