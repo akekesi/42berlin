@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/13 00:31:45 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/13 00:36:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	str_buff[n] = '\0';
-	if (n == -1)
-	{
-		free (str_buff);
-		return (NULL);
-	}
-	else if (n == 0)
+	if (n == 0)
 	{
 		free (str_buff);
 		if (ft_str_len(str_line))
