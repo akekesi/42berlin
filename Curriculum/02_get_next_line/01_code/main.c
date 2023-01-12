@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/12 18:06:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:34:45 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,17 @@
 int	main(void)
 {
 	printf("|-- TEST -->\n");
-	printf("|-- get_next_line -->\n");
-	int		i;
-	int		i_max;
-	int		fd;
-	char	*str;
-	char	*path;
+	printf("|-- get_next_line loop -->\n");
+	test_gnl_loop(1);
+	test_gnl_loop(0);
+	test_gnl_loop(1);
+	printf("<-- get_next_line loop --|\n");
 
-	path = "99_text/test_gnl_00.txt";
-	// path = "99_text/no_txt_file.txt";
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		printf("fd = -1\n");
-	i = 1;
-	i_max = 3;
-	while (i < i_max + 1)
-	{
-		str = get_next_line(fd);
-		printf("%d. -->%s<--\n", i, str);
-		free(str);
-		i++;
-	}
-	str = get_next_line(-1);
-	free(str);
-
-	path = "99_text/read_error.txt";
-	fd = open(path, O_RDONLY);
-	printf("fd: %d\n", fd);
-	str = get_next_line(fd);
-	i = 1;
-	printf("%d. -->%s<--\n", i++, str);
-	free(str);
-
-	close(fd);
-	str = get_next_line(-1);
-	printf("%d. -->%s<--\n", i++, str);
-
-	fd = open(path, O_RDONLY);
-	printf("fd: %d\n", fd);
-	str = get_next_line(fd);
-	printf("%d. -->%s<--\n", i++, str);
-	free(str);
-
-	printf("<-- get_next_line --|\n");
+	printf("|-- get_next_line new start -->\n");
+	test_gnl_new_start(1);
+	test_gnl_new_start(0);
+	test_gnl_new_start(1);
+	printf("<-- get_next_line new start --|\n");
 	printf("<-- TEST --|\n");
 	return (1);
 }
