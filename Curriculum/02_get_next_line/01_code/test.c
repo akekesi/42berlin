@@ -6,14 +6,12 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:19:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/13 00:19:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/14 22:44:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "test.h"
-
-
 
 void	test_gnl_loop(int close_fd)
 {
