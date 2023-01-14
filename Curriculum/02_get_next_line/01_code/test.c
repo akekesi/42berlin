@@ -13,6 +13,8 @@
 #include "get_next_line.h"
 #include "test.h"
 
+
+
 void	test_gnl_loop(int close_fd)
 {
 	int		i;
