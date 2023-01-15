@@ -6,11 +6,12 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 02:40:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/15 18:24:16 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
@@ -18,6 +19,9 @@ char	*get_next_line(int fd)
 	char		*str_buff;
 	static char	*str_line;
 
+	char		*str_rtrn;
+
+	// printf("OK");
 	if (fd < 0 || BUFFER_SIZE < 1)
 	{
 		ft_str_free(&str_line);
@@ -31,12 +35,21 @@ char	*get_next_line(int fd)
 	{
 		free (str_buff);
 		ft_str_free(&str_line);
+		// printf("YY");
 		return (NULL);
 	}
 	str_buff[n] = '\0';
 	if (n == 0)
-		return (ft_get_next_line_sub1(&str_buff, &str_line));
-	return (ft_get_next_line_sub2(&str_buff, &str_line, fd));
+	{
+		// printf("*");
+		str_rtrn = ft_get_next_line_sub1(&str_buff, &str_line);
+		// printf(">%s<", str_rtrn);
+		// printf("XX");
+		return (str_rtrn);
+	}
+	str_rtrn = ft_get_next_line_sub2(&str_buff, &str_line, fd);
+	// printf(">%s<", str_rtrn);
+	return (str_rtrn);
 }
 
 char	*ft_get_next_line_sub1(char **str_buff, char **str_line)
@@ -55,6 +68,7 @@ char	*ft_get_next_line_sub1(char **str_buff, char **str_line)
 			free (str_temp);
 			return (str_rtrn);
 		}
+		// printf("$");
 		str_rtrn = ft_str_dup_b(*str_line, '\0');
 		free (*str_line);
 		*str_line = NULL;
@@ -82,6 +96,7 @@ char	*ft_get_next_line_sub2(char **str_buff, char **str_line, int fd)
 		free (str_temp);
 		return (str_rtrn);
 	}
+	// printf("gnl");
 	return (get_next_line(fd));
 }
 
