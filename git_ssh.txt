@@ -1,0 +1,19 @@
+
+# copy ssh key
+cat ~/.ssh/id_rsa.pub | xclip -sel clip
+
+# set ssh key on https://github.com/settings/keys
+
+# check configs
+git remote -v
+# it has to be:
+origin	git@github.com:tnakajo42/get_next_line.git (fetch)
+origin	git@github.com:tnakajo42/get_next_line.git (push)
+
+# if not, you have to change:
+git remote set-url origin git@github.com:tnakajo42/get_next_line.git
+
+# clone your repository with ssh link "to set the new ssh key on your system"
+git clone git@github.com:tnakajo42/get_next_line.git
+--> yes (for the question: Are you sure you want to continue connecting (yes/no/[fingerprint])?)
+# you can push in vs code
