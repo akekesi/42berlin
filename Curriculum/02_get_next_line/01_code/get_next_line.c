@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 02:25:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/15 02:40:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*get_next_line(int fd)
 {
 	ssize_t		n;
 	char		*str_buff;
-	static char	*str_line[1];
+	static char	*str_line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 	{
-		ft_str_free(&(str_line[0]));
+		ft_str_free(&str_line);
 		return (NULL);
 	}
 	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -30,13 +30,13 @@ char	*get_next_line(int fd)
 	if (n < 0)
 	{
 		free (str_buff);
-		ft_str_free(&(str_line[0]));
+		ft_str_free(&str_line);
 		return (NULL);
 	}
 	str_buff[n] = '\0';
 	if (n == 0)
-		return (ft_get_next_line_sub1(&str_buff, &(str_line[0])));
-	return (ft_get_next_line_sub2(&str_buff, &(str_line[0]), fd));
+		return (ft_get_next_line_sub1(&str_buff, &str_line));
+	return (ft_get_next_line_sub2(&str_buff, &str_line, fd));
 }
 
 char	*ft_get_next_line_sub1(char **str_buff, char **str_line)
