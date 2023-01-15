@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 02:29:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:07:04 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	main(void)
 {
+	// https://www.gnu.org/software/libc/manual/html_node/Limits-on-Resources.html
 	// https://docs.oracle.com/cd/E19476-01/821-0505/file-descriptor-requirements.html
 	// ulimit -aH
 	// ulimit -H -n
