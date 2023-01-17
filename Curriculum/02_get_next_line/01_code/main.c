@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 16:09:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:07:04 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ int	main(void)
 	// ulimit -H -n
 
 	printf("|-- TEST -->\n");
-	printf("|-- get_next_line -->\n");
-	// gcc main.c test.c get_next_line.c get_next_line_utils.c&& valgrind ./a.out
-	int		i;
-	int		fd;
-	char	*str;
-	char	*path;
+	// printf("|-- get_next_line -->\n");
+	// // gcc main.c test.c get_next_line.c get_next_line_utils.c&& valgrind ./a.out
+	// int		i;
+	// int		fd;
+	// char	*str;
+	// char	*path;
 
-	path = "99_text/1char.txt";
-	fd = open(path, O_RDONLY);
-	i = 0;
-	while (i < 2) // <-- number of loops
-	{
-		i++;
-		str = get_next_line(fd);
-		printf("%d. -->%s<--\n", i, str);
-		free(str);
-	}
-	printf("<-- get_next_line --|\n");
+	// path = "99_text/1char.txt";
+	// fd = open(path, O_RDONLY);
+	// i = 0;
+	// while (i < 2) // <-- number of loops
+	// {
+	// 	i++;
+	// 	str = get_next_line(fd);
+	// 	printf("%d. -->%s<--\n", i, str);
+	// 	free(str);
+	// }
+	// printf("<-- get_next_line --|\n");
 
 	// printf("|-- get_next_line loop -->\n");
 	// // gcc main.c test.c get_next_line.c get_next_line_utils.c&& valgrind ./a.out

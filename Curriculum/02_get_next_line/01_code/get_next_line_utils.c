@@ -6,13 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 18:25:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/14 19:06:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <string.h>
 
 int	ft_str_len(char *str)
 {
@@ -55,21 +53,16 @@ char	*ft_str_dup_b(char *str, int c)
 	if (str[i])
 		i++;
 	str_dup = (char *)malloc(sizeof(char) * (i + 1));
-	// str_dup[0] = 'X';
 	if (!str_dup)
-	{
-		free (str_dup);
 		return (NULL);
-	}
-	// printf("@%d-%lu", i, strlen(str_dup));
 	str_dup[i] = '\0';
-	// printf("???@");
 	while (i)
 	{
 		i--;
 		str_dup[i] = str[i];
 	}
-	// printf("xx%sxx", str_dup);
+	if (str_dup[0] == '\0')
+		ft_str_free(&str_dup);
 	return (str_dup);
 }
 
@@ -89,16 +82,15 @@ char	*ft_str_dup_a(char *str, int c)
 	len = ft_str_len(str);
 	str_dup = (char *)malloc(sizeof(char) * (len - i + 1));
 	if (!str_dup)
-	{
-		free (str_dup);
 		return (NULL);
-	}
 	str_dup[len - i] = '\0';
 	while (len - i)
 	{
 		len--;
 		str_dup[len - i] = str[len];
 	}
+	if (str_dup[0] == '\0')
+		ft_str_free(&str_dup);
 	return (str_dup);
 }
 
