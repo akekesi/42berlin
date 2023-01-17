@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 02:25:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/17 21:26:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ char	*ft_str_dup_b(char *str, int c)
 	if (str[i])
 		i++;
 	str_dup = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str_dup)
+		return (NULL);
 	str_dup[i] = '\0';
 	while (i)
 	{
@@ -77,12 +79,16 @@ char	*ft_str_dup_a(char *str, int c)
 		i++;
 	len = ft_str_len(str);
 	str_dup = (char *)malloc(sizeof(char) * (len - i + 1));
+	if (!str_dup)
+		return (NULL);
 	str_dup[len - i] = '\0';
 	while (len - i)
 	{
 		len--;
 		str_dup[len - i] = str[len];
 	}
+	if (str_dup[0] == '\0')
+		ft_str_free(&str_dup);
 	return (str_dup);
 }
 

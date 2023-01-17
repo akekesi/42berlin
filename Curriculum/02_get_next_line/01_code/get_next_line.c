@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/15 02:40:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/17 21:26:15 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ char	*get_next_line(int fd)
 	static char	*str_line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!str_buff)
 	{
 		ft_str_free(&str_line);
 		return (NULL);
 	}
-	str_buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!str_buff)
-		return (NULL);
 	n = read(fd, str_buff, BUFFER_SIZE);
 	if (n < 0)
 	{
