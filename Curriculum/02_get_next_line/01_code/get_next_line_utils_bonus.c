@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/17 21:26:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:08:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,12 @@ char	*ft_str_dup_a(char *str, int c)
 	return (str_dup);
 }
 
-void	ft_str_free(char **str)
+char	*ft_str_free(char **str)
 {
 	if (*str)
 	{
 		free (*str);
 		*str = NULL;
 	}
+	return (*str);
 }
