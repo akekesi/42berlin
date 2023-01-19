@@ -6,11 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:51:11 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/19 15:08:03 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/19 20:54:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_str_len(char *str)
 {

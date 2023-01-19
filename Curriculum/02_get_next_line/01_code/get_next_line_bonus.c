@@ -6,11 +6,11 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/19 16:00:46 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/19 20:54:14 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
