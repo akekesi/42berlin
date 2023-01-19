@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:32:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/01/19 15:07:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/01/19 16:00:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,10 @@ char	*ft_get_next_line_sub1(char **str_buff, char **str_line)
 			return (str_rtrn);
 		}
 		str_rtrn = ft_str_dup_b(*str_line, '\0');
-		free (*str_line);
-		*str_line = NULL;
+		ft_str_free(str_line);
 		return (str_rtrn);
 	}
-	free (*str_line);
-	*str_line = NULL;
-	return (*str_line);
+	return (ft_str_free(str_line));
 }
 
 char	*ft_get_next_line_sub2(char **str_buff, char **str_line, int fd)
