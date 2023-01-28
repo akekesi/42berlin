@@ -1,9 +1,9 @@
 # born2beroot
-## Questions
+# Questions
 * AppArmor status ???
 * What is telnet ???
 
-## Data
+# Data
 hostname: ```akekesi42```\
 password: ```Password_b2br```
 
@@ -22,13 +22,13 @@ WordPress: ```akekesi```\
 password: ```Password_b2br```\
 WordPress: ```http://127.0.0.1:8080/```
 
-## Links
+# Links
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
 [GitHub](https://github.com/ucefooo/born2beroot)\
 [GitHub](https://github.com/mcombeau/Born2beroot)\
 [Debian](https://www.debian.org)
 
-## Table of Contents   
+# Table of Contents   
 0. [Virtual Machine](#virtual-machine)
 0. [*aptitude*](#aptitude)
 0. [*sudo*](#sudo)
@@ -476,7 +476,7 @@ $ chown -R www-data:www-data /var/www/html/
 $ chmod -R 755 /var/www/html/
 $ systemctl restart lighttpd
 ```
-In host browser, connect to ```http://127.0.0.1:8080``` and finish WordPress installation.
+In host browser, connect to http://127.0.0.1:8080 and finish WordPress installation.
 # Fail2ban
 Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc.\
 Install Fail2ban:
@@ -514,6 +514,13 @@ To check failed connection attempts and banned IP addresses, use these commands:
 ```
 $ fail2ban-client status
 $ fail2ban-client status sshd
+```
+Show last number of lines in fail2ban.log
+```
+$ tail -n <number_lines> /var/log/fail2ban.log
+```
+or
+```
 $ tail -f /var/log/fail2ban.log
 ```
 Test by setting a low value bantime (like 10m) in ```/etc/fail2ban/jail.local``` sshd settings, and try to connect multiple times via SSH with the wrong password to get banned.
@@ -664,13 +671,13 @@ Show last number of lines in fail2ban.log
 ```
 $ tail -n <number_lines> /var/log/fail2ban.log
 ```
+\
+\
+\
 Check AppArmor status:
 ```
 $ aa-status
 ```
-\
-\
-\
 Install telnet:
 ```
 $ apt install telnet
