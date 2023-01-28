@@ -41,6 +41,8 @@ WordPress: ```http://127.0.0.1:8080/```
 0. [Fail2ban](#fail2ban)
 0. [Train](#train)
 0. [FTP](#ftp)
+0. [Snapshot](#snapshot)
+0. [Signature](#signature)
 0. [Commands](#commands)
 
 # Virtual Machine
@@ -537,6 +539,13 @@ Change the user’s parameters:\
 ```-e``` for allow interrupt by Ctrl+C. In other modes, you cannot use Ctrl+C to stop the train. But then, it doesn’t run for long unless you have super ultra-wide monitor.
 # FTP
 not finished yet
+# Snapshot
+https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/snapshots.html
+# Signature
+To extract the VM's signature, go to the Virtual Box VMs folder in your local computer (it could take a long time):
+```
+$ sha1sum <name_VM>.vdi
+```
 # Commands
 Get date:
 ```
