@@ -34,7 +34,7 @@ $>
 
 void	ft_str_call(char *str, void (*f)(char c));
 void	ft_repeat_char(char c);
-int	ft_isalpha(char c);
+int		ft_isalpha(char c);
 
 void	ft_str_call(char *str, void (*f)(char c))
 {
@@ -81,4 +81,3 @@ int	main(int argc, char **argv)
 	}
 	write (1, "\n", 1);
 }
-

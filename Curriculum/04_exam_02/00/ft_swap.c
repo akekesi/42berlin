@@ -12,6 +12,8 @@ Your function must be declared as follows:
 void	ft_swap(int *a, int *b);
 */
 
+#include <stdio.h>
+
 void	ft_swap(int *a, int *b)
 {
 	int	tmp;
@@ -20,9 +22,6 @@ void	ft_swap(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
-
-
-#include <stdio.h>
 
 int	main(void)
 {
@@ -33,8 +32,7 @@ int	main(void)
 	b = 42;
 	printf("a: %d\n", a);
 	printf("b: %d\n", b);
-	ft_swap(&a, &b);	
+	ft_swap(&a, &b);
 	printf("a: %d\n", a);
 	printf("b: %d\n", b);
 }
-

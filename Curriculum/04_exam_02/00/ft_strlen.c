@@ -11,6 +11,8 @@ Your function must be declared as follows:
 int	ft_strlen(char *str);
 */
 
+#include <stdio.h>
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -20,8 +22,6 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -37,4 +37,3 @@ int	main(int argc, char **argv)
 		}
 	}
 }
-

@@ -50,4 +50,3 @@ int	main(int argc, char **argv)
 		ft_first_word(argv[1]);
 	write(1, "\n", 1);
 }
-

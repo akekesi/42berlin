@@ -11,6 +11,8 @@ Your function must be declared as follows:
 char    *ft_strcpy(char *s1, char *s2);
 */
 
+#include <stdio.h>
+
 char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
@@ -25,8 +27,6 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-#include <stdio.h>
-
 int	main(void)
 {
 	char	dest[7] = "xxxxxx\0";
@@ -38,4 +38,3 @@ int	main(void)
 	printf("dest: -->%s<--\n", dest);
 	printf("src:  -->%s<--\n", src);
 }
-
