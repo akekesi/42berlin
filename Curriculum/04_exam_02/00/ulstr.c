@@ -33,12 +33,11 @@ void	ft_ulstr(char *str)
 	i = 0;
 	while (str[i])
 	{
+		c = str[i];
 		if ('a' <= str[i] && str[i] <= 'z')
-			c = str[i] - 'a' + 'A';
-		else if ('A' <= str[i] && str[i] <= 'Z')
-			c = str[i] - 'A' + 'a';
-		else
-			c = str[i];
+			c = c - 'a' + 'A';
+		if ('A' <= str[i] && str[i] <= 'Z')
+			c = c - 'A' + 'a';
 		write(1, &c, 1);
 		i++;
 	}
