@@ -22,10 +22,10 @@ password: ```Password_b2br```\
 WordPress: ```http://127.0.0.1:8080/```
 
 # Links
-![YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
-![GitHub](https://github.com/ucefooo/born2beroot)\
-![GitHub](https://github.com/mcombeau/Born2beroot)\
-![Debian](https://www.debian.org)
+[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
+[GitHub](https://github.com/ucefooo/born2beroot)\
+[GitHub](https://github.com/mcombeau/Born2beroot)\
+[Debian](https://www.debian.org)
 
 # Table of Contents   
 0. [Virtual Machine](#virtual-machine)
@@ -46,7 +46,7 @@ WordPress: ```http://127.0.0.1:8080/```
 0. [Signature](#signature)
 0. [Commands](#commands)
 # Virtual Machine
-![YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*
+[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*
 # *aptitude*
 Install aptitude:
 ```
@@ -361,7 +361,7 @@ And forward host port 8080 to guest port 80 in VirtualBox:
 * Go to VM >> ```Settings``` >> ```Network``` >> ```Adapter 1``` >> ```Port Forwarding```
 * Add rule for host port ```8080``` to forward to guest port ```80```
 
-To test Lighttpd, go to host machine browser and type in address ![http://127.0.0.1:8080](http://127.0.0.1:8080) or ![http://localhost:8080](http://localhost:8080). You should see a Lighttpd "placeholder page".
+To test Lighttpd, go to host machine browser and type in address [http://127.0.0.1:8080](http://127.0.0.1:8080) or [http://localhost:8080](http://localhost:8080). You should see a Lighttpd "placeholder page".
 Activate lighttpd FastCGI module:
 ```
 $ lighty-enable-mod fastcgi
@@ -374,7 +374,7 @@ To test php is working with lighttpd, create a file in ```/var/www/html``` named
 phpinfo();
 ?>
 ```
-Save and go to host browser and type in the address ![http://127.0.0.1:8080/info.php](http://127.0.0.1:8080/info.php). You should get a page with PHP information.\
+Save and go to host browser and type in the address [http://127.0.0.1:8080/info.php](http://127.0.0.1:8080/info.php). You should get a page with PHP information.\
 Install MariaDB:
 ```
 $ apt install mariadb-server
@@ -478,7 +478,7 @@ $ chown -R www-data:www-data /var/www/html/
 $ chmod -R 755 /var/www/html/
 $ systemctl restart lighttpd
 ```
-In host browser, connect to ![http://127.0.0.1:8080](http://127.0.0.1:8080) and finish WordPress installation.
+In host browser, connect to [http://127.0.0.1:8080](http://127.0.0.1:8080) and finish WordPress installation.
 # Fail2ban
 Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc.\
 Install Fail2ban:
