@@ -23,7 +23,7 @@ WordPress: ```http://127.0.0.1:8080/```
 
 # Links
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA){:target="_blank"} *(no audio)*\
-[GitHub](https://github.com/ucefooo/born2beroot)\
+![GitHub](https://github.com/ucefooo/born2beroot)\
 [GitHub](https://github.com/mcombeau/Born2beroot)\
 [Debian](https://www.debian.org)
 
