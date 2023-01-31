@@ -28,3 +28,57 @@ $
 $>
 */
 
+#include <unistd.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	ft_strcharn(char *str, char c, int n)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && i < n)
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	ft_union(char *str1, char *str2)
+{
+	int	i;
+	int	len1;
+
+	len1 = ft_strlen(str1);
+	i = 0;
+	while (str1[i])
+	{
+		if (!ft_strcharn(str1, str1[i], i))
+			write(1, &str1[i], 1);
+		i++;
+	}
+	i = 0;
+	while (str2[i])
+	{
+		if (!ft_strcharn(str1, str2[i], len1) && !ft_strcharn(str2, str2[i], i))
+			write(1, &str2[i], 1);
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+		ft_union(argv[1], argv[2]);
+	write(1, "\n", 1);
+}
