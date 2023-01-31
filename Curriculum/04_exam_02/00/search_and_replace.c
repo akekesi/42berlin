@@ -27,3 +27,27 @@ ZaZ eT David aiME le METal.$
 $>./search_and_replace "wNcOre Un ExEmPle Pas Facilw a Ecrirw " "w" "e" | cat -e
 eNcOre Un ExEmPle Pas Facile a Ecrire $
 */
+
+#include <unistd.h>
+
+void	ft_search_and_replace(char *str, char search, char replace)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == search)
+			write(1, &replace, 1);
+		else
+			write(1, &str[i], 1);
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 4)
+		ft_search_and_replace(argv[1], argv[2][0], argv[3][0]);
+	write(1, "\n", 1);
+}

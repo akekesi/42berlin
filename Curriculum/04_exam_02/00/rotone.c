@@ -28,3 +28,37 @@ $>./rotone "" | cat -e
 $
 $>
 */
+#include <unistd.h>
+
+void	ft_rotone(char *str)
+{
+	int		i;
+	char	c;
+
+	i = 0;
+	while (str[i])
+	{
+		c = str[i];
+		if ('a' <= str[i] && str[i] <= 'z')
+		{
+			c += 1;
+			if (c > 'z')
+				c = c - 'z' + 'a' - 1;
+		}
+		if ('A' <= str[i] && str[i] <= 'Z')
+		{
+			c += 1;
+			if (c > 'Z')
+				c = c - 'Z' + 'A' - 1;
+		}
+		write(1, &c, 1);
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		ft_rotone(argv[1]);
+	write(1, "\n", 1);
+}
