@@ -2,7 +2,6 @@
 # Questions
 * AppArmor status ???
 * What is telnet ???
-
 # Data
 hostname: ```akekesi42```\
 password: ```Password_b2br```
@@ -23,7 +22,7 @@ password: ```Password_b2br```\
 WordPress: ```http://127.0.0.1:8080/```
 
 # Links
-[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
+[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA?target=_blank) *(no audio)*\
 [GitHub](https://github.com/ucefooo/born2beroot)\
 [GitHub](https://github.com/mcombeau/Born2beroot)\
 [Debian](https://www.debian.org)
@@ -46,7 +45,6 @@ WordPress: ```http://127.0.0.1:8080/```
 0. [Snapshot](#snapshot)
 0. [Signature](#signature)
 0. [Commands](#commands)
-
 # Virtual Machine
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*
 # *aptitude*
@@ -458,7 +456,7 @@ Create WordPress configuration file:
 ```
 $ mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 ```
-Edit ```/var/www/html/wordpress/wp-config.php``` with database info:
+Edit ```/var/www/html/wp-config.php``` with database info:
 ```
 <?php
 /* ... */
