@@ -39,7 +39,9 @@ WordPress: ```http://127.0.0.1:8080/```
 0. [Cron](#cron)
 0. [WordPress](#wordpress)
 0. [Fail2ban](#fail2ban)
+0. [Telnet](#telnet)
 0. [Train](#train)
+0. [Star Wars](#star-wars)
 0. [FTP](#ftp)
 0. [Snapshot](#snapshot)
 0. [Signature](#signature)
@@ -526,6 +528,11 @@ or
 $ tail -f /var/log/fail2ban.log
 ```
 Test by setting a low value bantime (like 10m) in ```/etc/fail2ban/jail.local``` sshd settings, and try to connect multiple times via SSH with the wrong password to get banned.
+# Telnet
+Install Telnet:
+```
+$ apt install telnet
+```
 # Train
 https://itsfoss.com/ubuntu-terminal-train/ (It works only in akekesi, not in root)\
 Install train:
@@ -537,6 +544,16 @@ Change the user’s parameters:\
 ```-l``` for show a more miniature train but with more coaches\
 ```-F``` for a flying train like the Polar Express\
 ```-e``` for allow interrupt by Ctrl+C. In other modes, you cannot use Ctrl+C to stop the train. But then, it doesn’t run for long unless you have super ultra-wide monitor.
+# Star Wars
+Start:
+```
+$ telnet towel.blinkenlights.nl
+```
+Stop:
+```
+ctrl + ]
+telnet > q
+```
 # FTP
 not finished yet
 # Snapshot
