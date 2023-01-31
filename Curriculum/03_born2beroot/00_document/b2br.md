@@ -22,7 +22,7 @@ password: ```Password_b2br```\
 WordPress: ```http://127.0.0.1:8080/```
 
 # Links
-<a href="https://google.com" target="_blank" >test</a> \
+<a href="https://google.com" target="_blank" rel="noopener noreferrer">test</a>\
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
 [GitHub](https://github.com/ucefooo/born2beroot)\
 [GitHub](https://github.com/mcombeau/Born2beroot)\
