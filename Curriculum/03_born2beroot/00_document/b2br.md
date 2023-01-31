@@ -1,3 +1,5 @@
+<base target="_blank">
+
 # born2beroot
 # Questions
 * AppArmor status ???
@@ -22,7 +24,7 @@ password: ```Password_b2br```\
 WordPress: ```http://127.0.0.1:8080/```
 
 # Links
-[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA?target=_blank) *(no audio)*\
+[YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
 [GitHub](https://github.com/ucefooo/born2beroot)\
 [GitHub](https://github.com/mcombeau/Born2beroot)\
 [Debian](https://www.debian.org)
