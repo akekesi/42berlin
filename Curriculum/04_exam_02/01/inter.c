@@ -24,3 +24,52 @@ $>./inter | cat -e
 $
 */
 
+#include <unistd.h>
+
+int	ft_strchar(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_strcharn(char *str, char c, int n)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && i < n)
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	ft_inter(char *str1, char *str2)
+{
+	int	i;
+
+	i = 0;
+	while (str1[i])
+	{
+		if (ft_strchar(str2, str1[i]) && !ft_strcharn(str1, str1[i], i))
+			write(1, &str1[i], 1);
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+		ft_inter(argv[1], argv[2]);
+	write(1, "\n", 1);
+}
