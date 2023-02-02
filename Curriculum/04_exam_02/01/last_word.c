@@ -26,3 +26,45 @@ lorem,ipsum$
 $>
 */
 
+#include <unistd.h>
+
+int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
+}
+
+void	ft_last_word(char *str)
+{
+	int	i;
+	int	word;
+	int	start;
+
+	i = 0;
+	word = 1;
+	start = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]) && word)
+		{
+			start = i;
+			word = 0;
+		}
+		if (ft_isspace(str[i]))
+			word = 1;
+		i++;
+	}
+	while (str[start] && !ft_isspace(str[start]))
+	{
+		write(1, &str[start], 1);
+		start++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		ft_last_word(argv[1]);
+	write(1, "\n", 1);
+}
