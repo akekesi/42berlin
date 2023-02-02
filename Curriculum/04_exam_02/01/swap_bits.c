@@ -29,26 +29,57 @@ char	swap_bits(unsigned char octet)
 	return ((octet >> 4) | (octet << 4));
 }
 
-void ft_dec_to_hex(int n, int p)
+void	ft_dec_to_bin_placeholder(int n, int p)
 {
-	char	c;
+	int	i;
+	int	pw;
 
 	while (p)
 	{
-		if ()
-		write(1, "0", 1);
+		i = 0;
+		pw = 1;
+		while (i < p - 1)
+		{
+			pw *= 2;
+			i++;
+		}
+		if (n < pw)
+			write(1, "0", 1);
+		p--;
 	}
-	while (n)
+}
+
+void	ft_dec_to_bin_recursive(int n)
+{
+	char	c;
+
+	if (n < 2)
 	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		ft_dec_to_bin_recursive(n / 2);
+		c = n % 2 + '0';
+		write(1, &c, 1);
 	}
 }
 
 int	main(void)
 {
+	int				p;
 	unsigned char	octet;
+	unsigned char	octet_swapped;
 
-	octet = 8;
+	p = 8;
+	octet = 11;
 	octet_swapped = swap_bits(octet);
+	ft_dec_to_bin_placeholder(octet, p);
+	ft_dec_to_bin_recursive(octet);
+	printf("\n");
+	ft_dec_to_bin_placeholder(octet_swapped, p);
+	ft_dec_to_bin_recursive(octet_swapped);
+	printf("\n");
 	printf("%d --> %d\n", octet, octet_swapped);
-	swap_bits(octet);
 }
