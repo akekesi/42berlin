@@ -21,3 +21,34 @@ _____________
  0001 | 0100
 */
 
+#include <unistd.h>
+#include <stdio.h>
+
+char	swap_bits(unsigned char octet)
+{
+	return ((octet >> 4) | (octet << 4));
+}
+
+void ft_dec_to_hex(int n, int p)
+{
+	char	c;
+
+	while (p)
+	{
+		if ()
+		write(1, "0", 1);
+	}
+	while (n)
+	{
+	}
+}
+
+int	main(void)
+{
+	unsigned char	octet;
+
+	octet = 8;
+	octet_swapped = swap_bits(octet);
+	printf("%d --> %d\n", octet, octet_swapped);
+	swap_bits(octet);
+}
