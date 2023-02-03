@@ -61,7 +61,7 @@ void	ft_epur_str(char *str)
 				write(1, " ", 1);
 			write(1, &str[i], 1);
 			start = 0;
-			space = 1;
+			space = 0;
 		}
 		i++;
 	}
