@@ -36,3 +36,40 @@ $> ./epur_str "" | cat -e
 $
 $>
 */
+
+#include <unistd.h>
+
+void	ft_epur_str(char *str)
+{
+	int	i;
+	int	start;
+	int	space;
+
+	i = 0;
+	start = 1;
+	space = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+		{
+			if (!start)
+				space = 1;
+		}
+		else
+		{
+			if (space)
+				write(1, " ", 1);
+			write(1, &str[i], 1);
+			start = 0;
+			space = 1;
+		}
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		ft_epur_str(argv[1]);
+	write(1, "\n", 1);
+}
