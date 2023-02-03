@@ -51,8 +51,10 @@ void	ft_epur_str(char *str)
 	while (str[i])
 	{
 		if (str[i] == ' ' || str[i] == '\t')
+		{
 			if (!start)
 				space = 1;
+		}
 		else
 		{
 			if (space)
