@@ -35,3 +35,74 @@ $
 $>
 */
 
+#include <unistd.h>
+
+int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
+}
+
+void	ft_putstr_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && !ft_isspace(str[i]))
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
+int	ft_words_n_p(char *str, int n)
+{
+	int	i;
+	int	n_;
+	int	new;
+
+	i = 0;
+	n_ = 0;
+	new = 1;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]) && new)
+		{
+			if (n == n_)
+				return (i);
+			n_++;
+			new = 0;
+		}
+		if (ft_isspace(str[i]))
+			new = 1;
+		i++;
+	}
+	return (n_);
+}
+
+void	ft_rostring(char *str)
+{
+	int	i;
+	int	n;
+	int	p;
+
+	i = 1;
+	n = ft_words_n_p(str, -1);
+	while (i < n)
+	{
+		p = ft_words_n_p(str, i);
+		ft_putstr_space(str + p);
+		write(1, " ", 1);
+		i++;
+	}
+	p = ft_words_n_p(str, 0);
+	ft_putstr_space(str + p);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		ft_rostring(argv[1]);
+	write(1, "\n", 1);
+}
