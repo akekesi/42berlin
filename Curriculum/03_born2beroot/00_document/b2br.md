@@ -1,7 +1,4 @@
 # born2beroot
-# Questions
-* AppArmor status ???
-* What is telnet ???
 # Data
 hostname: ```akekesi42```\
 password: ```Password_b2br```
@@ -19,7 +16,9 @@ password: ```Password_b2br```
 
 WordPress: ```akekesi```\
 password: ```Password_b2br```\
-WordPress: ```http://127.0.0.1:8080/```
+WordPress*: [http://127.0.0.1:8080](http://127.0.0.1:8080) (NAT)\
+WordPress*: [http://10.15.248.154](http://10.15.248.154) (Bridged Adapter)\
+*check ```/var/www/html/wp-config.php``` and delete cache of browser if necessary
 
 # Links
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*\
@@ -29,8 +28,8 @@ WordPress: ```http://127.0.0.1:8080/```
 
 # Table of Contents   
 0. [Virtual Machine](#virtual-machine)
-0. [*aptitude*](#aptitude)
-0. [*sudo*](#sudo)
+0. [Aptitude](#aptitude)
+0. [Sudo](#sudo)
 0. [SSH](#ssh)
 0. [UFW](#ufw)
 0. [Password Policy](#password-policy)
@@ -47,13 +46,13 @@ WordPress: ```http://127.0.0.1:8080/```
 0. [Commands](#commands)
 # Virtual Machine
 [YouTube](https://www.youtube.com/watch?v=OQEdjt38ZJA) *(no audio)*
-# *aptitude*
+# Aptitude
 Install aptitude:
 ```
 $ apt-get install aptitude
 ```
-# *sudo*
-Switch to *root*:
+# Sudo
+Switch to root:
 ```
 $ su -
 Password:
@@ -63,7 +62,7 @@ or
 $ su root
 Password:
 ```
-Install *sudo*:
+Install sudo:
 ```
 $ apt install sudo
 $ apt update
@@ -77,11 +76,11 @@ or
 ```
 $ usermod -aG sudo <username>
 ```
-Check user was successfully added to sudo group
+Check user was successfully added to sudo group:
 ```
 $ getent group sudo
 ```
-Check *sudo* provoleges:
+Check sudo provoleges:
 ```
 $ sudo whoami
 root
@@ -92,9 +91,9 @@ $ username  ALL=(ALL:ALL) ALL
 ```
 Edit sudoers.tmp file as root:
 ```
-$ sudo visudo
+$ visudo
 ```
-And add these default settings as per subject instructions;
+And add these default settings as per subject instructions:
 ```
 Defaults     passwd_tries=3
 Defaults     badpass_message="Wrong password. Try again!"
@@ -142,7 +141,7 @@ Uncomment (delete #) and change it to:
 ```
 PermitRootLogin no
 ```
-Check SSH status via sudo service ssh status.
+Check SSH status via sudo service ssh status:
 ```
 $ sudo service ssh status
 ```
@@ -151,24 +150,46 @@ or
 $ systemctl status ssh
 ```
 Add an UFW rule to allow port 4242 in VirtualBox.\
-Select your VM >> ```Settings``` >> ```Network``` >> ```Adapter 1``` >> ```Advanced``` >> ```Port Forwarding```
-- Add a rule with Host and Guest port ```4242```
+Check whether port 4242 is free on your main machine (no VM):
+```
+$ netstat -tuln | grep 4242
+tcp        0      0 127.0.0.1:4242          0.0.0.0:*               LISTEN
+$ netstat -tuln | grep 42420
+$
+```
+If port 4242 not free, find a free port. (e.g. 42420)
+Select your VM >> ```Settings``` >> ```Network``` >> ```Adapter 1```
+- Attached to: ```NAT```
+- Advanced: ```Port Forwarding```
+- Add a rule with Host ```42420``` and Guest port ```4242```
+
 
 Select your VM >> ```Settings``` >> ```Network``` >> ```Adapter 1```
 - Attached to: Bridged Adapter
 - Name: eno2
 
-Restart SSH service after this change.
-Reboot
+Restart SSH service after this change. Reboot:
 ```
 $ su -
 $ reboot
 ```
-list IP addresses with colors
+List IP addresses with colors:
 ```
 $ ip -c a
 ```
-Connect (in terminal with external ip (global)):
+Connect through terminal of main machine:\
+VM >> ```Settings``` >> ```Network``` >> ```Adapter 1```
+- Attached to: ```NAT```
+```
+$ ssh <username>@127.0.0.1 -p 42420
+```
+or
+```
+$ ssh <username>@localhost -p 42420
+```
+Connect through terminal of main or other machine:\
+VM >> ```Settings``` >> ```Network``` >> ```Adapter 1```
+- Attached to: Bridged Adapter
 ```
 $ ssh <username>@10.15.248.154 -p 4242
 ```
@@ -460,6 +481,11 @@ Edit ```/var/www/html/wp-config.php``` with database info:
 ```
 <?php
 /* ... */
+/** ip address (scope global dynamic np0s3) */
+/** !!! only for Bridged Adapter !!! */
+define( 'WP_HOME', 'http://10.15.248.154/' );
+define( 'WP_SITEURL', 'http://10.15.248.154/' );
+
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress_db' );
 
@@ -566,7 +592,7 @@ Get date:
 ```
 $ date "+%H:%M:%S   %d/%m/%y"
 ```
-Check *sudo* installation:\
+Check sudo installation:\
 &rarr; list of installed debian packages pipe to look for sudo in it
 ```
 $ dpkg -l | grep sudo
@@ -575,12 +601,12 @@ Show partitions:
 ```
 $ lsblk
 ```
-Check *sudo* privileges:
+Check sudo privileges:
 ```
 $ sudo whoami
 root
 ```
-Check *sudo* version:
+Check sudo version:
 ```
 $ sudo -V
 ```
@@ -695,14 +721,7 @@ Show last number of lines in fail2ban.log
 ```
 $ tail -n <number_lines> /var/log/fail2ban.log
 ```
-\
-\
-\
 Check AppArmor status:
 ```
 $ aa-status
-```
-Install telnet:
-```
-$ apt install telnet
 ```
