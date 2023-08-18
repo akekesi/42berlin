@@ -6,41 +6,46 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/13 22:15:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/18 18:36:48 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	sigusr1_handler(int signum)
+void	signal_handler(int signal, siginfo_t *info, void *context)
 {
-	(void) signum;
-	write(1, "S1\n", 3);
-}
+	pid_t	client_pid;
 
-void	sigusr2_handler(int signum)
-{
-	(void) signum;
-	write(1, "S2\n", 3);
+	(void)context;
+	client_pid = getppid();
+	if (signal == SIGUSR1)
+	{
+
+		putstr("Server-S1\n");
+		kill(info->si_pid, SIGUSR2);
+	}
+	if (signal == SIGUSR2)
+	{
+
+		putstr("Server-S2\n");
+		kill(info->si_pid, SIGUSR1);
+	}
 }
 
 int	main(void)
-{
-	char	c;
-	pid_t	pid;
+	{
+	struct sigaction	sa;
 
-	pid = getpid();
-	while (pid)
-	{
-		c = pid % 10 + '0';
-		write(1, &c, 1);
-		pid /= 10;
-	}
-	write(1, "<--backwards\n", 13);
-	signal(SIGUSR2, sigusr2_handler);
-	signal(SIGUSR1, sigusr1_handler);
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = signal_handler;
+	sigemptyset(&sa.sa_mask);
+
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
+
+	putstr("server pid: ");
+	itoa_pos(getpid());
+	putstr("\n");
 	while (1)
-	{
 		pause();
-	}
 }
