@@ -6,36 +6,55 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/18 18:36:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 14:22:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+char	*message;
+int		g_bit;
+int		g_char;
+
 void	signal_handler(int signal, siginfo_t *info, void *context)
 {
-	pid_t	pid_server;
-
 	(void)context;
-	pid_server = getppid();
 	if (signal == SIGUSR1)
 	{
-		putstr("Client-S1\n");
-		putstr("-->END<--\n");
-		// kill(info->si_pid, SIGUSR1); // infinit loop
-	}
-	if (signal == SIGUSR2)
-	{
+		char	c_bit;
+		char	c_char;
 
-		putstr("Client-S2\n");
-		kill(info->si_pid, SIGUSR2);
+		c_bit = g_bit + '0';
+		c_char = g_char + '0';
+		if (g_bit < 8)
+		{
+			str_put("sent the bit-");
+			write(1, &c_char, 1);
+			str_put("/");
+			write(1, &c_bit, 1);
+			str_put("-->\n");
+			g_bit++;
+		}
+		if (g_bit == 8)
+		{
+			str_put("sent the char-");
+			write(1, &c_char, 1);
+			str_put("-->\n");
+			g_char++;
+			g_bit = 0;
+			if (!message[g_char - 1])
+			{
+				str_put("sent last\n");
+				exit(0);
+			}
+		}
+		kill(info->si_pid, SIGUSR1);
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	pid_t				pid_server;
-	char				*message;
 	struct sigaction	sa;
 
 	sa.sa_flags = SA_SIGINFO;
@@ -50,11 +69,13 @@ int	main(int argc, char **argv)
 		pid_server = atoi(argv[1]);
 		message = argv[2];
 
-		putstr("Message '");
-		putstr(message);
-		putstr("' is sent to the server\n");
+		str_put("Message '");
+		str_put(message);
+		str_put("' is sent to the server\n");
 		kill(pid_server, SIGUSR1);
 
+		g_bit = 0;
+		g_char = 0;
 		while (1)
 			pause();
 	}
