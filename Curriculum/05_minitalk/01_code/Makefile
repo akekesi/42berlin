@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/20 13:25:22 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/20 20:03:19 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ RM = rm -f
 DEPS = minitalk.h
 
 SRCS_S = server.c \
-	itoa_pos.c \
-	str_put.c \
-	str_len.c
+	ft_atoi.c \
+	ft_itoa.c \
+	ft_putstr.c \
+	ft_is.c
 SRCS_C = client.c \
-	itoa_pos.c \
-	str_put.c \
-	str_len.c
+	ft_atoi.c \
+	ft_itoa.c \
+	ft_putstr.c \
+	ft_is.c
 
 OBJS_S = $(SRCS_S:.c=.o)
 OBJS_C = $(SRCS_C:.c=.o)

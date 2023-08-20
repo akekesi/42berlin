@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 17:34:00 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 19:59:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,27 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 			g_info.char_ = (g_info.char_ << 1) | 1;
 		if (signal == SIGUSR2)
 			g_info.char_ = (g_info.char_ << 1) | 0;
-		str_put("got the bit-");
+		ft_putstr("got the bit-");
 		write(1, &c_char, 1);
-		str_put("/");
+		ft_putstr("/");
 		write(1, &c_bit, 1);
-		str_put("\n");
+		ft_putstr("\n");
 		g_info.n_bit++;
 	}
 	if (g_info.n_bit == 8)
 	{
 		if (!g_info.char_)
 		{
-			str_put("got last\n");
+			ft_putstr("got last\n");
 			g_info.n_char = 0;
 			g_info.n_bit = 0;
 			g_info.char_ = 0;
 			g_info.first = 1;
 			return ;
 		}
-		str_put("got the char----->");
+		ft_putstr("got the char----->");
 		write(1, &g_info.char_, 1);
-		str_put("<-----\n");
+		ft_putstr("<-----\n");
 		g_info.n_char++;
 		g_info.n_bit = 0;
 		g_info.char_ = 0;
@@ -73,14 +73,14 @@ int	main(void)
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 
-	str_put("server pid: ");
-	itoa_pos(getpid());
-	str_put("\n");
+	ft_putstr("server pid: ");
+	ft_putstr(ft_itoa(getpid()));
+	ft_putstr("\n");
 
+	g_info.first = 1;
 	g_info.n_bit = 0;
 	g_info.n_char = 0;
 	g_info.char_ = 0;
-	g_info.first = 1;
 	while (1)
 		pause();
 }

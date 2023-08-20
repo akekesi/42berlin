@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 17:45:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 20:01:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,57 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 				kill(info->si_pid, SIGUSR1);
 			else
 				kill(info->si_pid, SIGUSR2);
-			str_put("sent the bit-");
+			ft_putstr("sent the bit-");
 			write(1, &c_char, 1);
-			str_put("/");
+			ft_putstr("/");
 			write(1, &c_bit, 1);
-			str_put("-->\n");
+			ft_putstr("-->\n");
 			g_info.n_bit++;
 		}
 		if (g_info.n_bit == 8)
 		{
-			str_put("sent the char-");
+			ft_putstr("sent the char-");
 			write(1, &c_char, 1);
-			str_put("--->");
+			ft_putstr("--->");
 			write(1, &g_info.message[g_info.n_char], 1);
-			str_put("------------------------------->\n");
+			ft_putstr("------------------------------->\n");
 			g_info.n_char++;
 			g_info.n_bit = 0;
 			if (!g_info.message[g_info.n_char - 1])
 			{
-				str_put("sent last\n");
+				ft_putstr("sent last\n");
 				exit(0);
 			}
 		}
 	}
+}
+
+int	check_args(int argc, char **argv)
+{
+	int	n;
+
+	if (argc != 3)
+	{
+		ft_putstr("ERROR: argc != 3");
+		return (0);
+	}
+	n = ft_atoi(argv[1]);
+	if (n < 0)
+	{
+		ft_putstr("ERROR: pid < 0");
+		return (0);
+	}
+	if (n == 0)
+	{
+		ft_putstr("ERROR: pid == 0");
+		return (0);
+	}
+	if (!ft_isdigits(argv[1]))
+	{
+		ft_putstr("ERROR: invalid pid");
+		return (0);
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -62,23 +90,25 @@ int	main(int argc, char **argv)
 
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = signal_handler;
-	sigemptyset(&sa.sa_mask);
 
+	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 
-	if (argc == 3)
+	if (check_args(argc, argv))
 	{
-		pid_server = atoi(argv[1]);
+		pid_server = (pid_t)ft_atoi(argv[1]);
 		g_info.message = argv[2];
-
-		str_put("Message '");
-		str_put(g_info.message);
-		str_put("' is sent to the server\n");
-		kill(pid_server, SIGUSR1);
-
 		g_info.n_bit = 0;
 		g_info.n_char = 0;
+
+		ft_putstr("Message '");
+		ft_putstr(g_info.message);
+		ft_putstr("' is sent to the server-");
+		ft_putstr(ft_itoa(pid_server));
+		ft_putstr("\n");
+		kill(pid_server, SIGUSR1);
+
 		while (1)
 			pause();
 	}

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_pos.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 14:22:41 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/18 18:38:20 by akekesi          ###   ########.fr       */
+/*   Created: 2022/12/22 23:32:34 by akekesi           #+#    #+#             */
+/*   Updated: 2023/08/20 19:12:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	itoa_pos(int n)
-{
-	char	c;
+int			ft_atoi(const char *str);
 
-	if (n < 1)
-		return ;
-	c = n % 10 + '0';
-	if (9 < n)
+int	ft_atoi(const char *str)
+{
+	int	result;
+	int	sign;
+
+	while (*str && ft_isspace(*str))
+		str++;
+	sign = 1;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	result = 0;
+	while (*str && ft_isdigit(*str))
 	{
-		n /= 10;
-		itoa_pos(n);
+		result = result * 10 + *str - '0';
+		str++;
 	}
-	write(1, &c, 1);
+	return (result * sign);
 }
