@@ -1,3 +1,6 @@
+# Objets
+*.o
+
 # Libraries
 *.a
 
@@ -14,3 +17,4 @@ Curriculum/00_libft/.vscode/*
 
 # folders
 *99_other/
+
