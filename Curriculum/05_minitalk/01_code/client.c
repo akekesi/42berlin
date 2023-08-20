@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 20:01:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 20:20:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,19 @@ t_info	g_info;
 
 void	signal_handler(int signal, siginfo_t *info, void *context)
 {
-	char	c_bit;
-	char	c_char;
-
 	(void)context;
 	if (signal == SIGUSR1)
 	{
-		c_bit = g_info.n_bit + '0';
-		c_char = g_info.n_char + '0';
 		if (g_info.n_bit < 8)
 		{
 			if ((g_info.message[g_info.n_char] >> (7 - g_info.n_bit)) & 1)
 				kill(info->si_pid, SIGUSR1);
 			else
 				kill(info->si_pid, SIGUSR2);
-			ft_putstr("sent the bit-");
-			write(1, &c_char, 1);
-			ft_putstr("/");
-			write(1, &c_bit, 1);
-			ft_putstr("-->\n");
 			g_info.n_bit++;
 		}
 		if (g_info.n_bit == 8)
 		{
-			ft_putstr("sent the char-");
-			write(1, &c_char, 1);
-			ft_putstr("--->");
-			write(1, &g_info.message[g_info.n_char], 1);
-			ft_putstr("------------------------------->\n");
 			g_info.n_char++;
 			g_info.n_bit = 0;
 			if (!g_info.message[g_info.n_char - 1])
