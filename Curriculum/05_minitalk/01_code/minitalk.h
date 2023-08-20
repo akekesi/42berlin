@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 20:01:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:12:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <signal.h>
 # include <stdlib.h>
+# include <string.h>	// <-- DELETE THIS!!!
 
 char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
@@ -30,6 +31,7 @@ typedef struct s_info
 	int		first;
 	int		n_bit;
 	int		n_char;
+	int		l_message;
 	char	char_;
 	char	*message;
 }	t_info;

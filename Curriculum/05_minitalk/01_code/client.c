@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 20:20:53 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:16:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		}
 		if (g_info.n_bit == 8)
 		{
-			g_info.n_char++;
-			g_info.n_bit = 0;
-			if (!g_info.message[g_info.n_char - 1])
+			if (!g_info.message[g_info.n_char])
 			{
 				ft_putstr("sent last\n");
+				ft_putstr("length of sent message: ");
+				ft_putstr(ft_itoa(g_info.l_message));
+				ft_putstr("\n");
 				exit(0);
 			}
+			g_info.n_bit = 0;
+			g_info.n_char++;
+			g_info.l_message++;
 		}
 	}
 }
@@ -70,6 +74,8 @@ int	check_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+	int					n = 10;				// DELETE THIS!!!
+	char				result[n * 100000];	// DELETE THIS!!!
 	pid_t				pid_server;
 	struct sigaction	sa;
 
@@ -82,10 +88,16 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv))
 	{
+		strcpy(result, argv[2]);		// DELETE THIS!!!
+		while (--n)						// DELETE THIS!!!
+			strcat(result, argv[2]);	// DELETE THIS!!!
+		g_info.message = result;		// DELETE THIS!!!
+
 		pid_server = (pid_t)ft_atoi(argv[1]);
-		g_info.message = argv[2];
+		// g_info.message = argv[2];	// GET BACK THIS!!!
 		g_info.n_bit = 0;
 		g_info.n_char = 0;
+		g_info.l_message = 0;
 
 		ft_putstr("Message '");
 		ft_putstr(g_info.message);

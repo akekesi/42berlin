@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 20:20:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:13:43 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,18 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		if (!g_info.char_)
 		{
 			ft_putstr("\ngot last\n");
+			ft_putstr("length of received message: ");
+			ft_putstr(ft_itoa(g_info.l_message));
+			ft_putstr("\n");
+			g_info.first = 1;
 			g_info.n_char = 0;
 			g_info.n_bit = 0;
+			g_info.l_message = 0;
 			g_info.char_ = 0;
-			g_info.first = 1;
 			return ;
 		}
 		write(1, &g_info.char_, 1);
+		g_info.l_message++;
 		g_info.n_char++;
 		g_info.n_bit = 0;
 		g_info.char_ = 0;
@@ -69,6 +74,7 @@ int	main(void)
 	g_info.n_bit = 0;
 	g_info.n_char = 0;
 	g_info.char_ = 0;
+	g_info.l_message = 0;
 	while (1)
 		pause();
 }
