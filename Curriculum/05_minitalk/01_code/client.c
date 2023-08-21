@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 22:16:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 19:54:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_info	g_info;
 void	signal_handler(int signal, siginfo_t *info, void *context)
 {
 	(void)context;
+	g_info.first = 0;
 	if (signal == SIGUSR1)
 	{
 		if (g_info.n_bit < 8)
@@ -75,7 +76,7 @@ int	check_args(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int					n = 10;				// DELETE THIS!!!
-	char				result[n * 100000];	// DELETE THIS!!!
+	char				result[n * 150000];	// DELETE THIS!!!
 	pid_t				pid_server;
 	struct sigaction	sa;
 
@@ -94,19 +95,27 @@ int	main(int argc, char **argv)
 		g_info.message = result;		// DELETE THIS!!!
 
 		pid_server = (pid_t)ft_atoi(argv[1]);
-		// g_info.message = argv[2];	// GET BACK THIS!!!
+		// g_info.message = argv[2];		// GET BACK THIS!!!
+		g_info.first = 1;
 		g_info.n_bit = 0;
 		g_info.n_char = 0;
 		g_info.l_message = 0;
 
-		ft_putstr("Message '");
 		ft_putstr(g_info.message);
-		ft_putstr("' is sent to the server-");
+		ft_putstr("\nmessage is sent to the server-");
 		ft_putstr(ft_itoa(pid_server));
 		ft_putstr("\n");
 		kill(pid_server, SIGUSR1);
 
 		while (1)
-			pause();
+		{
+			// pause();
+			sleep(3);
+			if (g_info.first == 1)
+			{
+				ft_putstr("ERROR: no feedback");
+				exit(0);
+			}
+		} 
 	}
 }
