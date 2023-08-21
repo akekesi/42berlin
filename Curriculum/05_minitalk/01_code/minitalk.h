@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 20:17:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 21:50:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 # include <signal.h>
 # include <stdlib.h>
 
-char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
-void	ft_putstr(char *str);
 int		ft_isdigit(int c);
 int		ft_isdigits(char *str);
 int		ft_isspace(int c);
-int		check_args(int argc, char **argv);
+char	*ft_itoa(int n);
+void	ft_putstr(char *str);
 
 typedef struct s_info
 {

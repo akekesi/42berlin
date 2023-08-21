@@ -6,11 +6,16 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 20:17:57 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 21:47:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	signal_handler(int signal, siginfo_t *info, void *context);
+void	signal_handler_sub(void);
+int		check_args(int argc, char **argv);
+void	init(char *message, pid_t pid_server);
 
 t_info	g_info;
 
@@ -29,20 +34,23 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 			g_info.n_bit++;
 		}
 		if (g_info.n_bit == 8)
-		{
-			if (!g_info.message[g_info.n_char])
-			{
-				ft_putstr("sent last\n");
-				ft_putstr("length of sent message: ");
-				ft_putstr(ft_itoa(g_info.l_message));
-				ft_putstr("\n");
-				exit(0);
-			}
-			g_info.n_bit = 0;
-			g_info.n_char++;
-			g_info.l_message++;
-		}
+			signal_handler_sub();
 	}
+}
+
+void	signal_handler_sub(void)
+{
+	if (!g_info.message[g_info.n_char])
+	{
+		ft_putstr("sent last\n");
+		ft_putstr("length of sent message: ");
+		ft_putstr(ft_itoa(g_info.l_message));
+		ft_putstr("\n");
+		exit(0);
+	}
+	g_info.n_bit = 0;
+	g_info.n_char++;
+	g_info.l_message++;
 }
 
 int	check_args(int argc, char **argv)
@@ -73,6 +81,19 @@ int	check_args(int argc, char **argv)
 	return (1);
 }
 
+void	init(char *message, pid_t pid_server)
+{
+	g_info.message = message;
+	g_info.first = 1;
+	g_info.n_bit = 0;
+	g_info.n_char = 0;
+	g_info.l_message = 0;
+	ft_putstr(g_info.message);
+	ft_putstr("\nmessage is sent to the server-");
+	ft_putstr(ft_itoa(pid_server));
+	ft_putstr("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t				pid_server;
@@ -86,15 +107,7 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv))
 	{
 		pid_server = (pid_t)ft_atoi(argv[1]);
-		g_info.message = argv[2];
-		g_info.first = 1;
-		g_info.n_bit = 0;
-		g_info.n_char = 0;
-		g_info.l_message = 0;
-		ft_putstr(g_info.message);
-		ft_putstr("\nmessage is sent to the server-");
-		ft_putstr(ft_itoa(pid_server));
-		ft_putstr("\n");
+		init(argv[2], pid_server);
 		kill(pid_server, SIGUSR1);
 		while (1)
 		{
@@ -107,17 +120,16 @@ int	main(int argc, char **argv)
 		}
 	}
 }
-
 /*
 // main to test with very long message
 // message: n times argv[2] if argv[2] < 150.000
 
-# include <string.h>
+#include <string.h>
 
 int	main(int argc, char **argv)
 {
-	int					n = 10;
-	char				result[n * 150000];
+	int					n = 10;				// <-- changed
+	char				result[n * 150000];	// <-- changed
 	pid_t				pid_server;
 	struct sigaction	sa;
 
@@ -130,22 +142,13 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv))
 	{
-		strcpy(result, argv[2]);
-		while (--n)
-			strcat(result, argv[2]);
+		strcpy(result, argv[2]);			// <-- changed
+		while (--n)							// <-- changed
+			strcat(result, argv[2]);		// <-- changed
+
 		pid_server = (pid_t)ft_atoi(argv[1]);
-		g_info.message = result;
-		g_info.first = 1;
-		g_info.n_bit = 0;
-		g_info.n_char = 0;
-		g_info.l_message = 0;
-
-		ft_putstr(g_info.message);
-		ft_putstr("\nmessage is sent to the server-");
-		ft_putstr(ft_itoa(pid_server));
-		ft_putstr("\n");
+		init(result, pid_server);			// <-- changed
 		kill(pid_server, SIGUSR1);
-
 		while (1)
 		{
 			sleep(3);
@@ -154,7 +157,7 @@ int	main(int argc, char **argv)
 				ft_putstr("ERROR: no feedback");
 				exit(0);
 			}
-		} 
+		}
 	}
 }
 */

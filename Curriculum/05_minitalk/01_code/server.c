@@ -6,11 +6,15 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 20:16:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 21:47:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	signal_handler(int signal, siginfo_t *info, void *context);
+void	signal_handler_sub1(int signal);
+void	signal_handler_sub2(void);
 
 t_info	g_info;
 
@@ -24,26 +28,12 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		return ;
 	}
 	if (g_info.n_bit < 8)
-	{
-		if (signal == SIGUSR1)
-			g_info.char_ = (g_info.char_ << 1) | 1;
-		if (signal == SIGUSR2)
-			g_info.char_ = (g_info.char_ << 1) | 0;
-		g_info.n_bit++;
-	}
+		signal_handler_sub1(signal);
 	if (g_info.n_bit == 8)
 	{
 		if (!g_info.char_)
 		{
-			ft_putstr("\ngot last\n");
-			ft_putstr("length of received message: ");
-			ft_putstr(ft_itoa(g_info.l_message));
-			ft_putstr("\n");
-			g_info.first = 1;
-			g_info.n_char = 0;
-			g_info.n_bit = 0;
-			g_info.l_message = 0;
-			g_info.char_ = 0;
+			signal_handler_sub2();
 			return ;
 		}
 		write(1, &g_info.char_, 1);
@@ -53,6 +43,28 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		g_info.char_ = 0;
 	}
 	kill(info->si_pid, SIGUSR1);
+}
+
+void	signal_handler_sub1(int signal)
+{
+	if (signal == SIGUSR1)
+		g_info.char_ = (g_info.char_ << 1) | 1;
+	if (signal == SIGUSR2)
+		g_info.char_ = (g_info.char_ << 1) | 0;
+	g_info.n_bit++;
+}
+
+void	signal_handler_sub2(void)
+{
+	ft_putstr("\ngot last\n");
+	ft_putstr("length of received message: ");
+	ft_putstr(ft_itoa(g_info.l_message));
+	ft_putstr("\n");
+	g_info.first = 1;
+	g_info.n_char = 0;
+	g_info.n_bit = 0;
+	g_info.l_message = 0;
+	g_info.char_ = 0;
 }
 
 int	main(void)
