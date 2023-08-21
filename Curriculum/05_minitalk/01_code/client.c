@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 19:54:00 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 20:17:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,49 @@ int	check_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int					n = 10;				// DELETE THIS!!!
-	char				result[n * 150000];	// DELETE THIS!!!
+	pid_t				pid_server;
+	struct sigaction	sa;
+
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = signal_handler;
+	sigemptyset(&sa.sa_mask);
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
+	if (check_args(argc, argv))
+	{
+		pid_server = (pid_t)ft_atoi(argv[1]);
+		g_info.message = argv[2];
+		g_info.first = 1;
+		g_info.n_bit = 0;
+		g_info.n_char = 0;
+		g_info.l_message = 0;
+		ft_putstr(g_info.message);
+		ft_putstr("\nmessage is sent to the server-");
+		ft_putstr(ft_itoa(pid_server));
+		ft_putstr("\n");
+		kill(pid_server, SIGUSR1);
+		while (1)
+		{
+			sleep(3);
+			if (g_info.first == 1)
+			{
+				ft_putstr("ERROR: no feedback");
+				exit(0);
+			}
+		}
+	}
+}
+
+/*
+// main to test with very long message
+// message: n times argv[2] if argv[2] < 150.000
+
+# include <string.h>
+
+int	main(int argc, char **argv)
+{
+	int					n = 10;
+	char				result[n * 150000];
 	pid_t				pid_server;
 	struct sigaction	sa;
 
@@ -89,13 +130,11 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv))
 	{
-		strcpy(result, argv[2]);		// DELETE THIS!!!
-		while (--n)						// DELETE THIS!!!
-			strcat(result, argv[2]);	// DELETE THIS!!!
-		g_info.message = result;		// DELETE THIS!!!
-
+		strcpy(result, argv[2]);
+		while (--n)
+			strcat(result, argv[2]);
 		pid_server = (pid_t)ft_atoi(argv[1]);
-		// g_info.message = argv[2];		// GET BACK THIS!!!
+		g_info.message = result;
 		g_info.first = 1;
 		g_info.n_bit = 0;
 		g_info.n_char = 0;
@@ -109,7 +148,6 @@ int	main(int argc, char **argv)
 
 		while (1)
 		{
-			// pause();
 			sleep(3);
 			if (g_info.first == 1)
 			{
@@ -119,3 +157,4 @@ int	main(int argc, char **argv)
 		} 
 	}
 }
+*/

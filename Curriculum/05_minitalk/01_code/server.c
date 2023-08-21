@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 22:13:43 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 20:16:54 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,11 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = signal_handler;
 	sigemptyset(&sa.sa_mask);
-
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-
 	ft_putstr("server pid: ");
 	ft_putstr(ft_itoa(getpid()));
 	ft_putstr("\n");
-
 	g_info.first = 1;
 	g_info.n_bit = 0;
 	g_info.n_char = 0;

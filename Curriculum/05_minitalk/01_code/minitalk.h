@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/20 22:12:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/21 20:17:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <signal.h>
 # include <stdlib.h>
-# include <string.h>	// <-- DELETE THIS!!!
 
 char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
