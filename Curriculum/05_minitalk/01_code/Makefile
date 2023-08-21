@@ -6,12 +6,14 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/20 20:03:19 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/21 22:17:49 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_S = server # only one NAME
-NAME_C = client # only one NAME
+NAME_S = server
+NAME_C = client
+NAME_S_BONUS = server_bonus
+NAME_C_BONUS = client_bonus
 
 CC = cc
 CCFLAG = -Wall -Wextra -Werror
@@ -45,6 +47,12 @@ $(NAME_S): $(OBJS_S)
 $(NAME_C): $(OBJS_C)
 	$(CC) -o $@ $^
 
+$(NAME_S_BONUS): $(OBJS_S)
+	$(CC) -o $@ $^
+
+$(NAME_C_BONUS): $(OBJS_C)
+	$(CC) -o $@ $^
+
 clean:
 	$(RM) $(OBJS_S)
 	$(RM) $(OBJS_C)
@@ -52,9 +60,11 @@ clean:
 fclean: clean
 	$(RM) ${NAME_S}
 	$(RM) ${NAME_C}
+	$(RM) ${NAME_S_BONUS}
+	$(RM) ${NAME_C_BONUS}
 
 re: fclean all
 
-bonus:
+bonus:	$(NAME_S_BONUS) $(NAME_C_BONUS)
 
 .PHONY: all clean fclean re bonus
