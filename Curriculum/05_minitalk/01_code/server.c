@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:33 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 21:47:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/24 19:06:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,14 @@ void	signal_handler_sub1(int signal)
 
 void	signal_handler_sub2(void)
 {
+	char	*l_message_str;
+
+	l_message_str = ft_itoa(g_info.l_message);
 	ft_putstr("\ngot last\n");
 	ft_putstr("length of received message: ");
-	ft_putstr(ft_itoa(g_info.l_message));
+	ft_putstr(l_message_str);
 	ft_putstr("\n");
+	free(l_message_str);
 	g_info.first = 1;
 	g_info.n_char = 0;
 	g_info.n_bit = 0;
@@ -70,15 +74,18 @@ void	signal_handler_sub2(void)
 int	main(void)
 	{
 	struct sigaction	sa;
+	char				*pid_server_str;
 
+	pid_server_str = ft_itoa(getpid());
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = signal_handler;
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	ft_putstr("server pid: ");
-	ft_putstr(ft_itoa(getpid()));
+	ft_putstr(pid_server_str);
 	ft_putstr("\n");
+	free(pid_server_str);
 	g_info.first = 1;
 	g_info.n_bit = 0;
 	g_info.n_char = 0;

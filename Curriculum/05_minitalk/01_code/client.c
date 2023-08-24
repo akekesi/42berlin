@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/21 21:47:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/24 19:06:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,16 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 
 void	signal_handler_sub(void)
 {
+	char	*l_message_str;
+
 	if (!g_info.message[g_info.n_char])
 	{
+		l_message_str = ft_itoa(g_info.l_message);
 		ft_putstr("sent last\n");
 		ft_putstr("length of sent message: ");
-		ft_putstr(ft_itoa(g_info.l_message));
+		ft_putstr(l_message_str);
 		ft_putstr("\n");
+		free(l_message_str);
 		exit(0);
 	}
 	g_info.n_bit = 0;
@@ -83,6 +87,9 @@ int	check_args(int argc, char **argv)
 
 void	init(char *message, pid_t pid_server)
 {
+	char	*pid_server_srt;
+
+	pid_server_srt = ft_itoa(pid_server);
 	g_info.message = message;
 	g_info.first = 1;
 	g_info.n_bit = 0;
@@ -90,8 +97,9 @@ void	init(char *message, pid_t pid_server)
 	g_info.l_message = 0;
 	ft_putstr(g_info.message);
 	ft_putstr("\nmessage is sent to the server-");
-	ft_putstr(ft_itoa(pid_server));
+	ft_putstr(pid_server_srt);
 	ft_putstr("\n");
+	free(pid_server_srt);
 }
 
 int	main(int argc, char **argv)
