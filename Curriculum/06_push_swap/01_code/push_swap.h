@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 15:06:49 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/27 15:54:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ t_llist	*llist_del(t_llist **head);
 void	llist_push(t_llist **head_a, t_llist **head_b);
 void	llist_swap(t_llist **head);
 
+// llist_01.c
+int		llist_len(t_llist *head);
+
 // llist_visualisation.c
 void	llist_print(t_llist *list);
 
@@ -49,6 +52,7 @@ char	*ft_itoa(int n);
 void	ft_putstr(char *str);
 
 // push_swap_test.c
-void    print_ab(t_llist *head_a, t_llist *head_b);
+void	print_ab(t_llist *head_a, t_llist *head_b, int len);
+void	print_len(t_llist *head);
 
 #endif

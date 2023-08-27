@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_test.c                                   :+:      :+:    :+:   */
+/*   llist_02.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 13:39:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 15:53:26 by akekesi          ###   ########.fr       */
+/*   Created: 2023/08/24 20:55:09 by akekesi           #+#    #+#             */
+/*   Updated: 2023/08/27 15:53:15 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_ab(t_llist *head_a, t_llist *head_b, int len)
+int	llist_len(t_llist *head)
 {
-	ft_putstr("stack-a");
-	if (len)
-	{
-		ft_putstr("(");
-		print_len(head_a);
-		ft_putstr("):");
-	}
-	ft_putstr("\n");
-	llist_print(head_a);
-	ft_putstr("stack-b:");
-	if (len)
-	{
-		ft_putstr("(");
-		print_len(head_b);
-		ft_putstr("):");
-	}
-	ft_putstr("\n");
-	llist_print(head_b);
-}
+	int		i;
+	t_llist	*tmp;
 
-void	print_len(t_llist *head)
-{
-	char	*len;
-
-	len = ft_itoa(llist_len(head));
-	ft_putstr(len);
-	free(len);
+	i = 0;
+	tmp = head;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+		if (head == tmp)
+			break ;
+	}
+	return (i);
 }

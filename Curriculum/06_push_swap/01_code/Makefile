@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/27 15:08:33 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/27 15:53:19 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ DEPS = push_swap.h
 SRCS = push_swap.c \
 	llist_00.c \
 	llist_01.c \
+	llist_02.c \
 	llist_visualization.c \
 	sort_00.c \
 	ft_atoi.c \
