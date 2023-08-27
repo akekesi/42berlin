@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 22:03:42 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/26 23:47:41 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/27 14:53:19 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ t_llist	*llist_del(t_llist **head)
 	t_llist	*node;
 
 	node = (*head)->prev;
-	(((*head)->prev)->prev)->next = *head;
-	(*head)->prev = ((*head)->prev)->prev;
+	if (*head == (*head)->next)
+		*head = NULL;
+	else
+	{
+		(((*head)->prev)->prev)->next = *head;
+		(*head)->prev = ((*head)->prev)->prev;
+	}
 	node->next = node;
 	node->prev = node;
 	return (node);
