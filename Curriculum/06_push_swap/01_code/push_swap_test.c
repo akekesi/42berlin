@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:39:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 17:47:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/27 22:33:36 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_ab(t_llist *head_a, t_llist *head_b, int extra)
 	}
 	ft_putstr("\n");
 	llist_print(head_a);
-	ft_putstr("stack-b:");
+	ft_putstr("stack-b");
 	if (extra)
 	{
 		ft_putstr("(");
@@ -54,4 +54,31 @@ void	print_pos(t_llist *head, int n)
 	max_pos = ft_itoa(llist_pos(head, n));
 	ft_putstr(max_pos);
 	free(max_pos);
+}
+
+void	print_moves(t_moves moves)
+{
+	char	*str;
+
+	ft_putstr("moves:\n");
+	ft_putstr("a:   ");
+	str = ft_itoa(moves.a);
+	ft_putstr(str);
+	free(str);
+	ft_putstr("\n");
+	ft_putstr("b:   ");
+	str = ft_itoa(moves.b);
+	ft_putstr(str);
+	free(str);
+	ft_putstr("\n");
+	ft_putstr("ab:  ");
+	str = ft_itoa(moves.ab);
+	ft_putstr(str);
+	free(str);
+	ft_putstr("\n");
+	ft_putstr("sum: ");
+	str = ft_itoa(moves.sum);
+	ft_putstr(str);
+	free(str);
+	ft_putstr("\n");
 }
