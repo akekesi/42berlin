@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 15:53:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/27 17:47:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ int	main(int argc, char **argv)
 		print_ab(head_a, head_b, 1);
 		ft_putstr("-------------\n");
 
-		ft_putstr("SWAP-A\n");
-		llist_swap(&head_a);
-		print_ab(head_a, head_b, 1);
-		ft_putstr("-------------\n");
+		// ft_putstr("SWAP-A\n");
+		// llist_swap(&head_a);
+		// print_ab(head_a, head_b, 1);
+		// ft_putstr("-------------\n");
 
-		ft_putstr("PUSH-B\n");
-		llist_push(&head_b, &head_a);
-		print_ab(head_a, head_b, 1);
-		ft_putstr("-------------\n");
+		// ft_putstr("PUSH-B\n");
+		// llist_push(&head_b, &head_a);
+		// print_ab(head_a, head_b, 1);
+		// ft_putstr("-------------\n");
 	}
 	llist_free(&head_a);
 	llist_free(&head_b);
