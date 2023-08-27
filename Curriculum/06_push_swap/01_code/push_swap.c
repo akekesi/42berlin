@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/26 23:47:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/27 15:20:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,18 @@ int	main(int argc, char **argv)
 			i++;
 			free(str);
 		}
+		ft_putstr("CREATE\n");
+		print_ab(head_a, head_b);
 		ft_putstr("-------------\n");
-		ft_putstr("stack a:\n");
-		llist_print(head_a);
-		ft_putstr("stack b:\n");
-		llist_print(head_b);
-		ft_putstr("-------------\n");
-		ft_putstr("swap a:\n");
+
+		ft_putstr("SWAP-A\n");
 		llist_swap(&head_a);
-		ft_putstr("stack a:\n");
-		llist_print(head_a);
+		print_ab(head_a, head_b);
 		ft_putstr("-------------\n");
-		ft_putstr("push b:\n");
+
+		ft_putstr("PUSH-B\n");
 		llist_push(&head_b, &head_a);
-		ft_putstr("stack a:\n");
-		llist_print(head_a);
-		ft_putstr("stack b:\n");
-		llist_print(head_b);
+		print_ab(head_a, head_b);
 		ft_putstr("-------------\n");
 	}
 	llist_free(&head_a);
