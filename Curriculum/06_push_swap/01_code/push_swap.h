@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 20:17:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 22:10:07 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,15 @@ void	llist_swap(t_llist **head);
 int		llist_len(t_llist *head);
 int		llist_pos(t_llist *head, int n);
 int		llist_max_pos(t_llist *head);
+int		llist_min_pos(t_llist *head);
 int		llist_minmax_pos(t_llist *head, int n);
 
 // llist_03.c
 void	llist_print(t_llist *list);
+
+// llist_04.c
+int		llist_is_sorted(t_llist *list);
+int		llist_is_unique(t_llist *list, int n);
 
 // moves_00.c
 void	get_moves(t_llist *head_a, t_llist *head_b, t_moves *moves);
@@ -83,6 +88,7 @@ void	do_moves_sub_ab(t_llist **head_a, t_llist **head_b, t_moves *moves);
 
 // sort_00.c
 void	sort(t_llist **head_a, t_llist **head_b);
+void	sort_3(t_llist **head);
 
 // ft*.c
 int		ft_abs(int n);

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:55:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 17:47:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 22:10:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,34 @@ int	llist_max_pos(t_llist *head)
 		if (max < tmp->n)
 		{
 			max = tmp->n;
+			pos = i;
+		}
+		tmp = tmp->next;
+		if (head == tmp)
+			break ;
+		i++;
+	}
+	return (pos);
+}
+
+int	llist_min_pos(t_llist *head)
+{
+	int		i;
+	int		min;
+	int		pos;
+	t_llist	*tmp;
+
+	pos = -1;
+	if (!head)
+		return (pos);
+	i = 0;
+	tmp = head;
+	min = 2147483647;
+	while (1)
+	{
+		if (min > tmp->n)
+		{
+			min = tmp->n;
 			pos = i;
 		}
 		tmp = tmp->next;
