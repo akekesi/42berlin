@@ -6,20 +6,25 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 22:32:58 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 20:18:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+- check input
+- check sort
+- argc < 3
+- argc = 3
+- argc > 3
+*/
 int	main(int argc, char **argv)
 {
 	int		i;
-	char	*str;
 	t_llist	*head_a;
 	t_llist	*head_b;
 	t_llist	*node;
-	t_moves	moves;
 
 	head_a = NULL;
 	head_b = NULL;
@@ -30,30 +35,22 @@ int	main(int argc, char **argv)
 		{
 			node = llist_create(ft_atoi(argv[i]));
 			llist_add(&head_a, node);
-			str = ft_itoa(node->n);
 			i++;
-			free(str);
 		}
-		ft_putstr("CREATE\n");
-		print_ab(head_a, head_b, 1);
-		ft_putstr("-------------\n");
-		llist_push(&head_b, &head_a);
-		llist_push(&head_b, &head_a);
-		llist_push(&head_b, &head_a);
-		llist_push(&head_b, &head_a);
-		print_ab(head_a, head_b, 1);
-		get_moves(head_a, head_b, &moves);
-		print_moves(moves);		
-		ft_putstr("-------------\n");
-		ft_putstr("SWAP-A\n");
-		llist_swap(&head_a);
-		print_ab(head_a, head_b, 1);
-		ft_putstr("-------------\n");
-
-		ft_putstr("PUSH-B\n");
-		llist_push(&head_b, &head_a);
-		print_ab(head_a, head_b, 1);
-		ft_putstr("-------------\n");
+		if (argc < 3)
+		{
+			ft_putstr("SORT LEN = 2\n");
+		}
+		if (argc < 4)
+		{
+			ft_putstr("SORT LEN = 3\n");
+		}
+		if (argc > 4)
+		{
+			print_ab(head_a, head_b);
+			sort(&head_a, &head_b);
+			print_ab(head_a, head_b);
+		}
 	}
 	llist_free(&head_a);
 	llist_free(&head_b);

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 22:31:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 20:17:54 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ typedef struct s_moves
 // llist_00.c
 t_llist	*llist_create(int n);
 void	llist_free(t_llist **head);
+void	llist_add(t_llist **head, t_llist *node);
+t_llist	*llist_del(t_llist **head);
 
 // llist_01.c
-void	llist_add(t_llist **head, t_llist *node);
-void	llist_rot(t_llist **head, int direction);
-t_llist	*llist_del(t_llist **head);
+void	llist_rot(t_llist **head);
+void	llist_rrot(t_llist **head);
 void	llist_push(t_llist **head_a, t_llist **head_b);
 void	llist_swap(t_llist **head);
 
@@ -48,15 +49,40 @@ int		llist_pos(t_llist *head, int n);
 int		llist_max_pos(t_llist *head);
 int		llist_minmax_pos(t_llist *head, int n);
 
-// llist_visualisation.c
+// llist_03.c
 void	llist_print(t_llist *list);
 
 // moves_00.c
 void	get_moves(t_llist *head_a, t_llist *head_b, t_moves *moves);
 void	set_moves(t_moves *moves, int a, int b);
+void	cpy_moves(t_moves *moves_dst, t_moves *moves_src);
 int		opt_move(int move, int len);
 
+// moves_01.c
+void	sa(t_llist **head_a);
+void	sb(t_llist **head_b);
+void	ss(t_llist **head_a, t_llist **head_b);
+void	pa(t_llist **head_a, t_llist **head_b);
+void	pb(t_llist **head_a, t_llist **head_b);
+
+// moves_02.c
+void	ra(t_llist **head_a);
+void	rb(t_llist **head_b);
+void	rr(t_llist **head_a, t_llist **head_b);
+
+// moves_03.c
+void	rra(t_llist **head_a);
+void	rrb(t_llist **head_b);
+void	rrr(t_llist **head_a, t_llist **head_b);
+
+// moves_04.c
+void	do_moves(t_llist **head_a, t_llist **head_b, t_moves *moves);
+void	do_moves_sub_a(t_llist **head_a, t_moves *moves);
+void	do_moves_sub_b(t_llist **head_b, t_moves *moves);
+void	do_moves_sub_ab(t_llist **head_a, t_llist **head_b, t_moves *moves);
+
 // sort_00.c
+void	sort(t_llist **head_a, t_llist **head_b);
 
 // ft*.c
 int		ft_abs(int n);
@@ -68,9 +94,10 @@ char	*ft_itoa(int n);
 void	ft_putstr(char *str);
 
 // push_swap_test.c
-void	print_ab(t_llist *head_a, t_llist *head_b, int extra);
+void	print_ab(t_llist *head_a, t_llist *head_b);
 void	print_len(t_llist *head);
 void	print_pos(t_llist *head, int n);
 void	print_moves(t_moves moves);
+void	test_get_moves(void);
 
 #endif

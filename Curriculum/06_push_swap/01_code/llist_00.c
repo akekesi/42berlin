@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:55:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/26 23:47:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 17:17:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,36 @@ t_llist	*llist_create(int n)
 	node->n = n;
 	node->prev = node;
 	node->next = node;
+	return (node);
+}
+
+void	llist_add(t_llist **head, t_llist *node)
+{
+	if (!*head)
+		*head = node;
+	else
+	{
+		node->prev = (*head)->prev;
+		node->next = *head;
+		((*head)->prev)->next = node;
+		(*head)->prev = node;
+	}
+}
+
+t_llist	*llist_del(t_llist **head)
+{
+	t_llist	*node;
+
+	node = (*head)->prev;
+	if (*head == (*head)->next)
+		*head = NULL;
+	else
+	{
+		(((*head)->prev)->prev)->next = *head;
+		(*head)->prev = ((*head)->prev)->prev;
+	}
+	node->next = node;
+	node->prev = node;
 	return (node);
 }
 

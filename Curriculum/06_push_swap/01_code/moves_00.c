@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:24:45 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 22:19:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 20:10:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	get_moves(t_llist *head_a, t_llist *head_b, t_moves *moves)
 	while (1)
 	{
 		set_moves(
-			&moves_curr, opt_move(i, len_a),
+			&moves_curr,
+			opt_move(i, len_a),
 			opt_move(llist_pos(head_b, tmp->n), len_b)
 			);
 		if ((moves_curr.sum) < (moves->sum))
-			set_moves(moves, moves_curr.a, moves_curr.b);
+			cpy_moves(moves, &moves_curr);
 		tmp = tmp->next;
 		if (head_a == tmp)
 			break ;
@@ -64,6 +65,14 @@ void	set_moves(t_moves *moves, int a, int b)
 		}
 	}
 	moves->sum = ft_abs(moves->a) + ft_abs(moves->b) + ft_abs(moves->ab);
+}
+
+void	cpy_moves(t_moves *moves_dst, t_moves *moves_src)
+{
+	moves_dst->a = moves_src->a;
+	moves_dst->b = moves_src->b;
+	moves_dst->ab = moves_src->ab;
+	moves_dst->sum = moves_src->sum;
 }
 
 int	opt_move(int move, int len)

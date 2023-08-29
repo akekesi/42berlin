@@ -6,35 +6,17 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:39:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 22:33:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 20:48:56 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_ab(t_llist *head_a, t_llist *head_b, int extra)
+void	print_ab(t_llist *head_a, t_llist *head_b)
 {
-	ft_putstr("stack-a");
-	if (extra)
-	{
-		ft_putstr("(");
-		print_len(head_a);
-		ft_putstr(", ");
-		print_pos(head_a, 5);
-		ft_putstr("):");
-	}
-	ft_putstr("\n");
+	ft_putstr("stack-a:\n");
 	llist_print(head_a);
-	ft_putstr("stack-b");
-	if (extra)
-	{
-		ft_putstr("(");
-		print_len(head_b);
-		ft_putstr(", ");
-		print_pos(head_b, 0);
-		ft_putstr("):");
-	}
-	ft_putstr("\n");
+	ft_putstr("stack-b:\n");
 	llist_print(head_b);
 }
 

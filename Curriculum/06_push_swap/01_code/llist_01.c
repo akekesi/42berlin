@@ -6,54 +6,20 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 22:03:42 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/27 14:53:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/29 17:24:16 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	llist_add(t_llist **head, t_llist *node)
+void	llist_rot(t_llist **head)
 {
-	if (!*head)
-		*head = node;
-	else
-	{
-		node->prev = (*head)->prev;
-		node->next = *head;
-		((*head)->prev)->next = node;
-		(*head)->prev = node;
-	}
+	*head = (*head)->next;
 }
 
-void	llist_rot(t_llist **head, int direction)
+void	llist_rrot(t_llist **head)
 {
-	while (direction > 0)
-	{
-		*head = (*head)->next;
-		direction--;
-	}
-	while (direction < 0)
-	{
-		*head = (*head)->prev;
-		direction++;
-	}
-}
-
-t_llist	*llist_del(t_llist **head)
-{
-	t_llist	*node;
-
-	node = (*head)->prev;
-	if (*head == (*head)->next)
-		*head = NULL;
-	else
-	{
-		(((*head)->prev)->prev)->next = *head;
-		(*head)->prev = ((*head)->prev)->prev;
-	}
-	node->next = node;
-	node->prev = node;
-	return (node);
+	*head = (*head)->prev;
 }
 
 void	llist_push(t_llist **head_a, t_llist **head_b)
@@ -62,10 +28,10 @@ void	llist_push(t_llist **head_a, t_llist **head_b)
 
 	if (!*head_b)
 		return ;
-	llist_rot(head_b, 1);
+	llist_rot(head_b);
 	node = llist_del(head_b);
 	llist_add(head_a, node);
-	llist_rot(head_a, -1);
+	llist_rrot(head_a);
 }
 
 void	llist_swap(t_llist **head)
@@ -74,9 +40,10 @@ void	llist_swap(t_llist **head)
 
 	if (!*head || *head == (*head)->next)
 		return ;
-	llist_rot(head, 1);
+	llist_rot(head);
 	node = llist_del(head);
-	llist_rot(head, 1);
+	llist_rot(head);
 	llist_add(head, node);
-	llist_rot(head, -2);
+	llist_rrot(head);
+	llist_rrot(head);
 }
