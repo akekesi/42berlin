@@ -6,11 +6,12 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 22:12:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/30 20:38:16 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	main(int argc, char **argv)
 {
@@ -26,7 +27,16 @@ int	main(int argc, char **argv)
 		i = 1;
 		while (i < argc)
 		{
-			ft_putstr("!!!CHECK INPUT!!!\n");
+			if (!check_digits(argv[i]))
+			{
+				ft_putstr("Error-d\n");
+				return (0);
+			}
+			if (!check_int(argv[i]))
+			{
+				ft_putstr("Error-i\n");
+				return (0);
+			}
 			node = llist_create(ft_atoi(argv[i]));
 			if (!llist_is_unique(head_a, node->n))
 			{

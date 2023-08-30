@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/29 21:54:16 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/30 21:10:35 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRCS = push_swap.c \
 	ft_is.c \
 	ft_itoa.c \
 	ft_putstr.c \
+	ft_strlen.c \
+	check_00.c \
 	push_swap_test.c
 
 OBJS = $(SRCS:.c=.o)

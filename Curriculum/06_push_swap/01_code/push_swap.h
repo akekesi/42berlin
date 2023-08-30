@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 22:10:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/30 21:10:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,11 @@ int		ft_isdigits(char *str);
 int		ft_isspace(int c);
 char	*ft_itoa(int n);
 void	ft_putstr(char *str);
+size_t	ft_strlen(const char *str);
+
+// check*.c
+int		check_digits(char *str);
+int		check_int(char *str);
 
 // push_swap_test.c
 void	print_ab(t_llist *head_a, t_llist *head_b);
