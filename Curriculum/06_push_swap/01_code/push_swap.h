@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/30 21:10:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/30 21:24:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ size_t	ft_strlen(const char *str);
 // check*.c
 int		check_digits(char *str);
 int		check_int(char *str);
+int		check_pre(char *str);
 
 // push_swap_test.c
 void	print_ab(t_llist *head_a, t_llist *head_b);

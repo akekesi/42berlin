@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:53:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/30 20:37:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/30 21:25:28 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,14 @@ int	check_int(char *str)
 		n += n_new;
 		i++;
 	}
+	return (1);
+}
+
+int	check_pre(char *str)
+{
+	if (!check_digits(str))
+		return (0);
+	if (!check_int(str))
+		return (0);
 	return (1);
 }
