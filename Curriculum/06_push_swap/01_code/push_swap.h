@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/30 21:24:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/30 22:14:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ typedef struct s_moves
 	int	ab;
 	int	sum;
 }	t_moves;
+
+// push_swap.c with main
+int		fill_a(int argc, char **argv, t_llist **head_a);
+void	push_swap_sub(int argc, char **argv);
+
+// push_swap_test.c
+void	print_ab(t_llist *head_a, t_llist *head_b);
+void	print_len(t_llist *head);
+void	print_pos(t_llist *head, int n);
+void	print_moves(t_moves moves);
+void	test_get_moves(void);
 
 // llist_00.c
 t_llist	*llist_create(int n);
@@ -90,6 +101,11 @@ void	do_moves_sub_ab(t_llist **head_a, t_llist **head_b, t_moves *moves);
 void	sort(t_llist **head_a, t_llist **head_b);
 void	sort_3(t_llist **head);
 
+// check_00.c
+int		check_digits(char *str);
+int		check_int(char *str);
+int		check_pre(char *str);
+
 // ft*.c
 int		ft_abs(int n);
 int		ft_atoi(const char *str);
@@ -99,17 +115,5 @@ int		ft_isspace(int c);
 char	*ft_itoa(int n);
 void	ft_putstr(char *str);
 size_t	ft_strlen(const char *str);
-
-// check*.c
-int		check_digits(char *str);
-int		check_int(char *str);
-int		check_pre(char *str);
-
-// push_swap_test.c
-void	print_ab(t_llist *head_a, t_llist *head_b);
-void	print_len(t_llist *head);
-void	print_pos(t_llist *head, int n);
-void	print_moves(t_moves moves);
-void	test_get_moves(void);
 
 #endif

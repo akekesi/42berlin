@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/30 21:10:35 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/30 22:14:27 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ RM = rm -f
 DEPS = push_swap.h
 
 SRCS = push_swap.c \
+	push_swap_test.c \
 	llist_00.c \
 	llist_01.c \
 	llist_02.c \
@@ -31,14 +32,13 @@ SRCS = push_swap.c \
 	moves_03.c \
 	moves_04.c \
 	sort_00.c \
+	check_00.c \
 	ft_abs.c \
 	ft_atoi.c \
 	ft_is.c \
 	ft_itoa.c \
 	ft_putstr.c \
-	ft_strlen.c \
-	check_00.c \
-	push_swap_test.c
+	ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 
