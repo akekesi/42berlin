@@ -6,21 +6,24 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/30 22:14:27 by akekesi          ###   ########.fr        #
+#    Updated: 2023/08/31 22:14:56 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+NAME_BONUS = checker
 
 CC = cc
 CCFLAG = -Wall -Wextra -Werror
 
 RM = rm -f
 
-DEPS = push_swap.h
+DEPS = push_swap.h \
+	get_next_line_bonus.h
 
-SRCS = push_swap.c \
-	push_swap_test.c \
+SRCS_PUSH_SWAP = push_swap.c
+SRCS_PUSH_SWAP_BONUS = push_swap_bonus.c
+SRCS_COMMON = push_swap_test.c \
 	llist_00.c \
 	llist_01.c \
 	llist_02.c \
@@ -38,27 +41,36 @@ SRCS = push_swap.c \
 	ft_is.c \
 	ft_itoa.c \
 	ft_putstr.c \
-	ft_strlen.c
+	ft_strlen.c \
+	get_next_line_bonus.c \
+	get_next_line_utils_bonus.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS_COMMON = $(SRCS_COMMON:.c=.o)
+OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:.c=.o)
+OBJS_PUSH_SWAP_BONUS = $(SRCS_PUSH_SWAP_BONUS:.c=.o)
 
 %.o: %.c $(DEPS)
 	$(CC) $(CCFLAG) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS_COMMON) $(OBJS_PUSH_SWAP)
 	$(CC) -o $@ $^
 
+$(NAME_BONUS): $(OBJS_COMMON) $(OBJS_PUSH_SWAP_BONUS)
+	$(CC) -o $@ $^
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS_COMMON)
+	$(RM) $(OBJS_PUSH_SWAP)
+	$(RM) $(OBJS_PUSH_SWAP_BONUS)
 
 fclean: clean
 	$(RM) ${NAME}
+	$(RM) ${NAME_BONUS}
 
 re: fclean all
 
-bonus:
+bonus: $(NAME_BONUS)
 
 .PHONY: all clean fclean re bonus

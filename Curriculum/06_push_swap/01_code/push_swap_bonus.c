@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/31 22:29:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/31 23:26:23 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line_bonus.h"
+#include <stdio.h> // DELETE THIS!!!
+
 
 int	fill_a(int argc, char **argv, t_llist **head_a)
 {
@@ -40,8 +43,9 @@ int	fill_a(int argc, char **argv, t_llist **head_a)
 	return (1);
 }
 
-void	push_swap(int argc, char **argv)
+void	push_swap_checker(int argc, char **argv)
 {
+	char	*rule;
 	t_llist	*head_a;
 	t_llist	*head_b;
 
@@ -49,28 +53,25 @@ void	push_swap(int argc, char **argv)
 	head_b = NULL;
 	if (!fill_a(argc, argv, &head_a))
 		return ;
-	if (llist_is_sorted(head_a))
+	print_ab(head_a, head_b);
+	while (1)
 	{
-		llist_free(&head_a);
-		return ;
+		rule = get_next_line(0);
+		printf("-->%s<--\n", rule);
+		printf("-->quit: ctrl+d<--\n");
+		if (!rule)
+		{
+			printf("-->break<--");
+			break ;
+		}
+		// free(rule);
 	}
-	print_ab(head_a, head_b);
-	if (argc == 3)
-		sa(&head_a);
-	if (argc == 4)
-		sort_3(&head_a);
-	if (argc > 4)
-		sort(&head_a, &head_b);
-	print_ab(head_a, head_b);
 	llist_free(&head_a);
 	llist_free(&head_b);
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
-		if (!check_pre(argv[1]))
-			ft_putstr("Error\n");
-	if (argc > 2)
-		push_swap(argc, argv);
+	if (argc > 1)
+		push_swap_checker(argc, argv);
 }

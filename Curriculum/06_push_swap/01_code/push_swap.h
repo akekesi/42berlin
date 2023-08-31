@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/30 22:14:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/08/31 22:46:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ typedef struct s_moves
 
 // push_swap.c with main
 int		fill_a(int argc, char **argv, t_llist **head_a);
-void	push_swap_sub(int argc, char **argv);
+void	push_swap(int argc, char **argv);
+
+// push_swap_bonus.c with main
+int		fill_a(int argc, char **argv, t_llist **head_a);
+void	push_swap_checker(int argc, char **argv);
 
 // push_swap_test.c
 void	print_ab(t_llist *head_a, t_llist *head_b);
