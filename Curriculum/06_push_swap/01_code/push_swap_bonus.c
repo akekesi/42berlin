@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 17:37:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 20:01:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,18 @@ void	push_swap_checker(int argc, char **argv)
 	head_b = NULL;
 	if (!fill_a(argc, argv, &head_a))
 		return ;
-	print_ab(head_a, head_b);
 	while (1)
 	{
 		rule = get_next_line(0);
 		if (!rule)
 			break ;
 		execute_rule(&head_a, &head_b, rule);
-		print_ab(head_a, head_b);
 		free(rule);
 	}
 	if (llist_is_sorted(head_a) && !head_b)
-		ft_putstr("OK");
+		ft_putstr("OK\n");
 	else
-		ft_putstr("KO");
+		ft_putstr("KO\n");
 	llist_free(&head_a);
 	llist_free(&head_b);
 }

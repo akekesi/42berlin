@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:37:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 22:10:15 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 20:40:18 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	sort(t_llist **head_a, t_llist **head_b)
 {
 	t_moves	moves;
 
-	llist_push(head_b, head_a);
-	llist_push(head_b, head_a);
+	pb(head_a, head_b);
+	pb(head_a, head_b);
 	while (llist_len(*head_a) > 0)
 	{
 		get_moves(*head_a, *head_b, &moves);
