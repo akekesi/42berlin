@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_02.c                                         :+:      :+:    :+:   */
+/*   moves_04_rrot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:56:15 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 18:08:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 21:34:55 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_llist **head_a)
+void	rra(t_llist **head_a)
 {
-	llist_rot(head_a);
-	ft_putstr("ra\n");
+	llist_rrot(head_a);
+	ft_putstr("rra\n");
 }
 
-void	rb(t_llist **head_b)
+void	rrb(t_llist **head_b)
 {
-	llist_rot(head_b);
-	ft_putstr("rb\n");
+	llist_rrot(head_b);
+	ft_putstr("rrb\n");
 }
 
-void	rr(t_llist **head_a, t_llist **head_b)
+void	rrr(t_llist **head_a, t_llist **head_b)
 {
-	llist_rot(head_a);
-	llist_rot(head_b);
-	ft_putstr("rr\n");
+	llist_rrot(head_a);
+	llist_rrot(head_b);
+	ft_putstr("rrr\n");
 }

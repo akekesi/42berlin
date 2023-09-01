@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/01 17:37:30 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/01 21:41:55 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,12 @@ SRCS_COMMON = push_swap_utils.c \
 	llist_02.c \
 	llist_03.c \
 	llist_04.c \
-	moves_00.c \
-	moves_01.c \
-	moves_02.c \
-	moves_03.c \
-	moves_04.c \
+	moves_00_get_set.c \
+	moves_01_swap.c \
+	moves_02_push.c \
+	moves_03_rot.c \
+	moves_04_rrot.c \
+	moves_05_do.c \
 	sort_00.c \
 	check_00.c \
 	ft_abs.c \

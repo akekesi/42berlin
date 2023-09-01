@@ -33,6 +33,7 @@ make bonus > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   # run executable
   echo "./push_swap $ARG"
+  # ./push_swap $ARG
   ./push_swap $ARG | ./checker $ARG
   ./push_swap $ARG | ./checker $ARG
   echo "moves: $(./push_swap $ARG | wc -l)"

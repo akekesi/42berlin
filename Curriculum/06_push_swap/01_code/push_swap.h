@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 17:37:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 21:43:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,30 +78,32 @@ void	llist_print(t_llist *list);
 int		llist_is_sorted(t_llist *list);
 int		llist_is_unique(t_llist *list, int n);
 
-// moves_00.c
+// moves_00_get_set.c
 void	get_moves(t_llist *head_a, t_llist *head_b, t_moves *moves);
 void	set_moves(t_moves *moves, int a, int b);
 void	cpy_moves(t_moves *moves_dst, t_moves *moves_src);
 int		opt_move(int move, int len);
 
-// moves_01.c
+// moves_01_swap.c
 void	sa(t_llist **head_a);
 void	sb(t_llist **head_b);
 void	ss(t_llist **head_a, t_llist **head_b);
+
+// moves_02_push.c
 void	pa(t_llist **head_a, t_llist **head_b);
 void	pb(t_llist **head_a, t_llist **head_b);
 
-// moves_02.c
+// moves_03_rot.c
 void	ra(t_llist **head_a);
 void	rb(t_llist **head_b);
 void	rr(t_llist **head_a, t_llist **head_b);
 
-// moves_03.c
+// moves_04_rrot.c
 void	rra(t_llist **head_a);
 void	rrb(t_llist **head_b);
 void	rrr(t_llist **head_a, t_llist **head_b);
 
-// moves_04.c
+// moves_05_do.c
 void	do_moves(t_llist **head_a, t_llist **head_b, t_moves *moves);
 void	do_moves_sub_a(t_llist **head_a, t_moves *moves);
 void	do_moves_sub_b(t_llist **head_b, t_moves *moves);
