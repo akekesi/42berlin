@@ -1,4 +1,4 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 21:43:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 23:32:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	do_moves_sub_ab(t_llist **head_a, t_llist **head_b, t_moves *moves);
 // sort_00.c
 void	sort(t_llist **head_a, t_llist **head_b);
 void	sort_3(t_llist **head);
+void	sort_5(t_llist **head_a, t_llist **head_b);
 
 // check_00.c
 int		check_digits(char *str);

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 23:03:46 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 23:39:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	push_swap(int argc, char **argv)
 		sa(&head_a);
 	if (argc == 4)
 		sort_3(&head_a);
-	if (argc > 4)
+	if (argc == 6)
+		sort_5(&head_a, &head_b);
+	if (argc > 6)
 		sort(&head_a, &head_b);
 	llist_free(&head_a);
 	llist_free(&head_b);
