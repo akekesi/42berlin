@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/31 22:46:41 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 17:37:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,18 @@ typedef struct s_moves
 }	t_moves;
 
 // push_swap.c with main
-int		fill_a(int argc, char **argv, t_llist **head_a);
 void	push_swap(int argc, char **argv);
 
 // push_swap_bonus.c with main
-int		fill_a(int argc, char **argv, t_llist **head_a);
 void	push_swap_checker(int argc, char **argv);
+void	do_rule(t_llist **head_a, t_llist **head_b, char *rule);
+
+// push_swap_util.c
+int		fill_a(int argc, char **argv, t_llist **head_a);
+void	execute_rule(t_llist **head_a, t_llist **head_b, char *rule);
+void	execute_rule_sub_s(t_llist **head_a, t_llist **head_b, char *rule);
+void	execute_rule_sub_p(t_llist **head_a, t_llist **head_b, char *rule);
+void	execute_rule_sub_r(t_llist **head_a, t_llist **head_b, char *rule);
 
 // push_swap_test.c
 void	print_ab(t_llist *head_a, t_llist *head_b);
@@ -118,6 +124,7 @@ int		ft_isdigits(char *str);
 int		ft_isspace(int c);
 char	*ft_itoa(int n);
 void	ft_putstr(char *str);
+int		ft_strcmp(const char *str1, const char *str2);
 size_t	ft_strlen(const char *str);
 
 #endif

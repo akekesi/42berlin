@@ -6,39 +6,11 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/31 22:29:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 17:37:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	fill_a(int argc, char **argv, t_llist **head_a)
-{
-	int		i;
-	t_llist	*node;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!check_pre(argv[i]))
-		{
-			llist_free(head_a);
-			ft_putstr("Error\n");
-			return (0);
-		}
-		node = llist_create(ft_atoi(argv[i]));
-		if (!llist_is_unique(*head_a, node->n))
-		{
-			llist_free(head_a);
-			llist_free(&node);
-			ft_putstr("Error\n");
-			return (0);
-		}
-		llist_add(head_a, node);
-		i++;
-	}
-	return (1);
-}
 
 void	push_swap(int argc, char **argv)
 {

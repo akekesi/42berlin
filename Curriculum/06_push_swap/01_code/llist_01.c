@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 22:03:42 by akekesi           #+#    #+#             */
-/*   Updated: 2023/08/29 17:24:16 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/01 17:37:52 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	llist_rot(t_llist **head)
 {
+	if (!*head)
+		return ;
 	*head = (*head)->next;
 }
 
 void	llist_rrot(t_llist **head)
 {
+	if (!*head)
+		return ;
 	*head = (*head)->prev;
 }
 

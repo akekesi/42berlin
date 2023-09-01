@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/08/31 22:14:56 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/01 17:37:30 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ DEPS = push_swap.h \
 
 SRCS_PUSH_SWAP = push_swap.c
 SRCS_PUSH_SWAP_BONUS = push_swap_bonus.c
-SRCS_COMMON = push_swap_test.c \
+SRCS_COMMON = push_swap_utils.c \
+	push_swap_test.c \
 	llist_00.c \
 	llist_01.c \
 	llist_02.c \
@@ -41,6 +42,7 @@ SRCS_COMMON = push_swap_test.c \
 	ft_is.c \
 	ft_itoa.c \
 	ft_putstr.c \
+	ft_strcmp.c \
 	ft_strlen.c \
 	get_next_line_bonus.c \
 	get_next_line_utils_bonus.c
