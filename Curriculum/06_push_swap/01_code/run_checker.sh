@@ -13,6 +13,10 @@
 
 # > /dev/null 2>&1 redirects both standard output (stdout) and standard error (stderr) to /dev/null, which essentially discards all the output.
 
+# Really cool visualizer/checker for this project:
+# https://github.com/o-reo/push_swap_visualizer
+
+
 # check ARG is set
 if [ -z $ARG ]; then
   echo "ARG is not set"
