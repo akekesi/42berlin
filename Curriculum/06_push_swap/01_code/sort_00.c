@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:37:34 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 23:38:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/02 17:10:36 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ void	sort_3(t_llist **head)
 		ra(head);
 	if (max_pos == 1)
 		rra(head);
+}
+
+void	sort_4(t_llist **head_a, t_llist **head_b)
+{
+	t_moves	moves;
+
+	set_moves(
+		&moves,
+		opt_move(llist_min_pos(*head_a), llist_len(*head_a)),
+		0
+		);
+	do_moves(head_a, head_b, &moves);
+	sort_3(head_a);
+	pa(head_a, head_b);
 }
 
 void	sort_5(t_llist **head_a, t_llist **head_b)
