@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/02 17:10:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/02 23:47:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	push_swap(int argc, char **argv);
 
 // push_swap_bonus.c with main
 void	push_swap_checker(int argc, char **argv);
-void	do_rule(t_llist **head_a, t_llist **head_b, char *rule);
 
 // push_swap_util.c
 int		fill_a(int argc, char **argv, t_llist **head_a);
@@ -119,6 +118,8 @@ void	sort_5(t_llist **head_a, t_llist **head_b);
 int		check_digits(char *str);
 int		check_int(char *str);
 int		check_pre(char *str);
+int		check_rule(char *rule);
+int		check_rule_extra(t_llist **head_a, t_llist **head_b, char *rule);
 
 // ft*.c
 int		ft_abs(int n);

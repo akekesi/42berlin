@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:27:22 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/01 20:01:53 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/02 23:46:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	push_swap_checker(int argc, char **argv)
 		rule = get_next_line(0);
 		if (!rule)
 			break ;
+		if (!check_rule_extra(&head_a, &head_b, rule))
+			return ;
 		execute_rule(&head_a, &head_b, rule);
 		free(rule);
 	}
