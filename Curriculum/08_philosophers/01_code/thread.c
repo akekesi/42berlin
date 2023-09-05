@@ -1,45 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 21:04:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/05 21:07:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int argc, char **argv)
+void	*routine(void *arg)
+{
+	int	i;
+
+	i = 5;
+	while (i-- > 0)
+	{
+		printf("-->%d\n", *(int *)arg);
+		usleep(100);
+	}
+	return (NULL);
+}
+
+void	start_threads(pthread_t **threads, unsigned int n)
 {
 	unsigned int	i;
-	unsigned int	n;
-	t_fork			*forks;
-	t_phil			*phils;
-	pthread_t		*threads;
 
-	forks = NULL;
-	phils = NULL;
-	threads = NULL;
-	if (argc == 2)
+	i = 0;
+	while (i < n)
 	{
-		n = ft_atoi(argv[1]);
-		make_forks(&forks, n);
-		make_phils(&phils, n, &forks);
-		make_threads(&threads, n);
-		i = 0;
-		while (i < n)
-		{
-			printf("fork-%d: %p\n", i, &(forks[i]));
-			printf("phil-%d: %p\n", i, &(phils[i]));
-			printf("        %p\n", phils[i].left);
-			printf("        %p\n", phils[i].right);
-			i++;
-		}
-		free_forks(&forks, n);
-		free_phils(&phils);
-		free_threads(&threads);
+		pthread_create(&(*threads)[i], NULL, routine, &i);
+		i++;
 	}
+}
+
+void	make_threads(pthread_t **threads, unsigned int n)
+{
+	*threads = (pthread_t *)malloc(sizeof(pthread_t) * n);
+	if (!(*threads))
+		return ;
+}
+
+void	free_threads(pthread_t **threads)
+{
+	free(*threads);
 }
