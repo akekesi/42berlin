@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 17:38:35 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 17:48:47 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ typedef struct s_fork
 
 typedef struct s_phil
 {
-	int	n;
-	t_fork			*left;
-	t_fork			*right;
+	int		n;
+	t_fork	*left;
+	t_fork	*right;
 }	t_phil;
 
 typedef struct s_info
@@ -67,6 +67,8 @@ void		free_threads(pthread_t **threads);
 
 // info.c
 void		init_info(int argc, char **argv, t_info **info);
+void		init_info_sub(
+				t_fork **forks, t_phil **phils, pthread_t **threads, int n);
 void		free_info(t_info **info);
 
 // ft*.c
