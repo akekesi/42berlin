@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 18:39:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 20:03:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_fork	t_fork;
 typedef struct s_phil	t_phil;
 typedef struct s_main	t_main;
 
+typedef struct s_info
+{
+	int				n;
+	pthread_mutex_t	print;
+}	t_info;
+
 typedef struct s_fork
 {
 	int				free;
@@ -32,46 +38,36 @@ typedef struct s_fork
 typedef struct s_phil
 {
 	int				n;
-	t_fork			*left;
-	t_fork			*right;
-	pthread_mutex_t	*print;
-}	t_phil;
-
-typedef struct s_info
-{
-	int				n;
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
 	int				n_eat;
-	t_fork			*forks;
-	t_phil			*phils;
-	pthread_t		*threads;
-	pthread_mutex_t	print;
-}	t_info;
+	t_fork			*left;
+	t_fork			*right;
+	t_info			*info;
+}	t_phil;
 
 // fork.c
 void		make_forks(t_fork **forks, int n);
 void		free_forks(t_fork **forks, int n);
 
 // phil.c
-void		make_phils(t_phil **phils, int n, t_fork **forks);
+void		make_phils_sub1(t_phil **phils, int argc, char **argv);
+void		make_phils_sub2(
+				t_phil **phils, t_info **info, t_fork **forks, int n);
 void		free_phils(t_phil **phils);
 
 // thread.c
 void		make_threads(pthread_t **threads, int n);
 void		free_threads(pthread_t **threads);
-void		start_threads(t_info **info, int n);
+void		start_threads(pthread_t **threads, int n, t_phil **phils);
 void		join_threads(pthread_t **threads, int n);
 
 // routine.c
 void		*routine(void *arg);
 
 // info.c
-void		init_info(int argc, char **argv, t_info **info);
-void		init_info_sub1(
-				t_fork **forks, t_phil **phils, pthread_t **threads, int n);
-void		init_info_sub2(t_info **info, int n);
+void		make_info(t_info **info, int n);
 void		free_info(t_info **info);
 
 // print.c
