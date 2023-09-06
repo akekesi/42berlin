@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 23:23:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:49:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
-void	start_threads(pthread_t **threads, unsigned int n, t_phil **phils)
+void	start_threads(pthread_t **threads, int n, t_phil **phils)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -37,9 +37,9 @@ void	start_threads(pthread_t **threads, unsigned int n, t_phil **phils)
 	}
 }
 
-void	join_threads(pthread_t **threads, unsigned int n)
+void	join_threads(pthread_t **threads, int n)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -49,7 +49,7 @@ void	join_threads(pthread_t **threads, unsigned int n)
 	}
 }
 
-void	make_threads(pthread_t **threads, unsigned int n)
+void	make_threads(pthread_t **threads, int n)
 {
 	*threads = (pthread_t *)malloc(sizeof(pthread_t) * n);
 	if (!(*threads))

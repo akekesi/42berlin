@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 16:38:55 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 17:38:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_fork
 
 typedef struct s_phil
 {
-	unsigned int	n;
+	int	n;
 	t_fork			*left;
 	t_fork			*right;
 }	t_phil;
@@ -43,26 +43,31 @@ typedef struct s_info
 	int				time_eat;
 	int				time_sleep;
 	int				n_eat;
-	pthread_mutex_t	print;
 	t_fork			*forks;
 	t_phil			*phils;
+	pthread_t		*threads;
+	pthread_mutex_t	print;
 }	t_info;
 
 // fork.c
-void		make_forks(t_fork **forks, unsigned int n);
-void		free_forks(t_fork **forks, unsigned int n);
+void		make_forks(t_fork **forks, int n);
+void		free_forks(t_fork **forks, int n);
 
 // phil.c
-void		make_phils(t_phil **phils, unsigned int n, t_fork **forks);
+void		make_phils(t_phil **phils, int n, t_fork **forks);
 void		free_phils(t_phil **phils);
 
 // thread.c
 void		*routine(void *arg);
-void		start_threads(pthread_t **threads, unsigned int n, t_phil **phils);
-void		join_threads(pthread_t **threads, unsigned int n);
-void		make_threads(pthread_t **threads, unsigned int n);
+void		start_threads(pthread_t **threads, int n, t_phil **phils);
+void		join_threads(pthread_t **threads, int n);
+void		make_threads(pthread_t **threads, int n);
 pthread_t	make_thread(void);
 void		free_threads(pthread_t **threads);
+
+// info.c
+void		init_info(int argc, char **argv, t_info **info);
+void		free_info(t_info **info);
 
 // ft*.c
 int			ft_atoi(const char *str);

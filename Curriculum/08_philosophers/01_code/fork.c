@@ -6,15 +6,15 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:03:14 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 20:11:02 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 17:38:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	make_forks(t_fork **forks, unsigned int n)
+void	make_forks(t_fork **forks, int n)
 {
-	unsigned int	i;
+	int	i;
 
 	*forks = (t_fork *)malloc(sizeof(t_fork) * n);
 	if (!(*forks))
@@ -28,9 +28,9 @@ void	make_forks(t_fork **forks, unsigned int n)
 	}
 }
 
-void	free_forks(t_fork **forks, unsigned int n)
+void	free_forks(t_fork **forks, int n)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (i < n)

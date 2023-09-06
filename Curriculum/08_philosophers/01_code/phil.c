@@ -6,15 +6,15 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:03:14 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 20:12:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 17:37:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	make_phils(t_phil **phils, unsigned int n, t_fork **forks)
+void	make_phils(t_phil **phils, int n, t_fork **forks)
 {
-	unsigned int	i;
+	int	i;
 
 	*phils = (t_phil *)malloc(sizeof(t_phil) * n);
 	if (!(*phils))
