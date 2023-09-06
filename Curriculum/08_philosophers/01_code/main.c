@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 21:04:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:38:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	main(int argc, char **argv)
 	t_fork			*forks;
 	t_phil			*phils;
 	pthread_t		*threads;
+	t_main			*main;
 
 	forks = NULL;
 	phils = NULL;
 	threads = NULL;
+	main = NULL;
 	if (argc == 2)
 	{
 		n = ft_atoi(argv[1]);
@@ -38,6 +40,8 @@ int	main(int argc, char **argv)
 			printf("        %p\n", phils[i].right);
 			i++;
 		}
+		start_threads(&threads, n, &phils);
+		join_threads(&threads, n);
 		free_forks(&forks, n);
 		free_phils(&phils);
 		free_threads(&threads);

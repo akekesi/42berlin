@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/05 21:06:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:38:55 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,17 @@ typedef struct s_phil
 	t_fork			*right;
 }	t_phil;
 
-typedef struct s_main
+typedef struct s_info
 {
 	int				n;
-	pthread_mutex_t	fork;
-}	t_main;
+	int				time_die;
+	int				time_eat;
+	int				time_sleep;
+	int				n_eat;
+	pthread_mutex_t	print;
+	t_fork			*forks;
+	t_phil			*phils;
+}	t_info;
 
 // fork.c
 void		make_forks(t_fork **forks, unsigned int n);
@@ -52,7 +58,8 @@ void		free_phils(t_phil **phils);
 
 // thread.c
 void		*routine(void *arg);
-void		start_threads(pthread_t **threads, unsigned int n);
+void		start_threads(pthread_t **threads, unsigned int n, t_phil **phils);
+void		join_threads(pthread_t **threads, unsigned int n);
 void		make_threads(pthread_t **threads, unsigned int n);
 pthread_t	make_thread(void);
 void		free_threads(pthread_t **threads);
