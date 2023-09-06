@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 17:38:49 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:38:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		printf("        %p\n", info->phils[i].right);
 		i++;
 	}
-	start_threads(&(info->threads), n, &(info->phils));
+	start_threads(&info, n);
 	join_threads(&(info->threads), n);
 	free_forks(&(info->forks), n);
 	free_phils(&(info->phils));

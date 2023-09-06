@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 17:48:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:39:14 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ typedef struct s_fork
 
 typedef struct s_phil
 {
-	int		n;
-	t_fork	*left;
-	t_fork	*right;
+	int				n;
+	t_fork			*left;
+	t_fork			*right;
+	pthread_mutex_t	*print;
 }	t_phil;
 
 typedef struct s_info
@@ -58,18 +59,23 @@ void		make_phils(t_phil **phils, int n, t_fork **forks);
 void		free_phils(t_phil **phils);
 
 // thread.c
-void		*routine(void *arg);
-void		start_threads(pthread_t **threads, int n, t_phil **phils);
-void		join_threads(pthread_t **threads, int n);
 void		make_threads(pthread_t **threads, int n);
-pthread_t	make_thread(void);
 void		free_threads(pthread_t **threads);
+void		start_threads(t_info **info, int n);
+void		join_threads(pthread_t **threads, int n);
+
+// routine.c
+void		*routine(void *arg);
 
 // info.c
 void		init_info(int argc, char **argv, t_info **info);
-void		init_info_sub(
+void		init_info_sub1(
 				t_fork **forks, t_phil **phils, pthread_t **threads, int n);
+void		init_info_sub2(t_info **info, int n);
 void		free_info(t_info **info);
+
+// print.c
+void		print(t_phil **phil, char *message);
 
 // ft*.c
 int			ft_atoi(const char *str);

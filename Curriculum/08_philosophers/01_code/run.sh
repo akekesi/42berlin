@@ -37,9 +37,9 @@ make bonus > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   # run executable
   echo "./philo $ARG"
-  ./philo $ARG
+  # ./philo $ARG
   # valgrind ./philo $ARG
-  # valgrind --tool=helgrind ./philo $ARG # check data race
+  valgrind --tool=helgrind ./philo $ARG # check data race
 else
   echo "Error (make failed)"
 fi
