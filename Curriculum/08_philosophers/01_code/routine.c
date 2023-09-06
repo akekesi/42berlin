@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:59:02 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 18:40:11 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 22:45:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ void	*routine(void *arg)
 	t_phil	*phil;
 
 	phil = (t_phil *)arg;
-	i = 5;
-	while (i-- > 0)
+	i = 0;
+	while (i < 7)
 	{
-		print(&phil, "test_print");
-		usleep(1000000);
+		print(&phil, "eat");
+		usleep(500000);
+		// eat(&phil);
+		i++;
 	}
 	return (NULL);
 }

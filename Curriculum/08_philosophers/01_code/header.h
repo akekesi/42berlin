@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 20:03:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 22:43:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ void		*routine(void *arg);
 // info.c
 void		make_info(t_info **info, int n);
 void		free_info(t_info **info);
+
+// eat.c
+void		eat(t_phil **phil);
 
 // print.c
 void		print(t_phil **phil, char *message);

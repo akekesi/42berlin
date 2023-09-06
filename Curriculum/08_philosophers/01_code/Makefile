@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/06 18:38:55 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/06 22:44:17 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS_PHILOSOHERS = main.c \
 	phil.c \
 	thread.c \
 	routine.c \
+	eat.c \
 	print.c
 SRCS_COMMON = ft_atoi.c
 

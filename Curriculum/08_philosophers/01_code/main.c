@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 20:03:27 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/06 22:44:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	main(int argc, char **argv)
 	{
 		printf("fork-%d: %p\n", i, &(forks[i]));
 		printf("phil-%d: %p\n", i, &(phils[i]));
-		printf("        %p\n", phils[i].left);
-		printf("        %p\n", phils[i].right);
+		printf("        %p --> %p %d \n", phils[i].left, &phils[i].left->lock, phils[i].left->free);
+		printf("        %p --> %p %d \n", phils[i].right, &phils[i].right->lock, phils[i].right->free);
 		i++;
 	}
 	start_threads(&threads, n, &phils);
