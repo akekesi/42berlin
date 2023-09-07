@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 22:43:35 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/07 19:21:34 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_main	t_main;
 typedef struct s_info
 {
 	int				n;
+	long long		time_0;
 	pthread_mutex_t	print;
 }	t_info;
 
@@ -70,11 +71,20 @@ void		*routine(void *arg);
 void		make_info(t_info **info, int n);
 void		free_info(t_info **info);
 
-// eat.c
-void		eat(t_phil **phil);
+// do_eat.c
+void		do_eat(t_phil **phil);
+void		do_eat_sub1(t_phil **phil);
+void		do_eat_sub2(t_phil **phil);
+
+// do_sleep.c
+void		do_sleep(t_phil **phil);
+
+// do_think.c
+void		do_think(t_phil **phil);
 
 // print.c
 void		print(t_phil **phil, char *message);
+long long	get_time(long long time_0);
 
 // ft*.c
 int			ft_atoi(const char *str);
