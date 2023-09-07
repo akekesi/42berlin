@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/07 19:21:34 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/07 23:08:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct s_main	t_main;
 typedef struct s_info
 {
 	int				n;
-	long long		time_0;
-	pthread_mutex_t	print;
+	int				die;
+	int				time_0;
+	pthread_mutex_t	lock;
 }	t_info;
 
 typedef struct s_fork
@@ -43,6 +44,7 @@ typedef struct s_phil
 	int				time_eat;
 	int				time_sleep;
 	int				n_eat;
+	int				time_rest;
 	t_fork			*left;
 	t_fork			*right;
 	t_info			*info;
@@ -73,8 +75,10 @@ void		free_info(t_info **info);
 
 // do_eat.c
 void		do_eat(t_phil **phil);
-void		do_eat_sub1(t_phil **phil);
-void		do_eat_sub2(t_phil **phil);
+void		get_fork_left(t_phil **phil);
+void		get_fork_right(t_phil **phil);
+void		let_fork_left(t_phil **phil);
+void		let_fork_right(t_phil **phil);
 
 // do_sleep.c
 void		do_sleep(t_phil **phil);
@@ -82,9 +86,16 @@ void		do_sleep(t_phil **phil);
 // do_think.c
 void		do_think(t_phil **phil);
 
+// do_die.c
+void		do_die(t_phil **phil);
+int			check_die(t_phil **phil);
+
+// time.c
+int			get_time(int time_0);
+void		set_time(t_phil **phil);
+void		do_usleep(t_phil **phil, int time);
 // print.c
 void		print(t_phil **phil, char *message);
-long long	get_time(long long time_0);
 
 // ft*.c
 int			ft_atoi(const char *str);

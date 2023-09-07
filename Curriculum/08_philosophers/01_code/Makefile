@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/07 18:22:46 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/07 23:08:44 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRCS_PHILOSOHERS = main.c \
 	do_eat.c \
 	do_sleep.c \
 	do_think.c \
+	do_die.c \
+	time.c \
 	print.c
 SRCS_COMMON = ft_atoi.c
 

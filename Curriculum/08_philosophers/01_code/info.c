@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:42:17 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/07 18:57:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/07 23:08:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	make_info(t_info **info, int n)
 	if (!(*info))
 		return ;
 	(*info)->n = n;
+	(*info)->die = 0;
 	(*info)->time_0 = time.tv_sec * 1000 + time.tv_usec / 1000;
-	pthread_mutex_init(&((*info)->print), NULL);
+	pthread_mutex_init(&((*info)->lock), NULL);
 }
 
 void	free_info(t_info **info)

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:03:14 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/06 20:03:15 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/07 23:08:52 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	make_phils_sub1(t_phil **phils, int argc, char **argv)
 {
 	int	i;
 	int	n;
+	int	time_die;
 
 	n = ft_atoi(argv[1]);
+	time_die = ft_atoi(argv[2]);
 	*phils = (t_phil *)malloc(sizeof(t_phil) * n);
 	if (!(*phils))
 		return ;
@@ -25,13 +27,14 @@ void	make_phils_sub1(t_phil **phils, int argc, char **argv)
 	while (i < n)
 	{
 		(*phils)[i].n = i;
-		(*phils)[i].time_die = ft_atoi(argv[2]);
+		(*phils)[i].time_die = time_die;
 		(*phils)[i].time_eat = ft_atoi(argv[3]);
 		(*phils)[i].time_sleep = ft_atoi(argv[4]);
 		if (argc == 6)
 			(*phils)[i].n_eat = ft_atoi(argv[5]);
 		if (argc == 5)
 			(*phils)[i].n_eat = -1;
+		(*phils)[i].time_rest = time_die;
 		i++;
 	}
 }
