@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/08 16:30:32 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/08 22:09:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void		*routine(void *arg);
 void		print(t_phil **phil, char *message);
 
 // time.c
-int			get_time(int time_0);
+int			get_time_current(void);
+int			get_time_elapsed(int time_0);
 int			set_time(t_phil **phil, int time_0);
 void		do_usleep(t_phil **phil, int time);
 

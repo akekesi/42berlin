@@ -38,6 +38,7 @@ if [ $? -eq 0 ]; then
   # run executable
   echo "./philo $ARG"
   ./philo $ARG
+  # ./philo $ARG 2>&1 | tee philosophers.txt
   # valgrind ./philo $ARG
   # valgrind --tool=helgrind ./philo $ARG # check data race but does not work !!! (stuck in first philospher !!
   echo "./philo $ARG"
