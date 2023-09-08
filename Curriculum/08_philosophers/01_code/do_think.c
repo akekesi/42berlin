@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:09:30 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/07 18:55:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/08 16:37:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	do_think(t_phil **phil)
 {
+	if (is_death(phil))
+		return ;
 	print(phil, "is thinking");
 }

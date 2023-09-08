@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/07 23:08:44 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/08 16:32:02 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,17 @@ RM = rm -f
 DEPS = header.h
 
 SRCS_PHILOSOHERS = main.c \
-	info.c \
-	fork.c \
-	phil.c \
-	thread.c \
-	routine.c \
+	01_info.c \
+	02_fork.c \
+	03_phil.c \
+	04_thread.c \
+	do_die.c \
 	do_eat.c \
 	do_sleep.c \
 	do_think.c \
-	do_die.c \
-	time.c \
-	print.c
+	routine.c \
+	print.c \
+	time.c
 SRCS_COMMON = ft_atoi.c
 
 OBJS_COMMON = $(SRCS_COMMON:.c=.o)

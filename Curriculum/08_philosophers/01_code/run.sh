@@ -40,6 +40,7 @@ if [ $? -eq 0 ]; then
   ./philo $ARG
   # valgrind ./philo $ARG
   # valgrind --tool=helgrind ./philo $ARG # check data race but does not work !!! (stuck in first philospher !!
+  echo "./philo $ARG"
 else
   echo "Error (make failed)"
 fi

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/07 23:08:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/08 16:30:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
-
-typedef struct s_fork	t_fork;
-typedef struct s_phil	t_phil;
-typedef struct s_main	t_main;
 
 typedef struct s_info
 {
@@ -50,28 +46,29 @@ typedef struct s_phil
 	t_info			*info;
 }	t_phil;
 
-// fork.c
+// 01_info.c
+void		make_info(t_info **info, int n);
+void		free_info(t_info **info);
+
+// 02_fork.c
 void		make_forks(t_fork **forks, int n);
 void		free_forks(t_fork **forks, int n);
 
-// phil.c
+// 03_phil.c
 void		make_phils_sub1(t_phil **phils, int argc, char **argv);
 void		make_phils_sub2(
 				t_phil **phils, t_info **info, t_fork **forks, int n);
 void		free_phils(t_phil **phils);
 
-// thread.c
+// 04_thread.c
 void		make_threads(pthread_t **threads, int n);
-void		free_threads(pthread_t **threads);
 void		start_threads(pthread_t **threads, int n, t_phil **phils);
 void		join_threads(pthread_t **threads, int n);
+void		free_threads(pthread_t **threads);
 
-// routine.c
-void		*routine(void *arg);
-
-// info.c
-void		make_info(t_info **info, int n);
-void		free_info(t_info **info);
+// do_die.c
+void		do_die(t_phil **phil);
+int			is_death(t_phil **phil);
 
 // do_eat.c
 void		do_eat(t_phil **phil);
@@ -86,16 +83,18 @@ void		do_sleep(t_phil **phil);
 // do_think.c
 void		do_think(t_phil **phil);
 
-// do_die.c
-void		do_die(t_phil **phil);
-int			check_die(t_phil **phil);
+// ^^^ OK ^^^
+
+// routine.c
+void		*routine(void *arg);
+
+// print.c
+void		print(t_phil **phil, char *message);
 
 // time.c
 int			get_time(int time_0);
-void		set_time(t_phil **phil);
+int			set_time(t_phil **phil, int time_0);
 void		do_usleep(t_phil **phil, int time);
-// print.c
-void		print(t_phil **phil, char *message);
 
 // ft*.c
 int			ft_atoi(const char *str);
