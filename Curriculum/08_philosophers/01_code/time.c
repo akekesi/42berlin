@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 22:09:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/08 22:09:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 00:20:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,19 @@ int	set_time(t_phil **phil, int time_0)
 
 void	do_usleep(t_phil **phil, int time)
 {
-	int	delta;
+	int	time_current;
 
-	delta = 10;
-	while (0 < time)
+	time_current = get_time_current();
+	while (get_time_elapsed(time_current) < time)
 	{
 		if (is_death(phil))
 			return ;
-		if ((*phil)->time_rest < delta)
+		if ((*phil)->time_rest <= get_time_elapsed(time_current))
 		{
-			usleep((*phil)->time_rest * 1000);
-			(*phil)->time_rest = 0;
 			do_die(phil);
 			return ;
 		}
-		usleep(delta * 1000);
-		(*phil)->time_rest -= delta;
-		time -= delta;
+		usleep(10);
 	}
-	usleep(-time * 1000);
-	(*phil)->time_rest -= -time;
+	(*phil)->time_rest -= time;
 }

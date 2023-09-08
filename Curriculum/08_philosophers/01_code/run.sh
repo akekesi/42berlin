@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # INFO:
-# to set ARG in bash terminal: export ARG="2 1 0"
-# https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
+# to set ARG in bash terminal: export ARG="4 410 200 200 7"
 
 # The if statement [ -z "$ARG" ] checks if $ARG is empty or has no value:
 #   -z flag tests if the following string is empty or has no value.
@@ -13,8 +12,8 @@
 
 # > /dev/null 2>&1 redirects both standard output (stdout) and standard error (stderr) to /dev/null, which essentially discards all the output.
 
-# Really cool visualizer/checker for this project:
-# https://github.com/o-reo/push_swap_visualizer
+# Really cool visualizer/checker for this project with awesome github link :)
+# https://nafuka11.github.io/philosophers-visualizer/
 
 
 # check ARG is set
