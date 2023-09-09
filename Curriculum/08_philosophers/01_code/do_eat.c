@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 03:46:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 10:54:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	do_eat(t_phil **phil)
 void	get_fork_left(t_phil **phil)
 {
 	long long	time_0;
-	long long	time_1;
 
 	time_0 = get_time_current();
 	while (1)
@@ -63,7 +62,6 @@ void	get_fork_left(t_phil **phil)
 void	get_fork_right(t_phil **phil)
 {
 	long long	time_0;
-	long long	time_1;
 
 	time_0 = get_time_current();
 	while (1)

@@ -17,6 +17,7 @@
 # export ARG="3 310 104 103" ------> die, delay < 10ms (worst case: 2ms)
 # export ARG="3 3100 1040 1030" ---> die, delay < 10ms (worst case: 2ms)
 # export ARG="3 310 103 103" ------> not die
+# export ARG="200 300 200 100 3" --> die, delay < 10ms (worst case: 2ms)
 
 # The if statement [ -z "$ARG" ] checks if $ARG is empty or has no value:
 #   -z flag tests if the following string is empty or has no value.

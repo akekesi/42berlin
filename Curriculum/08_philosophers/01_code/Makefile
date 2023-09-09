@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/09 05:09:52 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/09 11:22:15 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,11 @@ NAME = philo
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
+# CFLAGS = -fsanitize=thread	# it works it there is some error
+# CFLAGS = -fsanitize=address	# it works if there is some error
 
-RM = rm -f
+RM = rm -rf
 
 DEPS = header.h
 
@@ -38,10 +41,13 @@ SRCS_COMMON = ft_atoi.c \
 OBJS_COMMON = $(SRCS_COMMON:.c=.o)
 OBJS_PHILOSOPHERS = $(SRCS_PHILOSOHERS:.c=.o)
 
+%.o: %.c $(DEPS)
+	$(CC) $(CCFLAGS) -c $< -o $@
+
 all: $(NAME)
 
 $(NAME): $(OBJS_COMMON) $(OBJS_PHILOSOPHERS)
-	$(CC) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
 	$(RM) $(OBJS_COMMON)

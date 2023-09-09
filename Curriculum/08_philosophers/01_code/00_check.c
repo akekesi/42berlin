@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:53:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 05:46:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 08:39:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	check_args(int argc, char **argv)
 {
 	int	i;
-	int	n;
 
 	if (argc < 5 || 6 < argc)
 	{
