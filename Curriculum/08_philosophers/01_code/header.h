@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 03:06:18 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 03:45:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,21 @@ void		do_sleep(t_phil **phil);
 // do_think.c
 void		do_think(t_phil **phil);
 
-// routine.c
-void		*routine(void *arg);
+// ft*.c
+int			ft_atoi(const char *str);
+int			ft_isdigit(int c);
+int			ft_isspace(int c);
 
 // print.c
 void		print(t_phil **phil, char *message);
+
+// routine.c
+void		*routine(void *arg);
 
 // time.c
 long long	get_time_current(void);
 long long	get_time_elapsed(long long time_0);
 long long	set_time(t_phil **phil, long long time_0);
 void		do_usleep(t_phil **phil, long long time);
-
-// ft*.c
-int			ft_atoi(const char *str);
-int			ft_isdigit(int c);
-int			ft_isspace(int c);
 
 #endif

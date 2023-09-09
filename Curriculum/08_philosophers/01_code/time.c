@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 22:09:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 03:01:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 03:42:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ long long	set_time(t_phil **phil, long long time_0)
 	{
 		if ((*phil)->time_rest < time_1)
 		{
-			(*phil)->time_rest = 0;
 			do_die(phil);
 			return (-1);
 		}

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 03:10:48 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 03:46:51 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@ void	do_eat(t_phil **phil)
 	if ((*phil)->n % 2)
 	{
 		get_fork_left(phil);
-		if (is_death(phil))
-			return ;
-		get_fork_right(phil);
+		if (!is_death(phil))
+			get_fork_right(phil);
 	}
 	else
 	{
 		get_fork_right(phil);
-		if (is_death(phil))
-			return ;
-		get_fork_left(phil);
+		if (!is_death(phil))
+			get_fork_left(phil);
 	}
-	(*phil)->time_rest = (*phil)->time_die;
 	if (is_death(phil))
 		return ;
+	(*phil)->time_rest = (*phil)->time_die;
 	print(phil, "is eating");
 	do_usleep(phil, (*phil)->time_eat);
 	let_fork_left(phil);

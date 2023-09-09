@@ -2,20 +2,20 @@
 
 # INFO:
 # to set ARG in bash terminal:
-# export ARG="1 800 200 200" ------> not eat, die
+# export ARG="1 800 200 200" ------> not eat, die, delay < 10ms (worst case: 2ms)
 # export ARG="5 800 200 200" ------> not die
 # export ARG="5 800 200 200 7" ----> not die, 7 loop
 # export ARG="4 410 200 200" ------> not die
-# export ARG="4 310 200 100" ------> die
+# export ARG="4 310 200 100" ------> die, delay < 10ms (worst case: 3ms)
 # export ARG="2 120 60 60" --------> not die
 # export ARG="2 1000 500 500" -----> not die
 # export ARG="2 10000 5000 4999" --> not die
 # export ARG="2 10000 5000 5000" --> not die
-# export ARG="2 10000 5001 5000" --> die, delay < 10ms
-# export ARG="2 1000 501 500" -----> die, delay < 10ms
-# export ARG="2 60 100 100" -------> die, delay < 10ms
-# export ARG="3 310 104 103" ------> die, delay < 10ms (worst case: 2ms)
-# export ARG="3 3100 1040 1030" ------> die, delay < 10ms (worst case: 2ms)
+# export ARG="2 10000 5001 5000" --> die, delay < 10ms (worst case: 0ms)
+# export ARG="2 1000 501 500" -----> die, delay < 10ms (worst case: 0ms)
+# export ARG="2 60 100 100" -------> die, delay < 10ms (worst case: 0ms)
+# export ARG="3 310 104 103" ------> die, delay < 10ms (worst case: 3ms)
+# export ARG="3 3100 1040 1030" ---> die, delay < 10ms (worst case: 2ms)
 # export ARG="3 310 103 103" ------> not die
 
 # The if statement [ -z "$ARG" ] checks if $ARG is empty or has no value:
