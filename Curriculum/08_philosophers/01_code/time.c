@@ -6,28 +6,28 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 22:09:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 00:20:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 03:01:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	get_time_current(void)
+long long	get_time_current(void)
 {
-	struct timeval	time_1;
+	struct timeval	time;
 
-	gettimeofday(&time_1, NULL);
-	return (time_1.tv_sec * 1000 + time_1.tv_usec / 1000);
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int	get_time_elapsed(int time_0)
+long long	get_time_elapsed(long long time_0)
 {
 	return (get_time_current() - time_0);
 }
 
-int	set_time(t_phil **phil, int time_0)
+long long	set_time(t_phil **phil, long long time_0)
 {
-	int				time_1;
+	long long	time_1;
 
 	if (is_death(phil))
 		return (-1);
@@ -46,9 +46,9 @@ int	set_time(t_phil **phil, int time_0)
 	return (time_0);
 }
 
-void	do_usleep(t_phil **phil, int time)
+void	do_usleep(t_phil **phil, long long time)
 {
-	int	time_current;
+	long long	time_current;
 
 	time_current = get_time_current();
 	while (get_time_elapsed(time_current) < time)

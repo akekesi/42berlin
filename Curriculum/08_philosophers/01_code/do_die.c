@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 19:53:41 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 00:08:53 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 03:11:07 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	do_die(t_phil **phil)
 {
 	int	first_death;
 
-	first_death = 1;
+	first_death = 0;
 	pthread_mutex_lock(&(*phil)->info->lock);
 	if (!(*phil)->info->die)
 	{
