@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:17:59 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/08 15:26:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 05:46:48 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 	t_phil		*phils;
 	pthread_t	*threads;
 
+	if (!check_args(argc, argv))
+		return (0);
 	info = NULL;
 	forks = NULL;
 	phils = NULL;

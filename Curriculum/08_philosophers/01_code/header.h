@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 03:45:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 05:47:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ typedef struct s_phil
 	t_fork			*right;
 	t_info			*info;
 }	t_phil;
+
+// 00_check.c
+int			check_args(int argc, char **argv);
+int			check_sub1(char **argv, int i);
+int			check_sub2(char *str);
+int			check_digits(char *str);
+int			check_int(char *str);
 
 // 01_info.c
 void		make_info(t_info **info, int n);
@@ -87,6 +94,7 @@ void		do_think(t_phil **phil);
 int			ft_atoi(const char *str);
 int			ft_isdigit(int c);
 int			ft_isspace(int c);
+size_t		ft_strlen(const char *str);
 
 // print.c
 void		print(t_phil **phil, char *message);
