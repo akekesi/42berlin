@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:53:09 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 08:39:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/09 20:46:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,11 @@ int	check_sub1(char **argv, int i)
 		return (0);
 	n = ft_atoi(argv[i]);
 	if (i == 1)
-	{
 		if (!(0 < n && n < 201))
 			return (0);
-	}
-	else if (i == 5)
-	{
+	if (i == 5)
 		if (n < 0)
 			return (0);
-	}
-	else
-	{
-		if (n < 60)
-			return (0);
-	}
 	return (1);
 }
 

@@ -58,8 +58,6 @@ echo "clear"
 # make, make bonus without print to terminal
 echo "make"
 make > /dev/null 2>&1
-echo "make bonus"
-make bonus > /dev/null 2>&1
 
 # check success of make
 if [ $? -eq 0 ]; then
