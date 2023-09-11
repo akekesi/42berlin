@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 22:09:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 03:42:39 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 04:14:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,12 @@ int	eat_time(t_phil **phil, long long time)
 	if ((*phil)->time_rest < time)
 		time = (*phil)->time_rest;
 	time_0 = get_time_current();
-	while (get_time_elapsed(time_0) < time)
+	while (get_time_elapsed(time_0) <= time)
 		if (is_death(phil))
 			return (0);
 	(*phil)->time_rest -= get_time_elapsed(time_0);
 	if ((*phil)->time_rest < 0)
 	{
-		// printf("-->%lli\n", (*phil)->time_rest);
-		// printf("-->%lli\n", (*phil)->time_rest);
-		// printf("-->%lli\n", get_time_elapsed((*phil)->info->time_0));
 		do_die(phil);
 		return (0);
 	}

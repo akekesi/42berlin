@@ -10,7 +10,7 @@
 # export ARG="5 800 200 200 7" ------> not die, 7 loop
 # export ARG="4 410 200 200" --------> not die
 # export ARG="4 310 200 100" --------> die, delay < 10ms
-# export ARG="2 120 60 60" ----------> 
+# export ARG="2 xxx xxx xxx ---------> delay for 2 philosophers
 # export ARG="4 120 60 60" ----------> 
 # export ARG="2 1000 500 500" -------> 
 # export ARG="2 10000 5000 4999" ----> 
