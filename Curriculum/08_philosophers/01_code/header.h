@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 05:47:08 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/10 22:55:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_fork
 typedef struct s_phil
 {
 	int				n;
+	int				id;
+	int				first_loop;
 	int				n_eat;
 	long long		time_die;
 	long long		time_eat;
@@ -97,7 +99,7 @@ int			ft_isspace(int c);
 size_t		ft_strlen(const char *str);
 
 // print.c
-void		print(t_phil **phil, char *message);
+void		print(t_phil **phil, long long time, char *message);
 
 // routine.c
 void		*routine(void *arg);
@@ -105,7 +107,6 @@ void		*routine(void *arg);
 // time.c
 long long	get_time_current(void);
 long long	get_time_elapsed(long long time_0);
-long long	set_time(t_phil **phil, long long time_0);
-void		do_usleep(t_phil **phil, long long time);
+int			eat_time(t_phil **phil, long long time_0);
 
 #endif

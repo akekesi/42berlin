@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:09:30 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/08 16:36:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 02:16:49 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	do_sleep(t_phil **phil)
 {
-	if (is_death(phil))
-		return ;
-	print(phil, "is sleeping");
-	do_usleep(phil, (*phil)->time_sleep);
+	print(phil, get_time_elapsed((*phil)->info->time_0), "is sleeping");
+	eat_time(phil, (*phil)->time_sleep);
 }

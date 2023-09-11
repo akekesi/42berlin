@@ -6,11 +6,12 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/09 11:22:15 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/10 15:43:40 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
+NAME_BONUS = philo_bonus
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror
@@ -22,7 +23,7 @@ RM = rm -rf
 
 DEPS = header.h
 
-SRCS_PHILOSOHERS = main.c \
+SRCS_PHILOSOPHERS = main.c \
 	00_check.c \
 	01_info.c \
 	02_fork.c \
@@ -34,30 +35,35 @@ SRCS_PHILOSOHERS = main.c \
 	do_think.c \
 	routine.c \
 	print.c \
-	time.c
-SRCS_COMMON = ft_atoi.c \
+	time.c \
+	ft_atoi.c \
 	ft_strlen.c
+SRCS_PHILOSOPHERS_BONUS = main_bonus.c
 
-OBJS_COMMON = $(SRCS_COMMON:.c=.o)
-OBJS_PHILOSOPHERS = $(SRCS_PHILOSOHERS:.c=.o)
+OBJS_PHILOSOPHERS = $(SRCS_PHILOSOPHERS:.c=.o)
+OBJS_PHILOSOPHERS_BONUS = $(SRCS_PHILOSOPHERS_BONUS:.c=.o)
 
 %.o: %.c $(DEPS)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS_COMMON) $(OBJS_PHILOSOPHERS)
+$(NAME): $(OBJS_PHILOSOPHERS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(NAME_BONUS): $(OBJS_PHILOSOPHERS_BONUS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-	$(RM) $(OBJS_COMMON)
 	$(RM) $(OBJS_PHILOSOPHERS)
+	$(RM) $(OBJS_PHILOSOPHERS_BONUS)
 
 fclean: clean
-	$(RM) ${NAME}
+	$(RM) $(NAME)
+	$(RM) $(NAME_BONUS)
 
 re: fclean all
 
-bonus:
+bonus: $(NAME_BONUS)
 
 .PHONY: all clean fclean re bonus

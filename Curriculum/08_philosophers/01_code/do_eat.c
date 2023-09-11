@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/09 10:54:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 03:40:45 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 void	do_eat(t_phil **phil)
 {
-	if (is_death(phil))
-		return ;
-	if ((*phil)->n % 2)
+	if ((*phil)->id % 2)
 	{
 		get_fork_left(phil);
+		printf("-%d->%lli\n", (*phil)->id, get_time_elapsed((*phil)->info->time_0));
 		if (!is_death(phil))
 			get_fork_right(phil);
 	}
 	else
 	{
+		if ((*phil)->first_loop)
+		{
+			eat_time(phil, 100);
+			(*phil)->first_loop = 0;
+		}
+		// ??? ide kell is_death ??? van ilyen edge case ???
 		get_fork_right(phil);
 		if (!is_death(phil))
 			get_fork_left(phil);
@@ -31,27 +36,25 @@ void	do_eat(t_phil **phil)
 	if (is_death(phil))
 		return ;
 	(*phil)->time_rest = (*phil)->time_die;
-	print(phil, "is eating");
-	do_usleep(phil, (*phil)->time_eat);
+	print(phil, get_time_elapsed((*phil)->info->time_0), "is eating");
+	eat_time(phil, (*phil)->time_eat);
 	let_fork_left(phil);
 	let_fork_right(phil);
 }
 
 void	get_fork_left(t_phil **phil)
 {
-	long long	time_0;
-
-	time_0 = get_time_current();
 	while (1)
 	{
-		time_0 = set_time(phil, time_0);
-		if (time_0 < 0)
+		if (is_death(phil))
+			return ;
+		if (!eat_time(phil, 1))
 			return ;
 		pthread_mutex_lock(&(*phil)->left->lock);
 		if ((*phil)->left->free)
 		{
 			(*phil)->left->free = 0;
-			print(phil, "has taken a fork");
+			print(phil, get_time_elapsed((*phil)->info->time_0), "has taken a fork");
 			pthread_mutex_unlock(&(*phil)->left->lock);
 			break ;
 		}
@@ -61,19 +64,17 @@ void	get_fork_left(t_phil **phil)
 
 void	get_fork_right(t_phil **phil)
 {
-	long long	time_0;
-
-	time_0 = get_time_current();
 	while (1)
 	{
-		time_0 = set_time(phil, time_0);
-		if (time_0 < 0)
+		if (is_death(phil))
+			return ;
+		if (!eat_time(phil, 1))
 			return ;
 		pthread_mutex_lock(&(*phil)->right->lock);
 		if ((*phil)->right->free)
 		{
 			(*phil)->right->free = 0;
-			print(phil, "has taken a fork");
+			print(phil, get_time_elapsed((*phil)->info->time_0), "has taken a fork");
 			pthread_mutex_unlock(&(*phil)->right->lock);
 			break ;
 		}
