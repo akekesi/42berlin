@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 03:58:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 04:26:08 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,10 @@ void	get_fork_left(t_phil **phil)
 		if ((*phil)->left->free)
 		{
 			(*phil)->left->free = 0;
-			print(phil, get_time_elapsed((*phil)->info->time_0), "has taken a fork");
+			print(
+				phil,
+				get_time_elapsed((*phil)->info->time_0),
+				"has taken a fork");
 			pthread_mutex_unlock(&(*phil)->left->lock);
 			break ;
 		}
@@ -72,7 +75,10 @@ void	get_fork_right(t_phil **phil)
 		if ((*phil)->right->free)
 		{
 			(*phil)->right->free = 0;
-			print(phil, get_time_elapsed((*phil)->info->time_0), "has taken a fork");
+			print(
+				phil,
+				get_time_elapsed((*phil)->info->time_0),
+				"has taken a fork");
 			pthread_mutex_unlock(&(*phil)->right->lock);
 			break ;
 		}
