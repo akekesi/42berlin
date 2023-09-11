@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/10 22:55:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 06:07:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_phil
 	long long		time_eat;
 	long long		time_sleep;
 	long long		time_rest;
+	long long		time_sync;
 	t_fork			*left;
 	t_fork			*right;
 	t_info			*info;

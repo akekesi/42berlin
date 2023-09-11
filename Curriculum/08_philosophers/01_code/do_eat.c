@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 04:26:08 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/11 06:07:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	do_eat(t_phil **phil)
 	{
 		if ((*phil)->first_loop)
 		{
-			eat_time(phil, 100);
+			eat_time(phil, 1000);
 			(*phil)->first_loop = 0;
 		}
 		get_fork_right(phil);

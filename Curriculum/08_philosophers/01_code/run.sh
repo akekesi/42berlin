@@ -11,6 +11,9 @@
 # export ARG="4 410 200 200" --------> not die
 # export ARG="4 310 200 100" --------> die, delay < 10ms
 # export ARG="2 xxx xxx xxx ---------> delay for 2 philosophers
+# export ARG="52 150 60 60" ---------> meghal a vegen, nem dobja le az egyik evest a vegen 
+# export ARG="160 150 60 60" --------> meghal a vegen, nem dobja le az egyik alvast a vegen 
+# export ARG="51 150 60 60" ---------> 
 # export ARG="4 120 60 60" ----------> 
 # export ARG="2 1000 500 500" -------> 
 # export ARG="2 10000 5000 4999" ----> 
@@ -70,8 +73,8 @@ make > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   # run executable
   echo "./philo $ARG"
-  ./philo $ARG
-  # ./philo $ARG 2>&1 | tee philosophers.txt
+  # ./philo $ARG
+  ./philo $ARG 2>&1 | tee philosophers.txt
   # valgrind ./philo $ARG
   # valgrind --tool=helgrind ./philo $ARG # check data race but does not work !!! (stuck in first philospher !!
   echo "./philo $ARG"
