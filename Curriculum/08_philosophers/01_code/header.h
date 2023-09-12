@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:07:54 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 06:07:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/12 23:04:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 
 typedef struct s_info
 {
-	int				n;
-	long long		die;
-	long long		time_0;
+	int				print;
+	long long		death;
 	pthread_mutex_t	lock;
 }	t_info;
 
@@ -43,7 +42,7 @@ typedef struct s_phil
 	long long		time_eat;
 	long long		time_sleep;
 	long long		time_rest;
-	long long		time_sync;
+	long long		time_start;
 	t_fork			*left;
 	t_fork			*right;
 	t_info			*info;
@@ -57,7 +56,7 @@ int			check_digits(char *str);
 int			check_int(char *str);
 
 // 01_info.c
-void		make_info(t_info **info, int n);
+void		make_info(t_info **info);
 void		free_info(t_info **info);
 
 // 02_fork.c
@@ -81,14 +80,14 @@ void		do_die(t_phil **phil);
 int			is_death(t_phil **phil);
 
 // do_eat.c
-void		do_eat(t_phil **phil);
-void		get_fork_left(t_phil **phil);
-void		get_fork_right(t_phil **phil);
+int			do_eat(t_phil **phil);
+int			get_fork_left(t_phil **phil);
+int			get_fork_right(t_phil **phil);
 void		let_fork_left(t_phil **phil);
 void		let_fork_right(t_phil **phil);
 
 // do_sleep.c
-void		do_sleep(t_phil **phil);
+int			do_sleep(t_phil **phil);
 
 // do_think.c
 void		do_think(t_phil **phil);
@@ -97,17 +96,17 @@ void		do_think(t_phil **phil);
 int			ft_atoi(const char *str);
 int			ft_isdigit(int c);
 int			ft_isspace(int c);
-size_t		ft_strlen(const char *str);
+int			ft_strlen(const char *str);
 
 // print.c
-void		print(t_phil **phil, long long time, char *message);
+void		print(t_phil **phil, char *message);
 
 // routine.c
 void		*routine(void *arg);
 
 // time.c
 long long	get_time_current(void);
-long long	get_time_elapsed(long long time_0);
+long long	get_time_elapsed(long long time_0); // maybe it can be used, does not eat much time ???
 int			eat_time(t_phil **phil, long long time_0);
 
 #endif

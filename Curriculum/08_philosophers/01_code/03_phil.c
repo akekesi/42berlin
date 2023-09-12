@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:03:14 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 06:07:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/12 20:54:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	make_phils_sub2(t_phil **phils, t_info **info, t_fork **forks, int n)
 		(*phils)[i].left = &((*forks)[i]);
 		(*phils)[i].right = &((*forks)[(i + 1) % n]);
 		(*phils)[i].info = *info;
-		(*phils)[i].time_sync = (*info)->time_0;
+		(*phils)[i].time_start = get_time_current() + 15 * n * 1000;
 		i++;
 	}
 }

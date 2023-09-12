@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:59:02 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 06:07:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/12 23:05:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ void	*routine(void *arg)
 
 	phil = (t_phil *)arg;
 	i = 0;
-	while (0 < phil->time_sync - get_time_current())
-		usleep(1);
+	while (0 < phil->time_start - get_time_current())
+		usleep(100);
 	while (i < phil->n_eat || phil->n_eat == -1)
 	{
-		if (is_death(&phil))
+		do_think(&phil);		// maybe just printf instead of caling a function
+		if (!do_eat(&phil))
 			break ;
-		do_think(&phil);
-		do_eat(&phil);
-		if (is_death(&phil))
+		if (!do_sleep(&phil))	// maybe just printf instead of caling a function
 			break ;
-		do_sleep(&phil);
-		eat_time(&phil, 100);
 		i++;
 	}
 	return (NULL);

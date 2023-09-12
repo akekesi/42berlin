@@ -6,83 +6,80 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 20:06:29 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/11 06:07:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/12 22:36:19 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	do_eat(t_phil **phil)
+int	do_eat(t_phil **phil)
 {
 	if ((*phil)->id % 2)
 	{
-		get_fork_left(phil);
-		if (!is_death(phil))
-			get_fork_right(phil);
+		if (!get_fork_left(phil))
+			return (0);
+		if (!get_fork_right(phil))
+		{
+			let_fork_left(phil);
+			return (0);
+		}
 	}
 	else
 	{
 		if ((*phil)->first_loop)
 		{
-			eat_time(phil, 1000);
+			eat_time(phil, 10000);
 			(*phil)->first_loop = 0;
 		}
-		get_fork_right(phil);
-		if (!is_death(phil))
-			get_fork_left(phil);
+		if (!get_fork_right(phil))
+			return (0);
+		if (!get_fork_left(phil))
+		{
+			let_fork_right(phil);
+			return (0);
+		}
 	}
-	if (is_death(phil))
-		return ;
+	print(phil, "is eating");
 	(*phil)->time_rest = (*phil)->time_die;
-	print(phil, get_time_elapsed((*phil)->info->time_0), "is eating");
 	eat_time(phil, (*phil)->time_eat);
 	let_fork_left(phil);
 	let_fork_right(phil);
+	return (1);
 }
 
-void	get_fork_left(t_phil **phil)
+int	get_fork_left(t_phil **phil)
 {
 	while (1)
 	{
-		if (is_death(phil))
-			return ;
-		if (!eat_time(phil, 1))
-			return ;
 		pthread_mutex_lock(&(*phil)->left->lock);
 		if ((*phil)->left->free)
 		{
 			(*phil)->left->free = 0;
-			print(
-				phil,
-				get_time_elapsed((*phil)->info->time_0),
-				"has taken a fork");
+			print(phil, "has taken a fork");
 			pthread_mutex_unlock(&(*phil)->left->lock);
-			break ;
+			return (1);
 		}
 		pthread_mutex_unlock(&(*phil)->left->lock);
+		if (!eat_time(phil, 1))
+			return (0);
 	}
 }
 
-void	get_fork_right(t_phil **phil)
+int	get_fork_right(t_phil **phil)
 {
 	while (1)
 	{
-		if (is_death(phil))
-			return ;
-		if (!eat_time(phil, 1))
-			return ;
 		pthread_mutex_lock(&(*phil)->right->lock);
 		if ((*phil)->right->free)
 		{
 			(*phil)->right->free = 0;
-			print(
-				phil,
-				get_time_elapsed((*phil)->info->time_0),
-				"has taken a fork");
+			print(phil, "has taken a fork");
 			pthread_mutex_unlock(&(*phil)->right->lock);
-			break ;
+			return (1);
 		}
 		pthread_mutex_unlock(&(*phil)->right->lock);
+		if (!eat_time(phil, 1))
+			return (0);
 	}
 }
 
