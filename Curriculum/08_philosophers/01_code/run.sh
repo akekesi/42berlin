@@ -5,42 +5,25 @@
 # delay caused by large number of processors --> first action is not in time stamp 0 but 1, 2... 30ms
 
 # to set ARG in bash terminal:
-# export ARG="1 800 200 200" --------> not eat, die, delay < 10ms
-# export ARG="5 800 200 200" --------> not die
-# export ARG="5 800 200 200 7" ------> not die, 7 loop
-# export ARG="4 410 200 200" --------> not die
-# export ARG="4 310 200 100" --------> die, delay < 10ms
-# export ARG="2 xxx xxx xxx ---------> delay for 2 philosophers
-# export ARG="52 150 60 60" ---------> meghal a vegen, nem dobja le az egyik evest a vegen 
-# export ARG="160 150 60 60" --------> meghal a vegen, nem dobja le az egyik alvast a vegen 
-# export ARG="51 150 60 60" ---------> 
-# export ARG="4 120 60 60" ----------> 
-# export ARG="2 1000 500 500" -------> 
-# export ARG="2 10000 5000 4999" ----> 
-# export ARG="2 10000 5000 5000" ----> 
-# export ARG="2 10000 5001 5000" ----> 
-# export ARG="2 1000 501 500" -------> 
-# export ARG="2 60 100 100" ---------> 
-# export ARG="3 310 104 103" --------> 
-# export ARG="3 3100 1040 1030" -----> 
-# export ARG="3 310 103 103" --------> 
-# export ARG="200 300 200 100 3" ----> 
-# export ARG="0 300 310 100 5" ------> 
-# export ARG="-1 300 310 100 5" -----> 
-# export ARG="201 300 310 100 5" ----> 
-# export ARG="111 59 310 100 5" -----> 
-# export ARG="111 300 59 100 5" -----> 
-# export ARG="111 300 310 59 5" -----> 
-# export ARG="111 300 310 100" ------> 
-# export ARG="111 300 310 100 -5" ---> 
-# export ARG="111 300 310 100 -5" ---> 
-# export ARG="111 222 333" ----------> 
-# export ARG="111 222 333 444 555" --> 
-# export ARG="111 300 310 100 0" ----> 
-# export ARG="10 150 60 60" ---------> 
-# export ARG="11 150 60 60" ---------> 
-# export ARG="12 150 60 60" ---------> 
-# export ARG="13/14 150 60 60" ------> 
+# export ARG="  1 800 200 200    " ------> OK (death)
+# export ARG="  5 800 200 200    " ------> OK
+# export ARG="  5 800 200 200   7" ------> OK
+# export ARG="  4 410 200 200    " ------> OK
+# export ARG="  4 310 200 100    " ------> OK (death)
+# export ARG=" 10 150  60  60  50" ------> OK
+# export ARG="100 150  60  60  50" ------> OK
+# export ARG=" 11 150  60  60  50" ------> OK (death) <-- odd number of philosophers
+# export ARG="111 150  60  60  50" ------> OK (death) <-- odd number of philosophers
+# export ARG="  2 150 130 130    " ------> OK (death)
+# export ARG="  2 1500 1300 1300 " ------> OK (death)
+# export ARG=" 50 121 60  60   20" ------> OK
+# export ARG="100 123 60  60   20" ------> OK
+# export ARG="150 125 60  60   20" ------> OK
+# export ARG="200 125 60  60   20" ------> OK
+# export ARG="111 185 60  60   20" ------> OK
+# export ARG="151 185 60  60   20" ------> OK
+# export ARG="199 185 60  60   20" ------> OK
+
 
 # The if statement [ -z "$ARG" ] checks if $ARG is empty or has no value:
 #   -z flag tests if the following string is empty or has no value.
@@ -73,8 +56,8 @@ make > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   # run executable
   echo "./philo $ARG"
-  # ./philo $ARG
-  ./philo $ARG 2>&1 | tee philosophers.txt
+  ./philo $ARG
+  # ./philo $ARG 2>&1 | tee philosophers.txt
   # valgrind ./philo $ARG
   # valgrind --tool=helgrind ./philo $ARG # check data race but does not work !!! (stuck in first philospher !!
   echo "./philo $ARG"
@@ -85,3 +68,4 @@ fi
 # make fclean without print to terminal
 echo "make fclean"
 make fclean > /dev/null 2>&1
+rm -f philosophers.txt
