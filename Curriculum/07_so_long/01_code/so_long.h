@@ -6,17 +6,18 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/18 21:42:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/19 21:29:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
 # include "get_next_line_bonus.h"
+# include "MLX42/include/MLX42/MLX42.h"
 
 typedef struct s_llist
 {
@@ -44,5 +45,8 @@ void	prep_map(t_llist **map);
 void	ft_putstr(char *str);
 char	*ft_strdup(char *str);
 int		ft_strlen(const char *str);
+
+// test*.c
+int32_t	test_mlx42_00(void);
 
 #endif

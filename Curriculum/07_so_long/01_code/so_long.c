@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/18 22:02:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/19 17:32:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_putstr("Error");
+	test_mlx42_00();
 }
