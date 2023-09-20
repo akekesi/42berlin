@@ -6,18 +6,30 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/19 21:29:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/20 22:44:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# define MAP_WIDTH	450
+# define MAP_HEIGHT	500
+
+# define IMG_WIDTH	50
+# define IMG_HEIGHT	50
+
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "get_next_line_bonus.h"
 # include "MLX42/include/MLX42/MLX42.h"
+
+typedef struct s_game
+{
+	mlx_t		*mlx;
+	mlx_image_t	*car;
+}	t_game;
 
 typedef struct s_llist
 {

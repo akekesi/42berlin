@@ -1,68 +1,71 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include "so_long.h"
-#define WIDTH 256
-#define HEIGHT 256
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_mlx42_00.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/20 22:38:48 by akekesi           #+#    #+#             */
+/*   Updated: 2023/09/20 22:44:26 by akekesi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// Exit the program as failure.
-static void ft_error(void)
+#include "so_long.h"
+
+void	key_hook(mlx_key_data_t keydata, void *param)
 {
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
+	t_game		*game;
+
+	game = param;
+	if (keydata.action == MLX_PRESS)
+	{
+		if (keydata.key == MLX_KEY_ESCAPE)
+			mlx_close_window(game->mlx);
+		if (keydata.key == MLX_KEY_UP)
+			game->car->instances->y -= 50;
+		if (keydata.key == MLX_KEY_DOWN)
+			game->car->instances->y += 50;
+		if (keydata.key == MLX_KEY_LEFT)
+			game->car->instances->x -= 50;
+		if (keydata.key == MLX_KEY_RIGHT)
+			game->car->instances->x += 50;
+	}
+}
+
+static void	ft_error(void)
+{
 	exit(EXIT_FAILURE);
 }
 
-// Print the window width and height.
-static void ft_hook(void* param)
+static void	ft_hook(void *param)
 {
-	const mlx_t* mlx = param;
+	t_game		*game;
 
-	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
+	game = param;
 }
 
 int32_t	test_mlx42_00(void)
 {
+	t_game			game;
+	mlx_texture_t	*texture;
 
-	// MLX allows you to define its core behaviour before startup.
-	mlx_set_setting(MLX_MAXIMIZED, true);
-	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "test", true);
-	if (!mlx)
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	game.mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "test", false);
+	if (!game.mlx)
 		ft_error();
-
-	/* Do stuff */
-	mlx_texture_t* texture = mlx_load_png("enemy.png");
+	texture = mlx_load_png("enemy.png");
 	if (!texture)
-        ft_error();
-	
-	// Convert texture to a displayable image
-	mlx_image_t* img = mlx_texture_to_image(mlx, texture);
-	if (!img)
-        ft_error();
-	// // Create and display the image.
-	// mlx_image_t* img = mlx_new_image(mlx, 256, 256);
-	// // if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
-	// // 	ft_error();
-	// if (!img)
-	// 	ft_error();
-	// // Set every pixel to white
-	// #include <memory.h>
-	// memset(img->pixels, 155, img->width * img->height * sizeof(int32_t));
-
-	// Display an instance of the image
-	if (mlx_image_to_window(mlx, img, 390, 130) < 0)
-        ft_error();
-
-	// Even after the image is being displayed, we can still modify the buffer.
-	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
-	mlx_put_pixel(img, 0, 70, 0xFF0000FF);
-	mlx_put_pixel(img, 70, 0, 0xFF0000FF);
-	mlx_put_pixel(img, 70, 70, 0xFF0000FF);
-
-	// Register a hook and pass mlx as an optional param.
-	// NOTE: Do this before calling mlx_loop!
-	mlx_loop_hook(mlx, ft_hook, mlx);
-	mlx_loop(mlx);
-	mlx_delete_image(mlx, img);
-	mlx_terminate(mlx);
+		ft_error();
+	game.car = mlx_texture_to_image(game.mlx, texture);
+	mlx_delete_texture(texture);
+	if (!game.car)
+		ft_error();
+	if (mlx_image_to_window(game.mlx, game.car, 190, 130) < 0)
+		ft_error();
+	mlx_loop_hook(game.mlx, &ft_hook, &game.mlx);
+	mlx_key_hook(game.mlx, &key_hook, &game.mlx);
+	mlx_loop(game.mlx);
+	mlx_delete_image(game.mlx, game.car);
+	mlx_terminate(game.mlx);
 	return (EXIT_SUCCESS);
 }
