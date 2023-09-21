@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 22:03:42 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/18 19:59:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/21 19:08:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	llist_print(t_llist *head)
 	tmp = head;
 	while (1)
 	{
-		str = tmp->line;
+		str = tmp->value;
 		tmp = tmp->next;
 		ft_putstr(str);
 		if (head == tmp)

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 22:38:48 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/20 22:44:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/21 20:35:15 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	}
 }
 
-static void	ft_error(void)
-{
-	exit(EXIT_FAILURE);
-}
-
-static void	ft_hook(void *param)
+static void	loop_hook(void *param)
 {
 	t_game		*game;
 
@@ -53,7 +48,8 @@ int32_t	test_mlx42_00(void)
 	game.mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "test", false);
 	if (!game.mlx)
 		ft_error();
-	texture = mlx_load_png("enemy.png");
+	
+	texture = mlx_load_png("assets/images/enemy.png");
 	if (!texture)
 		ft_error();
 	game.car = mlx_texture_to_image(game.mlx, texture);
@@ -62,6 +58,27 @@ int32_t	test_mlx42_00(void)
 		ft_error();
 	if (mlx_image_to_window(game.mlx, game.car, 190, 130) < 0)
 		ft_error();
+	
+	texture = mlx_load_png("assets/images/road_line_01.png");
+	if (!texture)
+		ft_error();
+	game.road1 = mlx_texture_to_image(game.mlx, texture);
+	mlx_delete_texture(texture);
+	if (!game.road1)
+		ft_error();
+	if (mlx_image_to_window(game.mlx, game.road1, 0, 0) < 0)
+		ft_error();
+
+	texture = mlx_load_png("assets/images/road_line_02.png");
+	if (!texture)
+		ft_error();
+	game.road2 = mlx_texture_to_image(game.mlx, texture);
+	mlx_delete_texture(texture);
+	if (!game.road2)
+		ft_error();
+	if (mlx_image_to_window(game.mlx, game.road2, 0, 50) < 0)
+		ft_error();
+
 	mlx_loop_hook(game.mlx, &ft_hook, &game.mlx);
 	mlx_key_hook(game.mlx, &key_hook, &game.mlx);
 	mlx_loop(game.mlx);

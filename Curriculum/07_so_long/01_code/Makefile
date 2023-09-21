@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/19 21:29:27 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/21 21:10:36 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ SRCS = so_long.c \
 	llist_00.c \
 	llist_01.c \
 	map.c \
-	test_mlx42_00.c
+	00_road.c \
+	so_long_demo.c \
+	mlx42_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
