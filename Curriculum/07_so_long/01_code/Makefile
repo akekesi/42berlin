@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/21 21:10:36 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/22 19:54:10 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,15 @@ SRCS = so_long.c \
 	ft_putstr.c \
 	ft_strdup.c \
 	ft_strlen.c \
+	ft_math.c \
 	get_next_line_bonus.c \
 	get_next_line_utils_bonus.c \
 	llist_00.c \
 	llist_01.c \
 	map.c \
+	time.c \
 	00_road.c \
+	01_car.c \
 	so_long_demo.c \
 	mlx42_utils.c
 

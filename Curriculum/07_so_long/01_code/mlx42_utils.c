@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 22:38:48 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/21 22:23:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/22 19:54:04 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	key_hook(mlx_key_data_t keydata, void *param)
 {
-	int	i;
 	t_game		*game;
 
-	i = 10;
 	game = param;
 	if (keydata.action == MLX_PRESS)
 	{
@@ -25,21 +23,18 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 			mlx_close_window(game->mlx);
 		if (keydata.key == MLX_KEY_UP)
 		{
-			while (i--)
-			{
-				if (((mlx_image_t *)game->road->value)->instances->y == 450)
-					((mlx_image_t *)game->road->value)->instances->y = 0;
-				else
-					((mlx_image_t *)game->road->value)->instances->y += 50;
-				llist_rot(&game->road);
-			}
+			game->speed = ft_min(game->speed + 1, 10);
+			game->time_delta = 1000 / game->speed;
 		}
 		if (keydata.key == MLX_KEY_DOWN)
-			game->car->instances->y += 50;
+		{
+			game->speed = ft_max(game->speed - 1, 1);
+			game->time_delta = 1000 / game->speed;
+		}
 		if (keydata.key == MLX_KEY_LEFT)
-			game->car->instances->x -= 50;
+			game->car->instances->x = ft_max(game->car->instances->x - 50, 100);
 		if (keydata.key == MLX_KEY_RIGHT)
-			game->car->instances->x += 50;
+			game->car->instances->x = ft_min(game->car->instances->x + 50, 300);
 	}
 }
 
@@ -47,5 +42,6 @@ void	loop_hook(void *param)
 {
 	t_game		*game;
 
-	game = param;	
+	game = param;
+	move_road(game);
 }

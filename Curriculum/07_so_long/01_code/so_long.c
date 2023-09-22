@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/21 21:58:04 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/22 19:53:58 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int32_t	main(int argc, char **argv)
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		game.mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "RoadFighter", false);
 		init_road(&game);
+		init_car(&game);
 		mlx_loop_hook(game.mlx, &loop_hook, &game);
 		mlx_key_hook(game.mlx, &key_hook, &game);
 		mlx_loop(game.mlx);
-		// llist_free(&game.road); // ez nem jo meg !!!
+		free_road(&game);
+		free_car(&game);
 		mlx_terminate(game.mlx);
 		return (EXIT_SUCCESS);
 	}
