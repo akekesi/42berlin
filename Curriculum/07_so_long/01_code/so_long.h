@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/22 19:53:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/23 21:53:39 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_game
 	mlx_t		*mlx;
 	mlx_image_t	*car;
 	t_llist		*road;
+	t_llist		*traffic;
 	int			speed;
 	int			time_last;
 	int			time_delta;
@@ -69,20 +70,30 @@ int		ft_max(int a, int b);
 void	so_long_demo(void);
 
 // time.c
-int	get_time_current(void);
-int	get_time_elapsed(int time);
-int	eat_time(int time);
+int		get_time_current(void);
+int		get_time_elapsed(int time);
+int		eat_time(int time);
 
-// 00_road.c
-void	init_road(t_game *game);
-void	move_road(t_game *game);
-void	free_road(t_game *game);
+// 00_game.c
+void	init_game(t_game *game);
+void	loop_game(t_game *game);
+void	move_game(t_game *game);
+void	key_hook(mlx_key_data_t keydata, void *param);
+void	loop_hook(void *param);
 
 // 01_car.c
 void	init_car(t_game *game);
 void	move_car(t_game *game);
 void	free_car(t_game *game);
 
-void	key_hook(mlx_key_data_t keydata, void *param);
-void	loop_hook(void *param);
+// 02_road.c
+void	init_road(t_game *game);
+void	move_road(t_game *game);
+void	free_road(t_game *game);
+
+// 01_traffic.c
+void	init_traffic(t_game *game);
+void	move_traffic(t_game *game);
+void	free_traffic(t_game *game);
+
 #endif

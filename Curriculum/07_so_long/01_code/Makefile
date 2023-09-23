@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/22 19:54:10 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/23 21:53:52 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,10 @@ MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
 MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
 
 SRCS = so_long.c \
+	00_game.c \
+	01_car.c \
+	02_road.c \
+	03_traffic.c \
 	ft_putstr.c \
 	ft_strdup.c \
 	ft_strlen.c \
@@ -34,11 +38,7 @@ SRCS = so_long.c \
 	llist_00.c \
 	llist_01.c \
 	map.c \
-	time.c \
-	00_road.c \
-	01_car.c \
-	so_long_demo.c \
-	mlx42_utils.c
+	time.c
 
 OBJS = $(SRCS:.c=.o)
 
