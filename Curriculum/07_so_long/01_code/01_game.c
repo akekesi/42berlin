@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:12:41 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 21:00:07 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_game(t_game *game, char *path_map)
 	if (fd < 0)
 		ft_putstr("Error");
 	game->map = read_map(fd);
-	// check_map(&game->map);
+	game->length_map = llist_len(game->map);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "Road Fighter", false);
 	game->player = NULL;
@@ -71,9 +71,9 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 			game->time_delta = 1000 / game->speed;
 		}
 		if (keydata.key == MLX_KEY_LEFT)
-			game->player->instances->x = ft_max(game->player->instances->x - 50, 100);
+			game->player->instances->x = ft_max(game->player->instances->x - TILE_SIZE, 2 * TILE_SIZE);
 		if (keydata.key == MLX_KEY_RIGHT)
-			game->player->instances->x = ft_min(game->player->instances->x + 50, 300);
+			game->player->instances->x = ft_min(game->player->instances->x + TILE_SIZE, MAP_WIDTH - 3 * TILE_SIZE);
 	}
 }
 

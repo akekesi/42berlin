@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_collectible.c                                   :+:      :+:    :+:   */
+/*   07_collectible.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 19:48:08 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:56:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_collectible(t_game *game)
 
 	texture = mlx_load_png("assets/images/gasoline_50x50_small2.png");
 	tmp = game->map;
-	row = -1; // skipp first and second line of map
+	row = -1;
 	while (1)
 	{
 		col = 1;
@@ -58,7 +58,7 @@ void	move_collectible(t_game *game)
 	tmp = game->collectible;
 	while (1)
 	{
-		if (((mlx_image_t *)game->collectible->value)->instances->y == 450)
+		if (((mlx_image_t *)game->collectible->value)->instances->y == (game->length_map - 5) * TILE_SIZE)
 			((mlx_image_t *)game->collectible->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->collectible->value)->instances->y += 50;

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:11:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:36:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_road(t_game *game)
 
 	texture_01 = mlx_load_png("assets/images/road_line_01.png");
 	texture_02 = mlx_load_png("assets/images/road_line_02.png");
-	i = 10;
+	i = MAP_HEIGHT / TILE_SIZE;
 	while (i--)
 	{
 		if (i % 2)
@@ -31,7 +31,7 @@ void	init_road(t_game *game)
 			texture = texture_02;
 		node = llist_create(mlx_texture_to_image(game->mlx, texture));
 		llist_add(&game->road, node);
-		mlx_image_to_window(game->mlx, game->road->prev->value, 0, i * 50);
+		mlx_image_to_window(game->mlx, game->road->prev->value, 0, i * TILE_SIZE);
 		mlx_set_instance_depth(
 			((mlx_image_t *)game->road->prev->value)->instances,
 			0);
@@ -44,13 +44,13 @@ void	move_road(t_game *game)
 {
 	int	i;
 
-	i = 10;
+	i = MAP_HEIGHT / TILE_SIZE;
 	while (i--)
 	{
-		if (((mlx_image_t *)game->road->value)->instances->y == 450)
+		if (((mlx_image_t *)game->road->value)->instances->y == MAP_HEIGHT - TILE_SIZE)
 			((mlx_image_t *)game->road->value)->instances->y = 0;
 		else
-			((mlx_image_t *)game->road->value)->instances->y += 50;
+			((mlx_image_t *)game->road->value)->instances->y += TILE_SIZE;
 		llist_rot(&game->road);
 	}
 }

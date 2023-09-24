@@ -6,18 +6,16 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:04:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:56:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# define TILE_SIZE	50
 # define MAP_WIDTH	450
 # define MAP_HEIGHT	500
-
-# define IMG_WIDTH	50
-# define IMG_HEIGHT	50
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -45,6 +43,7 @@ typedef struct s_game
 	int			speed;
 	int			time_last;
 	int			time_delta;
+	int			length_map;
 }	t_game;
 
 // 00_time.c
@@ -102,6 +101,7 @@ void	llist_free(t_llist **head);
 // llist_01.c
 void	llist_rot(t_llist **head);
 void	llist_rrot(t_llist **head);
+int		llist_len(t_llist *head);
 void	llist_print(t_llist *head);
 
 #endif

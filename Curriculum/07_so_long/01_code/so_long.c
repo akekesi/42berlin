@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 19:46:35 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 21:00:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 - read map (ures, ...)
 - starting position
 - exit position
+- check_map(&game->map)
+...
 */
 
 int	main(int argc, char **argv)

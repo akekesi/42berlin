@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_win.c                                           :+:      :+:    :+:   */
+/*   04_win.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:01:08 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:57:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_win(t_game *game)
 	{
 		if (((char *)game->map->prev->prev->value)[i] == 'W')
 		{
-			mlx_image_to_window(game->mlx, game->win, (i + 1) * 50, -50); // +1 because of 2 tiles roadside
+			mlx_image_to_window(game->mlx, game->win, (i + 1) * TILE_SIZE, -TILE_SIZE);
 			break ;
 		}
 		i++;
