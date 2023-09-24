@@ -19,12 +19,12 @@ make > /dev/null 2>&1
 # check success of make
 if [ $? -eq 0 ]; then
   # run executable
-  echo "valgrind ./so_long map_track.ber"
-  valgrind ./so_long map_track.ber
+  echo "valgrind ./so_long assets/maps/map.ber"
+  valgrind ./so_long assets/maps/map.ber
 else
   echo "Error (make failed)"
 fi
 
 # make fclean without print to terminal
-echo "make clean"
-make clean > /dev/null 2>&1
+echo "make fclean"
+make fclean > /dev/null 2>&1

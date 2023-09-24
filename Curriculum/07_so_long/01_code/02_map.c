@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   02_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 22:09:05 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/22 19:54:08 by akekesi          ###   ########.fr       */
+/*   Created: 2023/09/18 19:20:36 by akekesi           #+#    #+#             */
+/*   Updated: 2023/09/24 20:11:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	get_time_current(void)
+t_llist	*read_map(int fd)
 {
-	struct timeval	time;
+	char	*line;
+	t_llist	*map;
+	t_llist	*node;
 
-	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}
-
-int	get_time_elapsed(int time)
-{
-	return (get_time_current() - time);
-}
-
-int	eat_time(int time)
-{
-	int	time_start;
-
-	time_start = get_time_current();
-	while (get_time_elapsed(time_start) < time)
+	map = NULL;
+	while (1)
 	{
-		usleep(100);
+		line = get_next_line(fd);
+		if (!line || line[0] == '\n')
+		{
+			free(line);
+			break ;
+		}
+		node = llist_create(line);
+		llist_add(&map, node);
 	}
-	return (1);
+	return (map);
 }

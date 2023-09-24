@@ -6,13 +6,13 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:06:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/18 19:59:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 14:19:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
 	int	n;
 

@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/23 21:53:52 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/24 20:05:18 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,20 +25,22 @@ MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
 MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
 
 SRCS = so_long.c \
-	00_game.c \
-	01_car.c \
-	02_road.c \
-	03_traffic.c \
+	00_time.c \
+	01_game.c \
+	02_map.c \
+	03_player.c \
+	04_win.c \
+	05_road.c \
+	06_enemy.c \
+	07_collectible.c \
 	ft_putstr.c \
 	ft_strdup.c \
 	ft_strlen.c \
 	ft_math.c \
-	get_next_line_bonus.c \
-	get_next_line_utils_bonus.c \
 	llist_00.c \
 	llist_01.c \
-	map.c \
-	time.c
+	get_next_line_bonus.c \
+	get_next_line_utils_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 

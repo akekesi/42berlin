@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_game.c                                          :+:      :+:    :+:   */
+/*   01_game.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/23 21:53:58 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 20:12:41 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_game(t_game *game)
+void	init_game(t_game *game, char *path_map)
 {
+	int	fd;
+
+	fd = open(path_map, O_RDONLY);
+	if (fd < 0)
+		ft_putstr("Error");
+	game->map = read_map(fd);
+	// check_map(&game->map);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "RoadFighter", false);
+	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "Road Fighter", false);
+	game->player = NULL;
+	game->win = NULL;
+	game->road = NULL;
+	game->enemy = NULL;
+	game->collectible = NULL;
 	game->speed = 1;
 	game->time_last = get_time_current();
 	game->time_delta = 1000 / game->speed;
-	game->car = NULL;
-	game->road = NULL;
-	game->traffic = NULL;
 }
 
 void	loop_game(t_game *game)
@@ -36,7 +45,8 @@ void	move_game(t_game *game)
 	if (game->time_delta <= get_time_elapsed(game->time_last))
 	{
 		move_road(game);
-		move_traffic(game);
+		move_enemy(game);
+		move_collectible(game);
 		game->time_last = get_time_current();
 	}
 }
@@ -61,9 +71,9 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 			game->time_delta = 1000 / game->speed;
 		}
 		if (keydata.key == MLX_KEY_LEFT)
-			game->car->instances->x = ft_max(game->car->instances->x - 50, 100);
+			game->player->instances->x = ft_max(game->player->instances->x - 50, 100);
 		if (keydata.key == MLX_KEY_RIGHT)
-			game->car->instances->x = ft_min(game->car->instances->x + 50, 300);
+			game->player->instances->x = ft_min(game->player->instances->x + 50, 300);
 	}
 }
 
