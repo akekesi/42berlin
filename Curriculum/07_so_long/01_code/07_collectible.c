@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:56:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 21:28:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,22 @@ void	move_collectible(t_game *game)
 			((mlx_image_t *)game->collectible->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->collectible->value)->instances->y += 50;
+		llist_rot(&game->collectible);
+		if (tmp == game->collectible)
+			break ;
+	}
+}
+
+void	find_collectible(t_game *game)
+{
+	t_llist	*tmp;
+
+	tmp = game->collectible;
+	while (1)
+	{
+		if (((mlx_image_t *)game->collectible->value)->instances->x == game->player->instances->x
+			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->player->instances->y)
+			((mlx_image_t *)game->collectible->value)->instances->y -= 9999;
 		llist_rot(&game->collectible);
 		if (tmp == game->collectible)
 			break ;

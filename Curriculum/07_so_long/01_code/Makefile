@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/24 20:05:18 by akekesi          ###   ########.fr        #
+#    Updated: 2023/09/24 22:25:03 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRCS = so_long.c \
 	llist_00.c \
 	llist_01.c \
 	get_next_line_bonus.c \
-	get_next_line_utils_bonus.c
+	get_next_line_utils_bonus.c \
+	check_00.c
 
 OBJS = $(SRCS:.c=.o)
 

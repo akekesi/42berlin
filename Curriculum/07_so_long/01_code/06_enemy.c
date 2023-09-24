@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:59:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 21:34:04 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ void	init_enemy(t_game *game)
 			break ;
 	}
 	mlx_delete_texture(texture);
+}
+
+void	find_enemy(t_game *game)
+{
+	t_llist	*tmp;
+
+	tmp = game->enemy;
+	while (1)
+	{
+		if (
+			((mlx_image_t *)game->enemy->value)->instances->x == game->player->instances->x
+			&& ((mlx_image_t *)game->enemy->value)->instances->y == game->player->instances->y)
+			mlx_terminate(game->mlx);
+		llist_rot(&game->enemy);
+		if (tmp == game->enemy)
+			break ;
+	}
 }
 
 void	move_enemy(t_game *game)

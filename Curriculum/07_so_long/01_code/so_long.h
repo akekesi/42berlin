@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:56:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 22:25:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,13 @@ void	free_road(t_game *game);
 // 06_enemy.c
 void	init_enemy(t_game *game);
 void	move_enemy(t_game *game);
+void	find_enemy(t_game *game);
 void	free_enemy(t_game *game);
 
 // 07_collectible.c
 void	init_collectible(t_game *game);
 void	move_collectible(t_game *game);
+void	find_collectible(t_game *game);
 void	free_collectible(t_game *game);
 
 // ft*.c
@@ -103,5 +105,12 @@ void	llist_rot(t_llist **head);
 void	llist_rrot(t_llist **head);
 int		llist_len(t_llist *head);
 void	llist_print(t_llist *head);
+
+// check*.c
+int		check_map_00(t_game *game);
+int		check_map_01(t_game *game);
+int		check_map_02(t_game *game);
+int		check_map_03(t_game *game);
+int		check_map_04(t_game *game);
 
 #endif

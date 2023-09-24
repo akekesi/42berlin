@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 21:00:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/24 22:25:15 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 - starting position
 - exit position
 - check_map(&game->map)
+- return value int --> meg lehet szakitani a jatekot
 ...
 */
 
