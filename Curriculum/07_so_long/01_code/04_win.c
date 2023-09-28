@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:57:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 20:47:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,17 @@ void	init_win(t_game *game)
 
 void	move_win(t_game *game)
 {
-	(void)game;
+	if (game->win->instances->y == (game->length_map - 5) * TILE_SIZE)
+			game->win->instances->y = 0;
+		else
+			game->win->instances->y += 50;
+}
+
+void	find_win(t_game *game)
+{
+	if (game->win->instances->x == game->player->instances->x
+		&& game->win->instances->y == game->player->instances->y)
+			game->win->instances->y -= 9999;
 }
 
 void	free_win(t_game *game)

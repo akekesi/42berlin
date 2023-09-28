@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 21:28:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 21:05:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	init_collectible(t_game *game)
 				mlx_set_instance_depth(
 					((mlx_image_t *)game->collectible->prev->value)->instances,
 					1);
+				game->length_collectible++;
 			}
 			col++;
 		}
@@ -77,7 +78,10 @@ void	find_collectible(t_game *game)
 	{
 		if (((mlx_image_t *)game->collectible->value)->instances->x == game->player->instances->x
 			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->player->instances->y)
-			((mlx_image_t *)game->collectible->value)->instances->y -= 9999;
+			{
+				((mlx_image_t *)game->collectible->value)->instances->y -= 9999;
+				game->length_collectible--;
+			}
 		llist_rot(&game->collectible);
 		if (tmp == game->collectible)
 			break ;

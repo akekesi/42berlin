@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 22:25:15 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 21:04:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 - exit position
 - check_map(&game->map)
 - return value int --> meg lehet szakitani a jatekot
+- collectable and win is moving back after lot of loop (because -9999 +50+50+50...)
+- valgrind should give some leaks --> but how many is OK?
 ...
 */
 

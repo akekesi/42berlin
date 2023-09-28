@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/28 18:39:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 21:05:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	init_game(t_game *game, char *path_map)
 	game->speed = 1;
 	game->time_last = get_time_current();
 	game->time_delta = 1000 / game->speed;
+	game->length_collectible = 0;
 }
 
 void	loop_game(t_game *game)
@@ -62,9 +63,12 @@ void	move_game(t_game *game)
 		move_enemy(game);
 		move_collectible(game);
 		game->time_last = get_time_current();
+		if (!game->length_collectible)
+			move_win(game);
 	}
 	find_enemy(game);
 	find_collectible(game);
+	find_win(game);
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)

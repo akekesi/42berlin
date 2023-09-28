@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/28 18:39:57 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 21:00:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 	int			time_last;
 	int			time_delta;
 	int			length_map;
+	int			length_collectible;
 }	t_game;
 
 // 00_time.c
@@ -68,6 +69,7 @@ void	free_player(t_game *game);
 // 04_win.c
 void	init_win(t_game *game);
 void	move_win(t_game *game);
+void	find_win(t_game *game);
 void	free_win(t_game *game);
 
 // 05_road.c
