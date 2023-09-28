@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 22:23:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 18:39:51 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	init_game(t_game *game, char *path_map)
 		ft_putstr("OK-03\n");
 	if (check_map_04(game))
 		ft_putstr("OK-04\n");
+	if (check_map_05(game))
+		ft_putstr("OK-05\n");
+	if (check_map_06(game))
+		ft_putstr("OK-06\n");
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "Road Fighter", false);
 	game->player = NULL;

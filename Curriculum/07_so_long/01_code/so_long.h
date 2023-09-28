@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 22:25:00 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/28 18:39:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,10 @@ int		check_map_01(t_game *game);
 int		check_map_02(t_game *game);
 int		check_map_03(t_game *game);
 int		check_map_04(t_game *game);
+int		check_map_05(t_game *game);
+int		check_map_05_sub(char c);
+int		check_map_06(t_game *game);
+int		check_map_06_sub1(t_game *game, int i_map, int i_line);
+int		check_map_06_sub2(char *line, int i_line);
 
 #endif
