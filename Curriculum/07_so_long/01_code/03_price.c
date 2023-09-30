@@ -36,19 +36,19 @@ void	init_img_price(t_game *game)
 void	move_img_price(t_game *game)
 {
 	if (game->img_price->instances->y == (game->length_map - 5) * TILE_SIZE)
-			game->img_price->instances->y = 0;
-		else
-			game->img_price->instances->y += TILE_SIZE;
+		game->img_price->instances->y = 0;
+	else
+		game->img_price->instances->y += TILE_SIZE;
 }
 
 void	find_img_price(t_game *game)
 {
 	if (game->img_price->instances->x == game->img_player->instances->x
 		&& game->img_price->instances->y == game->img_player->instances->y)
-		{
-			game->won = 1;
-			game->img_price->instances->y = game->length_map * TILE_SIZE;
-		}
+	{
+		game->won = 1;
+		game->img_price->instances->y = game->length_map * TILE_SIZE;
+	}
 }
 
 void	free_img_price(t_game *game)

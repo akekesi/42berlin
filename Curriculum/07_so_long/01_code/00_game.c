@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:39:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:54:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 			game->start_stop = (game->start_stop + 1) % 2;
 			if (!game->start_stop)
 				game->img_stop->instances->y = 2 * TILE_SIZE;
-
 		}
 		if (keydata.key == MLX_KEY_ESCAPE)
 			mlx_close_window(game->mlx);

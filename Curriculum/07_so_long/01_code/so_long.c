@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:36:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:59:48 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 - collectable and win is moving back after lot of loop (because -9999 +50+50+50...)
 - valgrind should give some leaks --> but how many is OK?
 - a key_hook-ba lehetne egy find enemit es egy tobblepcsos savvaltassal elkerulni, hogy egymasra menjenek
+- show function for start, stop, win and lose
+- a price utan ne tudjon savot valtani, mert kicsit furan mozog
 ...
 */
 

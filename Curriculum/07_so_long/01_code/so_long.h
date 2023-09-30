@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:12:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:56:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_game
 	int			length_map;
 	int			length_collectible;
 }	t_game;
-
 
 // 00_game.c
 void	init_game(t_game *game, char *path_map);
@@ -140,6 +139,5 @@ void	llist_print(t_llist *head);
 // time.c
 int		get_time_current(void);
 int		get_time_elapsed(int time);
-
 
 #endif
