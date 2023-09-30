@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06_enemy.c                                         :+:      :+:    :+:   */
+/*   07_enemy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/28 21:00:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:39:05 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_enemy(t_game *game)
 	t_llist			*node;
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/images/car_blue_50x50.png");
+	texture = mlx_load_png("assets/images/enemy.png");
 	tmp = game->map;
 	row = -1;
 	while (1)
@@ -35,8 +35,8 @@ void	init_enemy(t_game *game)
 				mlx_image_to_window(
 					game->mlx,
 					game->enemy->prev->value,
-					col * 50 + 50,
-					row * -50);
+					col * TILE_SIZE + TILE_SIZE,
+					row * -TILE_SIZE);
 				mlx_set_instance_depth(
 					((mlx_image_t *)game->enemy->prev->value)->instances,
 					1);
@@ -51,23 +51,6 @@ void	init_enemy(t_game *game)
 	mlx_delete_texture(texture);
 }
 
-void	find_enemy(t_game *game)
-{
-	t_llist	*tmp;
-
-	tmp = game->enemy;
-	while (1)
-	{
-		if (
-			((mlx_image_t *)game->enemy->value)->instances->x == game->player->instances->x
-			&& ((mlx_image_t *)game->enemy->value)->instances->y == game->player->instances->y)
-			mlx_terminate(game->mlx);
-		llist_rot(&game->enemy);
-		if (tmp == game->enemy)
-			break ;
-	}
-}
-
 void	move_enemy(t_game *game)
 {
 	t_llist	*tmp;
@@ -78,7 +61,28 @@ void	move_enemy(t_game *game)
 		if (game->length_collectible && ((mlx_image_t *)game->enemy->value)->instances->y == (game->length_map - 5) * TILE_SIZE)
 			((mlx_image_t *)game->enemy->value)->instances->y = 0;
 		else
-			((mlx_image_t *)game->enemy->value)->instances->y += 50;
+			((mlx_image_t *)game->enemy->value)->instances->y += TILE_SIZE;
+		llist_rot(&game->enemy);
+		if (tmp == game->enemy)
+			break ;
+	}
+}
+
+void	find_enemy(t_game *game)
+{
+	t_llist	*tmp;
+
+	tmp = game->enemy;
+	while (1)
+	{
+		if (
+			((mlx_image_t *)game->enemy->value)->instances->x == game->img_player->instances->x
+			&& ((mlx_image_t *)game->enemy->value)->instances->y == game->img_player->instances->y)
+		{
+			game->start_stop = 0;
+			game->img_lose->instances->y = 2 * TILE_SIZE;
+			return ;
+		}
 		llist_rot(&game->enemy);
 		if (tmp == game->enemy)
 			break ;

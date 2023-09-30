@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/28 21:00:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:12:09 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <fcntl.h>
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include "get_next_line_bonus.h"
@@ -34,12 +35,18 @@ typedef struct s_llist
 typedef struct s_game
 {
 	mlx_t		*mlx;
-	mlx_image_t	*player;
-	mlx_image_t	*win;
+	mlx_image_t	*img_player;
+	mlx_image_t	*img_price;
+	mlx_image_t	*img_start;
+	mlx_image_t	*img_stop;
+	mlx_image_t	*img_win;
+	mlx_image_t	*img_lose;
 	t_llist		*map;
 	t_llist		*road;
 	t_llist		*enemy;
 	t_llist		*collectible;
+	int			start_stop;
+	int			won;
 	int			speed;
 	int			time_last;
 	int			time_delta;
@@ -47,47 +54,69 @@ typedef struct s_game
 	int			length_collectible;
 }	t_game;
 
-// 00_time.c
-int		get_time_current(void);
-int		get_time_elapsed(int time);
 
-// 01_game.c
+// 00_game.c
 void	init_game(t_game *game, char *path_map);
 void	loop_game(t_game *game);
 void	move_game(t_game *game);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	loop_hook(void *param);
 
-// 02_map.c
+// 01_map.c
 t_llist	*read_map(int fd);
+void	free_map(t_game *game);
 
-// 03_player.c
-void	init_player(t_game *game);
-void	move_player(t_game *game);
-void	free_player(t_game *game);
+// 02_player.c
+void	init_img_player(t_game *game);
+void	move_img_player(t_game *game);
+void	free_img_player(t_game *game);
 
-// 04_win.c
-void	init_win(t_game *game);
-void	move_win(t_game *game);
-void	find_win(t_game *game);
-void	free_win(t_game *game);
+// 03_price.c
+void	init_img_price(t_game *game);
+void	move_img_price(t_game *game);
+void	find_img_price(t_game *game);
+void	free_img_price(t_game *game);
 
-// 05_road.c
+// 04_start_stop.c
+void	init_img_start(t_game *game);
+void	init_img_stop(t_game *game);
+void	free_img_start(t_game *game);
+void	free_img_stop(t_game *game);
+
+// 05_win_lose.c
+void	init_img_win(t_game *game);
+void	init_img_lose(t_game *game);
+void	free_img_win(t_game *game);
+void	free_img_lose(t_game *game);
+
+// 06_road.c
 void	init_road(t_game *game);
 void	move_road(t_game *game);
 void	free_road(t_game *game);
 
-// 06_enemy.c
+// 07_enemy.c
 void	init_enemy(t_game *game);
 void	move_enemy(t_game *game);
 void	find_enemy(t_game *game);
 void	free_enemy(t_game *game);
 
-// 07_collectible.c
+// 08_collectible.c
 void	init_collectible(t_game *game);
 void	move_collectible(t_game *game);
 void	find_collectible(t_game *game);
 void	free_collectible(t_game *game);
+
+// 09_check*.c
+int		check_map_00(t_game *game);
+int		check_map_01(t_game *game);
+int		check_map_02(t_game *game);
+int		check_map_03(t_game *game);
+int		check_map_04(t_game *game);
+int		check_map_05(t_game *game);
+int		check_map_05_sub(char c);
+int		check_map_06(t_game *game);
+int		check_map_06_sub1(t_game *game, int i_map, int i_line);
+int		check_map_06_sub2(char *line, int i_line);
 
 // ft*.c
 int		ft_min(int a, int b);
@@ -108,16 +137,9 @@ void	llist_rrot(t_llist **head);
 int		llist_len(t_llist *head);
 void	llist_print(t_llist *head);
 
-// check*.c
-int		check_map_00(t_game *game);
-int		check_map_01(t_game *game);
-int		check_map_02(t_game *game);
-int		check_map_03(t_game *game);
-int		check_map_04(t_game *game);
-int		check_map_05(t_game *game);
-int		check_map_05_sub(char c);
-int		check_map_06(t_game *game);
-int		check_map_06_sub1(t_game *game, int i_map, int i_line);
-int		check_map_06_sub2(char *line, int i_line);
+// time.c
+int		get_time_current(void);
+int		get_time_elapsed(int time);
+
 
 #endif

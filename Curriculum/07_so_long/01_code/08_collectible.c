@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   07_collectible.c                                   :+:      :+:    :+:   */
+/*   08_collectible.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/28 21:05:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/09/30 23:41:05 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_collectible(t_game *game)
 	t_llist			*node;
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/images/gasoline_50x50_small2.png");
+	texture = mlx_load_png("assets/images/collectible.png");
 	tmp = game->map;
 	row = -1;
 	while (1)
@@ -35,8 +35,8 @@ void	init_collectible(t_game *game)
 				mlx_image_to_window(
 					game->mlx,
 					game->collectible->prev->value,
-					col * 50 + 50,
-					row * -50);
+					col * TILE_SIZE + TILE_SIZE,
+					row * -TILE_SIZE);
 				mlx_set_instance_depth(
 					((mlx_image_t *)game->collectible->prev->value)->instances,
 					1);
@@ -62,7 +62,7 @@ void	move_collectible(t_game *game)
 		if (((mlx_image_t *)game->collectible->value)->instances->y == (game->length_map - 5) * TILE_SIZE)
 			((mlx_image_t *)game->collectible->value)->instances->y = 0;
 		else
-			((mlx_image_t *)game->collectible->value)->instances->y += 50;
+			((mlx_image_t *)game->collectible->value)->instances->y += TILE_SIZE;
 		llist_rot(&game->collectible);
 		if (tmp == game->collectible)
 			break ;
@@ -76,8 +76,8 @@ void	find_collectible(t_game *game)
 	tmp = game->collectible;
 	while (1)
 	{
-		if (((mlx_image_t *)game->collectible->value)->instances->x == game->player->instances->x
-			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->player->instances->y)
+		if (((mlx_image_t *)game->collectible->value)->instances->x == game->img_player->instances->x
+			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->img_player->instances->y)
 			{
 				((mlx_image_t *)game->collectible->value)->instances->y -= 9999;
 				game->length_collectible--;
