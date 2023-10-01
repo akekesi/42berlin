@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_road.c                                          :+:      :+:    :+:   */
+/*   06_road.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 20:36:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/01 21:28:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,33 @@ void	init_road(t_game *game)
 {
 	int				i;
 	t_llist			*node;
+	const char		*path[10] = {
+		"assets/images/road_line_00.png",
+		"assets/images/road_line_01.png",
+		"assets/images/road_line_02.png",
+		"assets/images/road_line_03.png",
+		"assets/images/road_line_04.png",
+		"assets/images/road_line_05.png",
+		"assets/images/road_line_06.png",
+		"assets/images/road_line_07.png",
+		"assets/images/road_line_08.png",
+		"assets/images/road_line_09.png"
+	};
 	mlx_texture_t	*texture;
-	mlx_texture_t	*texture_01;
-	mlx_texture_t	*texture_02;
 
-	texture_01 = mlx_load_png("assets/images/road_line_01.png");
-	texture_02 = mlx_load_png("assets/images/road_line_02.png");
-	i = MAP_HEIGHT / TILE_SIZE;
-	while (i--)
+	i = 0;
+	while (i < MAP_HEIGHT / TILE_SIZE)
 	{
-		if (i % 2)
-			texture = texture_01;
-		else
-			texture = texture_02;
+		texture = mlx_load_png(path[i]);
 		node = llist_create(mlx_texture_to_image(game->mlx, texture));
 		llist_add(&game->road, node);
 		mlx_image_to_window(game->mlx, game->road->prev->value, 0, i * TILE_SIZE);
 		mlx_set_instance_depth(
 			((mlx_image_t *)game->road->prev->value)->instances,
 			0);
+		mlx_delete_texture(texture);
+		i++;
 	}
-	mlx_delete_texture(texture_01);
-	mlx_delete_texture(texture_02);
 }
 
 void	move_road(t_game *game)
