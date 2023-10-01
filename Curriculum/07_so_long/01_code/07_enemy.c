@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:39:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/01 18:16:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_enemy(t_game *game)
 	t_llist			*node;
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/images/enemy.png");
+	
 	tmp = game->map;
 	row = -1;
 	while (1)
@@ -30,6 +30,7 @@ void	init_enemy(t_game *game)
 		{
 			if (((char *)game->map->value)[col] == 'E')
 			{
+				texture = rand_enemy(row, col);				
 				node = llist_create(mlx_texture_to_image(game->mlx, texture));
 				llist_add(&game->enemy, node);
 				mlx_image_to_window(
@@ -40,7 +41,8 @@ void	init_enemy(t_game *game)
 				mlx_set_instance_depth(
 					((mlx_image_t *)game->enemy->prev->value)->instances,
 					1);
-			}
+				mlx_delete_texture(texture);
+			}	
 			col++;
 		}
 		row++;
@@ -48,7 +50,14 @@ void	init_enemy(t_game *game)
 		if (tmp == game->map)
 			break ;
 	}
-	mlx_delete_texture(texture);
+}
+
+mlx_texture_t	*rand_enemy(int row, int col)
+{
+	if ((rand() % (col + row)) % 2)
+		return (mlx_load_png("assets/images/enemy_blue.png"));
+	else
+		return (mlx_load_png("assets/images/enemy_yellow.png"));
 }
 
 void	move_enemy(t_game *game)
