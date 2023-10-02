@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/09/30 23:14:44 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/02 21:33:47 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = so_long.c \
 	08_collectible.c \
 	09_check_00.c \
 	09_check_01.c \
+	ft_itoa.c \
 	ft_putstr.c \
 	ft_strdup.c \
 	ft_strlen.c \

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 18:32:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:33:18 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_game
 	mlx_image_t	*img_stop;
 	mlx_image_t	*img_win;
 	mlx_image_t	*img_lose;
+	mlx_image_t	*img_speed;
+	mlx_image_t	*img_score;
 	t_llist		*map;
 	t_llist		*road;
 	t_llist		*enemy;
@@ -123,6 +125,7 @@ int				check_map_06_sub1(t_game *game, int i_map, int i_line);
 int				check_map_06_sub2(char *line, int i_line);
 
 // ft*.c
+char			*ft_itoa(int n);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
 void			ft_putstr(char *str);
