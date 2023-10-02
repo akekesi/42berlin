@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/01 22:11:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 17:10:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # define TILE_SIZE	50
 # define MAP_WIDTH	450
 # define MAP_HEIGHT	500
-# define MSG_WIDTH	150
-# define MSG_HEIGHT	40
-# define MSG_X		150
-# define MSG_Y		100
+# define MSG_WIDTH	220
+# define MSG_HEIGHT	15
+# define MSG_X		115
+# define MSG_Y		117
 
 # include <fcntl.h>
 # include <unistd.h>
