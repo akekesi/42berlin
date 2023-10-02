@@ -1,122 +1,129 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_01.c                                         :+:      :+:    :+:   */
+/*   09_check_01.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akekesi <akekesi@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 07:53:27 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/27 07:53:27 by akekesi          ###   ########.fr       */
+/*   Created: 2023/09/24 21:36:57 by akekesi           #+#    #+#             */
+/*   Updated: 2023/10/02 22:04:23 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// validity
-int	check_map_05(t_game *game)
+// lengths of lines
+int	check_map_00(t_game *game)
 {
-	int		i_map;
-	int		i_line;
-	int		length_line;
+	int	i;
+	int	length;
 
-	i_map = 0;
-	length_line = ft_strlen((char *)game->map->value);
-	while (i_map < game->length_map)
+	length = ft_strlen((char *)game->map->value);
+	i = 0;
+	while (i < game->length_map)
 	{
-		if (1 < i_map && i_map < game->length_map - 2)
-		{
-			i_line = 1;
-			while (i_line < length_line - 2)
-			{
-				if (!check_map_05_sub(((char *)game->map->value)[i_line]))
-					return (0);
-				i_line++;
-			}
-		}
-		i_map++;
+		if (ft_strlen(game->map->value) != length)
+			return (0);
 		llist_rot(&game->map);
+		i++;
 	}
 	return (1);
 }
 
-// validity sub
-int	check_map_05_sub(char c)
+// first and last characters of lines
+int	check_map_01(t_game *game)
 {
-	if (c == '0')
-		return (1);
-	if (c == 'E')
-		return (1);
-	if (c == 'C')
-		return (1);
-	return (0);
-}
+	int	i;
+	int	length;
 
-// solvability
-int	check_map_06(t_game *game)
-{
-	int		i_map;
-	int		i_line;
-	int		length_line;
-
-	i_map = 0;
-	length_line = ft_strlen((char *)game->map->value);
-	while (i_map < game->length_map)
+	length = ft_strlen((char *)game->map->value);
+	i = 0;
+	while (i < game->length_map)
 	{
-		if (1 < i_map && i_map < game->length_map - 2)
-		{
-			i_line = 1;
-			while (i_line < length_line - 2)
-			{
-				if (((char *)game->map->value)[i_line] == 'C')
-					if (!check_map_06_sub1(game, i_map, i_line))
-						return (0);
-				i_line++;
-			}
-		}
-		i_map++;
+		if (((char *)game->map->value)[0] != '1')
+			return (0);
+		if (((char *)game->map->value)[length - 2] != '1')
+			return (0);
 		llist_rot(&game->map);
+		i++;
 	}
 	return (1);
 }
 
-// solvability sub1
-int	check_map_06_sub1(t_game *game, int i_map, int i_line)
+// first and last lines
+int	check_map_02(t_game *game)
 {
-	char	*line_pre;
-	char	*line_next;
+	int	i;
+	int	length;
 
-	line_pre = (char *)game->map->prev->value;
-	line_next = (char *)game->map->next->value;
-	if (i_map == 2)
-		line_pre = (char *)game->map->prev->prev->prev->prev->prev->value;
-	if (i_map == game->length_map - 3)
-		line_next = (char *)game->map->next->next->next->next->next->value;
-	if (!check_map_06_sub2(line_pre, i_line))
+	length = ft_strlen((char *)game->map->value);
+	i = 0;
+	while (i < length - 1)
+	{
+		if (((char *)game->map->value)[i] != '1')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (i < length - 1)
+	{
+		if (((char *)game->map->prev->value)[i] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+// player
+int	check_map_03(t_game *game)
+{
+	int	i;
+	int	length;
+	int	flag;
+
+	length = ft_strlen((char *)game->map->value);
+	if (((char *)game->map->next->value)[0] != '1')
 		return (0);
-	if (!check_map_06_sub2(line_next, i_line))
+	if (((char *)game->map->next->value)[length - 2] != '1')
+		return (0);
+	i = 1;
+	flag = 0;
+	while (i < length - 2)
+	{
+		if (((char *)game->map->next->value)[i] == 'P')
+			flag++;
+		else if (((char *)game->map->next->value)[i] != '0')
+			return (0);
+		i++;
+	}
+	if (flag != 1)
 		return (0);
 	return (1);
 }
 
-// solvability sub2
-int	check_map_06_sub2(char *line, int i_line)
+// win
+int	check_map_04(t_game *game)
 {
-	int	length_line;
+	int	i;
+	int	length;
+	int	flag;
 
-	length_line = ft_strlen(line);
-	if (line[i_line] != 'E')
-		return (1);
-	if (1 < i_line)
-		if (line[i_line - 1] != 'E')
-			return (1);
-	if (2 < i_line)
-		if (line[i_line - 2] != 'E')
-			return (1);
-	if (i_line < length_line - 2)
-		if (line[i_line + 1] != 'E')
-			return (1);
-	if (i_line < length_line - 3)
-		if (line[i_line + 2] != 'E')
-			return (1);
-	return (0);
+	length = ft_strlen((char *)game->map->value);
+	if (((char *)game->map->prev->prev->value)[0] != '1')
+		return (0);
+	if (((char *)game->map->prev->prev->value)[length - 2] != '1')
+		return (0);
+	i = 1;
+	flag = 0;
+	while (i < length - 2)
+	{
+		if (((char *)game->map->prev->prev->value)[i] == 'W')
+			flag++;
+		else if (((char *)game->map->prev->prev->value)[i] != '0')
+			return (0);
+		i++;
+	}
+	if (flag != 1)
+		return (0);
+	return (1);
 }

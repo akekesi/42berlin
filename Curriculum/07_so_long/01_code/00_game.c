@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 21:33:23 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 22:08:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,8 @@ void	init_game(t_game *game, char *path_map)
 		ft_putstr("Error");
 	game->map = read_map(fd);
 	game->length_map = llist_len(game->map);
-	if (check_map_00(game))
-		ft_putstr("OK-00\n");
-	if (check_map_01(game))
-		ft_putstr("OK-01\n");
-	if (check_map_02(game))
-		ft_putstr("OK-02\n");
-	if (check_map_03(game))
-		ft_putstr("OK-03\n");
-	if (check_map_04(game))
-		ft_putstr("OK-04\n");
-	if (check_map_05(game))
-		ft_putstr("OK-05\n");
-	if (check_map_06(game))
-		ft_putstr("OK-06\n");
+	if (!check_map(game))
+		return ;
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "Road Fighter", false);
 	game->img_player = NULL;

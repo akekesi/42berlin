@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 21:33:18 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 22:06:31 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,9 @@ void			find_collectible(t_game *game);
 void			free_collectible(t_game *game);
 
 // 09_check*.c
+int				check_map(t_game *game);
+int				check_map_sub1(t_game *game);
+int				check_map_sub2(t_game *game);
 int				check_map_00(t_game *game);
 int				check_map_01(t_game *game);
 int				check_map_02(t_game *game);
