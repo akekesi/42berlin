@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/01 22:28:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 17:31:13 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	move_enemy(t_game *game)
 	tmp = game->enemy;
 	while (1)
 	{
-		if (game->length_collectible && ((mlx_image_t *)game->enemy->value)->instances->y == (game->length_map - 5) * TILE_SIZE)
+		if (game->length_collectible && ((mlx_image_t *)game->enemy->value)->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->enemy->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->enemy->value)->instances->y += TILE_SIZE;
@@ -88,7 +88,7 @@ void	find_enemy(t_game *game)
 			&& ((mlx_image_t *)game->enemy->value)->instances->y == game->img_player->instances->y)
 		{
 			game->start_stop = 0;
-			game->img_lose->instances->y = 2 * TILE_SIZE;
+			game->img_lose->instances->y = MSG_Y;
 			return ;
 		}
 		llist_rot(&game->enemy);

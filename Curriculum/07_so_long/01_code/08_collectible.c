@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:57:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 17:34:55 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	move_collectible(t_game *game)
 	tmp = game->collectible;
 	while (1)
 	{
-		if (((mlx_image_t *)game->collectible->value)->instances->y == (game->length_map - 5) * TILE_SIZE)
+		if (((mlx_image_t *)game->collectible->value)->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->collectible->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->collectible->value)->instances->y += TILE_SIZE;
@@ -79,7 +79,7 @@ void	find_collectible(t_game *game)
 		if (((mlx_image_t *)game->collectible->value)->instances->x == game->img_player->instances->x
 			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->img_player->instances->y)
 		{
-			((mlx_image_t *)game->collectible->value)->instances->y -= 9999;
+			((mlx_image_t *)game->collectible->value)->instances->y = MAP_HEIGHT + TILE_SIZE;
 			game->length_collectible--;
 		}
 		llist_rot(&game->collectible);

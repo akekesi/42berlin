@@ -35,7 +35,7 @@ void	init_img_price(t_game *game)
 
 void	move_img_price(t_game *game)
 {
-	if (game->img_price->instances->y == (game->length_map - 5) * TILE_SIZE)
+	if (game->img_price->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 		game->img_price->instances->y = 0;
 	else
 		game->img_price->instances->y += TILE_SIZE;
@@ -47,7 +47,8 @@ void	find_img_price(t_game *game)
 		&& game->img_price->instances->y == game->img_player->instances->y)
 	{
 		game->won = 1;
-		game->img_price->instances->y = game->length_map * TILE_SIZE;
+		game->img_price->instances->y = MAP_HEIGHT + TILE_SIZE;
+		game->img_win->instances->y = MSG_Y;
 	}
 }
 
