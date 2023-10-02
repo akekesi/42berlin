@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06_road.c                                          :+:      :+:    :+:   */
+/*   07_road.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/01 21:28:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 00:06:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,18 @@ void	init_road(t_game *game)
 
 void	move_road(t_game *game)
 {
-	int	i;
+	t_llist	*tmp;
 
-	i = MAP_HEIGHT / TILE_SIZE;
-	while (i--)
+	tmp = game->road;
+	while (game->road)
 	{
 		if (((mlx_image_t *)game->road->value)->instances->y == MAP_HEIGHT - TILE_SIZE)
 			((mlx_image_t *)game->road->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->road->value)->instances->y += TILE_SIZE;
 		llist_rot(&game->road);
+		if (tmp == game->road)
+			break ;
 	}
 }
 

@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/02 22:07:42 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/03 00:15:43 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,17 +26,18 @@ MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
 
 SRCS = so_long.c \
 	00_game.c \
-	01_map.c \
-	02_player.c \
+	01_player.c \
+	02_crash.c \
 	03_price.c \
 	04_start_stop.c \
 	05_win_lose.c \
-	06_road.c \
-	07_enemy.c \
-	08_collectible.c \
-	09_check_00.c \
-	09_check_01.c \
-	09_check_02.c \
+	06_map.c \
+	07_road.c \
+	08_enemy.c \
+	09_collectible.c \
+	10_check_00.c \
+	10_check_01.c \
+	10_check_02.c \
 	ft_itoa.c \
 	ft_putstr.c \
 	ft_strdup.c \

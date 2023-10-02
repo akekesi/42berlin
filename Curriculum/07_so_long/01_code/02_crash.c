@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_map.c                                           :+:      :+:    :+:   */
+/*   02_crash.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 19:20:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/30 23:49:57 by akekesi          ###   ########.fr       */
+/*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
+/*   Updated: 2023/10/03 00:06:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_llist	*read_map(int fd)
+void	init_img_crash(t_game *game)
 {
-	char	*line;
-	t_llist	*map;
-	t_llist	*node;
+	mlx_texture_t	*texture;
 
-	map = NULL;
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line || line[0] == '\n')
-		{
-			free(line);
-			break ;
-		}
-		node = llist_create(line);
-		llist_add(&map, node);
-	}
-	return (map);
+	texture = mlx_load_png("assets/images/crash.png");
+	game->img_crash = mlx_texture_to_image(game->mlx, texture);
+	mlx_image_to_window(game->mlx, game->img_crash, -TILE_SIZE, -TILE_SIZE);
+	mlx_set_instance_depth(game->img_crash->instances, 3);
+	mlx_delete_texture(texture);
 }
 
-void	free_map(t_game *game)
+void	free_img_crash(t_game *game)
 {
-	llist_free(&game->map);
+	mlx_delete_image(game->mlx, game->img_crash);
 }

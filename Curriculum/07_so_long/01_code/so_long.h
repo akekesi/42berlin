@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 22:06:31 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 00:15:47 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_game
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img_player;
+	mlx_image_t	*img_crash;
 	mlx_image_t	*img_price;
 	mlx_image_t	*img_start;
 	mlx_image_t	*img_stop;
@@ -52,13 +53,16 @@ typedef struct s_game
 	t_llist		*enemy;
 	t_llist		*collectible;
 	int			start_stop;
-	int			won;
 	int			speed;
 	int			time_last;
 	int			time_delta;
 	int			length_map;
 	int			length_collectible;
 }	t_game;
+
+// so_loong.c with main
+void			init_sub(t_game *game, char *path_map);
+void			free_sub(t_game *game);
 
 // 00_game.c
 void			init_game(t_game *game, char *path_map);
@@ -67,14 +71,16 @@ void			move_game(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
 void			loop_hook(void *param);
 
-// 01_map.c
-t_llist			*read_map(int fd);
-void			free_map(t_game *game);
-
-// 02_player.c
+// 01_player.c
 void			init_img_player(t_game *game);
 void			move_img_player(t_game *game);
 void			free_img_player(t_game *game);
+
+// 02_crash.c
+void			init_img_crash(t_game *game);
+void			move_img_crash(t_game *game);
+void			find_img_crash(t_game *game);
+void			free_img_crash(t_game *game);
 
 // 03_price.c
 void			init_img_price(t_game *game);
@@ -94,25 +100,31 @@ void			init_img_lose(t_game *game);
 void			free_img_win(t_game *game);
 void			free_img_lose(t_game *game);
 
-// 06_road.c
+// 06_map.c
+t_llist			*read_map(int fd);
+void			free_map(t_game *game);
+
+// 07_road.c
 void			init_road(t_game *game);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
-// 07_enemy.c
+// 08_enemy.c
 void			init_enemy(t_game *game);
 mlx_texture_t	*rand_enemy(int truck, int row, int col);
 void			move_enemy(t_game *game);
-void			find_enemy(t_game *game);
+void			find_enemy_front(t_game *game);
+void			find_enemy_left(t_game *game);
+void			find_enemy_right(t_game *game);
 void			free_enemy(t_game *game);
 
-// 08_collectible.c
+// 09_collectible.c
 void			init_collectible(t_game *game);
 void			move_collectible(t_game *game);
 void			find_collectible(t_game *game);
 void			free_collectible(t_game *game);
 
-// 09_check*.c
+// 10_check*.c
 int				check_map(t_game *game);
 int				check_map_sub1(t_game *game);
 int				check_map_sub2(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 22:08:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 00:05:25 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_game(t_game *game, char *path_map)
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, "Road Fighter", false);
 	game->img_player = NULL;
+	game->img_crash = NULL;
 	game->img_price = NULL;
 	game->img_start = NULL;
 	game->img_stop = NULL;
@@ -37,7 +38,6 @@ void	init_game(t_game *game, char *path_map)
 	game->enemy = NULL;
 	game->collectible = NULL;
 	game->start_stop = 0;
-	game->won = 0;
 	game->speed = 1;
 	game->time_last = get_time_current();
 	game->time_delta = 1000 / game->speed;
@@ -65,19 +65,18 @@ void	move_game(t_game *game)
 		game->img_stop->instances->y = -MSG_Y;
 		if (game->time_delta <= get_time_elapsed(game->time_last))
 		{
+			find_enemy_front(game);
+			if (game->img_lose->instances->y == MSG_Y)
+				return ;
 			move_road(game);
 			move_enemy(game);
 			move_collectible(game);
 			game->time_last = get_time_current();
 			if (!game->length_collectible)
 				move_img_price(game);
-			if (game->won)
-			{
+			if (game->img_win->instances->y == MSG_Y)
 				move_img_player(game);
-				game->img_win->instances->y = MSG_Y;
-			}
 		}
-		find_enemy(game);
 		find_collectible(game);
 		find_img_price(game);
 	}
@@ -119,9 +118,25 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 				game->time_delta = 1000 / game->speed;
 			}
 			if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_A)
+			{
+				find_enemy_left(game);
+				if (game->img_lose->instances->y == MSG_Y)
+				{
+					game->img_player->instances->x -= 20;
+					return ;
+				}
 				game->img_player->instances->x = ft_max(game->img_player->instances->x - TILE_SIZE, 2 * TILE_SIZE);
+			}
 			if (keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_D)
+			{
+				find_enemy_right(game);
+				if (game->img_lose->instances->y == MSG_Y)
+				{
+					game->img_player->instances->x += 20;
+					return ;
+				}
 				game->img_player->instances->x = ft_min(game->img_player->instances->x + TILE_SIZE, MAP_WIDTH - 3 * TILE_SIZE);
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 21:57:24 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 00:06:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_img_price(t_game *game)
 		}
 		i++;
 	}
-	mlx_set_instance_depth(game->img_price->instances, 2);
+	mlx_set_instance_depth(game->img_price->instances, 1);
 	mlx_delete_texture(texture);
 }
 
@@ -46,7 +46,6 @@ void	find_img_price(t_game *game)
 	if (game->img_price->instances->x == game->img_player->instances->x
 		&& game->img_price->instances->y == game->img_player->instances->y)
 	{
-		game->won = 1;
 		game->img_price->instances->y = 999 * ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
 		game->img_win->instances->y = MSG_Y;
 	}
