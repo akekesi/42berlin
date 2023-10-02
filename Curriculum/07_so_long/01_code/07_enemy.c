@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 19:02:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 21:50:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_enemy(t_game *game)
 
 	tmp = game->map;
 	row = -1;
-	while (1)
+	while (game->map)
 	{
 		col = 1;
 		while (((char *)game->map->value)[col] != '1')
@@ -44,14 +44,8 @@ void	init_enemy(t_game *game)
 					texture = rand_enemy(0, row, col);
 				node = llist_create(mlx_texture_to_image(game->mlx, texture));
 				llist_add(&game->enemy, node);
-				mlx_image_to_window(
-					game->mlx,
-					game->enemy->prev->value,
-					col * TILE_SIZE + TILE_SIZE,
-					row * -TILE_SIZE);
-				mlx_set_instance_depth(
-					((mlx_image_t *)game->enemy->prev->value)->instances,
-					1);
+				mlx_image_to_window(game->mlx, game->enemy->prev->value, col * TILE_SIZE + TILE_SIZE, row * -TILE_SIZE);
+				mlx_set_instance_depth(((mlx_image_t *)game->enemy->prev->value)->instances, 1);
 				mlx_delete_texture(texture);
 			}
 			col++;
