@@ -47,7 +47,7 @@ void	find_img_price(t_game *game)
 		&& game->img_price->instances->y == game->img_player->instances->y)
 	{
 		game->won = 1;
-		game->img_price->instances->y = MAP_HEIGHT + TILE_SIZE;
+		game->img_price->instances->y = 999 * ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
 		game->img_win->instances->y = MSG_Y;
 	}
 }

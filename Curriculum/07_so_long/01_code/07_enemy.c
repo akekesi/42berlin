@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/02 17:31:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/02 19:02:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_enemy(t_game *game)
 {
 	int				row;
 	int				col;
+	int				truck;
 	t_llist			*tmp;
 	t_llist			*node;
 	mlx_texture_t	*texture;
@@ -29,7 +30,18 @@ void	init_enemy(t_game *game)
 		{
 			if (((char *)game->map->value)[col] == 'E')
 			{
-				texture = rand_enemy(row, col);
+				if (((char *)game->map->next->value)[col] == 'E' && !truck)
+				{
+					texture = rand_enemy(2, row, col);
+					truck = 1;
+				}
+				else if (((char *)game->map->prev->value)[col] == 'E' && truck)
+				{
+					texture = rand_enemy(1, row, col);
+					truck = 0;
+				}
+				else
+					texture = rand_enemy(0, row, col);
 				node = llist_create(mlx_texture_to_image(game->mlx, texture));
 				llist_add(&game->enemy, node);
 				mlx_image_to_window(
@@ -51,8 +63,12 @@ void	init_enemy(t_game *game)
 	}
 }
 
-mlx_texture_t	*rand_enemy(int row, int col)
+mlx_texture_t	*rand_enemy(int truck, int row, int col)
 {
+	if (truck == 1)
+		return (mlx_load_png("assets/images/enemy_truck_front.png"));
+	if (truck == 2)
+		return (mlx_load_png("assets/images/enemy_truck_rear.png"));
 	if ((rand() % (col + row)) % 2)
 		return (mlx_load_png("assets/images/enemy_blue.png"));
 	else
@@ -64,7 +80,7 @@ void	move_enemy(t_game *game)
 	t_llist	*tmp;
 
 	tmp = game->enemy;
-	while (1)
+	while (game->enemy)
 	{
 		if (game->length_collectible && ((mlx_image_t *)game->enemy->value)->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->enemy->value)->instances->y = 0;
@@ -81,7 +97,7 @@ void	find_enemy(t_game *game)
 	t_llist	*tmp;
 
 	tmp = game->enemy;
-	while (1)
+	while (game->enemy)
 	{
 		if (
 			((mlx_image_t *)game->enemy->value)->instances->x == game->img_player->instances->x
