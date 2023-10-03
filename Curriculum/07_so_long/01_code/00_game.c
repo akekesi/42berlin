@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:05:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 19:51:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	init_game(t_game *game, char *path_map)
 	game->img_stop = NULL;
 	game->img_win = NULL;
 	game->img_lose = NULL;
-	game->img_speed = NULL;
-	game->img_score = NULL;
+	game->img_dashboard_bgr = NULL;
+	game->img_dashboard_fgr = NULL;
 	game->road = NULL;
 	game->enemy = NULL;
 	game->collectible = NULL;
@@ -41,7 +41,8 @@ void	init_game(t_game *game, char *path_map)
 	game->speed = 1;
 	game->time_last = get_time_current();
 	game->time_delta = 1000 / game->speed;
-	game->length_collectible = 0;
+	game->length_collectible_curr = 0;
+	game->length_collectible_orig = 0;
 }
 
 void	loop_game(t_game *game)
@@ -53,8 +54,6 @@ void	loop_game(t_game *game)
 
 void	move_game(t_game *game)
 {
-	char	*str;
-
 	if (game->img_player->instances->y < 0)
 	{
 		game->start_stop = 0;
@@ -72,7 +71,7 @@ void	move_game(t_game *game)
 			move_enemy(game);
 			move_collectible(game);
 			game->time_last = get_time_current();
-			if (!game->length_collectible)
+			if (!game->length_collectible_curr)
 				move_img_price(game);
 			if (game->img_win->instances->y == MSG_Y)
 				move_img_player(game);
@@ -80,14 +79,7 @@ void	move_game(t_game *game)
 		find_collectible(game);
 		find_img_price(game);
 	}
-	str = ft_itoa(game->speed * 20);
-	mlx_delete_image(game->mlx, game->img_speed);
-	game->img_speed = mlx_put_string(game->mlx, str, 375, 25);
-	free(str);
-	str = ft_itoa(game->length_collectible);
-	// mlx_delete_image(game->mlx, game->img_score); // WHY ?!?!?
-	game->img_score = mlx_put_string(game->mlx, str, 375, 75);
-	free(str);
+	move_img_dashboard(game);
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)

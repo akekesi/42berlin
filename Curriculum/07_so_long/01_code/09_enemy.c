@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:06:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:20:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	move_enemy(t_game *game)
 	tmp = game->enemy;
 	while (game->enemy)
 	{
-		if (game->length_collectible && ((mlx_image_t *)game->enemy->value)->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
+		if (game->length_collectible_curr && ((mlx_image_t *)game->enemy->value)->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->enemy->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->enemy->value)->instances->y += TILE_SIZE;

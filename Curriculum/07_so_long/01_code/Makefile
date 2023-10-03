@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/03 00:15:43 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/03 19:16:41 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,16 +31,18 @@ SRCS = so_long.c \
 	03_price.c \
 	04_start_stop.c \
 	05_win_lose.c \
-	06_map.c \
-	07_road.c \
-	08_enemy.c \
-	09_collectible.c \
-	10_check_00.c \
-	10_check_01.c \
-	10_check_02.c \
+	06_dashboard.c \
+	07_map.c \
+	08_road.c \
+	09_enemy.c \
+	10_collectible.c \
+	11_check_00.c \
+	11_check_01.c \
+	11_check_02.c \
 	ft_itoa.c \
 	ft_putstr.c \
 	ft_strdup.c \
+	ft_strjoin.c \
 	ft_strlen.c \
 	ft_math.c \
 	get_next_line_bonus.c \

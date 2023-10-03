@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:06:47 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:20:40 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	init_collectible(t_game *game)
 				llist_add(&game->collectible, node);
 				mlx_image_to_window(game->mlx, game->collectible->prev->value, col * TILE_SIZE + TILE_SIZE, row * -TILE_SIZE);
 				mlx_set_instance_depth(((mlx_image_t *)game->collectible->prev->value)->instances, 1);
-				game->length_collectible++;
+				game->length_collectible_curr++;
+				game->length_collectible_orig++;
 			}
 			col++;
 		}
@@ -74,7 +75,7 @@ void	find_collectible(t_game *game)
 			&& ((mlx_image_t *)game->collectible->value)->instances->y == game->img_player->instances->y)
 		{
 			((mlx_image_t *)game->collectible->value)->instances->y = 999 * ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
-			game->length_collectible--;
+			game->length_collectible_curr--;
 		}
 		llist_rot(&game->collectible);
 		if (tmp == game->collectible)
