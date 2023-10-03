@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:20:26 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 16:54:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:23:47 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strjoin(char *str1, char *str2)
 	int		len_str2;
 	char	*str_join;
 
-	if (!str1 || !str2)
-		return (NULL);
 	len_str1 = ft_strlen(str1);
 	len_str2 = ft_strlen(str2);
 	str_join = (char *)malloc(sizeof(char) * (len_str1 + len_str2 + 1));

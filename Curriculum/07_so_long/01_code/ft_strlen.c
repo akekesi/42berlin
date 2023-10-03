@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:06:49 by akekesi           #+#    #+#             */
-/*   Updated: 2023/09/24 14:19:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:23:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strlen(char *str)
 	int	n;
 
 	n = 0;
+	if (!str)
+		return (n);
 	while (str[n])
 		n++;
 	return (n);
