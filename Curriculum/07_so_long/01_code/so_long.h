@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 21:24:41 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 22:34:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ typedef struct s_game
 }	t_game;
 
 // so_loong.c with main
-void			init_sub(t_game *game, char *path_map);
+void			init_sub(t_game *game);
 void			free_sub(t_game *game);
 
 // 00_game.c
-void			init_game(t_game *game, char *path_map);
+void			init_game(t_game *game);
 void			loop_game(t_game *game);
 void			move_game(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
@@ -113,7 +113,7 @@ void			move_img_dashboard(t_game *game);
 void			free_img_dashboard(t_game *game);
 
 // 07_map.c
-t_llist			*read_map(int fd);
+t_llist			*read_map(char *path_map);
 void			free_map(t_game *game);
 
 // 08_road.c

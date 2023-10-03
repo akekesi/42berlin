@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   10_check_01.c                                      :+:      :+:    :+:   */
+/*   11_check_01.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 21:36:57 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:06:57 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:11:09 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// lengths of lines
+// lengths of map and lines
 int	check_map_00(t_game *game)
 {
 	int	i;
 	int	length;
 
+	if (!game->map)
+		return (0);
 	length = ft_strlen((char *)game->map->value);
+	if (game->length_map < 4 || length < 7)
+		return (0);
 	i = 0;
 	while (i < game->length_map)
 	{

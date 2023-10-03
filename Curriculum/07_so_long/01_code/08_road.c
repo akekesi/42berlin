@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 20:25:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:11:37 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	free_road(t_game *game)
 {
 	t_llist	*tmp;
 
+	if (!game->road)
+		return ;
 	game->road->prev->next = NULL;
 	while (game->road)
 	{

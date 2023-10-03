@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   09_collectible.c                                   :+:      :+:    :+:   */
+/*   10_collectible.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 18:20:40 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:11:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	free_collectible(t_game *game)
 {
 	t_llist	*tmp;
 
+	if (!game->collectible)
+		return ;
 	game->collectible->prev->next = NULL;
 	while (game->collectible)
 	{

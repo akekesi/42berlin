@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 21:48:11 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 23:08:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 - a price utan ne tudjon savot valtani, mert kicsit furan mozog
 */
 
-void	init_sub(t_game *game, char *path_map)
+void	init_sub(t_game *game)
 {
-	init_game(game, path_map);
+	init_game(game);
 	init_road(game);
 	init_enemy(game);
 	init_collectible(game);
@@ -57,14 +57,19 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		init_sub(&game, argv[1]);
+		game.map = read_map(argv[1]);
+		game.length_map = llist_len(game.map);
+		if (!check_map(&game))
+		{
+			free_map(&game);
+			return (0);
+		}
+		init_sub(&game);
 		loop_game(&game);
+
 		free_sub(&game);
 		mlx_terminate(game.mlx);
 	}
 	else
-	{
 		ft_putstr("Error");
-		return (0);
-	}
 }
