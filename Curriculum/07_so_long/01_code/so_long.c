@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 19:29:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 21:45:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	init_sub(t_game *game, char *path_map)
 {
 	init_game(game, path_map);
 	init_road(game);
+	init_enemy(game);
+	init_collectible(game);
 	init_img_player(game);
 	init_img_crash(game);
 	init_img_price(game);
@@ -39,14 +41,14 @@ void	init_sub(t_game *game, char *path_map)
 	init_img_win(game);
 	init_img_lose(game);
 	init_img_dashboard(game);
-	init_enemy(game);
-	init_collectible(game);
 }
 
 void	free_sub(t_game *game)
 {
 	free_map(game);
 	free_road(game);
+	free_enemy(game);
+	free_collectible(game);
 	free_img_player(game);
 	free_img_crash(game);
 	free_img_price(game);
@@ -55,9 +57,8 @@ void	free_sub(t_game *game)
 	free_img_win(game);
 	free_img_lose(game);
 	free_img_dashboard(game);
-	free_enemy(game);
-	free_collectible(game);
 }
+
 int	main(int argc, char **argv)
 {
 	t_game	game;

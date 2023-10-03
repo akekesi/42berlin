@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   07_road.c                                          :+:      :+:    :+:   */
+/*   08_road.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:06:29 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 20:25:38 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_road(t_game *game)
 {
 	int				i;
 	t_llist			*node;
-	const char		*path[10] = {
+	char			*path[10] = {
 		"assets/images/road_line_00.png",
 		"assets/images/road_line_01.png",
 		"assets/images/road_line_02.png",

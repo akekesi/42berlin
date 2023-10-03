@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 19:51:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/03 21:39:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	init_game(t_game *game, char *path_map)
 	game->start_stop = 0;
 	game->speed = 1;
 	game->time_last = get_time_current();
+	game->time_rest = 0;
+	game->time_move = 0;
 	game->time_delta = 1000 / game->speed;
+	game->time_elapsed = 0;
 	game->length_collectible_curr = 0;
 	game->length_collectible_orig = 0;
 }
@@ -55,15 +58,16 @@ void	loop_game(t_game *game)
 void	move_game(t_game *game)
 {
 	if (game->img_player->instances->y < 0)
-	{
 		game->start_stop = 0;
-	}
 	if (game->start_stop)
 	{
-		game->img_start->instances->y = -MSG_Y;
-		game->img_stop->instances->y = -MSG_Y;
-		if (game->time_delta <= get_time_elapsed(game->time_last))
+		game->time_elapsed += get_time_elapsed(game->time_last);
+		game->time_move += get_time_elapsed(game->time_last);
+		game->time_last = get_time_current();
+		move_img_dashboard(game);
+		if (game->time_delta <= game->time_move)
 		{
+			game->time_move = 0;
 			find_enemy_front(game);
 			if (game->img_lose->instances->y == MSG_Y)
 				return ;
@@ -79,7 +83,6 @@ void	move_game(t_game *game)
 		find_collectible(game);
 		find_img_price(game);
 	}
-	move_img_dashboard(game);
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)
@@ -92,8 +95,18 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		if (keydata.key == MLX_KEY_SPACE && game->img_win->instances->y < 0 && game->img_lose->instances->y < 0)
 		{
 			game->start_stop = (game->start_stop + 1) % 2;
-			if (!game->start_stop)
+			if (game->start_stop)
+			{
+				game->time_last = game->time_rest + get_time_current();
+				game->time_rest = 0;
+				game->img_start->instances->y = -MSG_Y;
+				game->img_stop->instances->y = -MSG_Y;
+			}
+			else
+			{
+				game->time_rest = get_time_elapsed(game->time_last);
 				game->img_stop->instances->y = MSG_Y;
+			}
 		}
 		if (keydata.key == MLX_KEY_ESCAPE)
 			mlx_close_window(game->mlx);
