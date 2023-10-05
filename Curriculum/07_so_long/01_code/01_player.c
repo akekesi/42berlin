@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 00:05:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 17:25:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_img_player(t_game *game)
 	int				i;
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/images/player.png");
+	texture = mlx_load_png(PATH_PLAYER);
 	game->img_player = mlx_texture_to_image(game->mlx, texture);
 	i = 1;
 	while (i)

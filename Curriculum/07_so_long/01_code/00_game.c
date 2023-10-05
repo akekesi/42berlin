@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 22:32:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 17:32:10 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_game(t_game *game)
 	game->img_win = NULL;
 	game->img_lose = NULL;
 	game->img_dashboard_bgr = NULL;
-	game->img_dashboard_fgr = NULL;
+	game->img_dashboard_str = NULL;
 	game->road = NULL;
 	game->enemy = NULL;
 	game->collectible = NULL;

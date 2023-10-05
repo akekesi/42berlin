@@ -6,22 +6,12 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 22:34:03 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 18:02:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
-# define TILE_SIZE		50
-# define MAP_WIDTH		450
-# define MAP_HEIGHT		500
-# define MSG_WIDTH		220
-# define MSG_HEIGHT		15
-# define MSG_X			115
-# define MSG_Y			117
-# define DASHBOARD_X	0
-# define DASHBOARD_Y	478
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -30,6 +20,34 @@
 # include <sys/time.h>
 # include "get_next_line_bonus.h"
 # include "MLX42/include/MLX42/MLX42.h"
+
+# define TILE_SIZE				50
+# define MAP_WIDTH				450
+# define MAP_HEIGHT				500
+# define MSG_WIDTH				220
+# define MSG_HEIGHT				15
+# define MSG_X					115
+# define MSG_Y					117
+# define DASHBOARD_X			0
+# define DASHBOARD_Y			478
+
+// https://www.photopea.com/
+// https://fontmeme.com/pixel-fonts/
+// font: ABS
+# define PATH_PLAYER			"assets/images/player.png"
+# define PATH_CRASH				"assets/images/crash.png"
+# define PATH_PRICE				"assets/images/price.png"
+# define PATH_START				"assets/images/msg_start.png"
+# define PATH_STOP				"assets/images/msg_stop.png"
+# define PATH_WIN				"assets/images/msg_win.png"
+# define PATH_LOSE				"assets/images/msg_lose.png"
+# define PATH_DASHBOARD			"assets/images/dashboard.png"
+# define PATH_ROAD				"assets/images/road_line_0X.png"
+# define PATH_ENEMY_TRUCK_FRONT	"assets/images/enemy_truck_front.png"
+# define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
+# define PATH_ENEMY_BLUE		"assets/images/enemy_blue.png"
+# define PATH_ENEMY_YELLOW		"assets/images/enemy_yellow.png"
+# define PATH_COLLECTIBLE		"assets/images/collectible.png"
 
 typedef struct s_llist
 {
@@ -49,7 +67,7 @@ typedef struct s_game
 	mlx_image_t	*img_win;
 	mlx_image_t	*img_lose;
 	mlx_image_t	*img_dashboard_bgr;
-	mlx_image_t	*img_dashboard_fgr;
+	mlx_image_t	*img_dashboard_str;
 	t_llist		*map;
 	t_llist		*road;
 	t_llist		*enemy;

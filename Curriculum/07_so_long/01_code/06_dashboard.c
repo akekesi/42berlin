@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:17:56 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/03 21:40:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 17:31:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_img_dashboard(t_game *game)
 	char			str[] = "speed:   0km/h | score:  0/ 0 | time:    0.0s";
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png("assets/images/dashboard_bgr.png");
+	texture = mlx_load_png(PATH_DASHBOARD);
 	game->img_dashboard_bgr = mlx_texture_to_image(game->mlx, texture);
 	mlx_image_to_window(game->mlx, game->img_dashboard_bgr, DASHBOARD_X, DASHBOARD_Y);
 	mlx_set_instance_depth(game->img_dashboard_bgr->instances, 2);
@@ -37,7 +37,7 @@ void	init_img_dashboard(t_game *game)
 		}
 		free(str_collectible);
 	}
-	game->img_dashboard_fgr = mlx_put_string(game->mlx, str, DASHBOARD_X, DASHBOARD_Y);
+	game->img_dashboard_str = mlx_put_string(game->mlx, str, DASHBOARD_X, DASHBOARD_Y);
 }
 
 void	move_img_dashboard(t_game *game)
@@ -97,8 +97,8 @@ void	move_img_dashboard(t_game *game)
 	free(str);
 	tmp = ft_strjoin(speed, score);
 	str = ft_strjoin(tmp, time);
-	mlx_delete_image(game->mlx, game->img_dashboard_fgr);
-	game->img_dashboard_fgr = mlx_put_string(game->mlx, str, DASHBOARD_X, DASHBOARD_Y);
+	mlx_delete_image(game->mlx, game->img_dashboard_str);
+	game->img_dashboard_str = mlx_put_string(game->mlx, str, DASHBOARD_X, DASHBOARD_Y);
 	free(tmp);
 	free(str);
 }
@@ -106,5 +106,5 @@ void	move_img_dashboard(t_game *game)
 void	free_img_dashboard(t_game *game)
 {
 	mlx_delete_image(game->mlx, game->img_dashboard_bgr);
-	mlx_delete_image(game->mlx, game->img_dashboard_fgr);
+	mlx_delete_image(game->mlx, game->img_dashboard_str);
 }
