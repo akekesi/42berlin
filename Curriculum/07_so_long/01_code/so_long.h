@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 20:05:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 20:53:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,14 +146,15 @@ void			init_road(t_game *game);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
-// 09_enemy.c
+// 09_enemy_*.c
 void			init_enemy(t_game *game);
+void			init_enemy_sub(t_game *game, int row, int col, int *truck);
 mlx_texture_t	*rand_enemy(int truck, int row, int col);
 void			move_enemy(t_game *game);
+void			free_enemy(t_game *game);
 void			find_enemy_front(t_game *game);
 void			find_enemy_left(t_game *game);
 void			find_enemy_right(t_game *game);
-void			free_enemy(t_game *game);
 
 // 10_collectible.c
 void			init_collectible(t_game *game);
