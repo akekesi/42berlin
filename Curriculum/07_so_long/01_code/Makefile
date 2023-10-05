@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/05 20:32:15 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/05 21:25:47 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
 MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
 
 SRCS = so_long.c \
-	00_game.c \
+	00_game_00.c \
+	00_game_01.c \
 	01_player.c \
 	02_crash.c \
 	03_price.c \

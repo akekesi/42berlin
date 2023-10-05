@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 21:08:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 22:16:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include "get_next_line_bonus.h"
@@ -30,6 +29,8 @@
 # define MSG_Y					117
 # define DASHBOARD_X			0
 # define DASHBOARD_Y			478
+
+# define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
 
 // https://www.photopea.com/
@@ -83,6 +84,7 @@ typedef struct s_game
 	int			length_map;
 	int			length_collectible_curr;
 	int			length_collectible_orig;
+	int			length_moves;
 }	t_game;
 
 // so_loong.c with main
@@ -92,10 +94,13 @@ void			free_sub(t_game *game);
 // 00_game.c
 void			init_game(t_game *game);
 void			loop_game(t_game *game);
-void			move_game(t_game *game);
-void			key_hook(mlx_key_data_t keydata, void *param);
 void			loop_hook(void *param);
-void			dashboard(t_game *game);
+void			loop_hook_sub(t_game *game);
+void			key_hook(mlx_key_data_t keydata, void *param);
+void			key_hook_sub1(t_game *game);
+void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);
+void			key_hook_sub3(mlx_key_data_t keydata, t_game *game);
+void			key_hook_sub4(mlx_key_data_t keydata, t_game *game);
 
 // 01_player.c
 void			init_img_player(t_game *game);
