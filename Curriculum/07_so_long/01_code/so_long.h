@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 22:16:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 23:09:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 # define DASHBOARD_X			0
 # define DASHBOARD_Y			478
 
+# define INFO					"\nCopy of Road Fighter \
+\n--> https://en.wikipedia.org/wiki/Road_Fighter \
+\n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ\n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
 
@@ -96,6 +99,7 @@ void			init_game(t_game *game);
 void			loop_game(t_game *game);
 void			loop_hook(void *param);
 void			loop_hook_sub(t_game *game);
+void			write_win(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
 void			key_hook_sub1(t_game *game);
 void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);

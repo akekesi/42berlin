@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 21:10:58 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 22:57:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		write(1, INFO, ft_strlen(INFO));
 		game.map = read_map(argv[1]);
 		game.length_map = llist_len(game.map);
 		if (!check_map(&game))
@@ -71,6 +72,7 @@ int	main(int argc, char **argv)
 		loop_game(&game);
 		free_sub(&game);
 		mlx_terminate(game.mlx);
+		write(1, INFO, ft_strlen(INFO));
 	}
 	else
 		ft_putstr("Error");

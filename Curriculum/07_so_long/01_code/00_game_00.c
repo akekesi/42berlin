@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 22:08:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 22:57:42 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	loop_hook(void *param)
 	t_game		*game;
 
 	game = param;
-	if (game->img_player->instances->y < 0)
-		game->start_stop = 0;
 	if (game->start_stop)
 	{
 		loop_hook_sub(game);
@@ -64,6 +62,7 @@ void	loop_hook(void *param)
 
 void	loop_hook_sub(t_game *game)
 {
+
 	game->time_elapsed += get_time_elapsed(game->time_last);
 	game->time_move += get_time_elapsed(game->time_last);
 	game->time_last = get_time_current();
@@ -82,5 +81,26 @@ void	loop_hook_sub(t_game *game)
 			move_img_price(game);
 		if (game->img_win->instances->y == MSG_Y)
 			move_img_player(game);
+		if (game->img_player->instances->y < 0)
+		{
+			game->start_stop = 0;
+			write_win(game);
+		}
 	}
+}
+
+void	write_win(t_game *game)
+{
+	char	*str;
+
+	write(1, "time: ", 6);
+	str = ft_itoa(game->time_elapsed / 1000);
+	write(1, str, ft_strlen(str));
+	free(str);
+	write(1, ".", 1);
+	str = ft_itoa(game->time_elapsed / 100);
+	write(1, &str[ft_strlen(str) - 1], 1);
+	free(str);
+	write(1, "s\n", 2);
+	write(1, ">>> YOU WIN <<<\n", 16);
 }
