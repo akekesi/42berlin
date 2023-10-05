@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 22:57:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 23:27:58 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	loop_hook(void *param)
 
 void	loop_hook_sub(t_game *game)
 {
-
 	game->time_elapsed += get_time_elapsed(game->time_last);
 	game->time_move += get_time_elapsed(game->time_last);
 	game->time_last = get_time_current();

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 23:09:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 23:24:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@
 
 # define INFO					"\nCopy of Road Fighter \
 \n--> https://en.wikipedia.org/wiki/Road_Fighter \
-\n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ\n\n"
+\n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ \
+\n--> https://media.cdnandroid.com/item_images/672948/ \
+imagen-road-fighter-car-racing-0ori.jpg\n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
 
