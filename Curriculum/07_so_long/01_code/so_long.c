@@ -6,14 +6,15 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 20:55:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 21:10:58 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 /*
 - price felbevagja a truck-ot, ha ugy van
-- legyen gyozelmi fekete-feher csik az uton? (de mikor legyen vege a jateknak akkor)
+- legyen gyozelmi fekete-feher csik az uton?
+--> de mikor legyen vege a jateknak akkor
 - error handling
 - read map (ures, ...)
 - return value int --> meg lehet szakitani a jatekot
