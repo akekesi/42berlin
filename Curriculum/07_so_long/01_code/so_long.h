@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 18:02:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 20:05:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define MSG_Y					117
 # define DASHBOARD_X			0
 # define DASHBOARD_Y			478
+# define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
 
 // https://www.photopea.com/
 // https://fontmeme.com/pixel-fonts/
@@ -125,10 +126,16 @@ void			init_img_lose(t_game *game);
 void			free_img_win(t_game *game);
 void			free_img_lose(t_game *game);
 
-// 06_dashboard.c
+// 06_dashboard_*.c
 void			init_img_dashboard(t_game *game);
 void			move_img_dashboard(t_game *game);
 void			free_img_dashboard(t_game *game);
+void			str_img_dashboard_speed(t_game *game, char **dashboard_str);
+void			str_img_dashboard_collectible_curr(
+					t_game *game, char **dashboard_str);
+void			str_img_dashboard_collectible_orig(
+					t_game *game, char **dashboard_str);
+void			str_img_dashboard_time(t_game *game, char **dashboard_str);
 
 // 07_map.c
 t_llist			*read_map(char *path_map);
@@ -154,7 +161,7 @@ void			move_collectible(t_game *game);
 void			find_collectible(t_game *game);
 void			free_collectible(t_game *game);
 
-// 11_check*.c
+// 11_check_*.c
 int				check_map(t_game *game);
 int				check_map_sub1(t_game *game);
 int				check_map_sub2(t_game *game);

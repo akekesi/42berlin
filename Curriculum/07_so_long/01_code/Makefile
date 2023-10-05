@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/03 19:16:41 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/05 19:46:22 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS = so_long.c \
 	03_price.c \
 	04_start_stop.c \
 	05_win_lose.c \
-	06_dashboard.c \
+	06_dashboard_00.c \
+	06_dashboard_01.c \
 	07_map.c \
 	08_road.c \
 	09_enemy.c \

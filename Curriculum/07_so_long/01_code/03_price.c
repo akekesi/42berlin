@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 17:27:06 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/05 18:54:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ void	init_img_price(t_game *game)
 	{
 		if (((char *)game->map->prev->prev->value)[i] == 'W')
 		{
-			mlx_image_to_window(game->mlx, game->img_price, (i + 1) * TILE_SIZE, -TILE_SIZE);
+			mlx_image_to_window(
+				game->mlx,
+				game->img_price,
+				(i + 1) * TILE_SIZE,
+				-TILE_SIZE);
 			break ;
 		}
 		i++;
@@ -35,7 +39,8 @@ void	init_img_price(t_game *game)
 
 void	move_img_price(t_game *game)
 {
-	if (game->img_price->instances->y == ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
+	if (game->img_price->instances->y \
+		== ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 		game->img_price->instances->y = 0;
 	else
 		game->img_price->instances->y += TILE_SIZE;
@@ -46,7 +51,8 @@ void	find_img_price(t_game *game)
 	if (game->img_price->instances->x == game->img_player->instances->x
 		&& game->img_price->instances->y == game->img_player->instances->y)
 	{
-		game->img_price->instances->y = 999 * ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
+		game->img_price->instances->y = 999 * \
+			ft_max((game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
 		game->img_win->instances->y = MSG_Y;
 	}
 }
