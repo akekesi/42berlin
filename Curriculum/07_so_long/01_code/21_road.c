@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   08_road.c                                          :+:      :+:    :+:   */
+/*   21_road.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 20:31:13 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 21:22:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_road(t_game *game)
 			i * TILE_SIZE);
 		mlx_set_instance_depth(
 			((mlx_image_t *)game->road->prev->value)->instances,
-			0);
+			LAYER_ROAD);
 		mlx_delete_texture(texture);
 		i++;
 	}

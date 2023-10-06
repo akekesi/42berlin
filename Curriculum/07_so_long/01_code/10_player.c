@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_crash.c                                         :+:      :+:    :+:   */
+/*   10_player.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 17:25:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 21:49:35 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_img_crash(t_game *game)
+void	init_img_player(t_game *game)
 {
+	int				i;
 	mlx_texture_t	*texture;
 
-	texture = mlx_load_png(PATH_CRASH);
-	game->img_crash = mlx_texture_to_image(game->mlx, texture);
-	mlx_image_to_window(game->mlx, game->img_crash, -TILE_SIZE, -TILE_SIZE);
-	mlx_set_instance_depth(game->img_crash->instances, 3);
+	texture = mlx_load_png(PATH_PLAYER);
+	game->img_player = mlx_texture_to_image(game->mlx, texture);
+	i = 1;
+	while (i)
+	{
+		if (((char *)game->map->next->value)[i] == 'P')
+		{
+			mlx_image_to_window(
+				game->mlx,
+				game->img_player,
+				(i + 1) * TILE_SIZE,
+				MAP_HEIGHT - 2 * TILE_SIZE);
+			break ;
+		}
+		i++;
+	}
+	mlx_set_instance_depth(game->img_player->instances, LAYER_PLAYER);
 	mlx_delete_texture(texture);
 }
 
-void	free_img_crash(t_game *game)
+void	move_img_player(t_game *game)
 {
-	mlx_delete_image(game->mlx, game->img_crash);
+	game->img_player->instances->y -= TILE_SIZE;
+}
+
+void	free_img_player(t_game *game)
+{
+	mlx_delete_image(game->mlx, game->img_player);
 }

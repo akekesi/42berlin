@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/05 21:25:47 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/06 22:05:16 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,21 +27,23 @@ MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
 SRCS = so_long.c \
 	00_game_00.c \
 	00_game_01.c \
-	01_player.c \
-	02_crash.c \
-	03_price.c \
-	04_start_stop.c \
-	05_win_lose.c \
-	06_dashboard_00.c \
-	06_dashboard_01.c \
-	07_map.c \
-	08_road.c \
-	09_enemy_00.c \
-	09_enemy_01.c \
-	10_collectible.c \
-	11_check_00.c \
-	11_check_01.c \
-	11_check_02.c \
+	00_game_02.c \
+	10_player.c \
+	11_crash.c \
+	12_finish.c \
+	13_price.c \
+	14_start_stop.c \
+	15_win_lose.c \
+	16_dashboard_00.c \
+	16_dashboard_01.c \
+	20_map.c \
+	21_road.c \
+	22_enemy_00.c \
+	22_enemy_01.c \
+	23_collectible.c \
+	30_check_00.c \
+	30_check_01.c \
+	30_check_02.c \
 	ft_itoa.c \
 	ft_putstr.c \
 	ft_strdup.c \

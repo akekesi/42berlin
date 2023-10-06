@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   06_dashboard_00.c                                  :+:      :+:    :+:   */
+/*   16_dashboard_00.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:17:56 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 19:49:58 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 21:51:02 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_img_dashboard(t_game *game)
 		game->img_dashboard_bgr,
 		DASHBOARD_X,
 		DASHBOARD_Y);
-	mlx_set_instance_depth(game->img_dashboard_bgr->instances, 2);
+	mlx_set_instance_depth(game->img_dashboard_bgr->instances, LAYER_MSG);
 	mlx_delete_texture(texture);
 	str_img_dashboard_collectible_orig(game, &dashboard_str);
 	game->img_dashboard_str = mlx_put_string(

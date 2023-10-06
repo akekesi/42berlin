@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   09_enemy_00.c                                      :+:      :+:    :+:   */
+/*   22_enemy_00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 20:54:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 21:27:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	init_enemy_sub(t_game *game, int row, int col, int *truck)
 		col * TILE_SIZE + TILE_SIZE,
 		row * -TILE_SIZE);
 	mlx_set_instance_depth(
-		((mlx_image_t *)game->enemy->prev->value)->instances, 1);
+		((mlx_image_t *)game->enemy->prev->value)->instances, LAYER_OTHERS);
 	mlx_delete_texture(texture);
 }
 

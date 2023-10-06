@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 23:24:11 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 22:07:39 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define MSG_Y					117
 # define DASHBOARD_X			0
 # define DASHBOARD_Y			478
+# define LAYER_ROAD				0
+# define LAYER_FINISH			1
+# define LAYER_OTHERS			2
+# define LAYER_PLAYER			3
+# define LAYER_CRASH			4
+# define LAYER_MSG				5
 
 # define INFO					"\nCopy of Road Fighter \
 \n--> https://en.wikipedia.org/wiki/Road_Fighter \
@@ -43,6 +49,7 @@ imagen-road-fighter-car-racing-0ori.jpg\n\n"
 // font: ABS
 # define PATH_PLAYER			"assets/images/player.png"
 # define PATH_CRASH				"assets/images/crash.png"
+# define PATH_FINISH			"assets/images/finish.png"
 # define PATH_PRICE				"assets/images/price.png"
 # define PATH_START				"assets/images/msg_start.png"
 # define PATH_STOP				"assets/images/msg_stop.png"
@@ -68,7 +75,9 @@ typedef struct s_game
 	mlx_t		*mlx;
 	mlx_image_t	*img_player;
 	mlx_image_t	*img_crash;
+	mlx_image_t	*img_finish;
 	mlx_image_t	*img_price;
+	mlx_image_t	*img_price_win;
 	mlx_image_t	*img_start;
 	mlx_image_t	*img_stop;
 	mlx_image_t	*img_win;
@@ -98,9 +107,11 @@ void			free_sub(t_game *game);
 
 // 00_game.c
 void			init_game(t_game *game);
+void			init_game_sub(t_game *game);
 void			loop_game(t_game *game);
 void			loop_hook(void *param);
-void			loop_hook_sub(t_game *game);
+void			loop_hook_sub1(t_game *game);
+void			loop_hook_sub2(t_game *game);
 void			write_win(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
 void			key_hook_sub1(t_game *game);
@@ -108,36 +119,42 @@ void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub3(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub4(mlx_key_data_t keydata, t_game *game);
 
-// 01_player.c
+// 10_player.c
 void			init_img_player(t_game *game);
 void			move_img_player(t_game *game);
 void			free_img_player(t_game *game);
 
-// 02_crash.c
+// 11_crash.c
 void			init_img_crash(t_game *game);
 void			move_img_crash(t_game *game);
 void			find_img_crash(t_game *game);
 void			free_img_crash(t_game *game);
 
-// 03_price.c
+// 12_finish.c
+void			init_img_finish(t_game *game);
+void			move_img_finish(t_game *game);
+void			find_img_finish(t_game *game);
+void			free_img_finish(t_game *game);
+
+// 13_price.c
 void			init_img_price(t_game *game);
 void			move_img_price(t_game *game);
 void			find_img_price(t_game *game);
 void			free_img_price(t_game *game);
 
-// 04_start_stop.c
+// 14_start_stop.c
 void			init_img_start(t_game *game);
 void			init_img_stop(t_game *game);
 void			free_img_start(t_game *game);
 void			free_img_stop(t_game *game);
 
-// 05_win_lose.c
+// 15_win_lose.c
 void			init_img_win(t_game *game);
 void			init_img_lose(t_game *game);
 void			free_img_win(t_game *game);
 void			free_img_lose(t_game *game);
 
-// 06_dashboard_*.c
+// 16_dashboard_*.c
 void			init_img_dashboard(t_game *game);
 void			move_img_dashboard(t_game *game);
 void			free_img_dashboard(t_game *game);

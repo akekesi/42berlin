@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/05 22:57:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 20:56:54 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_sub(t_game *game)
 	init_collectible(game);
 	init_img_player(game);
 	init_img_crash(game);
+	init_img_finish(game);
 	init_img_price(game);
 	init_img_start(game);
 	init_img_stop(game);
@@ -46,6 +47,7 @@ void	free_sub(t_game *game)
 	free_collectible(game);
 	free_img_player(game);
 	free_img_crash(game);
+	free_img_finish(game);
 	free_img_price(game);
 	free_img_start(game);
 	free_img_stop(game);
