@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:07:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 22:54:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	loop_hook_sub1(t_game *game)
 	game->time_move += get_time_elapsed(game->time_last);
 	game->time_last = get_time_current();
 	if (game->img_win->instances->y != MSG_Y)
+	{
+		game->time_finish = game->time_elapsed;
 		move_img_dashboard(game);
+	}
 }
 
 void	loop_hook_sub2(t_game *game)
@@ -75,13 +78,20 @@ void	write_win(t_game *game)
 	char	*str;
 
 	write(1, "time: ", 6);
-	str = ft_itoa(game->time_elapsed / 1000);
+	str = ft_itoa(game->time_finish / 1000);
 	write(1, str, ft_strlen(str));
 	free(str);
 	write(1, ".", 1);
-	str = ft_itoa(game->time_elapsed / 100);
+	str = ft_itoa(game->time_finish / 100);
 	write(1, &str[ft_strlen(str) - 1], 1);
 	free(str);
 	write(1, "s\n", 2);
-	write(1, ">>> YOU WIN <<<\n", 16);
+	if (game->img_price_win->instances->y > 0)
+	{
+		write(1, "***************\n", 16);
+		write(1, "*** YOU WIN ***\n", 16);
+		write(1, "***************\n", 16);
+	}
+	else
+		write(1, ">>> YOU WIN <<<\n", 16);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:05:34 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/06 22:43:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	init_game_sub(t_game *game)
 	game->time_move = 0;
 	game->time_delta = 1000 / game->speed;
 	game->time_elapsed = 0;
+	game->time_finish = 0;
 	game->length_collectible_curr = 0;
 	game->length_collectible_orig = 0;
 	game->length_moves = 0;
