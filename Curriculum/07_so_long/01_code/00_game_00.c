@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:43:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 19:39:29 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	init_game(t_game *game)
 {
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlx = mlx_init(MAP_WIDTH, MAP_HEIGHT, TITLE, false);
-	init_game_sub(game);
+	init_game_sub1(game);
+	init_game_sub2(game);
 }
 
-void	init_game_sub(t_game *game)
+void	init_game_sub1(t_game *game)
 {
 	game->img_player = NULL;
 	game->img_crash = NULL;
@@ -34,7 +35,12 @@ void	init_game_sub(t_game *game)
 	game->img_dashboard_str = NULL;
 	game->road = NULL;
 	game->enemy = NULL;
+	game->police = NULL;
 	game->collectible = NULL;
+}
+
+void	init_game_sub2(t_game *game)
+{
 	game->start_stop = 0;
 	game->speed = 1;
 	game->time_last = get_time_current();
@@ -46,4 +52,11 @@ void	init_game_sub(t_game *game)
 	game->length_collectible_curr = 0;
 	game->length_collectible_orig = 0;
 	game->length_moves = 0;
+}
+
+void	loop_game(t_game *game)
+{
+	mlx_loop_hook(game->mlx, &loop_hook, game);
+	mlx_key_hook(game->mlx, &key_hook, game);
+	mlx_loop(game->mlx);
 }

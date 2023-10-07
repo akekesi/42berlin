@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 20:56:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 19:14:53 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_sub(t_game *game)
 	init_game(game);
 	init_road(game);
 	init_enemy(game);
+	init_police(game);
 	init_collectible(game);
 	init_img_player(game);
 	init_img_crash(game);
@@ -44,6 +45,7 @@ void	free_sub(t_game *game)
 	free_map(game);
 	free_road(game);
 	free_enemy(game);
+	free_police(game);
 	free_collectible(game);
 	free_img_player(game);
 	free_img_crash(game);

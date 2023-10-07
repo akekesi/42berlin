@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:43:38 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 19:39:26 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ imagen-road-fighter-car-racing-0ori.jpg\n\n"
 # define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
 # define PATH_ENEMY_BLUE		"assets/images/enemy_blue.png"
 # define PATH_ENEMY_YELLOW		"assets/images/enemy_yellow.png"
+# define PATH_POLICE_ORIG		"assets/images/police_orig.png"
+# define PATH_POLICE_BLUE		"assets/images/police_blue.png"
+# define PATH_POLICE_RED		"assets/images/police_red.png"
 # define PATH_COLLECTIBLE		"assets/images/collectible.png"
 
 typedef struct s_llist
@@ -87,6 +90,7 @@ typedef struct s_game
 	t_llist		*map;
 	t_llist		*road;
 	t_llist		*enemy;
+	t_llist		*police;
 	t_llist		*collectible;
 	int			start_stop;
 	int			speed;
@@ -106,13 +110,15 @@ typedef struct s_game
 void			init_sub(t_game *game);
 void			free_sub(t_game *game);
 
-// 00_game.c
+// 00_game_*.c
 void			init_game(t_game *game);
-void			init_game_sub(t_game *game);
+void			init_game_sub1(t_game *game);
+void			init_game_sub2(t_game *game);
 void			loop_game(t_game *game);
 void			loop_hook(void *param);
 void			loop_hook_sub1(t_game *game);
 void			loop_hook_sub2(t_game *game);
+void			loop_hook_sub3(t_game *game);
 void			write_win(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
 void			key_hook_sub1(t_game *game);
@@ -166,16 +172,16 @@ void			str_img_dashboard_collectible_orig(
 					t_game *game, char **dashboard_str);
 void			str_img_dashboard_time(t_game *game, char **dashboard_str);
 
-// 07_map.c
+// 20_map.c
 t_llist			*read_map(char *path_map);
 void			free_map(t_game *game);
 
-// 08_road.c
+// 21_road.c
 void			init_road(t_game *game);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
-// 09_enemy_*.c
+// 22_enemy_*.c
 void			init_enemy(t_game *game);
 void			init_enemy_sub(t_game *game, int row, int col, int *truck);
 mlx_texture_t	*rand_enemy(int truck, int row, int col);
@@ -185,14 +191,20 @@ void			find_enemy_front(t_game *game);
 void			find_enemy_left(t_game *game);
 void			find_enemy_right(t_game *game);
 
-// 10_collectible.c
+// 23_police.c
+void			init_police(t_game *game);
+void			init_police_sub(t_game *game, char *path_png);
+void			move_police(t_game *game);
+void			free_police(t_game *game);
+
+// 24_collectible.c
 void			init_collectible(t_game *game);
 void			init_collectible_sub(t_game *game, int row, int col);
 void			move_collectible(t_game *game);
 void			find_collectible(t_game *game);
 void			free_collectible(t_game *game);
 
-// 11_check_*.c
+// 30_check_*.c
 int				check_map(t_game *game);
 int				check_map_sub1(t_game *game);
 int				check_map_sub2(t_game *game);

@@ -6,18 +6,11 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:54:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 19:39:21 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	loop_game(t_game *game)
-{
-	mlx_loop_hook(game->mlx, &loop_hook, game);
-	mlx_key_hook(game->mlx, &key_hook, game);
-	mlx_loop(game->mlx);
-}
 
 void	loop_hook(void *param)
 {
@@ -58,18 +51,27 @@ void	loop_hook_sub2(t_game *game)
 		move_enemy(game);
 		move_collectible(game);
 		game->time_last = get_time_current();
-		if (!game->length_collectible_curr)
-		{
-			move_img_finish(game);
-			move_img_price(game);
-		}
-		if (game->img_win->instances->y == MSG_Y)
-			move_img_player(game);
-		if (game->img_player->instances->y < 0)
-		{
-			game->start_stop = 0;
-			write_win(game);
-		}
+		loop_hook_sub3(game);
+	}
+}
+
+void	loop_hook_sub3(t_game *game)
+{
+	if (!game->length_collectible_curr)
+	{
+		move_img_finish(game);
+		move_img_price(game);
+	}
+	if (game->img_win->instances->y == MSG_Y)
+	{
+		move_img_player(game);
+		move_police(game);
+	}
+	if (game->img_player->instances->y < 0 \
+		&& ((mlx_image_t *)game->police->value)->instances->y < 0)
+	{
+		game->start_stop = 0;
+		write_win(game);
 	}
 }
 
