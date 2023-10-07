@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 19:39:26 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 21:28:50 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,13 +191,13 @@ void			find_enemy_front(t_game *game);
 void			find_enemy_left(t_game *game);
 void			find_enemy_right(t_game *game);
 
-// 23_police.c
+// 24_police.c
 void			init_police(t_game *game);
 void			init_police_sub(t_game *game, char *path_png);
 void			move_police(t_game *game);
 void			free_police(t_game *game);
 
-// 24_collectible.c
+// 25_collectible.c
 void			init_collectible(t_game *game);
 void			init_collectible_sub(t_game *game, int row, int col);
 void			move_collectible(t_game *game);
