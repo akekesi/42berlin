@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:28:50 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 21:42:59 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_game
 	mlx_image_t	*img_dashboard_str;
 	t_llist		*map;
 	t_llist		*road;
-	t_llist		*enemy;
+	t_llist		*enemy_static;
 	t_llist		*police;
 	t_llist		*collectible;
 	int			start_stop;
@@ -181,15 +181,27 @@ void			init_road(t_game *game);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
-// 22_enemy_*.c
-void			init_enemy(t_game *game);
-void			init_enemy_sub(t_game *game, int row, int col, int *truck);
-mlx_texture_t	*rand_enemy(int truck, int row, int col);
-void			move_enemy(t_game *game);
-void			free_enemy(t_game *game);
-void			find_enemy_front(t_game *game);
-void			find_enemy_left(t_game *game);
-void			find_enemy_right(t_game *game);
+// 22_enemy_static*.c
+void			init_enemy_static(t_game *game);
+void			init_enemy_static_sub(
+					t_game *game, int row, int col, int *truck);
+mlx_texture_t	*rand_enemy_static(int truck, int row, int col);
+void			move_enemy_static(t_game *game);
+void			free_enemy_static(t_game *game);
+void			find_enemy_static_front(t_game *game);
+void			find_enemy_static_left(t_game *game);
+void			find_enemy_static_right(t_game *gameoving);
+
+// 23_enemy_moving*.c
+void			init_enemy_moving(t_game *game);
+void			init_enemy_moving_sub(
+					t_game *game, int row, int col, int *truck);
+mlx_texture_t	*rand_enemy_moving(int truck, int row, int col);
+void			move_enemy_moving(t_game *game);
+void			free_enemy_moving(t_game *game);
+void			find_enemy_moving_front(t_game *game);
+void			find_enemy_moving_left(t_game *game);
+void			find_enemy_moving_right(t_game *game);
 
 // 24_police.c
 void			init_police(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 19:39:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 21:39:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	loop_hook_sub2(t_game *game)
 	if (game->time_delta <= game->time_move)
 	{
 		game->time_move = 0;
-		find_enemy_front(game);
+		find_enemy_static_front(game);
 		if (game->img_lose->instances->y == MSG_Y)
 			return ;
 		move_road(game);
-		move_enemy(game);
+		move_enemy_static(game);
 		move_collectible(game);
 		game->time_last = get_time_current();
 		loop_hook_sub3(game);
