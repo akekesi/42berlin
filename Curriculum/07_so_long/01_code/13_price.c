@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 22:45:48 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 18:07:36 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	move_img_price(t_game *game)
 void	find_img_price(t_game *game)
 {
 	if (game->img_price->instances->x == game->img_player->instances->x
-		&& game->img_price->instances->y == game->img_player->instances->y)
+		&& game->img_price->instances->y == game->img_player->instances->y
+		&& game->img_price->instances->enabled == true)
 	{
-		game->img_price->instances->y = 999 * ft_max(
-				(game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
+		game->img_price->instances->enabled = false;
 		game->img_price_win->instances->y = MSG_Y + TILE_SIZE / 3;
 	}
 }

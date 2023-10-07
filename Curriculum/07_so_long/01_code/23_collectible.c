@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 21:45:04 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 18:08:18 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ void	find_collectible(t_game *game)
 		if (((mlx_image_t *)game->collectible->value)->instances->x \
 			== game->img_player->instances->x
 			&& ((mlx_image_t *)game->collectible->value)->instances->y \
-			== game->img_player->instances->y)
+			== game->img_player->instances->y \
+			&& ((mlx_image_t *)game->collectible->value)->instances->enabled \
+			== true)
 		{
-			((mlx_image_t *)game->collectible->value)->instances->y = \
-			999 * ft_max(
-					(game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE;
+			((mlx_image_t *)game->collectible->value)->instances->enabled = false;
 			game->length_collectible_curr--;
 		}
 		llist_rot(&game->collectible);
