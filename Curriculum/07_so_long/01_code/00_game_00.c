@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:39:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 21:54:22 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	init_game_sub1(t_game *game)
 	game->img_dashboard_bgr = NULL;
 	game->img_dashboard_str = NULL;
 	game->road = NULL;
-	game->enemy_static = NULL;
 	game->police = NULL;
 	game->collectible = NULL;
+	game->enemy_static = NULL;
+	game->enemy_moving = NULL;
 }
 
 void	init_game_sub2(t_game *game)

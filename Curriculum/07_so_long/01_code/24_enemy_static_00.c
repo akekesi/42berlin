@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   22_enemy_static_00.c                               :+:      :+:    :+:   */
+/*   24_enemy_static_00.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:44:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 01:00:19 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ mlx_texture_t	*rand_enemy_static(int truck, int row, int col)
 		return (mlx_load_png(PATH_ENEMY_TRUCK_FRONT));
 	if (truck == 2)
 		return (mlx_load_png(PATH_ENEMY_TRUCK_REAR));
-	if ((rand() % (col + row)) % 2)
+	if ((rand() % (ft_max(col + row, 1))) % 2)
 		return (mlx_load_png(PATH_ENEMY_BLUE));
 	else
 		return (mlx_load_png(PATH_ENEMY_YELLOW));

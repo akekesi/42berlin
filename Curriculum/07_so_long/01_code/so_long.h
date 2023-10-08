@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:42:59 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 01:58:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@
 # define INFO					"\nCopy of Road Fighter \
 \n--> https://en.wikipedia.org/wiki/Road_Fighter \
 \n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ \
-\n--> https://media.cdnandroid.com/item_images/672948/ \
-imagen-road-fighter-car-racing-0ori.jpg\n\n"
+\n--> https://media.cdnandroid.com/item_images/672948/imagen-road-fighter-car-racing-0ori.jpg \
+\n--> https://img.itch.zone/aW1hZ2UvNzU2MTE3LzQyMzA2NDQucG5n/original/ePLeSD.png \
+\n--> https://www.photopea.com/ \
+\n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
+\n--> https://fontmeme.com/pixel-fonts/ font: ABSTRACT \
+\n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
 
-// https://www.photopea.com/
-// https://fontmeme.com/pixel-fonts/
-// font: ABS
 # define PATH_PLAYER			"assets/images/player.png"
 # define PATH_CRASH				"assets/images/crash.png"
 # define PATH_FINISH			"assets/images/finish.png"
@@ -57,14 +58,16 @@ imagen-road-fighter-car-racing-0ori.jpg\n\n"
 # define PATH_LOSE				"assets/images/msg_lose.png"
 # define PATH_DASHBOARD			"assets/images/dashboard.png"
 # define PATH_ROAD				"assets/images/road_line_0X.png"
+# define PATH_POLICE_RED		"assets/images/police_red.png"
+# define PATH_POLICE_BLUE		"assets/images/police_blue.png"
+# define PATH_POLICE_ORIG		"assets/images/police_orig.png"
+# define PATH_COLLECTIBLE		"assets/images/collectible.png"
+# define PATH_ENEMY_BLUE		"assets/images/enemy_blue.png"
+# define PATH_ENEMY_ORANGE		"assets/images/enemy_orange.png"
+# define PATH_ENEMY_PURPLE		"assets/images/enemy_purple.png"
+# define PATH_ENEMY_YELLOW		"assets/images/enemy_yellow.png"
 # define PATH_ENEMY_TRUCK_FRONT	"assets/images/enemy_truck_front.png"
 # define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
-# define PATH_ENEMY_BLUE		"assets/images/enemy_blue.png"
-# define PATH_ENEMY_YELLOW		"assets/images/enemy_yellow.png"
-# define PATH_POLICE_ORIG		"assets/images/police_orig.png"
-# define PATH_POLICE_BLUE		"assets/images/police_blue.png"
-# define PATH_POLICE_RED		"assets/images/police_red.png"
-# define PATH_COLLECTIBLE		"assets/images/collectible.png"
 
 typedef struct s_llist
 {
@@ -89,9 +92,10 @@ typedef struct s_game
 	mlx_image_t	*img_dashboard_str;
 	t_llist		*map;
 	t_llist		*road;
-	t_llist		*enemy_static;
 	t_llist		*police;
 	t_llist		*collectible;
+	t_llist		*enemy_static;
+	t_llist		*enemy_moving;
 	int			start_stop;
 	int			speed;
 	int			time_last;
@@ -119,12 +123,13 @@ void			loop_hook(void *param);
 void			loop_hook_sub1(t_game *game);
 void			loop_hook_sub2(t_game *game);
 void			loop_hook_sub3(t_game *game);
-void			write_win(t_game *game);
 void			key_hook(mlx_key_data_t keydata, void *param);
 void			key_hook_sub1(t_game *game);
 void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub3(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub4(mlx_key_data_t keydata, t_game *game);
+void			write_win(t_game *game);
+void			write_lose(void);
 
 // 10_player.c
 void			init_img_player(t_game *game);
@@ -181,7 +186,20 @@ void			init_road(t_game *game);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
-// 22_enemy_static*.c
+// 22_police.c
+void			init_police(t_game *game);
+void			init_police_sub(t_game *game, char *path_png);
+void			move_police(t_game *game);
+void			free_police(t_game *game);
+
+// 23_collectible.c
+void			init_collectible(t_game *game);
+void			init_collectible_sub(t_game *game, int row, int col);
+void			move_collectible(t_game *game);
+void			find_collectible(t_game *game);
+void			free_collectible(t_game *game);
+
+// 24_enemy_static*.c
 void			init_enemy_static(t_game *game);
 void			init_enemy_static_sub(
 					t_game *game, int row, int col, int *truck);
@@ -192,29 +210,19 @@ void			find_enemy_static_front(t_game *game);
 void			find_enemy_static_left(t_game *game);
 void			find_enemy_static_right(t_game *gameoving);
 
-// 23_enemy_moving*.c
+// 25_enemy_moving*.c
 void			init_enemy_moving(t_game *game);
-void			init_enemy_moving_sub(
-					t_game *game, int row, int col, int *truck);
-mlx_texture_t	*rand_enemy_moving(int truck, int row, int col);
+void			init_enemy_moving_sub(t_game *game, int row, int col);
+mlx_texture_t	*rand_enemy_moving(int row, int col);
 void			move_enemy_moving(t_game *game);
 void			free_enemy_moving(t_game *game);
+void			set_pos_x(t_game *game);
+int				is_neighbours_free(t_game *game, int pso_x, int pos_y);
+int				is_left_free(t_llist *llist, int pos_x, int pos_y);
+int				is_right_free(t_llist *llist, int pos_x, int pos_y);
 void			find_enemy_moving_front(t_game *game);
 void			find_enemy_moving_left(t_game *game);
 void			find_enemy_moving_right(t_game *game);
-
-// 24_police.c
-void			init_police(t_game *game);
-void			init_police_sub(t_game *game, char *path_png);
-void			move_police(t_game *game);
-void			free_police(t_game *game);
-
-// 25_collectible.c
-void			init_collectible(t_game *game);
-void			init_collectible_sub(t_game *game, int row, int col);
-void			move_collectible(t_game *game);
-void			find_collectible(t_game *game);
-void			free_collectible(t_game *game);
 
 // 30_check_*.c
 int				check_map(t_game *game);

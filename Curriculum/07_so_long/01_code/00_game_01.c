@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:39:22 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 02:00:09 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,16 @@ void	loop_hook_sub2(t_game *game)
 	{
 		game->time_move = 0;
 		find_enemy_static_front(game);
+		find_enemy_moving_front(game);
 		if (game->img_lose->instances->y == MSG_Y)
+		{
+			write_lose();
 			return ;
+		}
 		move_road(game);
-		move_enemy_static(game);
 		move_collectible(game);
+		move_enemy_static(game);
+		move_enemy_moving(game);
 		game->time_last = get_time_current();
 		loop_hook_sub3(game);
 	}
@@ -73,27 +78,4 @@ void	loop_hook_sub3(t_game *game)
 		game->start_stop = 0;
 		write_win(game);
 	}
-}
-
-void	write_win(t_game *game)
-{
-	char	*str;
-
-	write(1, "time: ", 6);
-	str = ft_itoa(game->time_finish / 1000);
-	write(1, str, ft_strlen(str));
-	free(str);
-	write(1, ".", 1);
-	str = ft_itoa(game->time_finish / 100);
-	write(1, &str[ft_strlen(str) - 1], 1);
-	free(str);
-	write(1, "s\n", 2);
-	if (game->img_price_win->instances->y > 0)
-	{
-		write(1, "***************\n", 16);
-		write(1, "*** YOU WIN ***\n", 16);
-		write(1, "***************\n", 16);
-	}
-	else
-		write(1, ">>> YOU WIN <<<\n", 16);
 }

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:39:25 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 01:56:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,11 @@ void	key_hook_sub3(mlx_key_data_t keydata, t_game *game)
 	if (keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_A)
 	{
 		find_enemy_static_left(game);
+		find_enemy_moving_left(game);
 		if (game->img_lose->instances->y == MSG_Y)
 		{
 			game->img_player->instances->x -= 20;
+			write_lose();
 			return ;
 		}
 		game->img_player->instances->x = ft_max(
@@ -114,9 +116,11 @@ void	key_hook_sub4(mlx_key_data_t keydata, t_game *game)
 	if (keydata.key == MLX_KEY_RIGHT || keydata.key == MLX_KEY_D)
 	{
 		find_enemy_static_right(game);
+		find_enemy_moving_right(game);
 		if (game->img_lose->instances->y == MSG_Y)
 		{
 			game->img_player->instances->x += 20;
+			write_lose();
 			return ;
 		}
 		game->img_player->instances->x = ft_min(

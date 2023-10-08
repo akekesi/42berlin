@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:39:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/07 22:05:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,20 @@
 - return value int --> meg lehet szakitani a jatekot
 - show function for start, stop, win and lose
 - a price utan ne tudjon savot valtani, mert kicsit furan mozog
+- solvability:
+	XCE... --> not solvable !!!
+	XEE...
+	X P...
 */
 
 void	init_sub(t_game *game)
 {
 	init_game(game);
 	init_road(game);
-	init_enemy_static(game);
 	init_police(game);
 	init_collectible(game);
+	init_enemy_static(game);
+	init_enemy_moving(game);
 	init_img_player(game);
 	init_img_crash(game);
 	init_img_finish(game);
@@ -44,9 +49,10 @@ void	free_sub(t_game *game)
 {
 	free_map(game);
 	free_road(game);
-	free_enemy_static(game);
 	free_police(game);
 	free_collectible(game);
+	free_enemy_static(game);
+	free_enemy_moving(game);
 	free_img_player(game);
 	free_img_crash(game);
 	free_img_finish(game);

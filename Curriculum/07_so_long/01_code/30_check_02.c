@@ -46,6 +46,8 @@ int	check_map_05_sub(char c)
 		return (1);
 	if (c == 'E')
 		return (1);
+	if (c == 'M')
+		return (1);
 	if (c == 'C')
 		return (1);
 	return (0);
