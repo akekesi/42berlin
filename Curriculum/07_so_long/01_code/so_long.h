@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 01:58:03 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 17:19:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define MSG_HEIGHT				15
 # define MSG_X					115
 # define MSG_Y					117
+# define MSG_X_EXTRA			200
+# define MSG_Y_EXTRA			133
 # define DASHBOARD_X			0
 # define DASHBOARD_Y			478
 # define LAYER_ROAD				0
@@ -55,6 +57,7 @@
 # define PATH_START				"assets/images/msg_start.png"
 # define PATH_STOP				"assets/images/msg_stop.png"
 # define PATH_WIN				"assets/images/msg_win.png"
+# define PATH_WIN_QUESTION		"assets/images/msg_win_question.png"
 # define PATH_LOSE				"assets/images/msg_lose.png"
 # define PATH_DASHBOARD			"assets/images/dashboard.png"
 # define PATH_ROAD				"assets/images/road_line_0X.png"
@@ -87,6 +90,7 @@ typedef struct s_game
 	mlx_image_t	*img_start;
 	mlx_image_t	*img_stop;
 	mlx_image_t	*img_win;
+	mlx_image_t	*img_win_question;
 	mlx_image_t	*img_lose;
 	mlx_image_t	*img_dashboard_bgr;
 	mlx_image_t	*img_dashboard_str;
@@ -160,10 +164,12 @@ void			init_img_stop(t_game *game);
 void			free_img_start(t_game *game);
 void			free_img_stop(t_game *game);
 
-// 15_win_lose.c
+// 15_win_lose_*.c
 void			init_img_win(t_game *game);
+void			init_img_win_question(t_game *game);
 void			init_img_lose(t_game *game);
 void			free_img_win(t_game *game);
+void			free_img_win_question(t_game *game);
 void			free_img_lose(t_game *game);
 
 // 16_dashboard_*.c

@@ -28,3 +28,7 @@ fi
 # make fclean without print to terminal
 echo "make fclean"
 make fclean > /dev/null 2>&1
+
+# make fclean without print to terminal
+echo "norminette error: " \
+&& norminette | grep Error! | wc -l

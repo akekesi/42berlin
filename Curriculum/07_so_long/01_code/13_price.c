@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 18:07:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 16:12:55 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_img_price(t_game *game)
 		i++;
 	}
 	mlx_image_to_window(game->mlx, game->img_price_win,
-		(MAP_WIDTH - TILE_SIZE) / 2, -TILE_SIZE);
+		MSG_X_EXTRA, -TILE_SIZE);
 	mlx_set_instance_depth(game->img_price->instances, LAYER_OTHERS);
 	mlx_set_instance_depth(game->img_price_win->instances, LAYER_MSG);
 	mlx_delete_texture(texture);
@@ -50,7 +50,7 @@ void	find_img_price(t_game *game)
 		&& game->img_price->instances->enabled == true)
 	{
 		game->img_price->instances->enabled = false;
-		game->img_price_win->instances->y = MSG_Y + TILE_SIZE / 3;
+		game->img_price_win->instances->y = MSG_Y_EXTRA;
 	}
 }
 

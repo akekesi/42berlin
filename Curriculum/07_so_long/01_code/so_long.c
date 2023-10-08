@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 02:07:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 17:50:54 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 --> Outkast - Two Dope Boyz (in a Cadillac)
 --> KRS-One - Sound of da Police
 - error handling
-- read map (ures, ...)
-- return value int --> meg lehet szakitani a jatekot
 - solvability:
 	XCE... --> not solvable !!!
 	XEE...
@@ -39,6 +37,7 @@ void	init_sub(t_game *game)
 	init_img_start(game);
 	init_img_stop(game);
 	init_img_win(game);
+	init_img_win_question(game);
 	init_img_lose(game);
 	init_img_dashboard(game);
 }
@@ -58,6 +57,7 @@ void	free_sub(t_game *game)
 	free_img_start(game);
 	free_img_stop(game);
 	free_img_win(game);
+	free_img_win_question(game);
 	free_img_lose(game);
 	free_img_dashboard(game);
 }
@@ -68,7 +68,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		write(1, INFO, ft_strlen(INFO));
 		game.map = read_map(argv[1]);
 		game.length_map = llist_len(game.map);
 		if (!check_map(&game))
@@ -76,12 +75,13 @@ int	main(int argc, char **argv)
 			free_map(&game);
 			return (0);
 		}
+		ft_putstr(INFO);
 		init_sub(&game);
 		loop_game(&game);
 		free_sub(&game);
 		mlx_terminate(game.mlx);
-		write(1, INFO, ft_strlen(INFO));
+		ft_putstr(INFO);
 	}
 	else
-		ft_putstr("Error");
+		ft_putstr("Error\n");
 }
