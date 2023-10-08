@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 21:36:57 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 02:04:04 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 19:04:57 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,16 @@ int	check_map_sub2(t_game *game)
 		return (0);
 	}
 	if (!check_map_06(game))
+	{
+		ft_putstr("Error\n");
+		return (0);
+	}
+	if (!check_map_07(game))
+	{
+		ft_putstr("Error\n");
+		return (0);
+	}
+	if (!check_map_08(game))
 	{
 		ft_putstr("Error\n");
 		return (0);

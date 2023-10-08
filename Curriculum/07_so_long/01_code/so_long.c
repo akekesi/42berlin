@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 17:50:54 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/08 20:18:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,20 @@
 --> KRS-One - Sound of da Police
 - error handling
 - solvability:
+--> talan flood fill-lel kene <-- !!!
+--> atjutas, mindig legyen szabad ut
+--> backwater
+-->
 	XCE... --> not solvable !!!
 	XEE...
 	X P...
+--> belelog az enemy a finish/proce-ba
+	1111111
+	10000P1
+	100EEE1
+	1ME0001
+	10W0001
+	1111111
 */
 
 void	init_sub(t_game *game)
