@@ -19,8 +19,8 @@ make > /dev/null 2>&1
 # check success of make
 if [ $? -eq 0 ]; then
   # run executable
-  echo "valgrind ./so_long assets/maps/map.ber"
-  valgrind ./so_long assets/maps/map.ber
+  echo "valgrind --leak-check=full ./so_long assets/maps/map.ber"
+  valgrind --leak-check=full ./so_long assets/maps/map.ber
 else
   echo "Error (make failed)"
 fi
