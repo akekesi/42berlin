@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 20:18:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/11 00:11:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@
 # define LAYER_CRASH			4
 # define LAYER_MSG				5
 
-# define INFO					"\nCopy of Road Fighter \
+# define INFO					"\nFake Road Fighter \
 \n--> https://en.wikipedia.org/wiki/Road_Fighter \
 \n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ \
 \n--> https://media.cdnandroid.com/item_images/672948/imagen-road-fighter-car-racing-0ori.jpg \
 \n--> https://img.itch.zone/aW1hZ2UvNzU2MTE3LzQyMzA2NDQucG5n/original/ePLeSD.png \
 \n--> https://www.photopea.com/ \
-\n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
 \n--> https://fontmeme.com/pixel-fonts/ font: ABSTRACT \
+\n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
 \n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
@@ -71,6 +71,12 @@
 # define PATH_ENEMY_YELLOW		"assets/images/enemy_yellow.png"
 # define PATH_ENEMY_TRUCK_FRONT	"assets/images/enemy_truck_front.png"
 # define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 typedef struct s_llist
 {
@@ -183,9 +189,14 @@ void			str_img_dashboard_collectible_orig(
 					t_game *game, char **dashboard_str);
 void			str_img_dashboard_time(t_game *game, char **dashboard_str);
 
-// 20_map.c
+// 20_map_*.c
 t_llist			*read_map(char *path_map);
 void			free_map(t_game *game);
+char			**get_map_matrix(t_game *game);
+void			get_map_matrix_sub(
+					t_game *game, char **map_matrix, t_point size);
+void			print_map_matrix(char **map_matrix, t_point size);
+void			free_map_matrix(char **map_matrix, t_point size);
 
 // 21_road.c
 void			init_road(t_game *game);
@@ -242,10 +253,38 @@ int				check_map_04(t_game *game);
 int				check_map_05(t_game *game);
 int				check_map_05_sub(char c);
 int				check_map_06(t_game *game);
+int				check_map_06_sub(char **map_matrix, t_point size);
 int				check_map_07(t_game *game);
-int				check_map_08(t_game *game);
-int				check_map_08_sub1(t_game *game, int i_map, int i_line);
-int				check_map_08_sub2(t_game *game, int i_map, int i_line);
+int				check_map_07_sub1(
+					t_game *game, char **map_matrix, t_point size);
+int				check_map_07_sub2(t_game *game, int row, int col);
+
+// flood_fill.c
+void			flood_fill(
+					char **map_matrix,
+					t_point size,
+					t_point start,
+					char no_stream);
+void			flood_fill_sub1(
+					char **map_matrix,
+					t_point size,
+					t_point start,
+					char no_stream);
+void			flood_fill_sub2(
+					char **map_matrix,
+					t_point size,
+					t_point start,
+					char no_stream);
+void			flood_fill_sub3(
+					char **map_matrix,
+					t_point size,
+					t_point start,
+					char no_stream);
+void			flood_fill_sub4(
+					char **map_matrix,
+					t_point size,
+					t_point start,
+					char no_stream);
 
 // ft*.c
 char			*ft_itoa(int n);

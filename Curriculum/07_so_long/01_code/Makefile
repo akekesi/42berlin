@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/08 17:14:32 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/10 23:58:02 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRCS = so_long.c \
 	15_win_lose_01.c \
 	16_dashboard_00.c \
 	16_dashboard_01.c \
-	20_map.c \
+	20_map_00.c \
+	20_map_01.c \
 	21_road.c \
 	22_police.c \
 	23_collectible.c \
@@ -50,6 +51,8 @@ SRCS = so_long.c \
 	30_check_00.c \
 	30_check_01.c \
 	30_check_02.c \
+	30_check_03.c \
+	flood_fill.c \
 	ft_itoa.c \
 	ft_putstr.c \
 	ft_strdup.c \
