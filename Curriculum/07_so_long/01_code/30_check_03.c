@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-// solvability - from P to C
+// solvability - from P to C or to W
 int	check_map_06(t_game *game)
 {
 	int		result;
@@ -50,6 +50,8 @@ int	check_map_06_sub(char **map_matrix, t_point size)
 		}
 		row_i++;
 	}
+	if (map_matrix[row_i - 1][1] != 'F')
+		return (0);
 	return (1);
 }
 
