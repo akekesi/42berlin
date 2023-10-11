@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/11 00:11:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/11 22:27:36 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@
 \n--> https://www.photopea.com/ \
 \n--> https://fontmeme.com/pixel-fonts/ font: ABSTRACT \
 \n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
+\n--> MLX42 ... \
+\n--> miniaudio ... \
+\n--> MUSIC ... \
 \n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"

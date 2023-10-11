@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/11 02:31:09 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/11 22:23:48 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 --> Outkast - Two Dope Boyz (in a Cadillac)
 --> KRS-One - Sound of da Police
 - mlx error handling poeloe ha nem tolti be a kepet (mlx)
-- nincs collectible menjen vegig az enemy loop? (most belelog a finishbe)
+- nincs collectible menjen vegig az enemy loop? (most belelog a finishbe) test_error_29.ber
 - a truck-ot elvagja ha ugy fogy el a collectible
 */
 

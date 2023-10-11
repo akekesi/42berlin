@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 17:18:52 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/11 22:23:24 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,30 @@ void	write_win(t_game *game)
 {
 	char	*str;
 
-	write(1, "time: ", 6);
+	ft_putstr("time: ");
 	str = ft_itoa(game->time_finish / 1000);
-	write(1, str, ft_strlen(str));
+	ft_putstr(str);
 	free(str);
-	write(1, ".", 1);
+	ft_putstr(".");
 	str = ft_itoa(game->time_finish / 100);
-	write(1, &str[ft_strlen(str) - 1], 1);
+	ft_putstr(&str[ft_strlen(str) - 1]);
 	free(str);
-	write(1, "s\n", 2);
+	ft_putstr("s\n");
 	if (game->img_price_win->instances->y > 0)
 	{
-		write(1, "***************\n", 16);
-		write(1, "*** YOU WIN ***\n", 16);
-		write(1, "***************\n", 16);
+		ft_putstr("***************\n");
+		ft_putstr("*** YOU WIN ***\n");
+		ft_putstr("***************\n");
 	}
 	else
 	{
-		write(1, "???????????????\n", 16);
-		write(1, "??? YOU WIN ???\n", 16);
-		write(1, "???????????????\n", 16);
+		ft_putstr("???????????????\n");
+		ft_putstr("??? YOU WIN ???\n");
+		ft_putstr("???????????????\n");
 	}
 }
 
 void	write_lose(void)
 {
-	write(1, ">>> YOU LOSE <<<\n", 17);
+	ft_putstr(">>> YOU LOSE <<<\n");
 }

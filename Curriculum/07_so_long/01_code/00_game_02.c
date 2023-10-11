@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 01:56:06 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/11 22:23:20 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		if (keydata.key == MLX_KEY_ESCAPE)
 		{
 			mlx_close_window(game->mlx);
-			write(1, "esc\n", 4);
+			ft_putstr("esc\n");
 		}
 		if (game->img_win->instances->y < 0 && game->img_lose->instances->y < 0)
 		{
 			if (keydata.key == MLX_KEY_SPACE)
 			{
 				key_hook_sub1(game);
-				write(1, "space\n", 6);
+				ft_putstr("space\n");
 			}
 			if (game->start_stop)
 			{
@@ -68,8 +68,8 @@ void	key_hook_sub2(mlx_key_data_t keydata, t_game *game)
 		game->time_delta = 1000 / game->speed;
 		game->length_moves += 1;
 		str = ft_itoa(game->length_moves);
-		write(1, str, ft_strlen(str));
-		write(1, ": up\n", 5);
+		ft_putstr(str);
+		ft_putstr(": up\n");
 		free(str);
 	}
 	if (keydata.key == MLX_KEY_DOWN || keydata.key == MLX_KEY_S)
@@ -78,8 +78,8 @@ void	key_hook_sub2(mlx_key_data_t keydata, t_game *game)
 		game->time_delta = 1000 / game->speed;
 		game->length_moves += 1;
 		str = ft_itoa(game->length_moves);
-		write(1, str, ft_strlen(str));
-		write(1, ": down\n", 7);
+		ft_putstr(str);
+		ft_putstr(": down\n");
 		free(str);
 	}
 }
@@ -103,8 +103,8 @@ void	key_hook_sub3(mlx_key_data_t keydata, t_game *game)
 				2 * TILE_SIZE);
 		game->length_moves += 1;
 		str = ft_itoa(game->length_moves);
-		write(1, str, ft_strlen(str));
-		write(1, ": left\n", 7);
+		ft_putstr(str);
+		ft_putstr(": left\n");
 		free(str);
 	}
 }
@@ -128,8 +128,8 @@ void	key_hook_sub4(mlx_key_data_t keydata, t_game *game)
 				MAP_WIDTH - 3 * TILE_SIZE);
 		game->length_moves += 1;
 		str = ft_itoa(game->length_moves);
-		write(1, str, ft_strlen(str));
-		write(1, ": right\n", 8);
+		ft_putstr(str);
+		ft_putstr(": right\n");
 		free(str);
 	}
 }

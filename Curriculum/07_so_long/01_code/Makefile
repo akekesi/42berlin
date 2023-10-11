@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/10 23:58:02 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/11 22:26:20 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ MLX42_DIR = ./MLX42/
 MLX42_GIT = git clone https://github.com/codam-coding-college/MLX42.git $(MLX42_DIR)
 MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
 MLX42_FLG = -L$(MLX_PATH)/build -lglfw -ldl -lm -pthread
+MUSIC_DIR = ./MUSIC/
+MUSIC_GIT = git clone https://github.com/mackron/miniaudio.git $(MUSIC_DIR)
 
 SRCS = so_long.c \
 	00_game_00.c \
@@ -70,7 +72,7 @@ OBJS = $(SRCS:.c=.o)
 %.o: %.c $(DEPS)
 	$(CC) $(CCFLAGS) -c $< -o $@
 
-all: mlx42_clone mlx42_build $(NAME)
+all: mlx42_clone mlx42_build music_clone $(NAME)
 
 $(NAME): $(OBJS) $(MLX42_LIB)
 	$(CC) $(CFLAGS) $(MLX42_FLG) -o $@ $^
@@ -82,6 +84,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(MLX42_DIR)
+	$(RM) $(MUSIC_DIR)
 
 re: fclean all
 
@@ -94,6 +97,11 @@ mlx42_build:
 	@if [ ! -d $(MLX42_DIR)/build ]; then \
 		cmake $(MLX42_DIR) -B $(MLX42_DIR)/build; \
 		make -C $(MLX42_DIR)/build -j4; \
+    fi
+
+music_clone:
+	@if [ ! -d $(MUSIC_DIR) ]; then \
+		$(MUSIC_GIT); \
     fi
 
 bonus:
