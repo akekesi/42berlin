@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 22:49:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/time.h>
 # include "get_next_line_bonus.h"
 # include "MLX42/include/MLX42/MLX42.h"
+# include "MUSIC/miniaudio.h"
 
 # define TILE_SIZE				50
 # define MAP_WIDTH				450
@@ -75,6 +76,9 @@
 # define PATH_ENEMY_TRUCK_FRONT	"assets/images/enemy_truck_front.png"
 # define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
 
+# define MINIAUDIO_IMPLEMENTATION
+# define MUSIC_POLICE			"assets/music/krs_one_sound_of_da_police.wav"
+
 typedef struct s_point
 {
 	int	x;
@@ -122,6 +126,8 @@ typedef struct s_game
 	int			length_collectible_curr;
 	int			length_collectible_orig;
 	int			length_moves;
+	ma_engine	engine_police;
+	ma_engine	engine_honk;
 }	t_game;
 
 // so_loong.c with main
@@ -142,8 +148,13 @@ void			key_hook_sub1(t_game *game);
 void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub3(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub4(mlx_key_data_t keydata, t_game *game);
+void			key_hook_sub5(mlx_key_data_t keydata, t_game *game);
 void			write_win(t_game *game);
 void			write_lose(void);
+void			play_music_police(t_game *game);
+void			free_music_police(t_game *game);
+void			play_music_honk(t_game *game);
+void			free_music_honk(t_game *game);
 
 // 10_player.c
 void			init_img_player(t_game *game);

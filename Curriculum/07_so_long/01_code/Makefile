@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/11 22:26:20 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/12 22:40:59 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS = so_long.c \
 	00_game_01.c \
 	00_game_02.c \
 	00_game_03.c \
+	00_game_04.c \
 	10_player.c \
 	11_crash.c \
 	12_finish.c \

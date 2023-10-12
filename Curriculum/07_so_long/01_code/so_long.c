@@ -6,13 +6,14 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:49:33 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 23:01:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 /*
 - music
+--> why 2 includes ???
 --> Outkast - Two Dope Boyz (in a Cadillac)
 --> KRS-One - Sound of da Police
 --> WAR - Low Rider
@@ -60,6 +61,8 @@ void	free_sub(t_game *game)
 	free_img_win_question(game);
 	free_img_lose(game);
 	free_img_dashboard(game);
+	// free_music_police(game);
+	// free_music_honk(game);
 }
 
 int	main(int argc, char **argv)

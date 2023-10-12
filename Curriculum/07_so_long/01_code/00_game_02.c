@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/11 22:23:20 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 23:01:32 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 				key_hook_sub2(keydata, game);
 				key_hook_sub3(keydata, game);
 				key_hook_sub4(keydata, game);
+				key_hook_sub5(keydata, game);
 			}
 		}
 	}
@@ -130,6 +131,21 @@ void	key_hook_sub4(mlx_key_data_t keydata, t_game *game)
 		str = ft_itoa(game->length_moves);
 		ft_putstr(str);
 		ft_putstr(": right\n");
+		free(str);
+	}
+}
+
+void	key_hook_sub5(mlx_key_data_t keydata, t_game *game)
+{
+	char	*str;
+
+	if (keydata.key == MLX_KEY_H)
+	{
+		// play_music_honk(game);
+		game->length_moves += 1;
+		str = ft_itoa(game->length_moves);
+		ft_putstr(str);
+		ft_putstr(": honk\n");
 		free(str);
 	}
 }
