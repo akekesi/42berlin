@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:10 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:46:48 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	init_game_sub2(t_game *game)
 	game->time_elapsed = 0;
 	game->time_finish = 0;
 	game->length_map_curr = ft_max(
-				(game->length_map_orig - 4 + 1),
-				MAP_HEIGHT / TILE_SIZE);
+			(game->length_map_orig - 4 + 1),
+			MAP_HEIGHT / TILE_SIZE);
 	game->length_collectible_curr = 0;
 	game->length_collectible_orig = 0;
 	game->length_moves = 0;

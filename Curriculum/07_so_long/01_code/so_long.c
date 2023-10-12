@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:38:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:49:33 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 - music
 --> Outkast - Two Dope Boyz (in a Cadillac)
 --> KRS-One - Sound of da Police
-- mlx error handling poeloe ha nem tolti be a kepet (mlx)
-- nincs collectible menjen vegig az enemy loop? (most belelog a finishbe) map_error_29.ber
-- a truck-ot elvagja ha ugy fogy el a collectible
+--> WAR - Low Rider
+--> honk
+- error handling:
+--> ha nem tolti be a kepet (mlx)
+--> ha nem tolti be a zenet (miniaudio)
 */
 
 void	init_sub(t_game *game)

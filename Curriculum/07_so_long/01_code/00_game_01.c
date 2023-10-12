@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:38:59 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:47:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	loop_hook_sub2(t_game *game)
 			game->length_map_curr--;
 		else if (0 == game->length_map_curr && game->length_collectible_curr) 
 			game->length_map_curr = ft_max(
-				(game->length_map_orig - 4 + 1),
-				MAP_HEIGHT / TILE_SIZE);
+					(game->length_map_orig - 4 + 1),
+					MAP_HEIGHT / TILE_SIZE);
 		else
 			game->length_map_curr = 0;
 		find_enemy_static_front(game);
