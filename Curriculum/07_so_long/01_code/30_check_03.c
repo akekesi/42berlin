@@ -24,7 +24,7 @@ int	check_map_06(t_game *game)
 	if (!map_matrix)
 		return (0);
 	size.x = ft_strlen(map_matrix[0]);
-	size.y = game->length_map - 2;
+	size.y = game->length_map_orig - 2;
 	start.x = 1;
 	start.y = 1;
 	flood_fill(map_matrix, size, start, 'U');
@@ -66,7 +66,7 @@ int	check_map_07(t_game *game)
 	if (!map_matrix)
 		return (0);
 	size.x = ft_strlen(map_matrix[0]);
-	size.y = game->length_map - 2;
+	size.y = game->length_map_orig - 2;
 	result = check_map_07_sub1(game, map_matrix, size);
 	free_map_matrix(map_matrix, size);
 	return (result);
@@ -106,7 +106,7 @@ int	check_map_07_sub2(t_game *game, int row, int col)
 	if (!map_matrix)
 		return (0);
 	size.x = ft_strlen(map_matrix[0]);
-	size.y = game->length_map - 2;
+	size.y = game->length_map_orig - 2;
 	start.x = col;
 	start.y = row;
 	flood_fill(map_matrix, size, start, 'U');

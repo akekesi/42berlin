@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:52:12 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:39:05 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ void	move_collectible(t_game *game)
 	while (game->collectible)
 	{
 		if (((mlx_image_t *)game->collectible->value)->instances->y \
-			== ft_max(
-				(game->length_map - 5), MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
+			>= ft_max(
+				(game->length_map_orig - 4 + 1),
+				MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->collectible->value)->instances->y = 0;
 		else
 			((mlx_image_t *)game->collectible->value)->instances->y \

@@ -21,9 +21,9 @@ int	check_map_05(t_game *game)
 
 	i_map = 0;
 	length_line = ft_strlen((char *)game->map->value);
-	while (i_map < game->length_map)
+	while (i_map < game->length_map_orig)
 	{
-		if (1 < i_map && i_map < game->length_map - 2)
+		if (1 < i_map && i_map < game->length_map_orig - 2)
 		{
 			i_line = 1;
 			while (i_line < length_line - 2)

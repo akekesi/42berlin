@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 19:20:36 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/11 00:08:21 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 18:15:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**get_map_matrix(t_game *game)
 	char	**map_matrix;
 
 	size.x = ft_strlen(game->map->value);
-	size.y = game->length_map - 2;
+	size.y = game->length_map_orig - 2;
 	map_matrix = (char **)malloc(sizeof(char *) * size.y);
 	if (!map_matrix)
 		return (NULL);

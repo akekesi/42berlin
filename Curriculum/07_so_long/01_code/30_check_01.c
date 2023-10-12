@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 21:36:57 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 02:04:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 18:15:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	check_map_00(t_game *game)
 	if (!game->map)
 		return (0);
 	length = ft_strlen((char *)game->map->value);
-	if (game->length_map < 4 || length < 7)
+	if (game->length_map_orig < 4 || length < 7)
 		return (0);
 	i = 0;
-	while (i < game->length_map)
+	while (i < game->length_map_orig)
 	{
 		if (ft_strlen(game->map->value) != length)
 			return (0);
@@ -42,7 +42,7 @@ int	check_map_01(t_game *game)
 
 	length = ft_strlen((char *)game->map->value);
 	i = 0;
-	while (i < game->length_map)
+	while (i < game->length_map_orig)
 	{
 		if (((char *)game->map->value)[0] != '1')
 			return (0);

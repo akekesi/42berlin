@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 01:00:19 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:39:01 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ void	move_enemy_static(t_game *game)
 	tmp = game->enemy_static;
 	while (game->enemy_static)
 	{
-		if (game->length_collectible_curr \
+		if (game->length_map_curr \
 			&& ((mlx_image_t *)game->enemy_static->value)->instances->y \
-			== ft_max(
-				(game->length_map - 5),
+			>= ft_max(
+				(game->length_map_orig - 4 + 1),
 				MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
 			((mlx_image_t *)game->enemy_static->value)->instances->y = 0;
 		else

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/11 22:27:36 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:39:12 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ typedef struct s_game
 	int			time_delta;
 	int			time_elapsed;
 	int			time_finish;
-	int			length_map;
+	int			length_map_orig;
+	int			length_map_curr;
 	int			length_collectible_curr;
 	int			length_collectible_orig;
 	int			length_moves;

@@ -6,11 +6,12 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 17:20:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:38:59 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "stdio.h"
 
 void	loop_hook(void *param)
 {
@@ -44,6 +45,14 @@ void	loop_hook_sub2(t_game *game)
 	if (game->time_delta <= game->time_move)
 	{
 		game->time_move = 0;
+		if (0 < game->length_map_curr) 
+			game->length_map_curr--;
+		else if (0 == game->length_map_curr && game->length_collectible_curr) 
+			game->length_map_curr = ft_max(
+				(game->length_map_orig - 4 + 1),
+				MAP_HEIGHT / TILE_SIZE);
+		else
+			game->length_map_curr = 0;
 		find_enemy_static_front(game);
 		find_enemy_moving_front(game);
 		if (game->img_lose->instances->y == MSG_Y)
@@ -62,7 +71,7 @@ void	loop_hook_sub2(t_game *game)
 
 void	loop_hook_sub3(t_game *game)
 {
-	if (!game->length_collectible_curr)
+	if (!game->length_collectible_curr && !game->length_map_curr)
 	{
 		move_img_finish(game);
 		move_img_price(game);
