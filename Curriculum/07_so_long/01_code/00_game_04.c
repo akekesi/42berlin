@@ -5,32 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 21:56:44 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 22:44:21 by akekesi          ###   ########.fr       */
+/*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
+/*   Updated: 2023/10/14 20:22:51 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "MUSIC/miniaudio.h"
 
-void	play_music_police(t_game *game)
+void	write_win(t_game *game)
 {
-	ma_engine_init(NULL, &game->engine_police);
-	ma_engine_play_sound(&game->engine_police, MUSIC_POLICE, NULL);
+	char	*str;
+
+	ft_putstr("time: ");
+	str = ft_itoa(game->time_finish / 1000);
+	ft_putstr(str);
+	free(str);
+	ft_putstr(".");
+	str = ft_itoa(game->time_finish / 100);
+	ft_putstr(&str[ft_strlen(str) - 1]);
+	free(str);
+	ft_putstr("s\n");
+	if (game->img_price_win->instances->y > 0)
+	{
+		ft_putstr("***************\n");
+		ft_putstr("*** YOU WIN ***\n");
+		ft_putstr("***************\n");
+	}
+	else
+	{
+		ft_putstr("???????????????\n");
+		ft_putstr("??? YOU WIN ???\n");
+		ft_putstr("???????????????\n");
+	}
 }
 
-void	free_music_police(t_game *game)
+void	write_lose(void)
 {
-	ma_engine_uninit(&game->engine_police);
-}
-
-void	play_music_honk(t_game *game)
-{
-	ma_engine_init(NULL, &game->engine_honk);
-	ma_engine_play_sound(&game->engine_honk, MUSIC_POLICE, NULL);
-}
-
-void	free_music_honk(t_game *game)
-{
-	ma_engine_uninit(&game->engine_honk);
+	ft_putstr(">>> YOU LOSE <<<\n");
 }

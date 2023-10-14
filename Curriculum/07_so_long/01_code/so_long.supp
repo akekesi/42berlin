@@ -1,0 +1,12 @@
+{
+    leak MLX42
+    Memcheck:Leak
+    ...
+    fun:mlx_set_setting
+}
+{
+    leak MLX42
+    Memcheck:Leak
+    ...
+    fun:mlx_init
+}

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 22:49:30 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 01:54:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 \n--> https://www.photopea.com/ \
 \n--> https://fontmeme.com/pixel-fonts/ font: ABSTRACT \
 \n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
+\n--> https://y2down.cc/de/youtube-wav.html \
 \n--> MLX42 ... \
 \n--> miniaudio ... \
 \n--> MUSIC ... \
@@ -77,7 +78,9 @@
 # define PATH_ENEMY_TRUCK_REAR	"assets/images/enemy_truck_rear.png"
 
 # define MINIAUDIO_IMPLEMENTATION
-# define MUSIC_POLICE			"assets/music/krs_one_sound_of_da_police.wav"
+# define MUSIC_HONK		"assets/music/car_horn_sound_effect_01s.wav"
+# define MUSIC_POLICE	"assets/music/krs_one_sound_of_da_police_short.wav"
+# define MUSIC_WIN		"assets/music/war_low_rider_short.wav"
 
 typedef struct s_point
 {
@@ -126,8 +129,9 @@ typedef struct s_game
 	int			length_collectible_curr;
 	int			length_collectible_orig;
 	int			length_moves;
-	ma_engine	engine_police;
+	int			music_win;
 	ma_engine	engine_honk;
+	ma_engine	engine_win;
 }	t_game;
 
 // so_loong.c with main
@@ -149,12 +153,9 @@ void			key_hook_sub2(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub3(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub4(mlx_key_data_t keydata, t_game *game);
 void			key_hook_sub5(mlx_key_data_t keydata, t_game *game);
+void			key_hook_sub6(mlx_key_data_t keydata, t_game *game);
 void			write_win(t_game *game);
 void			write_lose(void);
-void			play_music_police(t_game *game);
-void			free_music_police(t_game *game);
-void			play_music_honk(t_game *game);
-void			free_music_honk(t_game *game);
 
 // 10_player.c
 void			init_img_player(t_game *game);
@@ -256,7 +257,14 @@ void			find_enemy_moving_front(t_game *game);
 void			find_enemy_moving_left(t_game *game);
 void			find_enemy_moving_right(t_game *game);
 
-// 30_check_*.c
+// 30_music.c
+void			init_music_honk(t_game *game);
+void			play_music_honk(t_game *game);
+void			free_music_honk(t_game *game);
+void			play_music_win(t_game *game);
+void			free_music_win(t_game *game);
+
+// 40_check_*.c
 int				check_map(t_game *game);
 int				check_map_sub1(t_game *game);
 int				check_map_sub2(t_game *game);

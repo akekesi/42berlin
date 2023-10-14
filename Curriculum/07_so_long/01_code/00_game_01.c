@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 23:01:37 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 01:54:06 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,12 @@ void	loop_hook_sub3(t_game *game)
 	if (game->img_win->instances->y == MSG_Y)
 	{
 		move_img_player(game);
+		if (game->music_win)
+			play_music_win(game);
 		if (game->img_price_win->instances->y == MSG_Y_EXTRA)
 			((mlx_image_t *)game->police->value)->instances->y = -1;
 		else
-		{
 			move_police(game);
-			// if (((mlx_image_t *)game->police->value)->instances->y \
-			// 	== MAP_HEIGHT)
-			// 	play_music_police(game);
-		}
 	}
 	if (game->img_player->instances->y < 0 \
 		&& ((mlx_image_t *)game->police->value)->instances->y < 0)

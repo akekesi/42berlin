@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:48:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 22:41:35 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 01:50:30 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	init_game_sub2(t_game *game)
 	game->length_collectible_curr = 0;
 	game->length_collectible_orig = 0;
 	game->length_moves = 0;
+	game->music_win = 1;
 }
 
 void	loop_game(t_game *game)

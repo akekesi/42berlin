@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/12 22:40:59 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/14 20:22:58 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,11 @@ SRCS = so_long.c \
 	25_enemy_moving_00.c \
 	25_enemy_moving_01.c \
 	25_enemy_moving_02.c \
-	30_check_00.c \
-	30_check_01.c \
-	30_check_02.c \
-	30_check_03.c \
+	30_music.c \
+	40_check_00.c \
+	40_check_01.c \
+	40_check_02.c \
+	40_check_03.c \
 	flood_fill.c \
 	ft_itoa.c \
 	ft_putstr.c \
