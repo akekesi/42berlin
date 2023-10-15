@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 21:56:44 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/15 01:53:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 02:37:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	play_music_honk(t_game *game)
 {
 	ma_engine_init(NULL, &game->engine_honk);
 	ma_engine_play_sound(&game->engine_honk, MUSIC_HONK, NULL);
+	game->music_honk = 0;
 }
 
 void	play_music_win(t_game *game)
@@ -40,9 +41,11 @@ void	play_music_win(t_game *game)
 void	free_music_honk(t_game *game)
 {
 	ma_engine_uninit(&game->engine_honk);
+	game->music_honk = 1;
 }
 
 void	free_music_win(t_game *game)
 {
 	ma_engine_uninit(&game->engine_win);
+	game->music_win = 1;
 }

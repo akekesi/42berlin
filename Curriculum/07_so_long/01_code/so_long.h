@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/15 01:54:03 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 02:37:18 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@
 \n--> https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ \
 \n--> https://media.cdnandroid.com/item_images/672948/imagen-road-fighter-car-racing-0ori.jpg \
 \n--> https://img.itch.zone/aW1hZ2UvNzU2MTE3LzQyMzA2NDQucG5n/original/ePLeSD.png \
+\n--> https://www.youtube.com/watch?v=iFPBhBRMyfw \
+\n--> https://www.youtube.com/watch?v=9ZrAYxWPN6c \
+\n--> https://www.youtube.com/watch?v=BsrqKE1iqqo \
 \n--> https://www.photopea.com/ \
 \n--> https://fontmeme.com/pixel-fonts/ font: ABSTRACT \
 \n--> https://www.imgonline.com.ua/eng/replace-color-result.php \
 \n--> https://y2down.cc/de/youtube-wav.html \
-\n--> MLX42 ... \
-\n--> miniaudio ... \
-\n--> MUSIC ... \
+\n--> https://github.com/codam-coding-college/MLX42 \
+\n--> https://github.com/mackron/miniaudio \
 \n\n"
 # define TITLE					"Fake Road Fighter"
 # define DASHBOARD_STR			"speed:   0km/h | score:  0/ 0 | time:    0.0s"
@@ -129,6 +131,7 @@ typedef struct s_game
 	int			length_collectible_curr;
 	int			length_collectible_orig;
 	int			length_moves;
+	int			music_honk;
 	int			music_win;
 	ma_engine	engine_honk;
 	ma_engine	engine_win;

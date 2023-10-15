@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/15 01:54:28 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/15 02:37:14 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	free_sub(t_game *game)
 	free_img_win_question(game);
 	free_img_lose(game);
 	free_img_dashboard(game);
-	free_music_win(game);
+	if (!game->music_honk)
+		free_music_honk(game);
+	if (!game->music_win)
+		free_music_win(game);
 }
 
 int	main(int argc, char **argv)
