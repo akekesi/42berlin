@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/15 02:37:18 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 21:33:17 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ typedef struct s_game
 	int			length_moves;
 	int			music_honk;
 	int			music_win;
+	int			error;
 	ma_engine	engine_honk;
 	ma_engine	engine_win;
 }	t_game;
@@ -179,6 +180,7 @@ void			free_img_finish(t_game *game);
 
 // 13_price.c
 void			init_img_price(t_game *game);
+void			init_img_price_sub(t_game *game);
 void			move_img_price(t_game *game);
 void			find_img_price(t_game *game);
 void			free_img_price(t_game *game);
@@ -219,6 +221,7 @@ void			free_map_matrix(char **map_matrix, t_point size);
 
 // 21_road.c
 void			init_road(t_game *game);
+void			init_road_sub(t_game *game, int i);
 void			move_road(t_game *game);
 void			free_road(t_game *game);
 
@@ -237,7 +240,9 @@ void			free_collectible(t_game *game);
 
 // 24_enemy_static*.c
 void			init_enemy_static(t_game *game);
-void			init_enemy_static_sub(
+void			init_enemy_static_sub1(
+					t_game *game, int row, int col, int *truck);
+mlx_texture_t	*init_enemy_static_sub2(
 					t_game *game, int row, int col, int *truck);
 mlx_texture_t	*rand_enemy_static(int truck, int row, int col);
 void			move_enemy_static(t_game *game);

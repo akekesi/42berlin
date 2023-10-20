@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:25:08 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/15 02:37:14 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:56:04 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int	main(int argc, char **argv)
 		}
 		ft_putstr(INFO);
 		init_sub(&game);
-		loop_game(&game);
+		if (!game.error)
+			loop_game(&game);
 		free_sub(&game);
 		mlx_terminate(game.mlx);
 		ft_putstr(INFO);

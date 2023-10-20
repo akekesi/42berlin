@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 21:49:42 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:38:16 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	init_img_crash(t_game *game)
 	mlx_texture_t	*texture;
 
 	texture = mlx_load_png(PATH_CRASH);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
 	game->img_crash = mlx_texture_to_image(game->mlx, texture);
 	mlx_image_to_window(game->mlx, game->img_crash, -TILE_SIZE, -TILE_SIZE);
 	mlx_set_instance_depth(game->img_crash->instances, LAYER_CRASH);

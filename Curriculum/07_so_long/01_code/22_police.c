@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/07 21:51:55 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:36:43 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	init_police_sub(t_game *game, char *path_png)
 	mlx_texture_t	*texture;
 
 	texture = mlx_load_png(path_png);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
 	node = llist_create(mlx_texture_to_image(game->mlx, texture));
 	llist_add(&game->police, node);
 	mlx_image_to_window(game->mlx, game->police->prev->value,

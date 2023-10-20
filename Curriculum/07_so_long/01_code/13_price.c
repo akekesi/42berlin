@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 16:12:55 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 21:18:00 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 void	init_img_price(t_game *game)
 {
-	int				i;
 	mlx_texture_t	*texture;
 
 	texture = mlx_load_png(PATH_PRICE);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
 	game->img_price = mlx_texture_to_image(game->mlx, texture);
 	game->img_price_win = mlx_texture_to_image(game->mlx, texture);
+	init_img_price_sub(game);
+	mlx_delete_texture(texture);
+}
+
+void	init_img_price_sub(t_game *game)
+{
+	int	i;
+
 	i = 1;
 	while (i)
 	{
@@ -35,7 +47,6 @@ void	init_img_price(t_game *game)
 		MSG_X_EXTRA, -TILE_SIZE);
 	mlx_set_instance_depth(game->img_price->instances, LAYER_OTHERS);
 	mlx_set_instance_depth(game->img_price_win->instances, LAYER_MSG);
-	mlx_delete_texture(texture);
 }
 
 void	move_img_price(t_game *game)

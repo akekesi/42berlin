@@ -6,7 +6,7 @@
 #    By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 19:43:09 by akekesi           #+#    #+#              #
-#    Updated: 2023/10/14 20:22:58 by akekesi          ###   ########.fr        #
+#    Updated: 2023/10/20 21:32:14 by akekesi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS = so_long.c \
 	23_collectible.c \
 	24_enemy_static_00.c \
 	24_enemy_static_01.c \
+	24_enemy_static_02.c \
 	25_enemy_moving_00.c \
 	25_enemy_moving_01.c \
 	25_enemy_moving_02.c \

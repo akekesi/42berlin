@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:07 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:37:51 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	init_enemy_moving_sub(t_game *game, int row, int col)
 	mlx_texture_t	*texture;
 
 	texture = rand_enemy_moving(row, col);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
 	node = llist_create(mlx_texture_to_image(game->mlx, texture));
 	llist_add(&game->enemy_moving, node);
 	mlx_image_to_window(game->mlx, game->enemy_moving->prev->value,

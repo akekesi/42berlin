@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:45:51 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:05 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:37:03 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	init_collectible_sub(t_game *game, int row, int col)
 	mlx_texture_t	*texture;
 
 	texture = mlx_load_png(PATH_COLLECTIBLE);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
 	node = llist_create(mlx_texture_to_image(game->mlx, texture));
 	llist_add(&game->collectible, node);
 	mlx_image_to_window(

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:01 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 21:33:44 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_enemy_static(t_game *game)
 		while (((char *)game->map->value)[col] != '1')
 		{
 			if (((char *)game->map->value)[col] == 'E')
-				init_enemy_static_sub(game, row, col, &truck);
+				init_enemy_static_sub1(game, row, col, &truck);
 			col++;
 		}
 		row++;
@@ -38,9 +38,30 @@ void	init_enemy_static(t_game *game)
 	}
 }
 
-void	init_enemy_static_sub(t_game *game, int row, int col, int *truck)
+void	init_enemy_static_sub1(t_game *game, int row, int col, int *truck)
 {
 	t_llist			*node;
+	mlx_texture_t	*texture;
+
+	texture = init_enemy_static_sub2(game, row, col, truck);
+	if (!texture)
+	{
+		game->error = 1;
+		return ;
+	}
+	node = llist_create(mlx_texture_to_image(game->mlx, texture));
+	llist_add(&game->enemy_static, node);
+	mlx_image_to_window(game->mlx, game->enemy_static->prev->value,
+		col * TILE_SIZE + TILE_SIZE, row * -TILE_SIZE);
+	mlx_set_instance_depth(
+		((mlx_image_t *)game->enemy_static->prev->value)->instances,
+		LAYER_OTHERS);
+	mlx_delete_texture(texture);
+}
+
+mlx_texture_t	*init_enemy_static_sub2(
+	t_game *game, int row, int col, int *truck)
+{
 	mlx_texture_t	*texture;
 
 	if (((char *)game->map->next->value)[col] == 'E' && !(*truck))
@@ -55,14 +76,7 @@ void	init_enemy_static_sub(t_game *game, int row, int col, int *truck)
 	}
 	else
 		texture = rand_enemy_static(0, row, col);
-	node = llist_create(mlx_texture_to_image(game->mlx, texture));
-	llist_add(&game->enemy_static, node);
-	mlx_image_to_window(game->mlx, game->enemy_static->prev->value,
-		col * TILE_SIZE + TILE_SIZE, row * -TILE_SIZE);
-	mlx_set_instance_depth(
-		((mlx_image_t *)game->enemy_static->prev->value)->instances,
-		LAYER_OTHERS);
-	mlx_delete_texture(texture);
+	return (texture);
 }
 
 mlx_texture_t	*rand_enemy_static(int truck, int row, int col)
@@ -75,42 +89,4 @@ mlx_texture_t	*rand_enemy_static(int truck, int row, int col)
 		return (mlx_load_png(PATH_ENEMY_BLUE));
 	else
 		return (mlx_load_png(PATH_ENEMY_YELLOW));
-}
-
-void	move_enemy_static(t_game *game)
-{
-	t_llist	*tmp;
-
-	tmp = game->enemy_static;
-	while (game->enemy_static)
-	{
-		if (game->length_map_curr \
-			&& ((mlx_image_t *)game->enemy_static->value)->instances->y \
-			>= ft_max(
-				(game->length_map_orig - 4 + 1),
-				MAP_HEIGHT / TILE_SIZE) * TILE_SIZE)
-			((mlx_image_t *)game->enemy_static->value)->instances->y = 0;
-		else
-			((mlx_image_t *)game->enemy_static->value)->instances->y \
-			+= TILE_SIZE;
-		llist_rot(&game->enemy_static);
-		if (tmp == game->enemy_static)
-			break ;
-	}
-}
-
-void	free_enemy_static(t_game *game)
-{
-	t_llist	*tmp;
-
-	if (!game->enemy_static)
-		return ;
-	game->enemy_static->prev->next = NULL;
-	while (game->enemy_static)
-	{
-		tmp = game->enemy_static;
-		game->enemy_static = (game->enemy_static)->next;
-		mlx_delete_image(game->mlx, tmp->value);
-		free(tmp);
-	}
 }

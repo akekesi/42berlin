@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/06 21:22:44 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/20 21:20:11 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,29 @@ void	init_road(t_game *game)
 		path_road[25] = i + '0';
 		texture = mlx_load_png(path_road);
 		free(path_road);
+		if (!texture)
+		{
+			game->error = 1;
+			return ;
+		}
 		node = llist_create(mlx_texture_to_image(game->mlx, texture));
 		llist_add(&game->road, node);
-		mlx_image_to_window(
-			game->mlx,
-			game->road->prev->value,
-			0,
-			i * TILE_SIZE);
-		mlx_set_instance_depth(
-			((mlx_image_t *)game->road->prev->value)->instances,
-			LAYER_ROAD);
+		init_road_sub(game, i);
 		mlx_delete_texture(texture);
 		i++;
 	}
+}
+
+void	init_road_sub(t_game *game, int i)
+{
+	mlx_image_to_window(
+		game->mlx,
+		game->road->prev->value,
+		0,
+		i * TILE_SIZE);
+	mlx_set_instance_depth(
+		((mlx_image_t *)game->road->prev->value)->instances,
+		LAYER_ROAD);
 }
 
 void	move_road(t_game *game)
