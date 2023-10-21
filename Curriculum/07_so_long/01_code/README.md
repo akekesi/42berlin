@@ -1,5 +1,6 @@
 <!-- TODO -->
 <!-- 1. [Instalaltion](#instalaltion) -->
+<!-- 1. [Run](#run) -->
 <!-- imgages and/or video -->
 
 # Fake Road Fighter
@@ -8,6 +9,7 @@
 1. [Keyboard](#keyboard)
 1. [Characters](#characters)
 1. [End of the Game](#end-of-the-game)
+1. [Items used to create Fake Road Fighter](#items-used-to-create-fake-road-fighter)
 
 ## Goal:
 Collect all collectibles while avoiding collisions with enemies, then cross the finish line and collect the prize too.
@@ -69,5 +71,20 @@ Collect all collectibles while avoiding collisions with enemies, then cross the 
 
 ## End of the Game:
 - Crash the car: You lose
-- Collect price at the end: You win
-- Collect no price at the end: You win?
+- Collect every collectible but no price at the end: You win?
+- Collect every collectible and the price at the end: You win
+
+## Items used to create Fake Road Fighter
+- https://en.wikipedia.org/wiki/Road_Fighter
+- https://www.youtube.com/watch?app=desktop&v=5Q5-QNfmsbQ
+- https://media.cdnandroid.com/item_images/672948/imagen-road-fighter-car-racing-0ori.jpg
+- https://img.itch.zone/aW1hZ2UvNzU2MTE3LzQyMzA2NDQucG5n/original/ePLeSD.png
+- https://www.youtube.com/watch?v=iFPBhBRMyfw
+- https://www.youtube.com/watch?v=9ZrAYxWPN6c
+- https://www.youtube.com/watch?v=BsrqKE1iqqo
+- https://www.photopea.com/
+- https://fontmeme.com/pixel-fonts/ font: ABSTRACT
+- https://www.imgonline.com.ua/eng/replace-color-result.php
+- https://y2down.cc/de/youtube-wav.html
+- https://github.com/codam-coding-college/MLX42
+- https://github.com/mackron/miniaudio
