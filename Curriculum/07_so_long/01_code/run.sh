@@ -19,8 +19,6 @@ make > /dev/null 2>&1
 # check success of make
 if [ $? -eq 0 ]; then
   # run executable
-  # echo "valgrind --suppressions=so_long.supp --leak-check=full --show-leak-kinds=all --log-file="valgrind_log" ./so_long assets/maps/map.ber"
-  # valgrind --suppressions=so_long.supp --leak-check=full --show-leak-kinds=all --log-file="valgrind_log" ./so_long assets/maps/map.ber
   echo "valgrind --leak-check=full --show-leak-kinds=all ./so_long assets/maps/map.ber"
   valgrind --leak-check=full --show-leak-kinds=all ./so_long assets/maps/map.ber
 else

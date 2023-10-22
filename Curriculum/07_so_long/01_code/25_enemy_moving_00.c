@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/20 20:37:51 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/22 17:39:27 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ void	move_enemy_moving(t_game *game)
 		else
 			((mlx_image_t *)game->enemy_moving->value)->instances->y \
 			+= TILE_SIZE;
-		set_pos_x(game);
 		llist_rot(&game->enemy_moving);
 		if (tmp == game->enemy_moving)
 			break ;
 	}
+	set_pos_x(game);
 }
 
 void	free_enemy_moving(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 16:24:55 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/20 21:33:17 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/22 17:19:52 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,6 +258,7 @@ mlx_texture_t	*rand_enemy_moving(int row, int col);
 void			move_enemy_moving(t_game *game);
 void			free_enemy_moving(t_game *game);
 void			set_pos_x(t_game *game);
+void			set_pos_x_sub(t_game *game);
 int				is_neighbours_free(t_game *game, int pso_x, int pos_y);
 int				is_left_free(t_llist *llist, int pos_x, int pos_y);
 int				is_right_free(t_llist *llist, int pos_x, int pos_y);

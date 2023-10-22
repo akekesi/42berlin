@@ -6,13 +6,27 @@
 /*   By: akekesi <akekesi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:33:32 by akekesi           #+#    #+#             */
-/*   Updated: 2023/10/08 01:42:56 by akekesi          ###   ########.fr       */
+/*   Updated: 2023/10/22 17:19:49 by akekesi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	set_pos_x(t_game *game)
+{
+	t_llist	*tmp;
+
+	tmp = game->enemy_moving;
+	while (game->enemy_moving)
+	{
+		set_pos_x_sub(game);
+		llist_rot(&game->enemy_moving);
+		if (tmp == game->enemy_moving)
+			break ;
+	}
+}
+
+void	set_pos_x_sub(t_game *game)
 {
 	int	pos_x;
 	int	pos_y;
@@ -24,7 +38,7 @@ void	set_pos_x(t_game *game)
 		return ;
 	if ((rand() % (ft_max(pos_x + pos_y, 1))) % 3)
 		return ;
-	direction = is_neighbours_free(game, pos_x, pos_y) % 4;
+	direction = is_neighbours_free(game, pos_x, pos_y);
 	if (direction == 1)
 		pos_x -= TILE_SIZE;
 	if (direction == 2)

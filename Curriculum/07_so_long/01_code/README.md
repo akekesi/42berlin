@@ -1,15 +1,32 @@
 <!-- TODO -->
 <!-- 1. [Instalaltion](#instalaltion) -->
 <!-- 1. [Run](#run) -->
-<!-- imgages and/or video -->
+<!-- add imgages and/or videos -->
 
 # Fake Road Fighter
 ## Content
-1. [Goal](#goal)
+1. [Installation](#installation)
+1. [Compilation](#compiation)
+1. [Run the Game](#run-the-game)
+1. [Goal of the Game](#goal-of-the-game)
 1. [Keyboard](#keyboard)
 1. [Characters](#characters)
 1. [End of the Game](#end-of-the-game)
 1. [Items used to create Fake Road Fighter](#items-used-to-create-fake-road-fighter)
+
+## Installation:
+- ...
+- not fiished yet
+
+## Compilation:
+- ```make```
+- ...
+- not fiished yet
+
+## Run the Game:
+- ```./so_long assets/maps/map.ber```
+- ...
+- not fiished yet
 
 ## Goal:
 Collect all collectibles while avoiding collisions with enemies, then cross the finish line and collect the prize too.
