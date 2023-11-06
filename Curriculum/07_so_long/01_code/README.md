@@ -41,7 +41,7 @@ Collect all collectibles while avoiding collisions with enemies, then cross the 
 - Acceleration:
 
     <kbd>W</kbd> / <kbd>↑</kbd>
-- Break:
+- Brake:
 
     <kbd>S</kbd> / <kbd>↓</kbd>
 - Left:
