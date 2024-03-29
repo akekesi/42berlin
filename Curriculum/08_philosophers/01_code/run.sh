@@ -23,7 +23,7 @@
 # export ARG="111 185 60  60   20" ------> OK
 # export ARG="151 185 60  60   20" ------> OK
 # export ARG="199 185 60  60   20" ------> OK
-
+# export ARG="  5 800 200 200   0" ------> OK
 
 # The if statement [ -z "$ARG" ] checks if $ARG is empty or has no value:
 #   -z flag tests if the following string is empty or has no value.
